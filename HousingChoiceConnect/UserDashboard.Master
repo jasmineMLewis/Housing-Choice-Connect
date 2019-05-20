@@ -1,0 +1,378 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="UserDashboard.Master.vb"
+    Inherits="HousingChoiceConnect.User" %>
+
+<%@ Import Namespace="System.Data.SqlClient" %>
+<%@ Import Namespace="System.Web.Configuration" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head id="Head1" runat="server">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Housing Authority of New Orleans" />
+        <title>Housing Choice Connect</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/css/custom.css" rel="stylesheet" />
+        <link href="/css/sb-admin-2.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- Favicon -->
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon" runat="server" />
+        <link rel="icon" href="img/favicon.ico" type="image/ico" runat="server" />
+        <asp:ContentPlaceHolder ID="HEAD" runat="server">
+
+        </asp:ContentPlaceHolder>
+    </head>
+    <body>
+        <asp:ContentPlaceHolder ID="Navigation" runat="server">
+            <%
+                Dim userID As String
+                If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
+                    userID = Web.HttpContext.Current.Session("UserID").ToString()
+                End If
+
+                If userID = Nothing Then
+                    userID = Request.QueryString("UserID")
+                    Web.HttpContext.Current.Session("UserID") = userID
+                End If
+
+                Const ADMIN_ROLE_ID As Integer = 1
+                Const LANDLORD_ROLE_ID As Integer = 3
+                Const TENANT_ROLE_ID As Integer = 2
+
+                Dim firstName As String
+                Dim lastName As String
+                Dim roleID As Integer
+                Dim isSecurityQuestionsCompleted As Boolean
+
+                Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
+                conn.Open()
+                Dim query As New SqlCommand("SELECT FirstName, LastName, fk_RoleID, IsSecurityQuestionsCompleted FROM Users WHERE UserID='" & userID & "'", conn)
+                Dim reader As SqlDataReader = query.ExecuteReader()
+                While reader.Read
+                    firstName = CStr(reader("FirstName"))
+                    lastName = CStr(reader("LastName"))
+                    roleID = CStr(reader("fk_RoleID"))
+                    isSecurityQuestionsCompleted = CStr(reader("IsSecurityQuestionsCompleted"))
+                End While
+                conn.Close()
+            %>
+            <nav class="navbar navbar-custom navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                     <img src="../img/hanoLogo.png" alt="hanoLogo"/>
+                </div>   
+                <%
+                    Select Case roleID
+                        Case LANDLORD_ROLE_ID
+                 %>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li><a href="LandlordAddProperty.aspx?UserID=<% Response.Write(userID) %>" class="white-color"><i class="fa fa-plus fa-fw"></i>&nbsp;Add NEW Property</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle white-color" data-toggle="dropdown" href="#">
+                                <i class="fa fa-user fa-fw"></i>  
+                                 <%
+                                     Response.Write(firstName & " " & lastName)
+                                     %>
+                                  <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                              <li><a href="LandlordDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-sign-out fa-fw"></i>&nbsp;Dashboard</a></li>
+                                  <li role="separator" class="divider"></li>
+                                <li><a href="../Default.aspx"><i class="fa fa-sign-out fa-fw"></i> Sign Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p></p>
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-navnavbar-collapse">
+                            <ul class="nav">
+                                <li>
+                                    <a href="LandlordDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-home fa-fw"></i> Properties<span class="fa arrow"></span></a>
+                                    <%
+                                        conn.Open()
+                                        Dim activeProperties As Integer
+                                        Dim queryActiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countActive FROM LandlordProperty WHERE fk_UserID='" & userID & "' AND IsActive = 1", conn)
+                                        Dim readerActiveProperties As SqlDataReader = queryActiveProperties.ExecuteReader()
+                                        While readerActiveProperties.Read
+                                            activeProperties = CStr(readerActiveProperties("countActive"))
+                                        End While
+                                        conn.Close()
+   
+                                        conn.Open()
+                                        Dim inactiveProperties As Integer
+                                        Dim queryInactiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countInactive FROM LandlordProperty WHERE fk_UserID='" & userID & "' AND IsActive = 0", conn)
+                                        Dim readerInactiveProperties As SqlDataReader = queryInactiveProperties.ExecuteReader()
+                                        While readerInactiveProperties.Read
+                                            inactiveProperties = CStr(readerInactiveProperties("countInactive"))
+                                        End While
+                                        conn.Close()
+                                
+                                        conn.Open()
+                                        Dim soonToBeDeletedProperties As Integer
+                                        Dim querysoonToBeDeletedProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countProximity FROM LandlordProperty WHERE fk_UserID='" & userID & "' AND [DateLastUpdated] < DATEADD(day, -90, GETDATE()) ", conn)
+                                        Dim readersoonToBeDeletedProperties As SqlDataReader = querysoonToBeDeletedProperties.ExecuteReader()
+                                        While readersoonToBeDeletedProperties.Read
+                                            soonToBeDeletedProperties = CStr(readersoonToBeDeletedProperties("countProximity"))
+                                        End While
+                                        conn.Close()
+                                        %>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="LandlordActiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-full fa-fw"></i>&nbsp;Active <span class="badge pull-right"><% Response.Write(activeProperties)%></span></a>
+                                        </li>
+                                        <li>
+                                            <a href="LandlordInactiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-empty fa-fw"></i>&nbsp;Inactive <span class="badge pull-right"><% Response.Write(inactiveProperties)%></span></a>
+                                        </li>
+                                        <li>
+                                            <a href="LandlordSoonDeletedProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-quarter fa-fw"></i>&nbsp;Soon To Be Deleted <span class="badge pull-right"><% Response.Write(soonToBeDeletedProperties)%></span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                     <a href="#"><i class="fa fa-user fa-fw"></i> Personal<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li><a href="LandlordProfileUpdate.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-info fa-fw"></i>&nbsp;Info</a></li>
+                                        <%
+                                            If isSecurityQuestionsCompleted = True Then
+                                        %>
+                                        <li> <a href="LandlordSecurityQuestions.aspx?UserID=<% Response.Write(userID) %>&SecurityQuestionsState=1"><i class="fa fa-key fa-fw"></i>&nbsp; Security Questions</a></li>
+                                        <%
+                                        End If
+                                        %>
+
+                                        <%
+                                            If isSecurityQuestionsCompleted = False Then
+                                        %>
+                                        <li> <a href="LandlordSecurityQuestions.aspx?UserID=<% Response.Write(userID) %>&SecurityQuestionsState=0"><i class="fa fa-key fa-fw"></i>&nbsp; Security Questions</a></li>
+                                        <%
+                                        End If
+                                        %>
+                                    </ul>
+                                </li>
+                               <li>
+                                    <a href="../ContactUs.aspx?UserID=<% Response.Write(userID) %>" target="_blank"><i class="fa fa-phone fa-fw"></i>&nbsp;Contact Us</a>
+                               </li>
+                            </ul>
+                        </div>
+                    </div>
+             
+                 <%
+                 Case TENANT_ROLE_ID
+                  %>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle white-color" data-toggle="dropdown" href="#">
+                                <i class="fa fa-user fa-fw"></i> 
+                                 <%
+                                     Response.Write(firstName & " " & lastName)
+                                  %>
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="TenantDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a></li>
+                                  <li role="separator" class="divider"></li>
+                                <li><a href="../Default.aspx"><i class="fa fa-sign-out fa-fw"></i> Sign Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p></p>
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-navnavbar-collapse">
+                            <ul class="nav">
+                                <li>
+                                    <a href="TenantDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a>
+                                </li>
+                                <li>
+                                 <a href="#"><i class="fa fa-home fa-fw"></i> Properties<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="TenantPropertyList.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-search fa-fw"></i>&nbsp;Search</a>
+                                        </li>
+                                
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-user fa-fw"></i> Personal<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="TenantProfileUpdate.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-info fa-fw"></i>&nbsp;Update Info</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../ContactUs.aspx?UserID=<% Response.Write(userID) %>" target="_blank"><i class="fa fa-phone fa-fw"></i>&nbsp;Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+       
+                  <%   
+                  Case ADMIN_ROLE_ID
+                   %>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle white-color" data-toggle="dropdown" href="#">
+                                <i class="fa fa-user fa-fw"></i> 
+                                  <%
+                                      Response.Write(firstName & " " & lastName)
+                                  %>
+                                 <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="Admins/AdminDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a></li>
+                                  <li role="separator" class="divider"></li>
+                                <li><a href="../Default.aspx"><i class="fa fa-sign-out fa-fw"></i> Sign Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p></p>
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-navnavbar-collapse">
+                            <ul class="nav">
+                                <li>
+                                    <a href="AdminDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a>
+                                </li>
+                                <li>
+                                    <%
+                                        conn.Open()
+                                        Dim adminCount As Integer
+                                        Dim queryadminCount As New SqlCommand("SELECT COUNT(UserID) AS countAdmin FROM Users WHERE fk_RoleID = '" & ADMIN_ROLE_ID & "'", conn)
+                                        Dim readeradminCount As SqlDataReader = queryadminCount.ExecuteReader()
+                                        While readeradminCount.Read
+                                            adminCount = CStr(readeradminCount("countAdmin"))
+                                        End While
+                                        conn.Close()
+                                
+                                        conn.Open()
+                                        Dim landlordCount As Integer
+                                        Dim querylandlordCount As New SqlCommand("SELECT COUNT(UserID) AS countLandlord FROM Users WHERE fk_RoleID = '" & LANDLORD_ROLE_ID & "'", conn)
+                                        Dim readerlandlordCount As SqlDataReader = querylandlordCount.ExecuteReader()
+                                        While readerlandlordCount.Read
+                                            landlordCount = CStr(readerlandlordCount("countLandlord"))
+                                        End While
+                                        conn.Close()
+                                
+                                        conn.Open()
+                                        Dim tenantCount As Integer
+                                        Dim querytenantCount As New SqlCommand("SELECT COUNT(UserID) AS countTenant FROM Users WHERE fk_RoleID = '" & TENANT_ROLE_ID & "'", conn)
+                                        Dim readertenantCount As SqlDataReader = querytenantCount.ExecuteReader()
+                                        While readertenantCount.Read
+                                            tenantCount = CStr(readertenantCount("countTenant"))
+                                        End While
+                                        conn.Close()
+                                    %>
+                                    <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                     <li>
+                                         <a href="Admins.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-user-secret fa-fw"></i>&nbsp;Admins <span class="badge pull-right"><% Response.Write(adminCount)%></span></a>
+                                     </li>
+                                     <li>
+                                          <a href="Landlords.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-home fa-fw"></i>&nbsp;Landlords <span class="badge pull-right"><% Response.Write(landlordCount)%></span></a>
+                                     </li>
+                                      <li>
+                                            <a href="Tenants.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-user fa-fw"></i>&nbsp;Tenants <span class="badge pull-right"><% Response.Write(tenantCount)%></span></a>
+                                      </li>
+                                    </ul>
+                                </li>
+                               <li>
+                                    <a href="#"><i class="fa fa-sign-in fa-fw"></i> Account Registration<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                     <li>
+                                          <a href="AdminRegisterUser.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-user-plus fa-fw"></i>&nbsp;User </a>
+                                     </li>
+                                    </ul>
+                               </li>
+                               <li>
+                                    <a href="#"><i class="fa fa-home fa-fw"></i> Properties<span class="fa arrow"></span></a>
+                                    <%
+                                        conn.Open()
+                                        Dim allProperties As Integer
+                                        Dim queryAllProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countAll FROM LandlordProperty", conn)
+                                        Dim readerAllProperties As SqlDataReader = queryAllProperties.ExecuteReader()
+                                        While readerAllProperties.Read
+                                            allProperties = CStr(readerAllProperties("countAll"))
+                                        End While
+                                        conn.Close()
+                                
+                                        conn.Open()
+                                        Dim activeProperties As Integer
+                                        Dim queryActiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countActive FROM LandlordProperty WHERE IsActive = 1", conn)
+                                        Dim readerActiveProperties As SqlDataReader = queryActiveProperties.ExecuteReader()
+                                        While readerActiveProperties.Read
+                                            activeProperties = CStr(readerActiveProperties("countActive"))
+                                        End While
+                                        conn.Close()
+                                
+                                        conn.Open()
+                                        Dim inactiveProperties As Integer
+                                        Dim queryInactiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countInactive FROM LandlordProperty WHERE IsActive = 0", conn)
+                                        Dim readerInactiveProperties As SqlDataReader = queryInactiveProperties.ExecuteReader()
+                                        While readerInactiveProperties.Read
+                                            inactiveProperties = CStr(readerInactiveProperties("countInactive"))
+                                        End While
+                                        conn.Close()
+                                
+                                        conn.Open()
+                                        Dim soonToBeDeletedProperties As Integer
+                                        Dim querysoonToBeDeletedProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countProximity FROM LandlordProperty WHERE [DateLastUpdated] < DATEADD(day, -90, GETDATE()) ", conn)
+                                        Dim readersoonToBeDeletedProperties As SqlDataReader = querysoonToBeDeletedProperties.ExecuteReader()
+                                        While readersoonToBeDeletedProperties.Read
+                                            soonToBeDeletedProperties = CStr(readersoonToBeDeletedProperties("countProximity"))
+                                        End While
+                                        conn.Close()
+                                        %>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="AdminAllProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-full fa-fw"></i> &nbsp;All <span class="badge pull-right"><% Response.Write(allProperties)%></span></a>
+                                        </li>
+                                        <li>
+                                            <a href="AdminActiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-three-quarters fa-fw"></i> &nbsp;Active<span class="badge pull-right"><% Response.Write(activeProperties)%></span></a>
+                                        </li>
+                                        <li>
+                                            <a href="AdminInactiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-empty fa-fw"></i> &nbsp;Inactive <span class="badge pull-right"><% Response.Write(inactiveProperties)%></span></a>
+                                        </li>
+                                        <li>
+                                            <a href="AdminSoonToBeDeletedProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-quarter fa-fw"></i> &nbsp;Soon To Be Deleted <span class="badge pull-right"><% Response.Write(soonToBeDeletedProperties)%></span></a>
+                                        </li>
+                                    </ul>
+                               </li>
+                               <li>
+                                    <a href="#"><i class="fa fa-registered fa-fw"></i> Property Registration<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                     <li>
+                                         <a href="AdminAddProperty.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-plus fa-fw"></i>&nbsp;Add New</a>
+                                     </li>
+                                    </ul>
+                               </li>
+                            </ul>
+                        </div>
+                    </div>
+                  <%
+              End Select
+                %>
+            </nav>
+        </asp:ContentPlaceHolder>
+        <form id="form1" runat="server">
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+        <asp:ContentPlaceHolder ID="Javascript" runat="server">
+            <script type="application/javascript" src="/js/jquery.min.js"></script>
+            <script type="application/javascript" src="/js/bootstrap.min.js"></script>
+            <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+            <script type="application/javascript" src="/js/sb-admin-2.js"></script>
+            <script type="application/javascript" src="/js/bs.pagination.js"></script>
+        </asp:ContentPlaceHolder>
+    </body>
+</html>

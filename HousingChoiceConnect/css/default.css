@@ -1,0 +1,97 @@
+﻿@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
+
+/* Text */
+.text-vertical-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+    .text-vertical-center h1 {
+        margin: 0px;
+        padding: 0px;
+        font-size: 4.5em;
+        font-weight: 700;
+    }
+
+/* Carousel Styling */
+.carousel-inner {
+    border-radius: 0px;
+    background-color: #ffffff;
+    color: #ffffff;
+}
+
+.carousel-caption {
+    background-color: #1D5776;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    padding: 0px 0px 10px 25px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.carousel-indicators {
+    background: #ffffff;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 15;
+    margin: 0px;
+    padding: 0px 25px 25px 0px;
+    text-align: right;
+}
+
+/* Section Styling - Not needed for carousel styling */
+.section-carousel {
+    padding: 10px 0;
+    background-color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+    .section-carousel {
+        padding: 1.5em 0px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .carousel-container {
+        max-width: 100%;
+        max-height: 2000px;
+    }
+}
+
+/* About */
+.about {
+    padding: 80px 0px;
+    background-color: #ffffff;
+}
+
+/* Services */
+.services {
+    padding: 50px 0px;
+    background-color: #1D5776;
+}
+
+.service-item {
+    margin-bottom: 30px;
+}
+
+/* Tutorials*/
+.tutorials {
+    padding: 40px 0px;
+}
