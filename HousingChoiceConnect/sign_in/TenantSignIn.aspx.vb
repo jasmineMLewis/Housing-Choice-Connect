@@ -29,25 +29,22 @@ Public Class TenantLogin
 
             If (password = dbPassword) Then
                 Web.HttpContext.Current.Session("UserID") = userID
-                'updateLastLoginDate(userID)
+                updateLastLoginDate(userID)
                 If roleID = 2 Then
-                    Response.Redirect("Tenants/TenantDashboard.aspx")
+                    Response.Redirect("../tenants/TenantDashboard.aspx")
                 ElseIf roleID = 3 Then
                     Response.Redirect("LandlordSignIn.aspx")
                 End If
             Else
-                'Response.Write("<div id='alertEmailPassowrdError'><div class='alert alert-danger col-xs-12' role='alert'><strong>Oh No!</strong> Incorrect Email/Password Combination.</div></div>")
                 lblMsg.Text = "Oh No! Incorrect Email/Password Combination."
             End If
         Else
             conn.Close()
-            'Response.Write("<div id='alertEmailExistsError'><div class='alert alert-danger col-xs-12' role='alert'><strong>Oh No!</strong> Email does NOT exist.</div></div>")
             lblMsg.Text = "Oh No! Email does NOT exist."
         End If
     End Sub
-    Public Sub updateLastLoginDate(ByVal userID As Integer)
-        Dim conn As New SqlConnection("Server=localhost;Database=HousingChoiceConnect;User Id=jlewis;Password=P@ssword01")
 
+    Public Sub updateLastLoginDate(ByVal userID As Integer)
         Dim lastLogin As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         conn.Open()
         Dim query As New SqlCommand("UPDATE Users SET LastLogin ='" & lastLogin & "' WHERE UserID='" & userID & "'", conn)

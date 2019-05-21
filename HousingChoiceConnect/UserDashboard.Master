@@ -93,7 +93,7 @@
                         <div class="sidebar-navnavbar-collapse">
                             <ul class="nav">
                                 <li>
-                                    <a href="LandlordDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a>
+                                    <a href="/landlords/LandlordDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="fa fa-home fa-fw"></i> Properties<span class="fa arrow"></span></a>
@@ -127,24 +127,24 @@
                                         %>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="LandlordActiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-full fa-fw"></i>&nbsp;Active <span class="badge pull-right"><% Response.Write(activeProperties)%></span></a>
+                                            <a href="/landlords/LandlordActiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-full fa-fw"></i>&nbsp;Active <span class="badge pull-right"><% Response.Write(activeProperties)%></span></a>
                                         </li>
                                         <li>
-                                            <a href="LandlordInactiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-empty fa-fw"></i>&nbsp;Inactive <span class="badge pull-right"><% Response.Write(inactiveProperties)%></span></a>
+                                            <a href="/landlords/LandlordInactiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-empty fa-fw"></i>&nbsp;Inactive <span class="badge pull-right"><% Response.Write(inactiveProperties)%></span></a>
                                         </li>
                                         <li>
-                                            <a href="LandlordSoonDeletedProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-quarter fa-fw"></i>&nbsp;Soon To Be Deleted <span class="badge pull-right"><% Response.Write(soonToBeDeletedProperties)%></span></a>
+                                            <a href="/landlords/LandlordSoonDeletedProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-quarter fa-fw"></i>&nbsp;Soon To Be Deleted <span class="badge pull-right"><% Response.Write(soonToBeDeletedProperties)%></span></a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
                                      <a href="#"><i class="fa fa-user fa-fw"></i> Personal<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
-                                        <li><a href="LandlordProfileUpdate.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-info fa-fw"></i>&nbsp;Info</a></li>
+                                        <li><a href="/landlords/LandlordProfileUpdate.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-info fa-fw"></i>&nbsp;Info</a></li>
                                         <%
                                             If isSecurityQuestionsCompleted = True Then
                                         %>
-                                        <li> <a href="LandlordSecurityQuestions.aspx?UserID=<% Response.Write(userID) %>&SecurityQuestionsState=1"><i class="fa fa-key fa-fw"></i>&nbsp; Security Questions</a></li>
+                                        <li> <a href="/landlords/LandlordSecurityQuestions.aspx?UserID=<% Response.Write(userID) %>&SecurityQuestionsState=1"><i class="fa fa-key fa-fw"></i>&nbsp; Security Questions</a></li>
                                         <%
                                         End If
                                         %>
@@ -152,21 +152,18 @@
                                         <%
                                             If isSecurityQuestionsCompleted = False Then
                                         %>
-                                        <li> <a href="LandlordSecurityQuestions.aspx?UserID=<% Response.Write(userID) %>&SecurityQuestionsState=0"><i class="fa fa-key fa-fw"></i>&nbsp; Security Questions</a></li>
+                                        <li> <a href="/landlords/LandlordSecurityQuestions.aspx?UserID=<% Response.Write(userID) %>&SecurityQuestionsState=0"><i class="fa fa-key fa-fw"></i>&nbsp; Security Questions</a></li>
                                         <%
                                         End If
                                         %>
                                     </ul>
                                 </li>
-                               <li>
-                                    <a href="../ContactUs.aspx?UserID=<% Response.Write(userID) %>" target="_blank"><i class="fa fa-phone fa-fw"></i>&nbsp;Contact Us</a>
-                               </li>
                             </ul>
                         </div>
                     </div>
              
                  <%
-                 Case TENANT_ROLE_ID
+                     Case TENANT_ROLE_ID
                   %>
                     <ul class="nav navbar-top-links navbar-right">
                         <li class="dropdown">
@@ -178,7 +175,7 @@
                                 <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-user">
-                                <li><a href="TenantDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a></li>
+                                <li><a href="/tenants/TenantDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a></li>
                                   <li role="separator" class="divider"></li>
                                 <li><a href="../Default.aspx"><i class="fa fa-sign-out fa-fw"></i> Sign Out</a></li>
                             </ul>
@@ -189,13 +186,13 @@
                         <div class="sidebar-navnavbar-collapse">
                             <ul class="nav">
                                 <li>
-                                    <a href="TenantDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a>
+                                    <a href="/tenants/TenantDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a>
                                 </li>
                                 <li>
                                  <a href="#"><i class="fa fa-home fa-fw"></i> Properties<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="TenantPropertyList.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-search fa-fw"></i>&nbsp;Search</a>
+                                            <a href="/tenants/TenantPropertyList.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-search fa-fw"></i>&nbsp;Search</a>
                                         </li>
                                 
                                     </ul>
@@ -204,19 +201,16 @@
                                     <a href="#"><i class="fa fa-user fa-fw"></i> Personal<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="TenantProfileUpdate.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-info fa-fw"></i>&nbsp;Update Info</a>
+                                            <a href="/tenants/TenantProfileUpdate.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-info fa-fw"></i>&nbsp;Update Info</a>
                                         </li>
                                     </ul>
-                                </li>
-                                <li>
-                                    <a href="../ContactUs.aspx?UserID=<% Response.Write(userID) %>" target="_blank"><i class="fa fa-phone fa-fw"></i>&nbsp;Contact Us</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
        
                   <%   
-                  Case ADMIN_ROLE_ID
+                      Case ADMIN_ROLE_ID
                    %>
                     <ul class="nav navbar-top-links navbar-right">
                         <li class="dropdown">
@@ -228,7 +222,7 @@
                                  <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-user">
-                                <li><a href="Admins/AdminDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a></li>
+                                <li><a href="/admins/AdminDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a></li>
                                   <li role="separator" class="divider"></li>
                                 <li><a href="../Default.aspx"><i class="fa fa-sign-out fa-fw"></i> Sign Out</a></li>
                             </ul>
@@ -239,7 +233,7 @@
                         <div class="sidebar-navnavbar-collapse">
                             <ul class="nav">
                                 <li>
-                                    <a href="AdminDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a>
+                                    <a href="/admins/AdminDashboard.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-tasks fa-fw"></i>&nbsp;Dashboard</a>
                                 </li>
                                 <li>
                                     <%
@@ -273,13 +267,13 @@
                                     <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                      <li>
-                                         <a href="Admins.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-user-secret fa-fw"></i>&nbsp;Admins <span class="badge pull-right"><% Response.Write(adminCount)%></span></a>
+                                         <a href="/admins/Admins.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-user-secret fa-fw"></i>&nbsp;Admins <span class="badge pull-right"><% Response.Write(adminCount)%></span></a>
                                      </li>
                                      <li>
-                                          <a href="Landlords.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-home fa-fw"></i>&nbsp;Landlords <span class="badge pull-right"><% Response.Write(landlordCount)%></span></a>
+                                          <a href="/admins/Landlords.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-home fa-fw"></i>&nbsp;Landlords <span class="badge pull-right"><% Response.Write(landlordCount)%></span></a>
                                      </li>
                                       <li>
-                                            <a href="Tenants.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-user fa-fw"></i>&nbsp;Tenants <span class="badge pull-right"><% Response.Write(tenantCount)%></span></a>
+                                            <a href="/admins/Tenants.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-user fa-fw"></i>&nbsp;Tenants <span class="badge pull-right"><% Response.Write(tenantCount)%></span></a>
                                       </li>
                                     </ul>
                                 </li>
@@ -287,7 +281,7 @@
                                     <a href="#"><i class="fa fa-sign-in fa-fw"></i> Account Registration<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                      <li>
-                                          <a href="AdminRegisterUser.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-user-plus fa-fw"></i>&nbsp;User </a>
+                                          <a href="/admins/AdminRegisterUser.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-user-plus fa-fw"></i>&nbsp;User </a>
                                      </li>
                                     </ul>
                                </li>
@@ -332,16 +326,16 @@
                                         %>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="AdminAllProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-full fa-fw"></i> &nbsp;All <span class="badge pull-right"><% Response.Write(allProperties)%></span></a>
+                                            <a href="/admins/AdminAllProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-full fa-fw"></i> &nbsp;All <span class="badge pull-right"><% Response.Write(allProperties)%></span></a>
                                         </li>
                                         <li>
-                                            <a href="AdminActiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-three-quarters fa-fw"></i> &nbsp;Active<span class="badge pull-right"><% Response.Write(activeProperties)%></span></a>
+                                            <a href="/admins/AdminActiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-three-quarters fa-fw"></i> &nbsp;Active<span class="badge pull-right"><% Response.Write(activeProperties)%></span></a>
                                         </li>
                                         <li>
-                                            <a href="AdminInactiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-empty fa-fw"></i> &nbsp;Inactive <span class="badge pull-right"><% Response.Write(inactiveProperties)%></span></a>
+                                            <a href="/admins/AdminInactiveProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-empty fa-fw"></i> &nbsp;Inactive <span class="badge pull-right"><% Response.Write(inactiveProperties)%></span></a>
                                         </li>
                                         <li>
-                                            <a href="AdminSoonToBeDeletedProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-quarter fa-fw"></i> &nbsp;Soon To Be Deleted <span class="badge pull-right"><% Response.Write(soonToBeDeletedProperties)%></span></a>
+                                            <a href="/admins/AdminSoonToBeDeletedProperties.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-battery-quarter fa-fw"></i> &nbsp;Soon To Be Deleted <span class="badge pull-right"><% Response.Write(soonToBeDeletedProperties)%></span></a>
                                         </li>
                                     </ul>
                                </li>
@@ -349,7 +343,7 @@
                                     <a href="#"><i class="fa fa-registered fa-fw"></i> Property Registration<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                      <li>
-                                         <a href="AdminAddProperty.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-plus fa-fw"></i>&nbsp;Add New</a>
+                                         <a href="/admins/AdminAddProperty.aspx?UserID=<% Response.Write(userID) %>"><i class="fa fa-plus fa-fw"></i>&nbsp;Add New</a>
                                      </li>
                                     </ul>
                                </li>
