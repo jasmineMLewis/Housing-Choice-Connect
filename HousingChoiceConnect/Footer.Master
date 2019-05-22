@@ -101,8 +101,8 @@
         </footer>
         <!-- Placed at the end of the document so the pages load faster -->
         <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script type="application/javascript" src="js/jquery.min.js"></script>
-        <script type="application/javascript" src="js/bootstrap.min.js"></script>
+        <script type="application/javascript" src="../js/jquery.min.js"></script>
+        <script type="application/javascript" src="../js/bootstrap.min.js"></script>
         <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
         <script type="application/javascript">
             // Scrolls to the selected menu item on the page

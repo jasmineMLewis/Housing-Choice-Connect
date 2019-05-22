@@ -92,6 +92,9 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admins\AdminDashboard.aspx" />
+    <Content Include="admins\Admins.aspx" />
+    <Content Include="admins\Landlords.aspx" />
     <Content Include="bin\HousingChoiceConnect.dll" />
     <Content Include="bin\HousingChoiceConnect.pdb" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
@@ -154,18 +157,53 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\sb-admin-2.js" />
+    <Content Include="landlords\LandlordActiveProperties.aspx" />
+    <Content Include="landlords\LandlordAddProperty.aspx" />
+    <Content Include="landlords\LandlordDashboard.aspx" />
+    <Content Include="landlords\LandlordEditProperty.aspx" />
+    <Content Include="landlords\LandlordInactiveProperties.aspx" />
+    <Content Include="landlords\LandlordProfileUpdate.aspx" />
+    <Content Include="landlords\LandlordSecurityQuestions.aspx" />
+    <Content Include="landlords\LandlordSoonDeletedProperties.aspx" />
+    <Content Include="landlords\SetPropertyState.aspx" />
     <Content Include="obj\Debug\HousingChoiceConnect.dll" />
     <Content Include="obj\Debug\HousingChoiceConnect.pdb" />
     <Content Include="obj\Debug\HousingChoiceConnect.vbproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\HousingChoiceConnect.xml" />
+    <Content Include="sign_in\AdminSignIn.aspx" />
+    <Content Include="sign_in\LandlordSignIn.aspx" />
     <Content Include="sign_in\TenantSignIn.aspx" />
+    <Content Include="sign_up\LandlordSignUp.aspx" />
+    <Content Include="sign_up\TenantSignUp.aspx" />
     <Content Include="tenants\TenantDashboard.aspx" />
     <Content Include="tenants\TenantProfileUpdate.aspx" />
     <Content Include="tenants\TenantPropertyList.aspx" />
     <Content Include="tenants\TenantViewProperty.aspx" />
+    <Content Include="landlords\ViewProperty.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admins\AdminDashboard.aspx.designer.vb">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admins\AdminDashboard.aspx.vb">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admins\Admins.aspx.designer.vb">
+      <DependentUpon>Admins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admins\Admins.aspx.vb">
+      <DependentUpon>Admins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admins\Landlords.aspx.designer.vb">
+      <DependentUpon>Landlords.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admins\Landlords.aspx.vb">
+      <DependentUpon>Landlords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -178,6 +216,69 @@
     </Compile>
     <Compile Include="Footer.Master.vb">
       <DependentUpon>Footer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlords\LandlordActiveProperties.aspx.designer.vb">
+      <DependentUpon>LandlordActiveProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlords\LandlordActiveProperties.aspx.vb">
+      <DependentUpon>LandlordActiveProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlords\LandlordAddProperty.aspx.designer.vb">
+      <DependentUpon>LandlordAddProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlords\LandlordAddProperty.aspx.vb">
+      <DependentUpon>LandlordAddProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlords\LandlordDashboard.aspx.designer.vb">
+      <DependentUpon>LandlordDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlords\LandlordDashboard.aspx.vb">
+      <DependentUpon>LandlordDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlords\LandlordEditProperty.aspx.designer.vb">
+      <DependentUpon>LandlordEditProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlords\LandlordEditProperty.aspx.vb">
+      <DependentUpon>LandlordEditProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlords\LandlordInactiveProperties.aspx.designer.vb">
+      <DependentUpon>LandlordInactiveProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlords\LandlordInactiveProperties.aspx.vb">
+      <DependentUpon>LandlordInactiveProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlords\LandlordProfileUpdate.aspx.designer.vb">
+      <DependentUpon>LandlordProfileUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlords\LandlordProfileUpdate.aspx.vb">
+      <DependentUpon>LandlordProfileUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlords\LandlordSecurityQuestions.aspx.designer.vb">
+      <DependentUpon>LandlordSecurityQuestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlords\LandlordSecurityQuestions.aspx.vb">
+      <DependentUpon>LandlordSecurityQuestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlords\LandlordSoonDeletedProperties.aspx.designer.vb">
+      <DependentUpon>LandlordSoonDeletedProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlords\LandlordSoonDeletedProperties.aspx.vb">
+      <DependentUpon>LandlordSoonDeletedProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="landlords\SetPropertyState.aspx.designer.vb">
+      <DependentUpon>SetPropertyState.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlords\SetPropertyState.aspx.vb">
+      <DependentUpon>SetPropertyState.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -199,11 +300,39 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="sign_in\AdminSignIn.aspx.designer.vb">
+      <DependentUpon>AdminSignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sign_in\AdminSignIn.aspx.vb">
+      <DependentUpon>AdminSignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sign_in\LandlordSignIn.aspx.designer.vb">
+      <DependentUpon>LandlordSignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sign_in\LandlordSignIn.aspx.vb">
+      <DependentUpon>LandlordSignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="sign_in\TenantSignIn.aspx.designer.vb">
       <DependentUpon>TenantSignIn.aspx</DependentUpon>
     </Compile>
     <Compile Include="sign_in\TenantSignIn.aspx.vb">
       <DependentUpon>TenantSignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sign_up\LandlordSignUp.aspx.designer.vb">
+      <DependentUpon>LandlordSignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sign_up\LandlordSignUp.aspx.vb">
+      <DependentUpon>LandlordSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sign_up\TenantSignUp.aspx.designer.vb">
+      <DependentUpon>TenantSignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sign_up\TenantSignUp.aspx.vb">
+      <DependentUpon>TenantSignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="tenants\TenantDashboard.aspx.designer.vb">
@@ -249,6 +378,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="utils\KeyGenerator.vb" />
+    <Compile Include="landlords\ViewProperty.aspx.designer.vb">
+      <DependentUpon>ViewProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landlords\ViewProperty.aspx.vb">
+      <DependentUpon>ViewProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -334,7 +470,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="sign_up\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
