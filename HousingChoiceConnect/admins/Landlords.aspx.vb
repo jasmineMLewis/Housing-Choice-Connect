@@ -12,7 +12,7 @@ Public Class Landlords
     End Sub
 
     Protected Sub btnSearchLandlord(ByVal sender As Object, ByVal e As EventArgs)
-        Dim sql As String = "SELECT UserID, FirstName + ' ' + LastName AS FullName, Email, IsEmailVerified, DateRegistered, LastLogin, (SELECT COUNT(LandlordPropertyID) AS Expr1 FROM LandlordProperty WHERE (fk_UserID = Users.UserID) AND (IsActive = '1')) AS CountActive, (SELECT COUNT(LandlordPropertyID) AS Expr1 FROM LandlordProperty AS LandlordProperty_2 WHERE (fk_UserID = Users.UserID) AND (IsActive = '0')) AS CountInactive, (SELECT COUNT(LandlordPropertyID) AS countSoonToBeDeleted FROM LandlordProperty AS LandlordProperty_1 WHERE (fk_UserID = Users.UserID) AND (DateLastUpdated < DATEADD(day, - 90, GETDATE()))) AS CountSoonToBeDeleted FROM Users WHERE (fk_RoleID = '5')"
+        Dim sql As String = "SELECT UserID, FirstName + ' ' + LastName AS FullName, Email, IsEmailVerified, DateRegistered, LastLogin, (SELECT COUNT(LandlordPropertyID) AS Expr1 FROM LandlordProperty WHERE (fk_UserID = Users.UserID) AND (IsActive = '1')) AS CountActive, (SELECT COUNT(LandlordPropertyID) AS Expr1 FROM LandlordProperty AS LandlordProperty_2 WHERE (fk_UserID = Users.UserID) AND (IsActive = '0')) AS CountInactive, (SELECT COUNT(LandlordPropertyID) AS countSoonToBeDeleted FROM LandlordProperty AS LandlordProperty_1 WHERE (fk_UserID = Users.UserID) AND (DateLastUpdated < DATEADD(day, - 90, GETDATE()))) AS CountSoonToBeDeleted FROM Users WHERE (fk_RoleID = '3')"
         Dim userID As Integer = FullName.SelectedValue
         Dim emailToSearch As String = Email.SelectedValue
 
