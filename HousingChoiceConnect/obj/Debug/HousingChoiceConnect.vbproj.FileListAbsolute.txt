@@ -48,6 +48,7 @@ C:\Users\dholmes\Documents\VisualBasicPrograms\HousingChoiceConnect\HousingChoic
 C:\Users\dholmes\Documents\VisualBasicPrograms\HousingChoiceConnect\HousingChoiceConnect\bin\roslyn\vbc.rsp
 C:\Users\dholmes\Documents\VisualBasicPrograms\HousingChoiceConnect\HousingChoiceConnect\bin\roslyn\VBCSCompiler.exe
 C:\Users\dholmes\Documents\VisualBasicPrograms\HousingChoiceConnect\HousingChoiceConnect\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\dholmes\Documents\VisualBasicPrograms\HousingChoiceConnect\HousingChoiceConnect\obj\Debug\HousingChoiceConnect.vbprojAssemblyReference.cache
 C:\Users\dholmes\Documents\VisualBasicPrograms\HousingChoiceConnect\HousingChoiceConnect\obj\Debug\HousingChoiceConnect.Resources.resources
 C:\Users\dholmes\Documents\VisualBasicPrograms\HousingChoiceConnect\HousingChoiceConnect\obj\Debug\HousingChoiceConnect.vbproj.GenerateResource.cache
 C:\Users\dholmes\Documents\VisualBasicPrograms\HousingChoiceConnect\HousingChoiceConnect\obj\Debug\HousingChoiceConnect.vbproj.CoreCompileInputs.cache
