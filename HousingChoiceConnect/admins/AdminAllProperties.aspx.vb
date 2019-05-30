@@ -76,11 +76,11 @@ Public Class AdminAllProperties
         End Using
     End Sub
 
-    Protected Function DisplayDeleteLink(ByVal landlordPropertyID As Integer) As String
+    Public Function DisplayDeleteLink(ByVal landlordPropertyID As Integer) As String
         Return "<a href=/landlords/SetPropertyState.aspx?LandlordPropertyID=" & landlordPropertyID & "&PropertyStateID=2><i class='fa fa-trash'></i></a>"
     End Function
 
-    Protected Function DisplayEditLink(ByVal landlordPropertyID As Integer) As String
+    Public Function DisplayEditLink(ByVal landlordPropertyID As Integer) As String
         Return "<a href=/admins/AdminEditProperty.aspx?LandlordPropertyID=" & landlordPropertyID & "><i class='fa fa-pencil'></i></a>"
     End Function
 
