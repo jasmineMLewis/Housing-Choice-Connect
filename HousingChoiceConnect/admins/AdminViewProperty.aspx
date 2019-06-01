@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/UserDashboard.Master" 
-    CodeBehind="TenantViewProperty.aspx.vb" Inherits="HousingChoiceConnect.TenantViewProperty" %>
+    CodeBehind="AdminViewProperty.aspx.vb" Inherits="HousingChoiceConnect.AdminViewProperty" %>
 
 <%@ Import Namespace="System.Web.Hosting" %>
 <%@ Import Namespace="System.IO" %>
@@ -12,6 +12,16 @@
                 margin:auto;
         }
     </style>
+
+    <script type="text/javascript">
+        function viewOnMap() {
+            var label = document.getElementById("addressLink");
+            var zip = document.getElementById("zipCodeAddress");
+            var iframe = document.getElementById("map");
+            var address = label.innerHTML + "," + zip.innerHTML;
+            iframe.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAxcxxJxw4XCeaaVpYsdHDP3CsXyeLAQmI&q=" + address;
+        }
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -434,22 +444,22 @@
                                                 Else
                                                 %>
                                                 <div class="item active">
-                                                    <img src="/img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px;' />
+                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px;' />
                                                 </div>
                                                 <div class="item">
-                                                    <img src="/img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
+                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
                                                 </div>
                                                 <div class="item">
-                                                    <img src="/img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
+                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
                                                 </div>
                                                 <div class="item">
-                                                    <img src="/img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
+                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
                                                 </div>
                                                 <div class="item">
-                                                    <img src="/img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
+                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
                                                 </div>
                                                 <div class="item">
-                                                    <img src="/img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
+                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
                                                 </div>
                                                 <%
                                                 End If
@@ -1043,14 +1053,3 @@
     </div>
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="Javascript" runat="server">
-    <script type="text/javascript">
-        function viewOnMap() {
-            var label = document.getElementById("addressLink");
-            var zip = document.getElementById("zipCodeAddress");
-            var iframe = document.getElementById("map");
-            var address = label.innerHTML + "," + zip.innerHTML;
-            iframe.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAxcxxJxw4XCeaaVpYsdHDP3CsXyeLAQmI&q=" + address;
-        }
-    </script>
-</asp:Content>

@@ -96,11 +96,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admins\AdminActiveProperties.aspx" />
+    <Content Include="admins\AdminAddProperty.aspx" />
     <Content Include="admins\AdminAllProperties.aspx" />
     <Content Include="admins\AdminDashboard.aspx" />
+    <Content Include="admins\AdminEditProperty.aspx" />
     <Content Include="admins\AdminInactiveProperties.aspx" />
     <Content Include="admins\AdminRegisterUser.aspx" />
     <Content Include="admins\Admins.aspx" />
+    <Content Include="admins\AdminSoonToBeDeletedProperties.aspx" />
+    <Content Include="admins\AdminViewProperty.aspx" />
     <Content Include="admins\Landlords.aspx" />
     <Content Include="admins\Tenants.aspx" />
     <Content Include="bin\HousingChoiceConnect.dll" />
@@ -198,6 +202,13 @@
       <DependentUpon>AdminActiveProperties.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="admins\AdminAddProperty.aspx.designer.vb">
+      <DependentUpon>AdminAddProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admins\AdminAddProperty.aspx.vb">
+      <DependentUpon>AdminAddProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="admins\AdminAllProperties.aspx.designer.vb">
       <DependentUpon>AdminAllProperties.aspx</DependentUpon>
     </Compile>
@@ -210,6 +221,13 @@
     </Compile>
     <Compile Include="admins\AdminDashboard.aspx.vb">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admins\AdminEditProperty.aspx.designer.vb">
+      <DependentUpon>AdminEditProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admins\AdminEditProperty.aspx.vb">
+      <DependentUpon>AdminEditProperty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admins\AdminInactiveProperties.aspx.designer.vb">
@@ -231,6 +249,20 @@
     </Compile>
     <Compile Include="admins\Admins.aspx.vb">
       <DependentUpon>Admins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admins\AdminSoonToBeDeletedProperties.aspx.designer.vb">
+      <DependentUpon>AdminSoonToBeDeletedProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admins\AdminSoonToBeDeletedProperties.aspx.vb">
+      <DependentUpon>AdminSoonToBeDeletedProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admins\AdminViewProperty.aspx.designer.vb">
+      <DependentUpon>AdminViewProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admins\AdminViewProperty.aspx.vb">
+      <DependentUpon>AdminViewProperty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admins\Landlords.aspx.designer.vb">

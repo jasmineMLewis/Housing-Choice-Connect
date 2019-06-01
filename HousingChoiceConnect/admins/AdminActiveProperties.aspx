@@ -189,7 +189,7 @@
                                     <Columns>
                                         <asp:TemplateField HeaderText="Address">
                                             <ItemTemplate>
-                                                <%--<%# DisplayViewLink(Eval("LandlordPropertyID"), Eval("Address"))%>--%>
+                                                <%# DisplayViewLink(Eval("LandlordPropertyID"), Eval("Address"))%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="ZipCode" HeaderText="Zip Code" SortExpression="ZipCode" />
@@ -202,17 +202,17 @@
                                         <asp:BoundField DataField="LandlordNumber" HeaderText="Landlord Number" SortExpression="LandlordNumber" />
                                         <asp:TemplateField HeaderText="Inactivate">
                                              <ItemTemplate>
-                                                 <%-- <%# DisplayInactivateLink(Eval("LandlordPropertyID"))%>--%>
+                                                  <%# DisplayInactivateLink(Eval("LandlordPropertyID"))%>
                                              </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Delete">
                                              <ItemTemplate>
-                                                       <%-- <%# DisplayDeleteLink(Eval("LandlordPropertyID"))%>--%>
+                                                 <%# DisplayDeleteLink(Eval("LandlordPropertyID"))%>
                                              </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Edit">
                                              <ItemTemplate>
-                                                     <%--<%# DisplayEditLink(Eval("LandlordPropertyID"))%>--%>
+                                                 <%# DisplayEditLink(Eval("LandlordPropertyID"))%>
                                              </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>

@@ -152,6 +152,159 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._FullDescrp">
+<summary>
+FullDescrp control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._SqlFullDescrp">
+<summary>
+SqlFullDescrp control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._Neighborhood">
+<summary>
+Neighborhood control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._SqlNeighborhood">
+<summary>
+SqlNeighborhood control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._Bedroom">
+<summary>
+Bedroom control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._Bathroom">
+<summary>
+Bathroom control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._PropertyType">
+<summary>
+PropertyType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._SqlPropertyType">
+<summary>
+SqlPropertyType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._UnitType">
+<summary>
+UnitType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._SqlUnitType">
+<summary>
+SqlUnitType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._picture1">
+<summary>
+picture1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._picture2">
+<summary>
+picture2 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._picture3">
+<summary>
+picture3 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._picture4">
+<summary>
+picture4 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._picture5">
+<summary>
+picture5 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._picture6">
+<summary>
+picture6 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminAddProperty._button">
+<summary>
+button control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:HousingChoiceConnect.AdminAllProperties._PropertyAddress">
 <summary>
 PropertyAddress control.
@@ -245,6 +398,195 @@ To modify move field declaration from designer file to code-behind file.
 <member name="F:HousingChoiceConnect.AdminAllProperties._GridViewProperties">
 <summary>
 GridViewProperties control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._Neighborhood">
+<summary>
+Neighborhood control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._SqlNeighborhood">
+<summary>
+SqlNeighborhood control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._Bedroom">
+<summary>
+Bedroom control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._Bathroom">
+<summary>
+Bathroom control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._PropertyType">
+<summary>
+PropertyType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._SqlPropertyType">
+<summary>
+SqlPropertyType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._UnitType">
+<summary>
+UnitType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._SqlUnitType">
+<summary>
+SqlUnitType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._Image1">
+<summary>
+Image1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._picture1">
+<summary>
+picture1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._Image2">
+<summary>
+Image2 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._picture2">
+<summary>
+picture2 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._Image3">
+<summary>
+Image3 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._picture3">
+<summary>
+picture3 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._Image4">
+<summary>
+Image4 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._picture4">
+<summary>
+picture4 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._Image5">
+<summary>
+Image5 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._picture5">
+<summary>
+picture5 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._Image6">
+<summary>
+Image6 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._picture6">
+<summary>
+picture6 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminEditPropertyaspx._button">
+<summary>
+button control.
 </summary>
 <remarks>
 Auto-generated field.
@@ -488,6 +830,132 @@ To modify move field declaration from designer file to code-behind file.
 <member name="F:HousingChoiceConnect.Admins._GridView1">
 <summary>
 GridView1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminProximityProperties._PropertyAddress">
+<summary>
+PropertyAddress control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminProximityProperties._SqlPropertyAddress">
+<summary>
+SqlPropertyAddress control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminProximityProperties._ZipCode">
+<summary>
+ZipCode control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminProximityProperties._SqlZipCode">
+<summary>
+SqlZipCode control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminProximityProperties._Bedroom">
+<summary>
+Bedroom control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminProximityProperties._button">
+<summary>
+button control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminProximityProperties._sqlProperties">
+<summary>
+sqlProperties control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminProximityProperties._GridViewProperties">
+<summary>
+GridViewProperties control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminViewProperty._Image1">
+<summary>
+Image1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminViewProperty._Image2">
+<summary>
+Image2 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminViewProperty._Image3">
+<summary>
+Image3 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminViewProperty._Image4">
+<summary>
+Image4 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminViewProperty._Image5">
+<summary>
+Image5 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.AdminViewProperty._Image6">
+<summary>
+Image6 control.
 </summary>
 <remarks>
 Auto-generated field.

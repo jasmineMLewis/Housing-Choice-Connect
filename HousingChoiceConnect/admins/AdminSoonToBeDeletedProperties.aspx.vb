@@ -2,7 +2,7 @@
 Imports System.IO
 Imports System.Web.Configuration
 
-Public Class AdminAllProperties
+Public Class AdminProximityProperties
     Inherits System.Web.UI.Page
     Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
 
@@ -12,21 +12,19 @@ Public Class AdminAllProperties
         End If
     End Sub
 
-    Public Sub BindGridWithFilters()
+    Private Sub BindGridWithFilters()
         Dim sql As String = "SELECT LandlordProperty.LandlordPropertyID, " & _
                             "       RTRIM(LandlordProperty.AddressProperty + ' ' + LandlordProperty.Apt_Suite) As ""Address"", Rent, " & _
-                            "       BedroomNumber AS Bed, BathroomNumber As Bath, Neighborhood.ZipCode, NumberOfTenantViews,PersonOfContact As Landlord, " & _
+                            "       BedroomNumber AS Bed, BathroomNumber As Bath, Neighborhood.ZipCode, PersonOfContact As Landlord, " & _
                             "       CONVERT (varchar(MAX), CAST(LandlordProperty.DateOfPostage AS date), 101) AS DateOfPostage, " & _
                             "       CONVERT (varchar(MAX), CAST(LandlordProperty.DateLastUpdated AS date), 101) AS DateLastUpdated, " & _
                             "       PersonToContactPhoneNumber As LandlordNumber " & _
                             "FROM LandlordProperty " & _
                             "INNER JOIN Neighborhood ON LandlordProperty.fk_NeighborhoodID = Neighborhood.NeighborhoodID " & _
-                            "WHERE LandlordPropertyID != 0 "
+                            "WHERE [DateLastUpdated] < DATEADD(day, -90, GETDATE()) "
         Dim streetAddressID As Integer = PropertyAddress.SelectedValue
         Dim zip As Integer = ZipCode.SelectedValue
         Dim beds As Integer = Bedroom.SelectedValue
-        Dim baths As Double = Bathroom.SelectedValue
-        Dim rent As String = rentText.Text
 
         If (streetAddressID > 0) Then
             sql += "AND LandlordProperty.LandlordPropertyID = " + streetAddressID.ToString()
@@ -40,14 +38,6 @@ Public Class AdminAllProperties
             sql += " AND LandlordProperty.BedroomNumber = " + beds.ToString()
         End If
 
-        If (baths > 0) Then
-            sql += " AND LandlordProperty.BathroomNumber = " + baths.ToString()
-        End If
-
-        If Not String.IsNullOrEmpty(rent) Then
-            sql += " AND LandlordProperty.Rent <=" + rent.ToString()
-        End If
-
         sql += " ORDER BY ZipCode, Bed ASC"
 
         sqlProperties.SelectCommand = sql
@@ -55,11 +45,11 @@ Public Class AdminAllProperties
         GridViewProperties.DataBind()
     End Sub
 
-    Public Sub BtnFilterProperties(ByVal sender As Object, ByVal e As EventArgs)
+    Protected Sub BtnFilterProperties(ByVal sender As Object, ByVal e As EventArgs)
         Me.BindGridWithFilters()
     End Sub
 
-    Public Sub BtnExportToExcel(ByVal sender As Object, ByVal e As EventArgs)
+    Protected Sub BtnExportToExcel(ByVal sender As Object, ByVal e As EventArgs)
         Response.Clear()
         Response.Buffer = True
         Response.AddHeader("content-disposition", "attachment;filename=HANOPropertyList.xls")
@@ -76,6 +66,10 @@ Public Class AdminAllProperties
         End Using
     End Sub
 
+    Public Function DisplayActivateLink(ByVal landlordPropertyID As Integer) As String
+        Return "<a href=/landlords/SetPropertyState.aspx?LandlordPropertyID=" & landlordPropertyID & "&PropertyStateID=1><i class='fa fa-toggle-on'></i></a>"
+    End Function
+
     Public Function DisplayDeleteLink(ByVal landlordPropertyID As Integer) As String
         Return "<a href=/landlords/SetPropertyState.aspx?LandlordPropertyID=" & landlordPropertyID & "&PropertyStateID=2><i class='fa fa-trash'></i></a>"
     End Function
@@ -84,7 +78,7 @@ Public Class AdminAllProperties
         Return "<a href=/admins/AdminEditProperty.aspx?LandlordPropertyID=" & landlordPropertyID & "><i class='fa fa-pencil'></i></a>"
     End Function
 
-    Protected Function DisplayViewLink(ByVal landlordPropertyID As Integer, ByVal address As String) As String
+    Public Function DisplayViewLink(ByVal landlordPropertyID As Integer, ByVal address As String) As String
         Return "<a href=/admins/AdminViewProperty.aspx?LandlordPropertyID=" & landlordPropertyID & ">" & address & "</a>"
     End Function
 
@@ -94,10 +88,5 @@ Public Class AdminAllProperties
 
         ZipCode.AppendDataBoundItems = True
         ZipCode.Items.Insert(0, New ListItem("Zip Code", "0"))
-    End Sub
-
-    Public Overrides Sub VerifyRenderingInServerForm(ByVal control As Control)
-        ' Confirms that an HtmlForm control is rendered for the specified ASP.NET
-        '     server control at run time. 
     End Sub
 End Class
