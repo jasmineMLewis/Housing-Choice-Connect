@@ -48,11 +48,11 @@
                     <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" name="btnSignUp" id="btnSignUp"><i class="fa fa-upload"></i> Sign Up <span class="caret"></span></button>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="TenantSignUp.aspx"><i class="fa fa-user">&nbsp; <b>Tenant</b></i> <span class="tab-space-tenant"></span>
+                            <a href="/sign_up/TenantSignUp.aspx"><i class="fa fa-user">&nbsp; <b>Tenant</b></i> <span class="tab-space-tenant"></span>
                             <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </li>
                         <li>
-                            <a href="LandlordSignUp.aspx"><i class="fa fa-home">&nbsp; <b>Landlord</b></i> <span class="tab-space-landlord"></span>
+                            <a href="/sign_up/LandlordSignUp.aspx"><i class="fa fa-home">&nbsp; <b>Landlord</b></i> <span class="tab-space-landlord"></span>
                             <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </li>
                     </ul>
