@@ -10,7 +10,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
-        Dim userID As String
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
         End If
@@ -21,8 +21,8 @@
         End If
 
         Const ADMIN_ROLE_ID As Integer = 1
-        Const LANDLORD_ROLE_ID As Integer = 3
         Const TENANT_ROLE_ID As Integer = 2
+        Const LANDLORD_ROLE_ID As Integer = 3
 
         Dim firstName As String
         Dim lastName As String
@@ -30,10 +30,11 @@
         Dim dateRegistered As Date
         Dim lastlogin As Date
 
-
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
         conn.Open()
-        Dim query As New SqlCommand("SELECT FirstName, LastName, Email, DateRegistered, LastLogin FROM Users WHERE UserID='" & userID & "'", conn)
+        Dim query As New SqlCommand("SELECT FirstName, LastName, Email, DateRegistered, LastLogin 
+                                     FROM Users 
+                                     WHERE UserID='" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             firstName = CStr(reader("FirstName"))
@@ -46,7 +47,9 @@
 
         Dim numOfAdmin As Integer
         conn.Open()
-        Dim queryAdmins As New SqlCommand("SELECT COUNT(UserID) AS countAdmins FROM Users WHERE fk_RoleID = '" & ADMIN_ROLE_ID & "'", conn)
+        Dim queryAdmins As New SqlCommand("SELECT COUNT(UserID) AS countAdmins 
+                                           FROM Users 
+                                           WHERE RoleID = '" & ADMIN_ROLE_ID & "'", conn)
         Dim readerAdmins As SqlDataReader = queryAdmins.ExecuteReader()
         While readerAdmins.Read
             numOfAdmin = CStr(readerAdmins("countAdmins"))
@@ -55,7 +58,9 @@
 
         Dim numOfTenants As Integer
         conn.Open()
-        Dim queryTenants As New SqlCommand("SELECT COUNT(UserID) AS countTenants FROM Users WHERE fk_RoleID = '" & TENANT_ROLE_ID & "'", conn)
+        Dim queryTenants As New SqlCommand("SELECT COUNT(UserID) AS countTenants 
+                                            FROM Users 
+                                            WHERE RoleID = '" & TENANT_ROLE_ID & "'", conn)
         Dim readerTenants As SqlDataReader = queryTenants.ExecuteReader()
         While readerTenants.Read
             numOfTenants = CStr(readerTenants("countTenants"))
@@ -64,7 +69,9 @@
 
         Dim numOfLandlords As Integer
         conn.Open()
-        Dim queryLandlords As New SqlCommand("SELECT COUNT(UserID) AS countLandlords FROM Users WHERE fk_RoleID = '" & LANDLORD_ROLE_ID & "'", conn)
+        Dim queryLandlords As New SqlCommand("SELECT COUNT(UserID) AS countLandlords 
+                                              FROM Users 
+                                              WHERE RoleID = '" & LANDLORD_ROLE_ID & "'", conn)
         Dim readerLandlords As SqlDataReader = queryLandlords.ExecuteReader()
         While readerLandlords.Read
             numOfLandlords = CStr(readerLandlords("countLandlords"))
@@ -73,7 +80,8 @@
 
         Dim allProperties As Integer
         conn.Open()
-        Dim queryAllProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countAll FROM LandlordProperty", conn)
+        Dim queryAllProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countAll 
+                                                  FROM LandlordProperty", conn)
         Dim readerAllProperties As SqlDataReader = queryAllProperties.ExecuteReader()
         While readerAllProperties.Read
             allProperties = CStr(readerAllProperties("countAll"))
@@ -82,7 +90,9 @@
 
         Dim activeProperties As Integer
         conn.Open()
-        Dim queryActiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countActive FROM LandlordProperty WHERE IsActive = 1", conn)
+        Dim queryActiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countActive 
+                                                     FROM LandlordProperty 
+                                                     WHERE IsActive = 1", conn)
         Dim readerActiveProperties As SqlDataReader = queryActiveProperties.ExecuteReader()
         While readerActiveProperties.Read
             activeProperties = CStr(readerActiveProperties("countActive"))
@@ -91,7 +101,9 @@
 
         Dim inactiveProperties As Integer
         conn.Open()
-        Dim queryInactiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countInactive FROM LandlordProperty WHERE IsActive = 0", conn)
+        Dim queryInactiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countInactive 
+                                                       FROM LandlordProperty 
+                                                       WHERE IsActive = 0", conn)
         Dim readerInactiveProperties As SqlDataReader = queryInactiveProperties.ExecuteReader()
         While readerInactiveProperties.Read
             inactiveProperties = CStr(readerInactiveProperties("countInactive"))
@@ -100,7 +112,9 @@
 
         Dim proximityProperties As Integer
         conn.Open()
-        Dim queryProximityProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countProximity FROM LandlordProperty WHERE [DateLastUpdated] < DATEADD(day, -90, GETDATE()) ", conn)
+        Dim queryProximityProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countProximity 
+                                                        FROM LandlordProperty 
+                                                        WHERE DateLastUpdated < DATEADD(day, -90, GETDATE()) ", conn)
         Dim readerProximityProperties As SqlDataReader = queryProximityProperties.ExecuteReader()
         While readerProximityProperties.Read
             proximityProperties = CStr(readerProximityProperties("countProximity"))
@@ -302,7 +316,7 @@
                 </div>
             </div>
             <%--Profile Information--%>
-            <%--<div class="row">
+            <div class="row">
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
@@ -356,7 +370,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="list-group">
-                                        <a href="../assets/Admins/Admin Manual.pdf" target="_blank"
+                                        <a href="../assets/admins/admin-manual.pdf" target="_blank"
                                             class="list-group-item">&nbsp; Admin Tutorial <span class="pull-right text-primary">
                                                 <i class="fa fa-file"></i></span></a>
                                     </div>
@@ -365,7 +379,7 @@
                         </div>
                     </div>
                 </div>
-            </div>--%>
+            </div>
             <div class="row">
                 <div class="col-lg-4">
                     <div class="panel panel-default">
@@ -379,22 +393,22 @@
                                         <i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp; Zip Code Amentities</h3>
                                 </div>
                                 <div class="list-group">
-                                    <a href="../assets/Tenants/Zip Code Amenities/70115 Amenities.pdf" target="_blank" class="list-group-item">
+                                    <a href="../assets/tenants/zip-code-amenities/70115-amenities.pdf" target="_blank" class="list-group-item">
                                         &nbsp;70115 <span class="pull-right text-primary"><i class="fa fa-qrcode"></i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Zip Code Amenities/70116 Amenities.pdf" target="_blank"
+                                    <a href="../assets/tenants/zip-code-amenities/70116-amenities.pdf" target="_blank"
                                         class="list-group-item">&nbsp;70116 <span class="pull-right text-primary"><i class="fa fa-qrcode">
                                         </i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Zip Code Amenities/70118 Amenities.pdf" target="_blank"
+                                    <a href="../assets/tenants/zip-code-amenities/70118-amenities.pdf" target="_blank"
                                             class="list-group-item">&nbsp;70118 <span class="pull-right text-primary"><i class="fa fa-qrcode">
                                             </i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Zip Code Amenities/70124 Amenities.pdf" target="_blank"
+                                    <a href="../assets/Tenants/zip-code-amenities/70124-amenities.pdf" target="_blank"
                                          class="list-group-item">&nbsp;70124 <span class="pull-right text-primary"><i class="fa fa-qrcode">
                                          </i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Zip Code Amenities/70130 Amenities.pdf" target="_blank"
+                                    <a href="../assets/Tenants/zip-code-amenities/70130-amenities.pdf" target="_blank"
                                         class="list-group-item">&nbsp;70130 <span class="pull-right text-primary"><i class="fa fa-qrcode">
                                         </i></span>
                                     </a>
@@ -415,28 +429,28 @@
                                         <i class="fa fa-map" aria-hidden="true"></i>&nbsp; Poverty Maps</h3>
                                 </div>
                                 <div class="list-group">
-                                    <a href="../assets/Tenants/Maps/Jefferson Parish Poverty Map.pdf" target="_blank" class="list-group-item">
+                                    <a href="../assets/tenants/maps/poverty-maps/jefferson-parish-poverty-map.pdf" target="_blank" class="list-group-item">
                                         Jefferson Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map"></i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Maps/Orleans Parish Poverty Map.pdf" target="_blank"
+                                    <a href="../assets/tenants/maps/poverty-maps/orleans-parish-poverty-map.pdf" target="_blank"
                                         class="list-group-item">Orleans Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map">
                                         </i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Maps/Plaquemines Parish Poverty Map.pdf" target="_blank"
+                                    <a href="../assets/tenants/maps/poverty-maps/plaquemines-parish-poverty-map.pdf" target="_blank"
                                             class="list-group-item">Plaquemines Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map">
                                             </i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Maps/St Bernard Parish Poverty Map.pdf" target="_blank" class="list-group-item">
+                                    <a href="../assets/tenants/maps/poverty-maps/st-bernard-parish-poverty-map.pdf" target="_blank" class="list-group-item">
                                        St Bernard Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map"></i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Maps/St Charles Parish Poverty Map.pdf" target="_blank"
+                                    <a href="../assets/tenants/maps/poverty-maps/st-charles-parish-poverty-map.pdf" target="_blank"
                                         class="list-group-item">St Charles Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map">
                                         </i></span></a>
-                                     <a href="../assets/Tenants/Maps/St John Parish Poverty Map.pdf" target="_blank"
+                                     <a href="../assets/tenants/maps/poverty-maps/st-john-parish-poverty-map.pdf" target="_blank"
                                             class="list-group-item">St John Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map">
                                             </i></span>
                                      </a>
-                                      <a href="../assets/Tenants/Maps/St Tammany Parish Poverty Map.pdf" target="_blank"
+                                      <a href="../assets/tenants/maps/poverty-maps/st-tammany-parish-poverty-map.pdf" target="_blank"
                                             class="list-group-item">St Tammany Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map">
                                             </i></span>
                                       </a>
@@ -457,29 +471,29 @@
                                         <i class="fa fa-map-o" aria-hidden="true"></i>&nbsp; Minority Maps</h3>
                                 </div>
                                 <div class="list-group">
-                                    <a href="../assets/Tenants/Maps/Jefferson Parish Minority Map.pdf" target="_blank" class="list-group-item">
+                                    <a href="../assets/tenants/maps/minority-maps/jefferson-parish-minority-map.pdf" target="_blank" class="list-group-item">
                                         Jefferson Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o"></i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Maps/Orleans Parish Minority Map.pdf" target="_blank"
+                                    <a href="../assets/tenants/maps/minority-maps/orleans-parish-minority-map.pdf" target="_blank"
                                         class="list-group-item">Orleans Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o">
                                         </i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Maps/Plaquemines Parish Minority Map.pdf" target="_blank"
+                                    <a href="../assets/tenants/maps/minority-maps/plaquemines-parish-minority-map.pdf" target="_blank"
                                             class="list-group-item">Plaquemines Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o">
                                             </i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Maps/St Bernard Parish Minority Map.pdf" target="_blank" class="list-group-item">
+                                    <a href="../assets/tenants/maps/minority-maps/st-bernard-parish-minority-map.pdf" target="_blank" class="list-group-item">
                                        St Bernard Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o"></i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Maps/St Charles Parish Minority Map.pdf" target="_blank"
+                                    <a href="../assets/tenants/maps/minority-maps/st-charles-parish-minority-map.pdf" target="_blank"
                                         class="list-group-item">St Charles Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o">
                                         </i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Maps/St John Parish Minority Map.pdf" target="_blank"
+                                    <a href="../assets/tenants/maps/minority-maps/st-john-parish-minority-map.pdf" target="_blank"
                                             class="list-group-item">St John Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o">
                                             </i></span>
                                     </a>
-                                    <a href="../assets/Tenants/Maps/St Tammany Parish Minority Map.pdf" target="_blank"
+                                    <a href="../assets/tenants/maps/minority-maps/st-tammany-parish-minority-map.pdf" target="_blank"
                                             class="list-group-item">St Tammany Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o">
                                             </i></span>
                                     </a>

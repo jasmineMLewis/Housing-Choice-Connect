@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
-        Dim userID As String
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
         End If
@@ -29,14 +29,16 @@
             </div>
             <div class="row">
                 <%
-    Dim properties As Integer
-    conn.Open()
-    Dim queryProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countActive FROM LandlordProperty WHERE IsActive = 0", conn)
-    Dim readerProperties As SqlDataReader = queryProperties.ExecuteReader()
-    While readerProperties.Read
-        properties = CStr(readerProperties("countActive"))
-    End While
-    conn.Close()
+                    Dim properties As Integer
+                    conn.Open()
+                    Dim queryProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countActive 
+                                                           FROM LandlordProperty 
+                                                           WHERE IsActive = 0", conn)
+                    Dim readerProperties As SqlDataReader = queryProperties.ExecuteReader()
+                    While readerProperties.Read
+                        properties = CStr(readerProperties("countActive"))
+                    End While
+                    conn.Close()
                 %>
                 <div class="col-lg-12">
                     <div class="panel panel-info">
@@ -86,7 +88,10 @@
                                                     DataTextField="AddressProperty" DataValueField="LandlordPropertyID">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlPropertyAddress" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT LandlordPropertyID, AddressProperty FROM LandlordProperty WHERE IsActive = 0 ORDER BY AddressProperty ASC">
+                                                    SelectCommand="SELECT LandlordPropertyID, AddressProperty 
+                                                                   FROM LandlordProperty 
+                                                                   WHERE IsActive = 0
+                                                                   ORDER BY AddressProperty ASC">
                                                 </asp:SqlDataSource>
                                             </div>
                                         </div>
@@ -98,7 +103,9 @@
                                                     DataTextField="ZipCode" DataValueField="ZipCode">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlZipCode" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT DISTINCT ZipCode FROM Neighborhood"></asp:SqlDataSource>
+                                                    SelectCommand="SELECT DISTINCT ZipCode 
+                                                                   FROM Neighborhood">
+                                                </asp:SqlDataSource>
                                             </div>
                                         </div>
                                         <div class="list-group-item">
@@ -160,7 +167,7 @@
                             <i class="fa fa-file-excel-o"></i>&nbsp;Export to Excel
                         </div>
                         <div class="panel-body">
-                            <button id="Button2" type="button" class="btn btn-info btn-block btn-lg" runat="server"
+                            <button id="ButtonExportToExcel" type="button" class="btn btn-info btn-block btn-lg" runat="server"
                                 onserverclick="BtnExportToExcel">
                                 <i class="fa fa-file-excel-o"></i>&nbsp;Export to Excel
                             </button>
@@ -174,15 +181,16 @@
                         </div>
                         <div class="panel-body">
                             <asp:SqlDataSource ID="sqlProperties" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                SelectCommand="SELECT LandlordPropertyID, RTRIM([AddressProperty] + ' ' + [Apt_Suite]) As &quot;Address&quot;,
+                                SelectCommand="SELECT LandlordPropertyID, RTRIM(AddressProperty + ' ' + Apt_Suite) As &quot;Address&quot;,
                                                       Rent, BedroomNumber AS Bed, BathroomNumber As Bath, ZipCode,
                                                       CONVERT (varchar(MAX), CAST(LandlordProperty.DateOfPostage AS date), 101) AS DateOfPostage, 
                                                       CONVERT (varchar(MAX), CAST(LandlordProperty.DateLastUpdated AS date), 101) AS DateLastUpdated,
                                                       PersonOfContact As Landlord, PersonToContactPhoneNumber As LandlordNumber 
                                                FROM LandlordProperty 
-                                               INNER JOIN Neighborhood ON LandlordProperty.fk_NeighborhoodID = Neighborhood.NeighborhoodID 
+                                               INNER JOIN Neighborhood ON LandlordProperty.NeighborhoodID = Neighborhood.NeighborhoodID 
                                                WHERE LandlordProperty.IsActive = '0'
-                                               ORDER BY ZipCode, Bed ASC"></asp:SqlDataSource>
+                                               ORDER BY ZipCode, Bed ASC">
+                            </asp:SqlDataSource>
                             <div class="table-responsive">
                                 <asp:GridView ID="GridViewProperties" runat="server" CssClass="table" AutoGenerateColumns="False"
                                     DataKeyNames="LandlordPropertyID, Address" GridLines="None" DataSourceID="sqlProperties"

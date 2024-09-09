@@ -12,103 +12,103 @@ Option Explicit On
 
 
 Partial Public Class AdminInactiveProperties
-        
-        '''<summary>
-        '''PropertyAddress control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents PropertyAddress As Global.System.Web.UI.WebControls.DropDownList
-        
-        '''<summary>
-        '''SqlPropertyAddress control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents SqlPropertyAddress As Global.System.Web.UI.WebControls.SqlDataSource
-        
-        '''<summary>
-        '''ZipCode control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents ZipCode As Global.System.Web.UI.WebControls.DropDownList
-        
-        '''<summary>
-        '''SqlZipCode control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents SqlZipCode As Global.System.Web.UI.WebControls.SqlDataSource
-        
-        '''<summary>
-        '''Bedroom control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents Bedroom As Global.System.Web.UI.WebControls.DropDownList
-        
-        '''<summary>
-        '''Bathroom control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents Bathroom As Global.System.Web.UI.WebControls.DropDownList
-        
-        '''<summary>
-        '''rentText control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents rentText As Global.System.Web.UI.WebControls.TextBox
-        
-        '''<summary>
-        '''Button1 control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents Button1 As Global.System.Web.UI.HtmlControls.HtmlButton
-        
-        '''<summary>
-        '''Button2 control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents Button2 As Global.System.Web.UI.HtmlControls.HtmlButton
-        
-        '''<summary>
-        '''sqlProperties control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents sqlProperties As Global.System.Web.UI.WebControls.SqlDataSource
-        
-        '''<summary>
-        '''GridViewProperties control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents GridViewProperties As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''PropertyAddress control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PropertyAddress As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''SqlPropertyAddress control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SqlPropertyAddress As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''ZipCode control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ZipCode As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''SqlZipCode control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SqlZipCode As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Bedroom control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Bedroom As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Bathroom control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Bathroom As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''rentText control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rentText As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Button1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Button1 As Global.System.Web.UI.HtmlControls.HtmlButton
+
+    '''<summary>
+    '''ButtonExportToExcel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ButtonExportToExcel As Global.System.Web.UI.HtmlControls.HtmlButton
+
+    '''<summary>
+    '''sqlProperties control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sqlProperties As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''GridViewProperties control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridViewProperties As Global.System.Web.UI.WebControls.GridView
 End Class

@@ -3,11 +3,11 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
-        Dim userID As String
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
         End If
-    
+
         If userID = Nothing Then
             userID = Request.QueryString("UserID")
             Web.HttpContext.Current.Session("UserID") = userID
@@ -50,7 +50,10 @@
                                                         DataTextField="FullDescrp" DataValueField="UserID">
                                                     </asp:DropDownList>
                                                     <asp:SqlDataSource ID="SqlFullDescrp" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                        SelectCommand="SELECT [UserID], [FirstName] + ' ' + [LastName]  + ' :: ' + [Email] As FullDescrp FROM [Users] WHERE [fk_RoleID] = '3' ORDER BY [FullDescrp] ASC">
+                                                        SelectCommand="SELECT UserID, FirstName + ' ' + LastName  + ' :: ' + Email As FullDescrp 
+                                                                       FROM Users 
+                                                                       WHERE RoleID = '3' 
+                                                                       ORDER BY FullDescrp ASC">
                                                     </asp:SqlDataSource>
                                                 </div>
                                             </div>
@@ -95,7 +98,9 @@
                                                 DataTextField="Neighborhood" DataValueField="NeighborhoodID">
                                             </asp:DropDownList>
                                             <asp:SqlDataSource ID="SqlNeighborhood" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                SelectCommand="SELECT [Neighborhood], [NeighborhoodID] FROM [Neighborhood] ORDER BY [Neighborhood]">
+                                                SelectCommand="SELECT DISTINCT Neighborhood, NeighborhoodID 
+                                                               FROM Neighborhood 
+                                                               ORDER BY Neighborhood">
                                             </asp:SqlDataSource>
                                         </div>
                                     </div>
@@ -171,18 +176,22 @@
                                             <div class="input-group input-group-lg inputFormat col-sm-2">
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
                                                 <asp:DropDownList ID="PropertyType" runat="server" CssClass="selectpicker" DataSourceID="SqlPropertyType"
-                                                    DataTextField="Type" DataValueField="PropertyTypeID">
+                                                    DataTextField="Property" DataValueField="PropertyTypeID">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlPropertyType" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT [Type], [PropertyTypeID] FROM [PropertyType]"></asp:SqlDataSource>
+                                                    SelectCommand="SELECT Property, PropertyTypeID 
+                                                                   FROM Property">
+                                                </asp:SqlDataSource>
                                             </div>
                                             <div class="input-group input-group-lg inputFormat col-sm-3">
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
                                                 <asp:DropDownList ID="UnitType" runat="server" CssClass="selectpicker" DataSourceID="SqlUnitType"
-                                                    DataTextField="Type" DataValueField="UnitTypeID">
+                                                    DataTextField="Unit" DataValueField="UnitTypeID">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlUnitType" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT [Type], [UnitTypeID] FROM [UnitType]"></asp:SqlDataSource>
+                                                    SelectCommand="SELECT Unit, UnitTypeID
+                                                                   FROM UnitType">
+                                                </asp:SqlDataSource>
                                             </div>
                                         </div>
                                         <br />
@@ -1106,7 +1115,7 @@
                                     <div class="panel-body table-responsive">
                                         <div class="text-center">
                                             <button id="button" type="button" class="btn btn-info btn-block btn-lg" runat="server"
-                                                onserverclick="btnAddProperty">
+                                                onserverclick="BtnAddProperty">
                                                 <i class="fa fa-plus"></i>&nbsp; Add NEW Property
                                             </button>
                                         </div>

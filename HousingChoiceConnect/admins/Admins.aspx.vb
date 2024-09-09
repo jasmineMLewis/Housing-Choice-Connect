@@ -3,14 +3,17 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            setDropdownList()
+            SetDropdownList()
         End If
     End Sub
 
-    Protected Sub btnSearchAdmin(ByVal sender As Object, ByVal e As EventArgs)
-        Dim sql As String = "SELECT UserID, FirstName + ' ' + LastName AS Name, Email, DateRegistered, LastLogin FROM Users WHERE fk_RoleID = 1"
-        Dim userID As Integer = FullName.SelectedValue
-        Dim emailToSearch As String = Email.SelectedValue
+    Protected Sub BtnSearchAdmin(ByVal sender As Object, ByVal e As EventArgs)
+        Dim sql As String = "SELECT UserID, FirstName + ' ' + LastName AS Name, 
+                                    Email, DateRegistered, LastLogin 
+                             FROM Users 
+                             WHERE RoleID = 1"
+        Dim userID As Integer = FullName.SelectedValue.Trim
+        Dim emailToSearch As String = Email.SelectedValue.Trim
 
         If (userID > 0) Then
             sql += "AND UserID = " + userID.ToString()
@@ -25,7 +28,7 @@
         GridView1.DataBind()
     End Sub
 
-    Public Sub setDropdownList()
+    Public Sub SetDropdownList()
         FullName.AppendDataBoundItems = True
         FullName.Items.Insert(0, New ListItem("Name", "0"))
 

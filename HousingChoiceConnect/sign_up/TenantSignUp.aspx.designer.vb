@@ -86,15 +86,6 @@ Partial Public Class TenantSignUp
     Protected WithEvents lastFourSSN As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''btnTenantSignUp control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnTenantSignUp As Global.System.Web.UI.HtmlControls.HtmlButton
-
-    '''<summary>
     '''lblMsg control.
     '''</summary>
     '''<remarks>

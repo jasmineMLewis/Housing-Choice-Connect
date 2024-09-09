@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="logo" href="../Default.aspx"><img src="../img/hanoLogo.png" alt="hanoLogo" /></a>
+            <a class="logo" href="../Default.aspx"><img src="../img/hanoLogo.png" alt="hano-logo" /></a>
         </div>
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right" style = "margin-right: 150px;">
@@ -72,18 +72,15 @@
                         </div>
                         <div class="form">
                             <div class="input-group input-group-lg inputFormat">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                </span>
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email"
-                                    maxlength="100" />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                <asp:TextBox ID="email" runat="server" class="form-control" placeholder="Email" name="email" maxlength="100"></asp:TextBox>
                             </div>
                             <div class="input-group input-group-lg inputFormat">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password"
-                                    maxlength="100" />
+                                 <asp:TextBox ID="password" runat="server" class="form-control" placeholder="Password" name="password" maxlength="50"></asp:TextBox>
                             </div>
-                            <button type="button" class="btn btn-info btn-block btn-lg" id="TenantSignIn" runat="server"
-                                onserverclick="btnSubmitClick">
+                            <button type="button" class="btn btn-info btn-block btn-lg" runat="server"
+                                onserverclick="BtnTenantSignIn">
                                 <i class="fa fa-download"></i>&nbsp; Sign In
                             </button>
                             <div class="input-group input-group-lg inputFormat">

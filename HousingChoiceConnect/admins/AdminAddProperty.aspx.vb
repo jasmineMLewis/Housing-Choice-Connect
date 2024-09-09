@@ -8,12 +8,14 @@ Public Class AdminAddProperty
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            setDropdownList()
+            SetDropdownList()
         End If
     End Sub
 
-    Public Function addProperty(ByVal landlordUserID As Integer) As Integer
+    Public Function AddProperty(ByVal landlordUserID As Integer) As Integer
         Const CITY As String = "New Orleans"
+        Const PROPERTY_ACTIVE As Boolean = 1
+
         Dim landlordPropertyID As Integer
         Dim address As String
         Dim aptOrSuite As String
@@ -128,8 +130,8 @@ Public Class AdminAddProperty
         End If
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO LandlordProperty (AddressProperty, Apt_Suite, City, Description, Rent, Deposit, PetDeposit, PersonOfContact, PersonToContactPhoneNumber, NumberOfTenantViews, IsUtilityElectricPaidByLandlord, IsUtilityWaterPaidByLandlord, IsUtilityGasPaidByLandlord, IsAmentitiesIncluded, IsHandicapAccessible, IsPropertyReadyForOccupancy, IsPetsPermitted, IsPicturesExists, IsActive, DateAvaiableToRent, DateLastUpdated, DateOfInactivation, DateOfPostage, fk_UserID, fk_NeighborhoodID, BedroomNumber, BathroomNumber, fk_PropertyTypeID, fk_UnitTypeID)"
-        query &= "VALUES (@AddressProperty, @Apt_Suite, @City, @Description, @Rent, @Deposit, @PetDeposit, @PersonOfContact, @PersonToContactPhoneNumber, @NumberOfTenantViews, @IsUtilityElectricPaidByLandlord, @IsUtilityWaterPaidByLandlord, @IsUtilityGasPaidByLandlord, @IsAmentitiesIncluded, @IsHandicapAccessible, @IsPropertyReadyForOccupancy, @IsPetsPermitted, @IsPicturesExists, @IsActive, @DateAvaiableToRent, @DateLastUpdated, @DateOfInactivation, @DateOfPostage, @fk_UserID, @fk_NeighborhoodID, @BedroomNumber, @BathroomNumber, @fk_PropertyTypeID, @fk_UnitTypeID);"
+        query &= "INSERT INTO LandlordProperty (AddressProperty, AptSuite, City, Description, Rent, Deposit, PetDeposit, PersonOfContact, PersonToContactPhoneNumber, NumberOfTenantViews, IsUtilityElectricPaidByLandlord, IsUtilityWaterPaidByLandlord, IsUtilityGasPaidByLandlord, IsAmentitiesIncluded, IsHandicapAccessible, IsPropertyReadyForOccupancy, IsPetsPermitted, IsPicturesExists, IsActive, DateAvaiableToRent, DateLastUpdated, DateOfInactivation, DateOfPostage, UserID, NeighborhoodID, BedroomNumber, BathroomNumber, PropertyID, UnitID)"
+        query &= "VALUES (@AddressProperty, @AptSuite, @City, @Description, @Rent, @Deposit, @PetDeposit, @PersonOfContact, @PersonToContactPhoneNumber, @NumberOfTenantViews, @IsUtilityElectricPaidByLandlord, @IsUtilityWaterPaidByLandlord, @IsUtilityGasPaidByLandlord, @IsAmentitiesIncluded, @IsHandicapAccessible, @IsPropertyReadyForOccupancy, @IsPetsPermitted, @IsPicturesExists, @IsActive, @DateAvaiableToRent, @DateLastUpdated, @DateOfInactivation, @DateOfPostage, @UserID, @NeighborhoodID, @BedroomNumber, @BathroomNumber, @PropertyID, @UnitID);"
         query &= "SELECT @@IDENTITY from LandlordProperty"
 
         Using comm As New SqlCommand()
@@ -138,7 +140,7 @@ Public Class AdminAddProperty
                 .CommandType = CommandType.Text
                 .CommandText = query
                 .Parameters.AddWithValue("@AddressProperty", address)
-                .Parameters.AddWithValue("@Apt_Suite", aptOrSuite)
+                .Parameters.AddWithValue("@AptSuite", aptOrSuite)
                 .Parameters.AddWithValue("@City", CITY)
                 .Parameters.AddWithValue("@Description", description)
                 .Parameters.AddWithValue("@Rent", rent)
@@ -155,17 +157,17 @@ Public Class AdminAddProperty
                 .Parameters.AddWithValue("@IsPropertyReadyForOccupancy", readyForOccupancy)
                 .Parameters.AddWithValue("@IsPetsPermitted", isPetsPermitted)
                 .Parameters.AddWithValue("@IsPicturesExists", 0)
-                .Parameters.AddWithValue("@IsActive", 1)
+                .Parameters.AddWithValue("@IsActive", PROPERTY_ACTIVE)
                 .Parameters.AddWithValue("@DateAvaiableToRent", dateAvailableToRent)
                 .Parameters.AddWithValue("@DateLastUpdated", dateOfPostage)
                 .Parameters.AddWithValue("@DateOfInactivation", DBNull.Value)
                 .Parameters.AddWithValue("@DateOfPostage", dateOfPostage)
-                .Parameters.AddWithValue("@fk_UserID", landlordUserID)
-                .Parameters.AddWithValue("@fk_NeighborhoodID", neighborhoodID)
+                .Parameters.AddWithValue("@UserID", landlordUserID)
+                .Parameters.AddWithValue("@NeighborhoodID", neighborhoodID)
                 .Parameters.AddWithValue("@BedroomNumber", bedroomID)
                 .Parameters.AddWithValue("@BathroomNumber", bathroomID)
-                .Parameters.AddWithValue("@fk_PropertyTypeID", propertyTypeID)
-                .Parameters.AddWithValue("@fk_UnitTypeID", unitTypeID)
+                .Parameters.AddWithValue("@PropertyID", propertyTypeID)
+                .Parameters.AddWithValue("@UnitID", unitTypeID)
             End With
 
             conn.Open()
@@ -175,20 +177,20 @@ Public Class AdminAddProperty
         Return landlordPropertyID
     End Function
 
-    Protected Sub btnAddProperty(ByVal sender As Object, ByVal e As EventArgs)
-        Dim userID As String = getSessionUserID()
-        Dim landlordUserID As Integer = FullDescrp.SelectedValue
-        Dim landlordPropertyID As Integer = addProperty(landlordUserID)
-        Dim hasAmentities As Boolean = insertAmentities(landlordPropertyID)
-        Dim isHandicapAccessible As Boolean = insertHandicapAccessibilites(landlordPropertyID)
+    Protected Sub BtnAddProperty(ByVal sender As Object, ByVal e As EventArgs)
+        Dim userID As String = GetSessionUserID()
+        Dim landlordUserID As Integer = FullDescrp.SelectedValue.Trim
+        Dim landlordPropertyID As Integer = AddProperty(landlordUserID)
+        Dim hasAmentities As Boolean = InsertAmentities(landlordPropertyID)
+        Dim isHandicapAccessible As Boolean = InsertHandicapAccessibilites(landlordPropertyID)
 
-        updatePropertyAmentity_Handicap(landlordPropertyID, hasAmentities, isHandicapAccessible)
-        uploadMultiplePictures(landlordPropertyID)
+        UpdatePropertyAmentityHandicap(landlordPropertyID, hasAmentities, isHandicapAccessible)
+        UploadMultiplePictures(landlordPropertyID)
         Response.Redirect("AdminViewProperty.aspx?LandlordPropertyID=" & landlordPropertyID & "&UserID=" & userID)
     End Sub
 
-    Public Function getSessionUserID() As String
-        Dim userID As String
+    Public Function GetSessionUserID() As String
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
         End If
@@ -200,12 +202,12 @@ Public Class AdminAddProperty
         Return userID
     End Function
 
-    Public Function insertAmentities(ByVal landlordPropertyID As Integer) As Boolean
+    Public Function InsertAmentities(ByVal landlordPropertyID As Integer) As Boolean
         Dim hasAmentities As Boolean = 0
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO LandlordPropertyAmentity (fk_LandlordPropertyID, fk_AmentityID)"
-        query &= "VALUES (@fk_LandlordPropertyID, @fk_AmentityID)"
+        query &= "INSERT INTO LandlordPropertyAmentity (LandlordPropertyID, AmentityID)"
+        query &= "VALUES (@LandlordPropertyID, @AmentityID)"
 
         If Not Request.Form("amentityCentralAirHeat") Is Nothing Or Not Request.Form("amentityCentralAirHeat") = "" Then
             hasAmentities = 1
@@ -214,8 +216,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityCentralAirHeat"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@fkAmentityID", Request.Form("amentityCentralAirHeat"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -230,8 +232,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityWasher"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityWasher"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -246,8 +248,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityDryer"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityDryer"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -262,8 +264,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityAlarm"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityAlarm"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -278,8 +280,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityWasherDryerHookups"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityWasherDryerHookups"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -294,8 +296,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityCeilingFans"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityCeilingFans"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -310,8 +312,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityDishwasher"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityDishwasher"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -326,8 +328,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityRefrigerator"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityRefrigerator"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -342,8 +344,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityGarbageDisposal"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityGarbageDisposal"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -358,8 +360,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityStove"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityStove"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -374,8 +376,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityOffStreetParking"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityOffStreetParking"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -390,8 +392,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityCoveredParking"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityCoveredParking"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -406,8 +408,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityFrontYard"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityFrontYard"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -422,8 +424,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityBackYard"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityBackYard"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -438,8 +440,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityGated"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityGated"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -454,8 +456,8 @@ Public Class AdminAddProperty
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityOnsiteSecurity"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityOnsiteSecurity"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -466,7 +468,7 @@ Public Class AdminAddProperty
         Return hasAmentities
     End Function
 
-    Public Function insertHandicapAccessibilites(ByVal landlordPropertyID As Integer) As Boolean
+    Public Function InsertHandicapAccessibilites(ByVal landlordPropertyID As Integer) As Boolean
         Dim isHandicapAccessible As Boolean = 0
         Dim handicapParkingClose As Boolean
         Dim rampedEntry As Boolean
@@ -614,8 +616,8 @@ Public Class AdminAddProperty
         End If
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO LandlordPropertyHandicapAccessibility (IsAccessibleParkingCloseToHome, IsRampedEntry, IsDoorways32Inches_Wider, IsAccessiblePathToAndInHome32Inches_Wider, IsAutomaticEntryDoor, IsLowCounter_SinkAt_Below34Inches, IsAccessibleAppliances, IsShower_TubGrabBars, IsRollInShower, IsHandHeldShowerSprayer, IsFixedSeatInShower_Tub, IsRaisedToilet, IsFirstFloorBedroom, IsFirstFloorBathroom, IsLift_Elevator, IsAudio_VisualDoorbell, IsAudio_VisualSmoke_FireAlarm, IsElevatorAccess, fk_LandlordPropertyID)"
-        query &= "VALUES (@IsAccessibleParkingCloseToHome, @IsRampedEntry, @IsDoorways32Inches_Wider, @IsAccessiblePathToAndInHome32Inches_Wider, @IsAutomaticEntryDoor, @IsLowCounter_SinkAt_Below34Inches, @IsAccessibleAppliances, @IsShower_TubGrabBars, @IsRollInShower, @IsHandHeldShowerSprayer, @IsFixedSeatInShower_Tub, @IsRaisedToilet, @IsFirstFloorBedroom, @IsFirstFloorBathroom, @IsLift_Elevator, @IsAudio_VisualDoorbell, @IsAudio_VisualSmoke_FireAlarm, @IsElevatorAccess, @fk_LandlordPropertyID)"
+        query &= "INSERT INTO LandlordPropertyHandicapAccessibility (IsAccessibleParkingCloseToHome, IsRampedEntry, IsDoorways32Inches_Wider, IsAccessiblePathToAndInHome32Inches_Wider, IsAutomaticEntryDoor, IsLowCounter_SinkAt_Below34Inches, IsAccessibleAppliances, IsShower_TubGrabBars, IsRollInShower, IsHandHeldShowerSprayer, IsFixedSeatInShower_Tub, IsRaisedToilet, IsFirstFloorBedroom, IsFirstFloorBathroom, IsLift_Elevator, IsAudio_VisualDoorbell, IsAudio_VisualSmoke_FireAlarm, IsElevatorAccess, LandlordPropertyID)"
+        query &= "VALUES (@IsAccessibleParkingCloseToHome, @IsRampedEntry, @IsDoorways32Inches_Wider, @IsAccessiblePathToAndInHome32Inches_Wider, @IsAutomaticEntryDoor, @IsLowCounter_SinkAt_Below34Inches, @IsAccessibleAppliances, @IsShower_TubGrabBars, @IsRollInShower, @IsHandHeldShowerSprayer, @IsFixedSeatInShower_Tub, @IsRaisedToilet, @IsFirstFloorBedroom, @IsFirstFloorBathroom, @IsLift_Elevator, @IsAudio_VisualDoorbell, @IsAudio_VisualSmoke_FireAlarm, @IsElevatorAccess, @LandlordPropertyID)"
 
         Using comm As New SqlCommand()
             With comm
@@ -640,7 +642,7 @@ Public Class AdminAddProperty
                 .Parameters.AddWithValue("@IsAudio_VisualDoorbell", audioOrVisualDoorbell)
                 .Parameters.AddWithValue("@IsAudio_VisualSmoke_FireAlarm", audioOrVisualSmokeOrFireAlarm)
                 .Parameters.AddWithValue("@IsElevatorAccess", elevatorAccess)
-                .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
+                .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
             End With
 
             conn.Open()
@@ -651,34 +653,37 @@ Public Class AdminAddProperty
         Return isHandicapAccessible
     End Function
 
-    Public Sub updatePropertyAmentity_Handicap(ByVal landlordPropertyID As Integer, ByVal isAmentitiesIncluded As Boolean, ByVal isHandicapAccessible As Boolean)
+    Public Sub UpdatePropertyAmentityHandicap(ByVal landlordPropertyID As Integer, ByVal isAmentitiesIncluded As Boolean, ByVal isHandicapAccessible As Boolean)
         conn.Open()
-        Dim query As New SqlCommand("UPDATE LandlordProperty SET IsAmentitiesIncluded = '" & isAmentitiesIncluded & "', IsHandicapAccessible = '" & isHandicapAccessible & "' WHERE LandlordPropertyID ='" & landlordPropertyID & "'", conn)
+        Dim query As New SqlCommand("UPDATE LandlordProperty 
+                                     SET IsAmentitiesIncluded = '" & isAmentitiesIncluded & "', 
+                                         IsHandicapAccessible = '" & isHandicapAccessible & "' 
+                                     WHERE LandlordPropertyID ='" & landlordPropertyID & "'", conn)
         query.ExecuteNonQuery()
         conn.Close()
     End Sub
 
-    Protected Sub uploadMultiplePictures(ByVal landlordPropertyID As Integer)
+    Protected Sub UploadMultiplePictures(ByVal landlordPropertyID As Integer)
         Const MAX_PICTURES As Integer = 6
 
         For value As Integer = 1 To MAX_PICTURES
             If value = 1 Then
-                uploadSinglePicture(picture1, landlordPropertyID)
+                UploadSinglePicture(picture1, landlordPropertyID)
             ElseIf value = 2 Then
-                uploadSinglePicture(picture2, landlordPropertyID)
+                UploadSinglePicture(picture2, landlordPropertyID)
             ElseIf value = 3 Then
-                uploadSinglePicture(picture3, landlordPropertyID)
+                UploadSinglePicture(picture3, landlordPropertyID)
             ElseIf value = 4 Then
-                uploadSinglePicture(picture4, landlordPropertyID)
+                UploadSinglePicture(picture4, landlordPropertyID)
             ElseIf value = 5 Then
-                uploadSinglePicture(picture5, landlordPropertyID)
+                UploadSinglePicture(picture5, landlordPropertyID)
             ElseIf value = 6 Then
-                uploadSinglePicture(picture6, landlordPropertyID)
+                UploadSinglePicture(picture6, landlordPropertyID)
             End If
         Next
     End Sub
 
-    Protected Sub uploadSinglePicture(ByVal upload As FileUpload, ByVal landlordPropertyID As Integer)
+    Protected Sub UploadSinglePicture(ByVal upload As FileUpload, ByVal landlordPropertyID As Integer)
         If upload.HasFile Then
             Dim extension As String = Path.GetExtension(upload.PostedFile.FileName).ToLower()
             Dim MIMEType As String = Nothing
@@ -692,7 +697,8 @@ Public Class AdminAddProperty
                     Exit Sub
             End Select
 
-            Dim query As String = "INSERT INTO LandlordPropertyPictures (MIMEType, ImageData, fk_LandlordPropertyID) VALUES (@MIMEType, @ImageData, @fk_LandlordPropertyID)"
+            Dim query As String = "INSERT INTO LandlordPropertyPictures (MIMEType, ImageData, LandlordPropertyID) 
+                                                                 VALUES (@MIMEType, @ImageData, @LandlordPropertyID)"
             Using comm As New SqlCommand()
                 With comm
                     .Connection = conn
@@ -704,8 +710,7 @@ Public Class AdminAddProperty
                     Dim imageBytes(upload.PostedFile.InputStream.Length) As Byte
                     upload.PostedFile.InputStream.Read(imageBytes, 0, imageBytes.Length)
                     .Parameters.AddWithValue("@ImageData", imageBytes)
-
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
                 End With
 
                 conn.Open()
@@ -715,7 +720,7 @@ Public Class AdminAddProperty
         End If
     End Sub
 
-    Public Sub setDropdownList()
+    Public Sub SetDropdownList()
         FullDescrp.AppendDataBoundItems = True
         FullDescrp.Items.Insert(0, New ListItem("User *", "0"))
 
@@ -723,9 +728,9 @@ Public Class AdminAddProperty
         Neighborhood.Items.Insert(0, New ListItem("Neighborhood *", "0"))
 
         PropertyType.AppendDataBoundItems = True
-        PropertyType.Items.Insert(0, New ListItem("Property Type *", "0"))
+        PropertyType.Items.Insert(0, New ListItem("Property *", "0"))
 
         UnitType.AppendDataBoundItems = True
-        UnitType.Items.Insert(0, New ListItem("Unit Type *", "0"))
+        UnitType.Items.Insert(0, New ListItem("Unit *", "0"))
     End Sub
 End Class

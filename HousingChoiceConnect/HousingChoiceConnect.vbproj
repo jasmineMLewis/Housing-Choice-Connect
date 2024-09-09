@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,23 +9,22 @@
     </ProductVersion>
     <SchemaVersion>
     </SchemaVersion>
-    <ProjectGuid>{7007C5AB-A707-412F-9744-8F446E4C021C}</ProjectGuid>
+    <ProjectGuid>{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <RootNamespace>HousingChoiceConnect</RootNamespace>
     <AssemblyName>HousingChoiceConnect</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44304</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,7 +32,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile>HousingChoiceConnect.xml</DocumentationFile>
+    <DocumentationFile>WebForms_Basic.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -43,32 +42,64 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile>HousingChoiceConnect.xml</DocumentationFile>
+    <DocumentationFile>WebForms_Basic.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +117,7 @@
     <Import Include="System.Text.RegularExpressions" />
     <Import Include="System.Web" />
     <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.Routing" />
     <Import Include="System.Web.SessionState" />
     <Import Include="System.Web.Security" />
     <Import Include="System.Web.Profile" />
@@ -105,47 +137,6 @@
     <Content Include="admins\Admins.aspx" />
     <Content Include="admins\AdminSoonToBeDeletedProperties.aspx" />
     <Content Include="admins\AdminViewProperty.aspx" />
-    <Content Include="admins\Landlords.aspx" />
-    <Content Include="admins\Tenants.aspx" />
-    <Content Include="bin\HousingChoiceConnect.dll" />
-    <Content Include="bin\HousingChoiceConnect.pdb" />
-    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
-    <Content Include="bin\roslyn\csc.exe" />
-    <Content Include="bin\roslyn\csi.exe" />
-    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
-    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
-    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
-    <Content Include="bin\roslyn\System.AppContext.dll" />
-    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
-    <Content Include="bin\roslyn\System.Console.dll" />
-    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
-    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
-    <Content Include="bin\roslyn\System.IO.Compression.dll" />
-    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
-    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
-    <Content Include="bin\roslyn\System.IO.Pipes.AccessControl.dll" />
-    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
-    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
-    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
-    <Content Include="bin\roslyn\System.Security.Claims.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
-    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
-    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
-    <Content Include="bin\roslyn\System.ValueTuple.dll" />
-    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
-    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
-    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
-    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
-    <Content Include="bin\roslyn\vbc.exe" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\custom.css" />
@@ -155,44 +146,28 @@
     <Content Include="css\sign-up.css" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="img\carousel1.png" />
-    <Content Include="img\carousel2.png" />
-    <Content Include="img\carousel3.png" />
-    <Content Include="img\carousel4.png" />
-    <Content Include="img\carousel5.png" />
+    <Content Include="Global.asax" />
+    <Content Include="img\carousel-two.png" />
+    <Content Include="img\carousel-one.png" />
+    <Content Include="img\carousel-three.png" />
+    <Content Include="img\carousel-four.png" />
+    <Content Include="img\carousel-five.png" />
     <Content Include="img\favicon.ico" />
-    <Content Include="img\hanoLogo.png" />
-    <Content Include="img\houseDefault.jpg" />
+    <Content Include="img\hano-logo.png" />
+    <Content Include="img\house-default.jpg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\bs-pagination.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\sb-admin-2.js" />
-    <Content Include="landlords\LandlordActiveProperties.aspx" />
-    <Content Include="landlords\LandlordAddProperty.aspx" />
-    <Content Include="landlords\LandlordDashboard.aspx" />
-    <Content Include="landlords\LandlordEditProperty.aspx" />
-    <Content Include="landlords\LandlordInactiveProperties.aspx" />
-    <Content Include="landlords\LandlordProfileUpdate.aspx" />
-    <Content Include="landlords\LandlordSecurityQuestions.aspx" />
-    <Content Include="landlords\LandlordSoonDeletedProperties.aspx" />
-    <Content Include="landlords\SetPropertyState.aspx" />
-    <Content Include="obj\Debug\HousingChoiceConnect.dll" />
-    <Content Include="obj\Debug\HousingChoiceConnect.pdb" />
-    <Content Include="obj\Debug\HousingChoiceConnect.vbproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\HousingChoiceConnect.xml" />
     <Content Include="sign_in\AdminSignIn.aspx" />
     <Content Include="sign_in\LandlordSignIn.aspx" />
     <Content Include="sign_in\TenantSignIn.aspx" />
     <Content Include="sign_up\LandlordSignUp.aspx" />
     <Content Include="sign_up\TenantSignUp.aspx" />
-    <Content Include="tenants\TenantDashboard.aspx" />
-    <Content Include="tenants\TenantProfileUpdate.aspx" />
-    <Content Include="tenants\TenantPropertyList.aspx" />
-    <Content Include="tenants\TenantViewProperty.aspx" />
-    <Content Include="landlords\ViewProperty.aspx" />
     <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="admins\AdminActiveProperties.aspx.designer.vb">
@@ -265,26 +240,14 @@
       <DependentUpon>AdminViewProperty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admins\Landlords.aspx.designer.vb">
-      <DependentUpon>Landlords.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admins\Landlords.aspx.vb">
-      <DependentUpon>Landlords.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admins\Tenants.aspx.designer.vb">
-      <DependentUpon>Tenants.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admins\Tenants.aspx.vb">
-      <DependentUpon>Tenants.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="App_Start\BundleConfig.vb" />
+    <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.vb">
       <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Footer.Master.designer.vb">
       <DependentUpon>Footer.Master</DependentUpon>
@@ -293,68 +256,8 @@
       <DependentUpon>Footer.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="landlords\LandlordActiveProperties.aspx.designer.vb">
-      <DependentUpon>LandlordActiveProperties.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="landlords\LandlordActiveProperties.aspx.vb">
-      <DependentUpon>LandlordActiveProperties.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="landlords\LandlordAddProperty.aspx.designer.vb">
-      <DependentUpon>LandlordAddProperty.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="landlords\LandlordAddProperty.aspx.vb">
-      <DependentUpon>LandlordAddProperty.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="landlords\LandlordDashboard.aspx.designer.vb">
-      <DependentUpon>LandlordDashboard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="landlords\LandlordDashboard.aspx.vb">
-      <DependentUpon>LandlordDashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="landlords\LandlordEditProperty.aspx.designer.vb">
-      <DependentUpon>LandlordEditProperty.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="landlords\LandlordEditProperty.aspx.vb">
-      <DependentUpon>LandlordEditProperty.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="landlords\LandlordInactiveProperties.aspx.designer.vb">
-      <DependentUpon>LandlordInactiveProperties.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="landlords\LandlordInactiveProperties.aspx.vb">
-      <DependentUpon>LandlordInactiveProperties.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="landlords\LandlordProfileUpdate.aspx.designer.vb">
-      <DependentUpon>LandlordProfileUpdate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="landlords\LandlordProfileUpdate.aspx.vb">
-      <DependentUpon>LandlordProfileUpdate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="landlords\LandlordSecurityQuestions.aspx.designer.vb">
-      <DependentUpon>LandlordSecurityQuestions.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="landlords\LandlordSecurityQuestions.aspx.vb">
-      <DependentUpon>LandlordSecurityQuestions.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="landlords\LandlordSoonDeletedProperties.aspx.designer.vb">
-      <DependentUpon>LandlordSoonDeletedProperties.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="landlords\LandlordSoonDeletedProperties.aspx.vb">
-      <DependentUpon>LandlordSoonDeletedProperties.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="landlords\SetPropertyState.aspx.designer.vb">
-      <DependentUpon>SetPropertyState.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="landlords\SetPropertyState.aspx.vb">
-      <DependentUpon>SetPropertyState.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -410,34 +313,6 @@
       <DependentUpon>TenantSignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="tenants\TenantDashboard.aspx.designer.vb">
-      <DependentUpon>TenantDashboard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="tenants\TenantDashboard.aspx.vb">
-      <DependentUpon>TenantDashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="tenants\TenantProfileUpdate.aspx.designer.vb">
-      <DependentUpon>TenantProfileUpdate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="tenants\TenantProfileUpdate.aspx.vb">
-      <DependentUpon>TenantProfileUpdate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="tenants\TenantPropertyList.aspx.designer.vb">
-      <DependentUpon>TenantPropertyList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="tenants\TenantPropertyList.aspx.vb">
-      <DependentUpon>TenantPropertyList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="tenants\TenantViewProperty.aspx.designer.vb">
-      <DependentUpon>TenantViewProperty.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="tenants\TenantViewProperty.aspx.vb">
-      <DependentUpon>TenantViewProperty.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="UnloggedUser.Master.designer.vb">
       <DependentUpon>UnloggedUser.Master</DependentUpon>
     </Compile>
@@ -453,12 +328,12 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="utils\KeyGenerator.vb" />
-    <Compile Include="landlords\ViewProperty.aspx.designer.vb">
-      <DependentUpon>ViewProperty.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="landlords\ViewProperty.aspx.vb">
-      <DependentUpon>ViewProperty.aspx</DependentUpon>
+    <Compile Include="ViewSwitcher.ascx.vb">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.vb">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -468,56 +343,45 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\HousingChoiceConnect.Resources.resources" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Footer.Master" />
-    <Content Include="assets\Admins\Admin Manual.pdf" />
-    <Content Include="assets\Landlords\Address Change Form.pdf" />
-    <Content Include="assets\Landlords\contract rent adjustment request form.pdf" />
-    <Content Include="assets\Landlords\HANO Payment Standard.pdf" />
-    <Content Include="assets\Landlords\HANOExceptionPaymentStandards_2018.pdf" />
-    <Content Include="assets\Landlords\HANOPaymentStandards_2019.PDF" />
-    <Content Include="assets\Landlords\HudLandlordPropertyInspectionChecklist.pdf" />
-    <Content Include="assets\Landlords\Landlord Manual.pdf" />
-    <Content Include="assets\Landlords\Mutual Agreement To Terminate.pdf" />
-    <Content Include="assets\Landlords\Rent Increase Request Form.pdf" />
-    <Content Include="assets\Landlords\Smoke Detectors Guidelines.pdf" />
-    <Content Include="assets\Tenants\HANO_HCVP_InfoPacket.pdf" />
-    <Content Include="assets\Tenants\Maps\Jefferson Parish Minority Map.pdf" />
-    <Content Include="assets\Tenants\Maps\Jefferson Parish Poverty Map.pdf" />
-    <Content Include="assets\Tenants\Maps\Orleans Parish Minority Map.pdf" />
-    <Content Include="assets\Tenants\Maps\Orleans Parish Poverty Map.pdf" />
-    <Content Include="assets\Tenants\Maps\Plaquemines Parish Minority Map.pdf" />
-    <Content Include="assets\Tenants\Maps\Plaquemines Parish Poverty Map.pdf" />
-    <Content Include="assets\Tenants\Maps\St Bernard Parish Minority Map.pdf" />
-    <Content Include="assets\Tenants\Maps\St Bernard Parish Poverty Map.pdf" />
-    <Content Include="assets\Tenants\Maps\St Charles Parish Minority Map.pdf" />
-    <Content Include="assets\Tenants\Maps\St Charles Parish Poverty Map.pdf" />
-    <Content Include="assets\Tenants\Maps\St John Parish Minority Map.pdf" />
-    <Content Include="assets\Tenants\Maps\St John Parish Poverty Map.pdf" />
-    <Content Include="assets\Tenants\Maps\St Tammany Parish Minority Map.pdf" />
-    <Content Include="assets\Tenants\Maps\St Tammany Parish Poverty Map.pdf" />
-    <Content Include="assets\Tenants\Tenant Manual.pdf" />
-    <Content Include="assets\Tenants\Zip Code Amenities\70115 Amenities.pdf" />
-    <Content Include="assets\Tenants\Zip Code Amenities\70116 Amenities.pdf" />
-    <Content Include="assets\Tenants\Zip Code Amenities\70118 Amenities.pdf" />
-    <Content Include="assets\Tenants\Zip Code Amenities\70124 Amenities.pdf" />
-    <Content Include="assets\Tenants\Zip Code Amenities\70130 Amenities.pdf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="bin\roslyn\csc.exe.config" />
-    <Content Include="bin\roslyn\csc.rsp" />
-    <Content Include="bin\roslyn\csi.exe.config" />
-    <Content Include="bin\roslyn\csi.rsp" />
-    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\roslyn\vbc.exe.config" />
-    <Content Include="bin\roslyn\vbc.rsp" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="assets\admins\admin-manual.pdf" />
+    <Content Include="assets\landlords\address-change-form.pdf" />
+    <Content Include="assets\landlords\contract-rent-adjustment-request-form.pdf" />
+    <Content Include="assets\landlords\hano-payment-standard.pdf" />
+    <Content Include="assets\landlords\hano-exception-payment-standards-2018.pdf" />
+    <Content Include="assets\landlords\hano-payment-standards-2019.PDF" />
+    <Content Include="assets\landlords\hud-landlord-property-inspection-checklist.pdf" />
+    <Content Include="assets\landlords\landlord-manual.pdf" />
+    <Content Include="assets\landlords\mutual-agreement-to-terminate.pdf" />
+    <Content Include="assets\landlords\rent-increase-request-form.pdf" />
+    <Content Include="assets\landlords\smoke-detectors-guidelines.pdf" />
+    <Content Include="assets\tenants\hano-hcvp-info-packet.pdf" />
+    <Content Include="assets\tenants\tenant-manual.pdf" />
+    <Content Include="assets\tenants\zip-code-amenities\70115-amenities.pdf" />
+    <Content Include="assets\tenants\zip-code-amenities\70116-amenities.pdf" />
+    <Content Include="assets\tenants\zip-code-amenities\70118 -amenities.pdf" />
+    <Content Include="assets\tenants\zip-code-amenities\70124-amenities.pdf" />
+    <Content Include="assets\tenants\zip-code-amenities\70130-amenities.pdf" />
+    <Content Include="assets\tenants\maps\minority-maps\jefferson-parish-minority-map.pdf" />
+    <Content Include="assets\tenants\maps\minority-maps\orleans-parish-minority-map.pdf" />
+    <Content Include="assets\tenants\maps\minority-maps\plaquemines-parish-minority-map.pdf" />
+    <Content Include="assets\tenants\maps\minority-maps\st-bernard-parish-minority-map.pdf" />
+    <Content Include="assets\tenants\maps\minority-maps\st-charles-parish-minority-map.pdf" />
+    <Content Include="assets\tenants\maps\minority-maps\st-john-parish-minority-map.pdf" />
+    <Content Include="assets\tenants\maps\minority-maps\st-tammany-parish-minority-map.pdf" />
+    <Content Include="assets\tenants\maps\poverty-maps\jefferson-parish-poverty-map.pdf" />
+    <Content Include="assets\tenants\maps\poverty-maps\orleans-parish-poverty-map.pdf" />
+    <Content Include="assets\tenants\maps\poverty-maps\plaquemines-parish-poverty-map.pdf" />
+    <Content Include="assets\tenants\maps\poverty-maps\st-bernard-parish-poverty-map.pdf" />
+    <Content Include="assets\tenants\maps\poverty-maps\st-charles-parish-poverty-map.pdf" />
+    <Content Include="assets\tenants\maps\poverty-maps\st-john-parish-poverty-map.pdf" />
+    <Content Include="assets\tenants\maps\poverty-maps\st-tammany-parish-poverty-map.pdf" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -527,15 +391,10 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <Content Include="obj\Debug\build.force" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\HousingChoiceConnect.vbproj.CopyComplete" />
-    <Content Include="obj\Debug\HousingChoiceConnect.vbproj.CoreCompileInputs.cache" />
-    <Content Include="obj\Debug\HousingChoiceConnect.vbproj.GenerateResource.cache" />
-    <Content Include="obj\Debug\HousingChoiceConnect.vbprojAssemblyReference.cache" />
+    <Content Include="ViewSwitcher.ascx" />
     <None Include="packages.config" />
-    <Content Include="UserDashboard.Master" />
     <Content Include="UnloggedUser.Master" />
+    <Content Include="UserDashboard.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -544,7 +403,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -562,12 +422,6 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
-  <PropertyGroup>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
@@ -577,17 +431,14 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>58798</DevelopmentServerPort>
+          <DevelopmentServerPort>62693</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58798/</IISUrl>
+          <IISUrl>https://localhost:44304/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-          <servers defaultServer="SelfHostServer">
-            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:58798/" workingDir="" />
-          </servers>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
@@ -596,7 +447,7 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

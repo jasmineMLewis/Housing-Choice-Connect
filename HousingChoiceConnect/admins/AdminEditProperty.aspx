@@ -17,17 +17,17 @@
         If landlordPropertyID = Nothing Then
             landlordPropertyID = Request.QueryString("LandlordPropertyID")
         End If
-    
-        Dim userID As String
+
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
         End If
-    
+
         If userID = Nothing Then
             userID = Request.QueryString("UserID")
             Web.HttpContext.Current.Session("UserID") = userID
         End If
-       
+
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
         Dim addressProperty As String
         Dim aptSuite As String
@@ -43,14 +43,20 @@
         Dim dateAvailableToRent As String
         Dim petDeposit As Decimal
         Dim description As String
-            
+
         conn.Open()
-        Dim queryPropertyInfo As String = "SELECT * FROM LandlordProperty WHERE LandlordPropertyID='" & landlordPropertyID & "'"
+        Dim queryPropertyInfo As String = "SELECT AddressProperty, AptSuite, Rent, Deposit, PersonOfContact,
+                                                  PersonToContactPhoneNumber, IsUtilityElectricPaidByLandlord,
+                                                  IsUtilityWaterPaidByLandlord, IsUtilityGasPaidByLandlord,
+                                                  IsPropertyReadyForOccupancy, IsPetsPermitted,
+                                                  DateAvaiableToRent, PetDeposit, Description
+                                           FROM LandlordProperty 
+                                           WHERE LandlordPropertyID='" & landlordPropertyID & "'"
         Dim query As New SqlCommand(queryPropertyInfo, conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             addressProperty = CStr(reader("AddressProperty"))
-            aptSuite = CStr(reader("Apt_Suite"))
+            aptSuite = CStr(reader("AptSuite"))
             rent = CStr(reader("Rent"))
             deposit = CStr(reader("Deposit"))
             personOfContact = CStr(reader("PersonOfContact"))
@@ -65,7 +71,7 @@
             description = CStr(reader("Description"))
         End While
         conn.Close()
-    
+
         conn.Open()
         Dim isAccessibleParkingCloseToHome As Boolean
         Dim isRampedEntry As Boolean
@@ -85,51 +91,65 @@
         Dim isAudioVisualDoorbell As Boolean
         Dim isAudioVisualSmokeFireAlarm As Boolean
         Dim isElevatorAccess As Boolean
-    
-        Dim queryHandicapAccessibility As String = "SELECT * FROM LandlordPropertyHandicapAccessibility WHERE fk_LandlordPropertyID='" & landlordPropertyID & "'"
+
+        Dim queryHandicapAccessibility As String = "SELECT IsAccessibleParkingCloseToHome, IsRampedEntry,
+                                                           IsDoorways32InchesWider, IsAccessiblePathToAndInHome32InchesWider,
+                                                           IsAutomaticEntryDoor, IsLowCounterSinkAtBelow34Inches,
+                                                           IsAccessibleAppliances, IsShowerTubGrabBars,
+                                                           IsRollInShower, IsHandHeldShowerSprayer,
+                                                           IsFixedSeatInShowerTub, IsRaisedToilet,
+                                                           IsFirstFloorBedroom, IsFirstFloorBathroom,
+                                                           IsLiftElevator, IsAudioVisualDoorbell,
+                                                           IsAudioVisualSmokeFireAlarm, IsElevatorAccess
+                                                    FROM LandlordPropertyHandicapAccessibility 
+                                                    WHERE LandlordPropertyID='" & landlordPropertyID & "'"
         Dim query2 As New SqlCommand(queryHandicapAccessibility, conn)
         Dim readerHandicapAccessibility As SqlDataReader = query2.ExecuteReader()
         While readerHandicapAccessibility.Read
             isAccessibleParkingCloseToHome = CStr(readerHandicapAccessibility("IsAccessibleParkingCloseToHome"))
             isRampedEntry = CStr(readerHandicapAccessibility("IsRampedEntry"))
-            isDoorways32InchesWider = CStr(readerHandicapAccessibility("IsDoorways32Inches_Wider"))
-            isAccessiblePathToAndInHome32InchesWider = CStr(readerHandicapAccessibility("IsAccessiblePathToAndInHome32Inches_Wider"))
+            isDoorways32InchesWider = CStr(readerHandicapAccessibility("IsDoorways32InchesWider"))
+            isAccessiblePathToAndInHome32InchesWider = CStr(readerHandicapAccessibility("IsAccessiblePathToAndInHome32InchesWider"))
             isAutomaticEntryDoor = CStr(readerHandicapAccessibility("IsAutomaticEntryDoor"))
-            isLowCounterSinkAtBelow34Inches = CStr(readerHandicapAccessibility("IsLowCounter_SinkAt_Below34Inches"))
+            isLowCounterSinkAtBelow34Inches = CStr(readerHandicapAccessibility("IsLowCounterSinkAtBelow34Inches"))
             isAccessibleAppliances = CStr(readerHandicapAccessibility("IsAccessibleAppliances"))
-            isShowerTubGrabBars = CStr(readerHandicapAccessibility("IsShower_TubGrabBars"))
+            isShowerTubGrabBars = CStr(readerHandicapAccessibility("IsShowerTubGrabBars"))
             isRollInShower = CStr(readerHandicapAccessibility("IsRollInShower"))
             isHandHeldShowerSprayer = CStr(readerHandicapAccessibility("IsHandHeldShowerSprayer"))
-            isFixedSeatInShowerTub = CStr(readerHandicapAccessibility("IsFixedSeatInShower_Tub"))
+            isFixedSeatInShowerTub = CStr(readerHandicapAccessibility("IsFixedSeatInShowerTub"))
             isRaisedToilet = CStr(readerHandicapAccessibility("IsRaisedToilet"))
             isFirstFloorBedroom = CStr(readerHandicapAccessibility("IsFirstFloorBedroom"))
             isFirstFloorBathroom = CStr(readerHandicapAccessibility("IsFirstFloorBathroom"))
-            isLiftElevator = CStr(readerHandicapAccessibility("IsLift_Elevator"))
-            isAudioVisualDoorbell = CStr(readerHandicapAccessibility("IsAudio_VisualDoorbell"))
-            isAudioVisualSmokeFireAlarm = CStr(readerHandicapAccessibility("IsAudio_VisualSmoke_FireAlarm"))
+            isLiftElevator = CStr(readerHandicapAccessibility("IsLiftElevator"))
+            isAudioVisualDoorbell = CStr(readerHandicapAccessibility("IsAudioVisualDoorbell"))
+            isAudioVisualSmokeFireAlarm = CStr(readerHandicapAccessibility("IsAudioVisualSmokeFireAlarm"))
             isElevatorAccess = CStr(readerHandicapAccessibility("IsElevatorAccess"))
         End While
         conn.Close()
-    
+
         conn.Open()
         Dim propertyAmentities As New ArrayList
-        Dim queryAmentities As String = "SELECT * FROM LandlordPropertyAmentity WHERE fk_LandlordPropertyID='" & landlordPropertyID & "'"
+        Dim queryAmentities As String = "SELECT AmentityID 
+                                         FROM LandlordPropertyAmentity 
+                                         WHERE LandlordPropertyID='" & landlordPropertyID & "'"
         Dim query3 As New SqlCommand(queryAmentities, conn)
         Dim readerAmentities As SqlDataReader = query3.ExecuteReader()
         If readerAmentities.HasRows Then
             While readerAmentities.Read
-                propertyAmentities.Add(CStr(readerAmentities("fk_AmentityID")))
+                propertyAmentities.Add(CStr(readerAmentities("AmentityID")))
             End While
         End If
         conn.Close()
-    
+
         conn.Open()
         Dim imageType As String
         Dim pictureCount As Integer = 0
         Dim pictureID As Integer
         Dim picturesExists As Boolean() = {False, False, False, False, False, False}
         Dim pictureIDs As Integer() = {0, 0, 0, 0, 0, 0}
-        Dim queryPictrue As New SqlCommand("SELECT LandlordPropertyPictureID, MIMEType, ImageData FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "'", conn)
+        Dim queryPictrue As New SqlCommand("SELECT LandlordPropertyPictureID, MIMEType, ImageData 
+                                            FROM LandlordPropertyPictures 
+                                            WHERE LandlordPropertyID = '" & landlordPropertyID & "'", conn)
         Dim readerPictureInfo As SqlDataReader = queryPictrue.ExecuteReader()
         If readerPictureInfo.HasRows Then
             While readerPictureInfo.Read
@@ -140,7 +160,7 @@
                 Dim br As New System.IO.BinaryReader(fs)
                 Dim bytes As Byte() = br.ReadBytes(CType(fs.Length, Integer))
                 Dim base64String As String = Convert.ToBase64String(bytes, 0, bytes.Length)
-                    
+
                 If pictureCount = 0 Then
                     If imageType = "image/jpeg" Then
                         Image1.ImageUrl = "data:image/jpeg;base64," & base64String
@@ -185,7 +205,7 @@
                     End If
                     picturesExists(5) = True
                 End If
-                
+
                 pictureCount = pictureCount + 1
             End While
         End If
@@ -237,7 +257,9 @@
                                                 DataTextField="Neighborhood" DataValueField="NeighborhoodID">
                                             </asp:DropDownList>
                                             <asp:SqlDataSource ID="SqlNeighborhood" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                SelectCommand="SELECT [Neighborhood], [NeighborhoodID] FROM [Neighborhood] ORDER BY [Neighborhood]">
+                                                SelectCommand="SELECT DISTINCT Neighborhood, NeighborhoodID
+                                                               FROM Neighborhood 
+                                                               ORDER BY Neighborhood">
                                             </asp:SqlDataSource>
                                         </div>
                                     </div>
@@ -317,18 +339,22 @@
                                             <div class="input-group input-group-lg inputFormat col-sm-2">
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
                                                 <asp:DropDownList ID="PropertyType" runat="server" CssClass="selectpicker" DataSourceID="SqlPropertyType"
-                                                    DataTextField="Type" DataValueField="PropertyTypeID">
+                                                    DataTextField="Property" DataValueField="PropertyID">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlPropertyType" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT [Type], [PropertyTypeID] FROM [PropertyType]"></asp:SqlDataSource>
+                                                    SelectCommand="SELECT Property, PropertyID 
+                                                                   FROM Property">
+                                                </asp:SqlDataSource>
                                             </div>
                                             <div class="input-group input-group-lg inputFormat col-sm-3">
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-tag"></span></span>
                                                 <asp:DropDownList ID="UnitType" runat="server" CssClass="selectpicker" DataSourceID="SqlUnitType"
-                                                    DataTextField="Type" DataValueField="UnitTypeID">
+                                                    DataTextField="Unit" DataValueField="UnitID">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlUnitType" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT [Type], [UnitTypeID] FROM [UnitType]"></asp:SqlDataSource>
+                                                    SelectCommand="SELECT Unit, UnitID
+                                                                   FROM Unit">
+                                                </asp:SqlDataSource>
                                             </div>
                                         </div>
                                         <br />
@@ -1913,7 +1939,7 @@
                                     <div class="panel-body table-responsive">
                                         <div class="text-center">
                                             <button id="button" type="button" class="btn btn-info btn-block btn-lg" runat="server"
-                                                onserverclick="btnEditProperty">
+                                                onserverclick="BtnEditProperty">
                                                 <i class="fa fa-eraser"></i>&nbsp; Submit
                                             </button>
                                         </div>

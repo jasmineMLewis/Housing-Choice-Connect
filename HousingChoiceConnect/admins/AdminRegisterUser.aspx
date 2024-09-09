@@ -6,11 +6,11 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
-        Dim userID As String
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
         End If
-    
+
         If userID = Nothing Then
             userID = Request.QueryString("UserID")
             Web.HttpContext.Current.Session("UserID") = userID
@@ -111,7 +111,7 @@
                                                     name="landlordLastName" MaxLength="25"></asp:TextBox>
                                             </div>
 
-                                            <button type="button" class="btn btn-success btn-block btn-lg" runat="server" onserverclick="btnRegisterLandlord">
+                                            <button type="button" class="btn btn-success btn-block btn-lg" runat="server" onserverclick="BtnRegisterLandlord">
                                                 <i class="fa fa-upload"></i>&nbsp; Sign Up
                                             </button>
                                         </div>
@@ -129,7 +129,9 @@
                                                     DataTextField="FullDescrp" DataValueField="ID">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlFullDescrp" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT [ID], [FirstName] + ' ' + [LastName]  + ' :: ' + [EntityID] As FullDescrp FROM [EliteTenantImport] ORDER BY [FullDescrp] ASC">
+                                                    SelectCommand="SELECT EliteTenantImportID, FirstName + ' ' + LastName  + ' :: ' + EntityID As FullDescrp 
+                                                                   FROM EliteTenantImport
+                                                                   ORDER BY FullDescrp ASC">
                                                 </asp:SqlDataSource>
                                             </div>
                                             <div class="input-group input-group-lg inputFormat">
@@ -142,7 +144,9 @@
                                                 <asp:TextBox ID="tenantPassword" runat="server" class="form-control" placeholder="Password"
                                                     name="password" TextMode="Password" MaxLength="50"></asp:TextBox>
                                             </div>
-                                            <button id="Button1" type="button" class="btn btn-info btn-block btn-lg" runat="server" onserverclick="btnRegisterTenant">
+                                            <button id="ButtonRegisterTenant" type="button" 
+                                                    class="btn btn-info btn-block btn-lg" runat="server" 
+                                                    onserverclick="BtnRegisterTenant">
                                                 <i class="fa fa-upload"></i>&nbsp; Sign Up
                                             </button>
                                         </div>

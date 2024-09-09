@@ -8,17 +8,16 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
-        Dim userID As String
-
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
         End If
-    
+
         If userID = Nothing Then
             userID = Request.QueryString("UserID")
             Web.HttpContext.Current.Session("UserID") = userID
         End If
-        
+
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
     %>
     <div id="wrapper">
@@ -34,7 +33,9 @@
                 <%
                     Dim properties As Integer
                     conn.Open()
-                    Dim queryProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countSoon FROM LandlordProperty WHERE [DateLastUpdated] < DATEADD(day, -90, GETDATE())", conn)
+                    Dim queryProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countSoon 
+                                                           FROM LandlordProperty 
+                                                           WHERE DateLastUpdated < DATEADD(day, -90, GETDATE())", conn)
                     Dim readerProperties As SqlDataReader = queryProperties.ExecuteReader()
                     While readerProperties.Read
                         properties = CStr(readerProperties("countSoon"))
@@ -89,19 +90,25 @@
                                                     DataTextField="AddressProperty" DataValueField="LandlordPropertyID">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlPropertyAddress" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT LandlordPropertyID, AddressProperty FROM LandlordProperty WHERE DateLastUpdated < DATEADD(day, -90, GETDATE()) ORDER BY AddressProperty ASC">
+                                                    SelectCommand="SELECT LandlordPropertyID, AddressProperty 
+                                                                   FROM LandlordProperty 
+                                                                   WHERE DateLastUpdated < DATEADD(day, -90, GETDATE()) 
+                                                                   ORDER BY AddressProperty ASC">
                                                 </asp:SqlDataSource>
                                             </div>
                                         </div>
                                         <div class="list-group-item">
                                             <div class="input-group input-group-lg">
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-qrcode"></span>
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-qrcode"></span>
                                                 </span>
                                                 <asp:DropDownList ID="ZipCode" runat="server" CssClass="selectpicker" DataSourceID="SqlZipCode"
                                                     DataTextField="ZipCode" DataValueField="ZipCode">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlZipCode" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT DISTINCT ZipCode FROM Neighborhood"></asp:SqlDataSource>
+                                                    SelectCommand="SELECT DISTINCT ZipCode 
+                                                                   FROM Neighborhood">
+                                                </asp:SqlDataSource>
                                             </div>
                                         </div>
                                         <div class="list-group-item">
@@ -144,14 +151,15 @@
                                 </div>
                                 <div class="panel-body">
                                     <asp:SqlDataSource ID="sqlProperties" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                          SelectCommand="SELECT LandlordPropertyID, RTRIM([AddressProperty] + ' ' + [Apt_Suite]) As &quot;Address&quot;,
+                                          SelectCommand="SELECT LandlordPropertyID, RTRIM(AddressProperty + ' ' + AptSuite) As Address,
                                                                 Rent, BedroomNumber AS Bed, BathroomNumber As Bath, ZipCode,
                                                                 CONVERT (varchar(MAX), CAST(LandlordProperty.DateOfPostage AS date), 101) AS DateOfPostage, 
                                                                 CONVERT (varchar(MAX), CAST(LandlordProperty.DateLastUpdated AS date), 101) AS DateLastUpdated,
                                                                 PersonOfContact As Landlord, PersonToContactPhoneNumber As LandlordNumber 
                                                         FROM LandlordProperty 
-                                                        INNER JOIN Neighborhood ON LandlordProperty.fk_NeighborhoodID = Neighborhood.NeighborhoodID 
-                                                        WHERE DateLastUpdated < DATEADD(day, -90, GETDATE()) ORDER BY ZipCode, Bed ASC">
+                                                        INNER JOIN Neighborhood ON LandlordProperty.NeighborhoodID = Neighborhood.NeighborhoodID 
+                                                        WHERE DateLastUpdated < DATEADD(day, -90, GETDATE()) 
+                                                        ORDER BY ZipCode, Bed ASC">
                                     </asp:SqlDataSource>
                                     <div class="table-responsive">
                                         <asp:GridView ID="GridViewProperties" runat="server" CssClass="table" AutoGenerateColumns="False"

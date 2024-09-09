@@ -10,21 +10,21 @@ Public Class AdminEditPropertyaspx
 
     End Sub
 
-    Public Sub btnEditProperty(ByVal sender As Object, ByVal e As EventArgs)
-        Dim landlordPropertyID As String = getLandlordPropertyID()
-        updatePropertyInfo(landlordPropertyID)
+    Public Sub BtnEditProperty(ByVal sender As Object, ByVal e As EventArgs)
+        Dim landlordPropertyID As String = GetLandlordPropertyID()
+        UpdatePropertyInfo(landlordPropertyID)
 
-        Dim isHandicapAccessible As Boolean = updateHandicapAccessibilites(landlordPropertyID)
-        Dim isAmentitiesIncluded As Boolean = updateAmentities(landlordPropertyID)
+        Dim isHandicapAccessible As Boolean = UpdateHandicapAccessibilites(landlordPropertyID)
+        Dim isAmentitiesIncluded As Boolean = UpdateAmentities(landlordPropertyID)
 
-        updatePropertyAmentity_Handicap(landlordPropertyID, isAmentitiesIncluded, isHandicapAccessible)
-        uploadMultiplePictures(landlordPropertyID)
+        UpdatePropertyAmentityHandicap(landlordPropertyID, isAmentitiesIncluded, isHandicapAccessible)
+        UploadMultiplePictures(landlordPropertyID)
 
         Response.Redirect("AdminViewProperty.aspx?LandlordPropertyID=" & landlordPropertyID)
     End Sub
 
-    Public Function getSessionUserID() As String
-        Dim userID As String
+    Public Function GetSessionUserID() As String
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
         End If
@@ -36,7 +36,7 @@ Public Class AdminEditPropertyaspx
         Return userID
     End Function
 
-    Public Function getLandlordPropertyID() As String
+    Public Function GetLandlordPropertyID() As String
         Dim landlordPropertyID As String
         If landlordPropertyID = Nothing Then
             landlordPropertyID = Request.QueryString("LandlordPropertyID")
@@ -44,7 +44,7 @@ Public Class AdminEditPropertyaspx
         Return landlordPropertyID
     End Function
 
-    Public Sub populateDropdwonList(ByVal landlordPropertyID As Integer)
+    Public Sub PopulateDropdwonList(ByVal landlordPropertyID As Integer)
         Dim neighborhoodID As Integer
         Dim bedroomNumber As Integer
         Dim bathroomNumber As Double
@@ -52,14 +52,17 @@ Public Class AdminEditPropertyaspx
         Dim unitTypeID As Integer
 
         conn.Open()
-        Dim query As New SqlCommand("SELECT fk_NeighborhoodID, BedroomNumber, BathroomNumber, fk_PropertyTypeID, fk_UnitTypeID FROM LandlordProperty WHERE LandlordPropertyID='" & landlordPropertyID & "'", conn)
+        Dim query As New SqlCommand("SELECT NeighborhoodID, BedroomNumber, BathroomNumber, 
+                                            PropertyID, UnitID 
+                                    FROM LandlordProperty 
+                                    WHERE LandlordPropertyID='" & landlordPropertyID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
-            neighborhoodID = CStr(reader("fk_NeighborhoodID"))
+            neighborhoodID = CStr(reader("NeighborhoodID"))
             bedroomNumber = CStr(reader("BedroomNumber"))
             bathroomNumber = CStr(reader("BathroomNumber"))
-            propertyTypeID = CStr(reader("fk_PropertyTypeID"))
-            unitTypeID = CStr(reader("fk_UnitTypeID"))
+            propertyTypeID = CStr(reader("PropertyID"))
+            unitTypeID = CStr(reader("UnitID"))
         End While
         conn.Close()
 
@@ -90,33 +93,34 @@ Public Class AdminEditPropertyaspx
 
         If propertyTypeID <> 0 Then
             PropertyType.DataBind()
-            PropertyType.Items.Insert(0, New ListItem("Property Type *", "0"))
+            PropertyType.Items.Insert(0, New ListItem("Property *", "0"))
             PropertyType.Items.FindByValue(propertyTypeID).Selected = True
         Else
             PropertyType.AppendDataBoundItems = True
-            PropertyType.Items.Insert(0, New ListItem("Property Type *", "0"))
+            PropertyType.Items.Insert(0, New ListItem("Property *", "0"))
         End If
 
         If unitTypeID <> 0 Then
             UnitType.DataBind()
-            UnitType.Items.Insert(0, New ListItem("Unit Type *", "0"))
+            UnitType.Items.Insert(0, New ListItem("Unit *", "0"))
             UnitType.Items.FindByValue(unitTypeID).Selected = True
         Else
             UnitType.AppendDataBoundItems = True
-            UnitType.Items.Insert(0, New ListItem("Unit Type *", "0"))
+            UnitType.Items.Insert(0, New ListItem("Unit *", "0"))
         End If
     End Sub
 
-    Public Function updateAmentities(ByVal landlordPropertyID As Integer) As Boolean
+    Public Function UpdateAmentities(ByVal landlordPropertyID As Integer) As Boolean
         conn.Open()
-        Dim queryDelete As New SqlCommand("DELETE FROM LandlordPropertyAmentity WHERE fk_LandlordPropertyID ='" & landlordPropertyID & "'", conn)
+        Dim queryDelete As New SqlCommand("DELETE FROM LandlordPropertyAmentity 
+                                           WHERE LandlordPropertyID ='" & landlordPropertyID & "'", conn)
         queryDelete.ExecuteNonQuery()
         conn.Close()
 
         Dim hasAmentities As Boolean = 0
         Dim query As String = String.Empty
-        query &= "INSERT INTO LandlordPropertyAmentity (fk_LandlordPropertyID, fk_AmentityID)"
-        query &= "VALUES (@fk_LandlordPropertyID, @fk_AmentityID)"
+        query &= "INSERT INTO LandlordPropertyAmentity (LandlordPropertyID, AmentityID)"
+        query &= "VALUES (@LandlordPropertyID, @AmentityID)"
 
         If Not Request.Form("amentityCentralAirHeat") Is Nothing Or Not Request.Form("amentityCentralAirHeat") = "" Then
             hasAmentities = 1
@@ -125,8 +129,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityCentralAirHeat"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityCentralAirHeat"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -141,8 +145,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityWasher"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityWasher"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -157,8 +161,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityDryer"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityDryer"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -173,8 +177,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityAlarm"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityAlarm"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -189,8 +193,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityWasherDryerHookups"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityWasherDryerHookups"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -205,8 +209,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityCeilingFans"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityCeilingFans"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -221,8 +225,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityDishwasher"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityDishwasher"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -237,8 +241,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityRefrigerator"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityRefrigerator"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -253,8 +257,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityGarbageDisposal"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityGarbageDisposal"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -269,8 +273,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityStove"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityStove"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -285,8 +289,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityOffStreetParking"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityOffStreetParking"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -301,8 +305,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityCoveredParking"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityCoveredParking"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -317,8 +321,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityFrontYard"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityFrontYard"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -333,8 +337,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityBackYard"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityBackYard"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -349,8 +353,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityGated"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityGated"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -365,8 +369,8 @@ Public Class AdminEditPropertyaspx
                     .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
-                    .Parameters.AddWithValue("@fk_AmentityID", Request.Form("amentityOnsiteSecurity"))
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@AmentityID", Request.Form("amentityOnsiteSecurity"))
                 End With
                 conn.Open()
                 comm.ExecuteNonQuery()
@@ -377,7 +381,7 @@ Public Class AdminEditPropertyaspx
         Return hasAmentities
     End Function
 
-    Public Function updateHandicapAccessibilites(ByVal landlordPropertyID As Integer) As Boolean
+    Public Function UpdateHandicapAccessibilites(ByVal landlordPropertyID As Integer) As Boolean
         Dim isHandicapAccessible As Boolean = 0
         Dim handicapParkingClose As Boolean
         Dim rampedEntry As Boolean
@@ -525,12 +529,12 @@ Public Class AdminEditPropertyaspx
         End If
 
         Dim query As String = String.Empty
-        query &= "UPDATE LandlordPropertyHandicapAccessibility SET IsAccessibleParkingCloseToHome = '" & handicapParkingClose & "', IsRampedEntry = '" & rampedEntry & "', IsDoorways32Inches_Wider = '" & doorways32InchesOrWider & "',"
-        query &= " IsAccessiblePathToAndInHome32Inches_Wider = '" & accessiblePathIn32InchesOrWider & "', IsAutomaticEntryDoor = '" & automaticEntryDoor & "', IsLowCounter_SinkAt_Below34Inches = '" & lowCounterOrSinkBelow34Inches & "', "
-        query &= " IsAccessibleAppliances = '" & accessibleAppliances & "', IsShower_TubGrabBars = '" & showerOrTubGrabBars & "', IsRollInShower = '" & rollInShowers & "', IsHandHeldShowerSprayer = '" & handHeldShowerSprayer & "',  "
-        query &= " IsFixedSeatInShower_Tub = '" & fixedSeatInShowerOrTub & "', IsRaisedToilet = '" & raisedTiolet & "', IsFirstFloorBedroom = '" & firstFloorBedroom & "', IsFirstFloorBathroom = '" & firstFloorBathroom & "',  "
-        query &= " IsLift_Elevator = '" & liftOrElevator & "', IsAudio_VisualDoorbell = '" & audioOrVisualDoorbell & "', IsAudio_VisualSmoke_FireAlarm = '" & audioOrVisualSmokeOrFireAlarm & "', IsElevatorAccess = '" & elevatorAccess & "' "
-        query &= " WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "'"
+        query &= "UPDATE LandlordPropertyHandicapAccessibility SET IsAccessibleParkingCloseToHome = '" & handicapParkingClose & "', IsRampedEntry = '" & rampedEntry & "', IsDoorways32InchesWider = '" & doorways32InchesOrWider & "',"
+        query &= " IsAccessiblePathToAndInHome32Inches_Wider = '" & accessiblePathIn32InchesOrWider & "', IsAutomaticEntryDoor = '" & automaticEntryDoor & "', IsLowCounterSinkAtBelow34Inches = '" & lowCounterOrSinkBelow34Inches & "', "
+        query &= " IsAccessibleAppliances = '" & accessibleAppliances & "', IsShowerTubGrabBars = '" & showerOrTubGrabBars & "', IsRollInShower = '" & rollInShowers & "', IsHandHeldShowerSprayer = '" & handHeldShowerSprayer & "',  "
+        query &= " IsFixedSeatInShowerTub = '" & fixedSeatInShowerOrTub & "', IsRaisedToilet = '" & raisedTiolet & "', IsFirstFloorBedroom = '" & firstFloorBedroom & "', IsFirstFloorBathroom = '" & firstFloorBathroom & "',  "
+        query &= " IsLiftElevator = '" & liftOrElevator & "', IsAudioVisualDoorbell = '" & audioOrVisualDoorbell & "', IsAudioVisualSmokeFireAlarm = '" & audioOrVisualSmokeOrFireAlarm & "', IsElevatorAccess = '" & elevatorAccess & "' "
+        query &= " WHERE LandlordPropertyID = '" & landlordPropertyID & "'"
 
         conn.Open()
         Dim queryUpdate As New SqlCommand(query, conn)
@@ -539,7 +543,7 @@ Public Class AdminEditPropertyaspx
         Return isHandicapAccessible
     End Function
 
-    Public Sub updatePropertyInfo(ByVal landlordPropertyID As Integer)
+    Public Sub UpdatePropertyInfo(ByVal landlordPropertyID As Integer)
         Dim address As String
         Dim aptOrSuite As String
         Dim neighborhoodID As Integer = Neighborhood.SelectedValue
@@ -670,53 +674,58 @@ Public Class AdminEditPropertyaspx
         End Using
     End Sub
 
-    Public Sub updatePropertyAmentity_Handicap(ByVal landlordPropertyID As Integer, ByVal isAmentitiesIncluded As Boolean, ByVal isHandicapAccessible As Boolean)
+    Public Sub UpdatePropertyAmentityHandicap(ByVal landlordPropertyID As Integer, ByVal isAmentitiesIncluded As Boolean, ByVal isHandicapAccessible As Boolean)
         conn.Open()
-        Dim query As New SqlCommand("UPDATE LandlordProperty SET IsAmentitiesIncluded = '" & isAmentitiesIncluded & "', IsHandicapAccessible = '" & isHandicapAccessible & "' WHERE LandlordPropertyID ='" & landlordPropertyID & "'", conn)
+        Dim query As New SqlCommand("UPDATE LandlordProperty 
+                                     SET IsAmentitiesIncluded = '" & isAmentitiesIncluded & "', 
+                                         IsHandicapAccessible = '" & isHandicapAccessible & "' 
+                                     WHERE LandlordPropertyID ='" & landlordPropertyID & "'", conn)
         query.ExecuteNonQuery()
         conn.Close()
     End Sub
 
-    Public Sub uploadMultiplePictures(ByVal landlordPropertyID As Integer)
+    Public Sub UploadMultiplePictures(ByVal landlordPropertyID As Integer)
         Const MAX_PICTURES As Integer = 6
 
         For value As Integer = 1 To MAX_PICTURES
             If value = 1 Then
                 If picture1.HasFile Then
-                    uploadSinglePicture(picture1, value, landlordPropertyID)
+                    UploadSinglePicture(picture1, value, landlordPropertyID)
                 End If
             ElseIf value = 2 Then
                 If picture2.HasFile Then
-                    uploadSinglePicture(picture2, value, landlordPropertyID)
+                    UploadSinglePicture(picture2, value, landlordPropertyID)
                 End If
             ElseIf value = 3 Then
                 If picture3.HasFile Then
-                    uploadSinglePicture(picture3, value, landlordPropertyID)
+                    UploadSinglePicture(picture3, value, landlordPropertyID)
                 End If
             ElseIf value = 4 Then
                 If picture4.HasFile Then
-                    uploadSinglePicture(picture4, value, landlordPropertyID)
+                    UploadSinglePicture(picture4, value, landlordPropertyID)
                 End If
             ElseIf value = 5 Then
                 If picture5.HasFile Then
-                    uploadSinglePicture(picture5, value, landlordPropertyID)
+                    UploadSinglePicture(picture5, value, landlordPropertyID)
                 End If
             ElseIf value = 6 Then
                 If picture6.HasFile Then
-                    uploadSinglePicture(picture6, value, landlordPropertyID)
+                    UploadSinglePicture(picture6, value, landlordPropertyID)
                 End If
             End If
         Next
     End Sub
 
-    Public Sub uploadSinglePicture(ByVal upload As FileUpload, ByVal value As Integer, ByVal landlordPropertyID As Integer)
+    Public Sub UploadSinglePicture(ByVal upload As FileUpload, ByVal value As Integer, ByVal landlordPropertyID As Integer)
         If upload.HasFile Then
             Dim pictureID As Integer
             Dim count As Integer = 0
 
             If value = 1 Then
                 conn.Open()
-                Dim queryPicture1 As New SqlCommand("SELECT TOP 1 LandlordPropertyPictureID FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "'", conn)
+                Dim queryPicture1 As New SqlCommand("SELECT TOP 1 LandlordPropertyPictureID 
+                                                     FROM LandlordPropertyPictures 
+                                                     WHERE LandlordPropertyID = '" & landlordPropertyID & "'", conn)
                 Dim readerPicture1 As SqlDataReader = queryPicture1.ExecuteReader()
                 If readerPicture1.HasRows Then
                     While readerPicture1.Read
@@ -726,7 +735,9 @@ Public Class AdminEditPropertyaspx
                 conn.Close()
 
                 conn.Open()
-                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "'", conn)
+                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount 
+                                                  FROM LandlordPropertyPictures 
+                                                  WHERE LandlordPropertyID = '" & landlordPropertyID & "'", conn)
                 Dim readerCount As SqlDataReader = queryCount.ExecuteReader()
                 If readerCount.HasRows Then
                     While readerCount.Read
@@ -738,7 +749,8 @@ Public Class AdminEditPropertyaspx
                 If picture1.HasFile Then
                     If count < 2 Then
                         conn.Open()
-                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
+                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures 
+                                                           WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
                         queryUpdate.ExecuteNonQuery()
                         conn.Close()
                     End If
@@ -746,7 +758,10 @@ Public Class AdminEditPropertyaspx
                 End If
             ElseIf value = 2 Then
                 conn.Open()
-                Dim queryPicture2 As New SqlCommand("SELECT TOP 2 LandlordPropertyPictureID FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "' ORDER BY ROW_NUMBER() OVER(ORDER BY LandlordPropertyPictureID) ASC ", conn)
+                Dim queryPicture2 As New SqlCommand("SELECT TOP 2 LandlordPropertyPictureID 
+                                                     FROM LandlordPropertyPictures 
+                                                     WHERE LandlordPropertyID = '" & landlordPropertyID & "' 
+                                                     ORDER BY ROW_NUMBER() OVER(ORDER BY LandlordPropertyPictureID) ASC ", conn)
                 Dim readerPicture2 As SqlDataReader = queryPicture2.ExecuteReader()
                 If readerPicture2.HasRows Then
                     While readerPicture2.Read
@@ -756,7 +771,9 @@ Public Class AdminEditPropertyaspx
                 conn.Close()
 
                 conn.Open()
-                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "'", conn)
+                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount 
+                                                  FROM LandlordPropertyPictures 
+                                                  WHERE LandlordPropertyID = '" & landlordPropertyID & "'", conn)
                 Dim readerCount As SqlDataReader = queryCount.ExecuteReader()
                 If readerCount.HasRows Then
                     While readerCount.Read
@@ -775,7 +792,10 @@ Public Class AdminEditPropertyaspx
                 End If
             ElseIf value = 3 Then
                 conn.Open()
-                Dim queryPicture3 As New SqlCommand("SELECT TOP 3 LandlordPropertyPictureID FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "' ORDER BY ROW_NUMBER() OVER(ORDER BY LandlordPropertyPictureID) ASC ", conn)
+                Dim queryPicture3 As New SqlCommand("SELECT TOP 3 LandlordPropertyPictureID 
+                                                     FROM LandlordPropertyPictures 
+                                                     WHERE LandlordPropertyID = '" & landlordPropertyID & "' 
+                                                     ORDER BY ROW_NUMBER() OVER(ORDER BY LandlordPropertyPictureID) ASC ", conn)
                 Dim readerPicture3 As SqlDataReader = queryPicture3.ExecuteReader()
                 If readerPicture3.HasRows Then
                     While readerPicture3.Read
@@ -785,7 +805,9 @@ Public Class AdminEditPropertyaspx
                 conn.Close()
 
                 conn.Open()
-                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "'", conn)
+                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount 
+                                                  FROM LandlordPropertyPictures 
+                                                  WHERE LandlordPropertyID = '" & landlordPropertyID & "'", conn)
                 Dim readerCount As SqlDataReader = queryCount.ExecuteReader()
                 If readerCount.HasRows Then
                     While readerCount.Read
@@ -797,14 +819,18 @@ Public Class AdminEditPropertyaspx
                 If picture3.HasFile Then
                     If count = 3 Then
                         conn.Open()
-                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
+                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures 
+                                                           WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
                         queryUpdate.ExecuteNonQuery()
                         conn.Close()
                     End If
                 End If
             ElseIf value = 4 Then
                 conn.Open()
-                Dim queryPicture4 As New SqlCommand("SELECT TOP 4 LandlordPropertyPictureID FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "' ORDER BY ROW_NUMBER() OVER(ORDER BY LandlordPropertyPictureID) ASC ", conn)
+                Dim queryPicture4 As New SqlCommand("SELECT TOP 4 LandlordPropertyPictureID 
+                                                     FROM LandlordPropertyPictures 
+                                                     WHERE LandlordPropertyID = '" & landlordPropertyID & "' 
+                                                     ORDER BY ROW_NUMBER() OVER(ORDER BY LandlordPropertyPictureID) ASC ", conn)
                 Dim readerPicture4 As SqlDataReader = queryPicture4.ExecuteReader()
                 If readerPicture4.HasRows Then
                     While readerPicture4.Read
@@ -814,7 +840,9 @@ Public Class AdminEditPropertyaspx
                 conn.Close()
 
                 conn.Open()
-                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "'", conn)
+                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount 
+                                                  FROM LandlordPropertyPictures 
+                                                  WHERE LandlordPropertyID = '" & landlordPropertyID & "'", conn)
                 Dim readerCount As SqlDataReader = queryCount.ExecuteReader()
                 If readerCount.HasRows Then
                     While readerCount.Read
@@ -826,14 +854,18 @@ Public Class AdminEditPropertyaspx
                 If picture4.HasFile Then
                     If count = 4 Then
                         conn.Open()
-                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
+                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures 
+                                                           WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
                         queryUpdate.ExecuteNonQuery()
                         conn.Close()
                     End If
                 End If
             ElseIf value = 5 Then
                 conn.Open()
-                Dim queryPicture5 As New SqlCommand("SELECT TOP 5 LandlordPropertyPictureID FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "' ORDER BY ROW_NUMBER() OVER(ORDER BY LandlordPropertyPictureID) ASC ", conn)
+                Dim queryPicture5 As New SqlCommand("SELECT TOP 5 LandlordPropertyPictureID 
+                                                     FROM LandlordPropertyPictures 
+                                                     WHERE LandlordPropertyID = '" & landlordPropertyID & "' 
+                                                     ORDER BY ROW_NUMBER() OVER(ORDER BY LandlordPropertyPictureID) ASC ", conn)
                 Dim readerPicture5 As SqlDataReader = queryPicture5.ExecuteReader()
                 If readerPicture5.HasRows Then
                     While readerPicture5.Read
@@ -843,7 +875,9 @@ Public Class AdminEditPropertyaspx
                 conn.Close()
 
                 conn.Open()
-                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "'", conn)
+                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount 
+                                                  FROM LandlordPropertyPictures 
+                                                  WHERE LandlordPropertyID = '" & landlordPropertyID & "'", conn)
                 Dim readerCount As SqlDataReader = queryCount.ExecuteReader()
                 If readerCount.HasRows Then
                     While readerCount.Read
@@ -855,14 +889,18 @@ Public Class AdminEditPropertyaspx
                 If picture5.HasFile Then
                     If count = 5 Then
                         conn.Open()
-                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
+                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures 
+                                                           WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
                         queryUpdate.ExecuteNonQuery()
                         conn.Close()
                     End If
                 End If
             ElseIf value = 6 Then
                 conn.Open()
-                Dim queryPicture6 As New SqlCommand("SELECT TOP 6 LandlordPropertyPictureID FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "' ORDER BY ROW_NUMBER() OVER(ORDER BY LandlordPropertyPictureID) ASC ", conn)
+                Dim queryPicture6 As New SqlCommand("SELECT TOP 6 LandlordPropertyPictureID 
+                                                     FROM LandlordPropertyPictures 
+                                                     WHERE LandlordPropertyID = '" & landlordPropertyID & "' 
+                                                     ORDER BY ROW_NUMBER() OVER(ORDER BY LandlordPropertyPictureID) ASC ", conn)
                 Dim readerPicture6 As SqlDataReader = queryPicture6.ExecuteReader()
                 If readerPicture6.HasRows Then
                     While readerPicture6.Read
@@ -872,7 +910,9 @@ Public Class AdminEditPropertyaspx
                 conn.Close()
 
                 conn.Open()
-                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount FROM LandlordPropertyPictures WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "'", conn)
+                Dim queryCount As New SqlCommand("SELECT COUNT(*) AS PictureCount 
+                                                  FROM LandlordPropertyPictures 
+                                                  WHERE LandlordPropertyID = '" & landlordPropertyID & "'", conn)
                 Dim readerCount As SqlDataReader = queryCount.ExecuteReader()
                 If readerCount.HasRows Then
                     While readerCount.Read
@@ -884,7 +924,8 @@ Public Class AdminEditPropertyaspx
                 If picture6.HasFile Then
                     If count = 6 Then
                         conn.Open()
-                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
+                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures 
+                                                           WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
                         queryUpdate.ExecuteNonQuery()
                         conn.Close()
                     End If
@@ -904,7 +945,8 @@ Public Class AdminEditPropertyaspx
                     Exit Sub
             End Select
 
-            Dim query As String = "INSERT INTO LandlordPropertyPictures (MIMEType, ImageData, fk_LandlordPropertyID) VALUES (@MIMEType, @ImageData, @fk_LandlordPropertyID)"
+            Dim query As String = "INSERT INTO LandlordPropertyPictures (MIMEType, ImageData, LandlordPropertyID) 
+                                   VALUES                               (@MIMEType, @ImageData, @LandlordPropertyID)"
             Using comm As New SqlCommand()
                 With comm
                     .Connection = conn
@@ -916,8 +958,7 @@ Public Class AdminEditPropertyaspx
                     Dim imageBytes(upload.PostedFile.InputStream.Length) As Byte
                     upload.PostedFile.InputStream.Read(imageBytes, 0, imageBytes.Length)
                     .Parameters.AddWithValue("@ImageData", imageBytes)
-
-                    .Parameters.AddWithValue("@fk_LandlordPropertyID", landlordPropertyID)
+                    .Parameters.AddWithValue("@LandlordPropertyID", landlordPropertyID)
                 End With
 
                 conn.Open()

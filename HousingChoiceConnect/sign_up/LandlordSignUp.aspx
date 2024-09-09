@@ -14,7 +14,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="logo" href="Default.aspx"><img src="../img/hanoLogo.png" alt="hanoLogo" /></a>
+            <a class="logo" href="Default.aspx"><img src="../img/hanoLogo.png" alt="hano-logo" /></a>
         </div>
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -108,7 +108,7 @@
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                                     <asp:TextBox ID="lastName" runat="server" class="form-control" placeholder="Last Name" name="lastName" maxlength="50"></asp:TextBox>
                                 </div>  
-                                 <button type="button" class="btn btn-info btn-block btn-lg" id="btnTenantSignUp" runat="server" onserverclick="btnSubmitClick">
+                                 <button type="button" class="btn btn-info btn-block btn-lg" id="btnTenantSignUp" runat="server" onserverclick="BtnLandlordSignUp">
                                         <i class="fa fa-upload"></i> Sign Up
                                  </button>
                                  <div class="input-group input-group-lg inputFormat">

@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
-        Dim userID As String
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
         End If
@@ -31,7 +31,8 @@
                 <%
             Dim allProperties As Integer
             conn.Open()
-            Dim queryallProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countAll FROM LandlordProperty", conn)
+            Dim queryallProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countAll 
+                                                      FROM LandlordProperty", conn)
             Dim readerallProperties As SqlDataReader = queryallProperties.ExecuteReader()
             While readerallProperties.Read
                 allProperties = CStr(readerallProperties("countAll"))
@@ -86,7 +87,9 @@
                                                     DataTextField="AddressProperty" DataValueField="LandlordPropertyID">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlPropertyAddress" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT LandlordPropertyID, RTRIM(AddressProperty + ' ' + Apt_Suite) AS AddressProperty FROM LandlordProperty ORDER BY AddressProperty">
+                                                    SelectCommand="SELECT LandlordPropertyID, RTRIM(AddressProperty + ' ' + AptSuite) AS AddressProperty 
+                                                                   FROM LandlordProperty 
+                                                                   ORDER BY AddressProperty">
                                                 </asp:SqlDataSource>
                                             </div>
                                         </div>
@@ -98,7 +101,9 @@
                                                     DataTextField="ZipCode" DataValueField="ZipCode">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlZipCode" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT DISTINCT ZipCode FROM Neighborhood"></asp:SqlDataSource>
+                                                    SelectCommand="SELECT DISTINCT ZipCode 
+                                                                   FROM Neighborhood">
+                                                </asp:SqlDataSource>
                                             </div>
                                         </div>
                                         <div class="list-group-item">
@@ -159,7 +164,7 @@
                             <i class="fa fa-file-excel-o"></i>&nbsp;Export to Excel
                         </div>
                         <div class="panel-body">
-                            <button id="Button2" type="button" class="btn btn-default btn-block btn-lg" runat="server"
+                            <button id="ButtonExportToExcel" type="button" class="btn btn-default btn-block btn-lg" runat="server"
                                 onserverclick="BtnExportToExcel">
                                 <i class="fa fa-file-excel-o"></i>&nbsp;Export to Excel
                             </button>
@@ -173,13 +178,13 @@
                         </div>
                         <div class="panel-body">
                             <asp:SqlDataSource ID="sqlProperties" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                SelectCommand="SELECT LandlordPropertyID, RTRIM([AddressProperty] + ' ' + [Apt_Suite]) As &quot;Address&quot;,
+                                SelectCommand="SELECT LandlordPropertyID, RTRIM(AddressProperty + ' ' + AptSuite) As &quot;Address&quot;,
                                                       Rent, BedroomNumber AS Bed, BathroomNumber As Bath, ZipCode, NumberOfTenantViews,
                                                       CONVERT (varchar(MAX), CAST(LandlordProperty.DateOfPostage AS date), 101) AS DateOfPostage, 
                                                       CONVERT (varchar(MAX), CAST(LandlordProperty.DateLastUpdated AS date), 101) AS DateLastUpdated,
                                                       PersonOfContact As Landlord, PersonToContactPhoneNumber As LandlordNumber 
                                                FROM LandlordProperty 
-                                               INNER JOIN Neighborhood ON LandlordProperty.fk_NeighborhoodID = Neighborhood.NeighborhoodID
+                                               INNER JOIN Neighborhood ON LandlordProperty.NeighborhoodID = Neighborhood.NeighborhoodID
                                                ORDER BY ZipCode, Bed ASC">
                             </asp:SqlDataSource>
                             <div class="table-responsive">

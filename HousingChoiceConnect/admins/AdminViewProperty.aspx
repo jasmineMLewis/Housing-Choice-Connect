@@ -32,15 +32,22 @@
             landlordPropertyID = Request.QueryString("LandlordPropertyID")
         End If
 
-        Dim userID As String
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
+        End If
+
+        If userID = Nothing Then
+            userID = Request.QueryString("UserID")
+            Web.HttpContext.Current.Session("UserID") = userID
         End If
 
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
         conn.Open()
         Dim landlordPropertyTenantViews As Integer
-        Dim queryViewsInfo As New SqlCommand("SELECT NumberOfTenantViews FROM LandlordProperty WHERE LandlordPropertyID='" & landlordPropertyID & "'", conn)
+        Dim queryViewsInfo As New SqlCommand("SELECT NumberOfTenantViews 
+                                              FROM LandlordProperty 
+                                              WHERE LandlordPropertyID='" & landlordPropertyID & "'", conn)
         Dim readerViewsInfo As SqlDataReader = queryViewsInfo.ExecuteReader()
         While readerViewsInfo.Read
             landlordPropertyTenantViews = CStr(readerViewsInfo("NumberOfTenantViews"))
@@ -49,17 +56,22 @@
 
         conn.Open()
         Dim roleID As Integer
-        Dim queryRoleInfo As New SqlCommand("SELECT fk_RoleID FROM Users WHERE UserID='" & userID & "'", conn)
+        Dim queryRoleInfo As New SqlCommand("SELECT RoleID 
+                                             FROM Users 
+                                             WHERE UserID='" & userID & "'", conn)
         Dim readerRoleInfo As SqlDataReader = queryRoleInfo.ExecuteReader()
         While readerRoleInfo.Read
-            roleID = CStr(readerRoleInfo("fk_RoleID"))
+            roleID = CStr(readerRoleInfo("RoleID"))
         End While
         conn.Close()
 
-        If roleID = 4 Then
+        Const TENANT_ROLE_ID As Integer = 2
+        If roleID = TENANT_ROLE_ID Then
             landlordPropertyTenantViews = landlordPropertyTenantViews + 1
             conn.Open()
-            Dim queryUpdateViews As New SqlCommand("UPDATE LandlordProperty SET NumberOfTenantViews = '" & landlordPropertyTenantViews & "' WHERE LandlordPropertyID='" & landlordPropertyID & "'", conn)
+            Dim queryUpdateViews As New SqlCommand("UPDATE LandlordProperty 
+                                                    SET NumberOfTenantViews = '" & landlordPropertyTenantViews & "' 
+                                                    WHERE LandlordPropertyID='" & landlordPropertyID & "'", conn)
             queryUpdateViews.ExecuteNonQuery()
             conn.Close()
         End If
@@ -89,15 +101,23 @@
 
         conn.Open()
         Dim queryPropertyInfo As String = String.Empty
-        queryPropertyInfo &= "SELECT fk_UserID, AddressProperty, Apt_Suite, Neighborhood.Neighborhood, Neighborhood.ZipCode, BathroomNumber, BedroomNumber, PropertyType.Type AS PropType, UnitType.Type As UnType, Rent, Deposit, PersonOfContact, PersonToContactPhoneNumber, IsUtilityElectricPaidByLandlord, IsUtilityWaterPaidByLandlord, IsUtilityGasPaidByLandlord, IsPropertyReadyForOccupancy, IsPetsPermitted, DateAvaiableToRent, PetDeposit, LandlordProperty.Description AS descrp "
-        queryPropertyInfo &= "FROM LandlordProperty INNER JOIN Neighborhood ON LandlordProperty.fk_NeighborhoodID = Neighborhood.NeighborhoodID INNER JOIN PropertyType ON LandlordProperty.fk_PropertyTypeID = PropertyType.PropertyTypeID INNER JOIN UnitType ON LandlordProperty.fk_UnitTypeID = UnitType.UnitTypeID WHERE LandlordPropertyID='" & landlordPropertyID & "'"
+        queryPropertyInfo &= "SELECT UserID, AddressProperty, AptSuite, Neighborhood.Neighborhood, Neighborhood.ZipCode,  "
+        queryPropertyInfo &= "       BathroomNumber, BedroomNumber, Property.Property AS Property, Unit.Unit As Unit, Rent, "
+        queryPropertyInfo &= "       Deposit, PersonOfContact, PersonToContactPhoneNumber, IsUtilityElectricPaidByLandlord, "
+        queryPropertyInfo &= "       IsUtilityWaterPaidByLandlord, IsUtilityGasPaidByLandlord, IsPropertyReadyForOccupancy, "
+        queryPropertyInfo &= "       IsPetsPermitted, DateAvaiableToRent, PetDeposit, LandlordProperty.Description AS descrp "
+        queryPropertyInfo &= "FROM LandlordProperty "
+        queryPropertyInfo &= "INNER JOIN Neighborhood ON LandlordProperty.NeighborhoodID = Neighborhood.NeighborhoodID "
+        queryPropertyInfo &= "INNER JOIN Property ON LandlordProperty.PropertyID = Property.PropertyID "
+        queryPropertyInfo &= "INNER JOIN Unit ON LandlordProperty.UnitID = Unit.UnitID "
+        queryPropertyInfo &= "WHERE LandlordPropertyID='" & landlordPropertyID & "'"
 
         Dim query As New SqlCommand(queryPropertyInfo, conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
-            landlordUserID = CStr(reader("fk_UserID"))
+            landlordUserID = CStr(reader("UserID"))
             addressProperty = CStr(reader("AddressProperty"))
-            aptSuite = CStr(reader("Apt_Suite"))
+            aptSuite = CStr(reader("AptSuite"))
             neighborhood = CStr(reader("Neighborhood"))
             zipCode = CStr(reader("ZipCode"))
             bathNumber = CStr(reader("BathroomNumber"))
@@ -106,8 +126,8 @@
             deposit = CStr(reader("Deposit"))
             personOfContact = CStr(reader("PersonOfContact"))
             personToContactPhoneNumber = CStr(reader("PersonToContactPhoneNumber"))
-            propertyType = CStr(reader("PropType"))
-            unitType = CStr(reader("UnType"))
+            propertyType = CStr(reader("Property"))
+            unitType = CStr(reader("Unit"))
             utilityElectric = CStr(reader("IsUtilityElectricPaidByLandlord"))
             utilityWater = CStr(reader("IsUtilityWaterPaidByLandlord"))
             utilityGas = CStr(reader("IsUtilityGasPaidByLandlord"))

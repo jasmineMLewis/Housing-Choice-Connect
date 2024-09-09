@@ -14,19 +14,19 @@ Public Class AdminInactiveProperties
 
     Private Sub BindGridWithFilters()
         Dim sql As String = "SELECT LandlordProperty.LandlordPropertyID, " &
-                            "       RTRIM(LandlordProperty.AddressProperty + ' ' + LandlordProperty.Apt_Suite) As ""Address"", Rent, " &
+                            "       RTRIM(LandlordProperty.AddressProperty + ' ' + LandlordProperty.AptSuite) As Address, Rent, " &
                             "       BedroomNumber AS Bed, BathroomNumber As Bath, Neighborhood.ZipCode, PersonOfContact As Landlord, " &
                             "       CONVERT (varchar(MAX), CAST(LandlordProperty.DateOfPostage AS date), 101) AS DateOfPostage, " &
                             "       CONVERT (varchar(MAX), CAST(LandlordProperty.DateLastUpdated AS date), 101) AS DateLastUpdated, " &
                             "       PersonToContactPhoneNumber As LandlordNumber " &
                             "FROM LandlordProperty " &
-                            "INNER JOIN Neighborhood ON LandlordProperty.fk_NeighborhoodID = Neighborhood.NeighborhoodID " &
+                            "INNER JOIN Neighborhood ON LandlordProperty.NeighborhoodID = Neighborhood.NeighborhoodID " &
                             "WHERE IsActive = 0"
         Dim streetAddressID As Integer = PropertyAddress.SelectedValue
         Dim zip As Integer = ZipCode.SelectedValue
         Dim beds As Integer = Bedroom.SelectedValue
         Dim baths As Double = Bathroom.SelectedValue
-        Dim rent As String = rentText.Text
+        Dim rent As String = rentText.Text.Trim
 
         If (streetAddressID > 0) Then
             sql += "AND LandlordProperty.LandlordPropertyID = " + streetAddressID.ToString()
@@ -56,7 +56,7 @@ Public Class AdminInactiveProperties
     End Sub
 
     Protected Sub BtnFilterProperties(ByVal sender As Object, ByVal e As EventArgs)
-        Me.BindGridWithFilters()
+        BindGridWithFilters()
     End Sub
 
     Protected Sub BtnExportToExcel(ByVal sender As Object, ByVal e As EventArgs)

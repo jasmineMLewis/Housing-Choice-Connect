@@ -13,20 +13,20 @@ Public Class AdminActiveProperties
     End Sub
 
     Private Sub BindGridWithFilters()
-        Dim sql As String = "SELECT LandlordProperty.LandlordPropertyID, " & _
-                            "       RTRIM(LandlordProperty.AddressProperty + ' ' + LandlordProperty.Apt_Suite) As ""Address"", Rent, " & _
-                            "       BedroomNumber AS Bed, BathroomNumber As Bath, Neighborhood.ZipCode, PersonOfContact As Landlord, " & _
-                            "       CONVERT (varchar(MAX), CAST(LandlordProperty.DateOfPostage AS date), 101) AS DateOfPostage, " & _
-                            "       CONVERT (varchar(MAX), CAST(LandlordProperty.DateLastUpdated AS date), 101) AS DateLastUpdated, " & _
-                            "       PersonToContactPhoneNumber As LandlordNumber " & _
-                            "FROM LandlordProperty " & _
-                            "INNER JOIN Neighborhood ON LandlordProperty.fk_NeighborhoodID = Neighborhood.NeighborhoodID " & _
+        Dim sql As String = "SELECT LandlordProperty.LandlordPropertyID, " &
+                            "       RTRIM(LandlordProperty.AddressProperty + ' ' + LandlordProperty.AptSuite) As Address, Rent, " &
+                            "       BedroomNumber AS Bed, BathroomNumber As Bath, Neighborhood.ZipCode, PersonOfContact As Landlord, " &
+                            "       CONVERT (varchar(MAX), CAST(LandlordProperty.DateOfPostage AS date), 101) AS DateOfPostage, " &
+                            "       CONVERT (varchar(MAX), CAST(LandlordProperty.DateLastUpdated AS date), 101) AS DateLastUpdated, " &
+                            "       PersonToContactPhoneNumber As LandlordNumber " &
+                            "FROM LandlordProperty " &
+                            "INNER JOIN Neighborhood ON LandlordProperty.NeighborhoodID = Neighborhood.NeighborhoodID " &
                             "WHERE IsActive = 1"
-        Dim streetAddressID As Integer = PropertyAddress.SelectedValue
-        Dim zip As Integer = ZipCode.SelectedValue
-        Dim beds As Integer = Bedroom.SelectedValue
-        Dim baths As Double = Bathroom.SelectedValue
-        Dim rent As String = rentText.Text
+        Dim streetAddressID As Integer = PropertyAddress.SelectedValue.Trim
+        Dim zip As Integer = ZipCode.SelectedValue.Trim
+        Dim beds As Integer = Bedroom.SelectedValue.Trim
+        Dim baths As Double = Bathroom.SelectedValue.Trim
+        Dim rent As String = rentText.Text.Trim
 
         If (streetAddressID > 0) Then
             sql += "AND LandlordProperty.LandlordPropertyID = " + streetAddressID.ToString()
@@ -56,7 +56,7 @@ Public Class AdminActiveProperties
     End Sub
 
     Protected Sub BtnFilterProperties(ByVal sender As Object, ByVal e As EventArgs)
-        Me.BindGridWithFilters()
+        BindGridWithFilters()
     End Sub
 
     Protected Sub BtnExportToExcel(ByVal sender As Object, ByVal e As EventArgs)
@@ -68,7 +68,7 @@ Public Class AdminActiveProperties
         Using writeContent As New StringWriter()
             GridViewProperties.AllowPaging = False
             Dim writeHtmlContent As New HtmlTextWriter(writeContent)
-            Me.BindGridWithFilters()
+            BindGridWithFilters()
             GridViewProperties.RenderControl(writeHtmlContent)
             Response.Output.Write(writeContent.ToString())
             Response.Flush()

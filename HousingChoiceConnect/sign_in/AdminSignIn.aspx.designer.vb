@@ -12,4 +12,22 @@ Option Explicit On
 
 
 Partial Public Class AdminSignIn
+
+    '''<summary>
+    '''email control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents email As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''password control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents password As Global.System.Web.UI.WebControls.TextBox
 End Class

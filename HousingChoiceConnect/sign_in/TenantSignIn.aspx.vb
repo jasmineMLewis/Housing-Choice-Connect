@@ -9,30 +9,37 @@ Public Class TenantLogin
 
     End Sub
 
-    Protected Sub btnSubmitClick(ByVal sender As Object, ByVal e As EventArgs)
-        Dim email As String = Request.Form("email").Trim
-        Dim password As String = Request.Form("password").Trim
+    Protected Sub BtnTenantSignIn(ByVal sender As Object, ByVal e As EventArgs)
+        Const TENANT_ROLE As Integer = 2
+        Const LANDLORD_ROLE As Integer = 3
+
+        Dim _email As String = email.Text.Trim
+        Dim _password As String = password.Text.Trim
         Dim dbPassword As String
         Dim roleID As Integer
         Dim userID As Integer
 
         conn.Open()
-        Dim query As New SqlCommand("SELECT UserID, fk_RoleID, Password FROM Users WHERE Email='" & email & "'", conn)
+        Dim query As New SqlCommand("SELECT UserID, RoleID, Password 
+                                     FROM Users 
+                                     WHERE Email='" & _email & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         If reader.HasRows Then
             While reader.Read
                 dbPassword = CStr(reader("Password"))
-                roleID = CStr(reader("fk_RoleID"))
+                roleID = CStr(reader("RoleID"))
                 userID = CStr(reader("UserID"))
             End While
             conn.Close()
 
-            If (password = dbPassword) Then
+            If (_password = dbPassword) Then
                 Web.HttpContext.Current.Session("UserID") = userID
+                Session("UserID") = userID
+
                 updateLastLoginDate(userID)
-                If roleID = 2 Then
+                If roleID = TENANT_ROLE Then
                     Response.Redirect("../tenants/TenantDashboard.aspx")
-                ElseIf roleID = 3 Then
+                ElseIf roleID = LANDLORD_ROLE Then
                     Response.Redirect("LandlordSignIn.aspx")
                 End If
             Else
@@ -47,7 +54,9 @@ Public Class TenantLogin
     Public Sub updateLastLoginDate(ByVal userID As Integer)
         Dim lastLogin As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         conn.Open()
-        Dim query As New SqlCommand("UPDATE Users SET LastLogin ='" & lastLogin & "' WHERE UserID='" & userID & "'", conn)
+        Dim query As New SqlCommand("UPDATE Users 
+                                    SET LastLogin ='" & lastLogin & "' 
+                                    WHERE UserID='" & userID & "'", conn)
         query.ExecuteNonQuery()
         conn.Close()
     End Sub

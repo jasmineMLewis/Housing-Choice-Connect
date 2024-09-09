@@ -7,7 +7,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
 
-        Dim userID As String
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
         End If
@@ -21,7 +21,9 @@
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
         conn.Open()
         Dim numOfAdmin As Integer
-        Dim queryAdmins As New SqlCommand("SELECT COUNT(UserID) AS countAdmins FROM Users WHERE fk_RoleID = '" & ADMIN_ROLE_ID & "'", conn)
+        Dim queryAdmins As New SqlCommand("SELECT COUNT(UserID) AS countAdmins 
+                                           FROM Users 
+                                           WHERE RoleID = '" & ADMIN_ROLE_ID & "'", conn)
         Dim readerAdmins As SqlDataReader = queryAdmins.ExecuteReader()
         While readerAdmins.Read
             numOfAdmin = CStr(readerAdmins("countAdmins"))
@@ -86,7 +88,10 @@
                                                     DataTextField="FullName" DataValueField="UserID">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlFullName" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT [UserID], [FirstName] + ' ' + [LastName] As FullName FROM [Users] WHERE [fk_RoleID] = '1' ORDER BY [FullName] ASC">
+                                                    SelectCommand="SELECT UserID, FirstName + ' ' + LastName As FullName 
+                                                                   FROM Users 
+                                                                   WHERE RoleID = '1' 
+                                                                   ORDER BY FullName ASC">
                                                 </asp:SqlDataSource>
                                             </div>
                                         </div>
@@ -98,12 +103,15 @@
                                                     DataTextField="Email" DataValueField="Email">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlEmail" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT [Email] FROM [Users] WHERE [fk_RoleID] = '1' ORDER BY [Email] ASC">
+                                                    SelectCommand="SELECT Email 
+                                                                   FROM Users 
+                                                                   WHERE RoleID = '1' 
+                                                                   ORDER BY Email ASC">
                                                 </asp:SqlDataSource>
                                             </div>
                                         </div>
                                         <div class="list-group-item text-center">
-                                            <button id="button" type="button" class="btn btn-default btn-block btn-lg" runat="server" onserverclick="btnSearchAdmin">
+                                            <button id="button" type="button" class="btn btn-default btn-block btn-lg" runat="server" onserverclick="BtnSearchAdmin">
                                                 <i class="fa fa-search"></i>&nbsp;Admin
                                             </button>
                                         </div>
@@ -127,7 +135,11 @@
                                 <div class="panel-body">
                                     <div class="list-group table-responsive">
                                         <asp:SqlDataSource ID="sqlGridView" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                            SelectCommand="SELECT UserID, FirstName + ' ' + LastName AS Name, Email, DateRegistered, LastLogin FROM Users WHERE fk_RoleID = 1 ORDER BY Name ASC">
+                                            SelectCommand="SELECT UserID, FirstName + ' ' + LastName AS Name, Email, DateRegistered, 
+                                                                  LastLogin 
+                                                           FROM Users 
+                                                           WHERE RoleID = 1 
+                                                           ORDER BY Name ASC">
                                         </asp:SqlDataSource>
                                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table"
                                             DataKeyNames="UserID" DataSourceID="sqlGridView" ShowHeader="True" AllowPaging="True" BorderStyle="None" GridLines="None" 

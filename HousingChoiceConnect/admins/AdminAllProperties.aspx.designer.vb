@@ -86,13 +86,13 @@ Partial Public Class AdminAllProperties
     Protected WithEvents Button1 As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
-    '''Button2 control.
+    '''ButtonExportToExcel control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Button2 As Global.System.Web.UI.HtmlControls.HtmlButton
+    Protected WithEvents ButtonExportToExcel As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
     '''sqlProperties control.

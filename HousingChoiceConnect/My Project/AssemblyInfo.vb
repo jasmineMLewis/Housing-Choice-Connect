@@ -9,15 +9,15 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 <Assembly: AssemblyTitle("HousingChoiceConnect")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("Hewlett-Packard")>
+<Assembly: AssemblyCompany("HP")>
 <Assembly: AssemblyProduct("HousingChoiceConnect")>
-<Assembly: AssemblyCopyright("Copyright © Hewlett-Packard 2019")>
+<Assembly: AssemblyCopyright("Copyright © HP 2024")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("7007c5ab-a707-412f-9744-8f446e4c021c")>
+<Assembly: Guid("a595713f-1009-43e9-a27a-9780864ed17f")>
 
 ' Version information for an assembly consists of the following four values:
 '

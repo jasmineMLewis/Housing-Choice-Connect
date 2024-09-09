@@ -7,7 +7,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
-        Dim userID As String
+        Dim userID As String = Session("UserID")
         If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
             userID = Web.HttpContext.Current.Session("UserID").ToString()
         End If
@@ -20,7 +20,9 @@
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
         conn.Open()
         Dim totalActiveProperties As Integer
-        Dim queryTotalProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) As TotalActive FROM LandlordProperty WHERE IsActive = '1'", conn)
+        Dim queryTotalProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) As TotalActive 
+                                                    FROM LandlordProperty 
+                                                    WHERE IsActive = '1'", conn)
         Dim readerTotalProperties As SqlDataReader = queryTotalProperties.ExecuteReader()
         While readerTotalProperties.Read
             totalActiveProperties = CStr(readerTotalProperties("TotalActive"))
@@ -85,7 +87,10 @@
                                                     DataTextField="AddressProperty" DataValueField="LandlordPropertyID">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlPropertyAddress" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT LandlordPropertyID, AddressProperty FROM LandlordProperty WHERE IsActive = 1 ORDER BY AddressProperty ASC">
+                                                    SelectCommand="SELECT LandlordPropertyID, AddressProperty 
+                                                                   FROM LandlordProperty 
+                                                                   WHERE IsActive = 1 
+                                                                   ORDER BY AddressProperty ASC">
                                                 </asp:SqlDataSource>
                                             </div>
                                         </div>
@@ -97,7 +102,10 @@
                                                     DataTextField="ZipCode" DataValueField="ZipCode">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlZipCode" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT DISTINCT ZipCode FROM Neighborhood"></asp:SqlDataSource>
+                                                    SelectCommand="SELECT DISTINCT ZipCode 
+                                                                   FROM Neighborhood
+                                                                   ORDER BY ZipCode ASC">
+                                                </asp:SqlDataSource>
                                             </div>
                                         </div>
                                         <div class="list-group-item">
@@ -142,7 +150,7 @@
                                             </div>
                                         </div>
                                         <div class="list-group-item text-center">
-                                            <button id="Button1" type="button" class="btn btn-success btn-block btn-lg" runat="server"
+                                            <button id="ButtonFilterProperties" type="button" class="btn btn-success btn-block btn-lg" runat="server"
                                                 onserverclick="BtnFilterProperties">
                                                 <i class="fa fa-filter"></i>&nbsp;Filter Properties
                                             </button>
@@ -173,7 +181,7 @@
                         </div>
                         <div class="panel-body">
                             <asp:SqlDataSource ID="sqlProperties" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                SelectCommand="SELECT LandlordPropertyID, RTRIM([AddressProperty] + ' ' + [Apt_Suite]) As &quot;Address&quot;,
+                                SelectCommand="SELECT LandlordPropertyID, RTRIM(AddressProperty + ' ' + AptSuite) As &quot;Address&quot;,
                                                       Rent, BedroomNumber AS Bed, BathroomNumber As Bath, ZipCode, 
                                                       CONVERT (varchar(MAX), CAST(LandlordProperty.DateOfPostage AS date), 101) AS DateOfPostage, 
                                                       CONVERT (varchar(MAX), CAST(LandlordProperty.DateLastUpdated AS date), 101) AS DateLastUpdated,
@@ -181,7 +189,8 @@
                                                FROM LandlordProperty 
                                                INNER JOIN Neighborhood ON LandlordProperty.fk_NeighborhoodID = Neighborhood.NeighborhoodID 
                                                WHERE LandlordProperty.IsActive = '1'
-                                               ORDER BY ZipCode, Bed ASC"></asp:SqlDataSource>
+                                               ORDER BY ZipCode, Bed ASC">
+                            </asp:SqlDataSource>
                             <div class="table-responsive">
                                 <asp:GridView ID="GridViewProperties" runat="server" CssClass="table" AutoGenerateColumns="False"
                                     DataKeyNames="LandlordPropertyID, Address" GridLines="None" DataSourceID="sqlProperties"
