@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Housing Choice Connect</title>
-    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="Styles/bootstrap.css" rel="stylesheet" />
     <!-- Bootstrap-Select CSS for JQuery Plugin -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
     <!-- Custom Fonts -->
@@ -41,12 +41,11 @@
             <div class="text-center">
                 <h4>
                     <strong>Housing Authority of New Orleans</strong></h4>
-                <p><i class="fa fa-user" aria-hidden="true"></i>  Tech Help Desk - Jasmine Monquie Lewis</p>
-                <p> <i class="fa fa-envelope"></i> jasminemonquie.L@gmail.com </p>
-                <p> <i class="fa fa-phone fa-fw"></i> (504) 782 - 8208</p>
+                <p><i class="fa fa-user" aria-hidden="true"></i>  Tech Help Desk - Jasmine M. Lewis</p>
+                <p> <i class="fa fa-envelope"></i> jasmine.lewis@artistikrebellion.us </p>
             </div>
             <div class="text-center">
-                <button type="button" class="btn btn-info btn-sm" id="contactUsModal" name="contactUsModal" data-toggle="modal" data-target="#myModal" onclick="return contactUsModal_onclick()">
+                <button type="button" class="btn btn-info btn-md" id="contactUsModal" name="contactUsModal" data-toggle="modal" data-target="#myModal" onclick="return contactUsModal_onclick()">
                         <span class="glyphicon glyphicon-envelope"></span> Email Us
                 </button>
                     <div class="modal fade" id="myModal" role="dialog">
@@ -101,8 +100,8 @@
         </footer>
         <!-- Placed at the end of the document so the pages load faster -->
         <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script type="application/javascript" src="../js/jquery.min.js"></script>
-        <script type="application/javascript" src="../js/bootstrap.min.js"></script>
+        <script type="application/javascript" src="../Scripts/jquery.min.js"></script>
+        <script type="application/javascript" src="../Scripts/bootstrap.min.js"></script>
         <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
         <script type="application/javascript">
             // Scrolls to the selected menu item on the page

@@ -142,7 +142,9 @@
         'Landlord Email Address
         conn.Open()
         Dim personOfContactEmail As String
-        Dim querypersonOfContactEmail As New SqlCommand("SELECT Email FROM Users WHERE UserID='" & landlordUserID & "'", conn)
+        Dim querypersonOfContactEmail As New SqlCommand("SELECT Email 
+                                                         FROM Users 
+                                                         WHERE UserID='" & landlordUserID & "'", conn)
         Dim readerpersonOfContactEmail As SqlDataReader = querypersonOfContactEmail.ExecuteReader()
         While readerpersonOfContactEmail.Read
             personOfContactEmail = CStr(readerpersonOfContactEmail("Email"))
@@ -171,7 +173,9 @@
 
         conn.Open()
         Dim queryHandicapInfo As String = String.Empty
-        queryHandicapInfo &= "SELECT * FROM LandlordPropertyHandicapAccessibility WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "'"
+        queryHandicapInfo &= "SELECT * 
+                              FROM LandlordPropertyHandicapAccessibility 
+                              WHERE LandlordPropertyID = '" & landlordPropertyID & "'"
         Dim queryHandicap As New SqlCommand(queryHandicapInfo, conn)
         Dim readerHandicapInfo As SqlDataReader = queryHandicap.ExecuteReader()
         While readerHandicapInfo.Read
@@ -200,7 +204,9 @@
         Dim dBpropertyAmetities As New ArrayList
         conn.Open()
         Dim queryAmentityInfo As String = String.Empty
-        queryAmentityInfo &= "SELECT fk_AmentityID FROM LandlordPropertyAmentity WHERE fk_LandlordPropertyID = '" & landlordPropertyID & "'"
+        queryAmentityInfo &= "SELECT AmentityID 
+                              FROM LandlordPropertyAmentity 
+                              WHERE LandlordPropertyID = '" & landlordPropertyID & "'"
         Dim queryAmentity As New SqlCommand(queryAmentityInfo, conn)
         Dim readerAmentityInfo As SqlDataReader = queryAmentity.ExecuteReader()
         While readerAmentityInfo.Read
@@ -464,22 +470,22 @@
                                                 Else
                                                 %>
                                                 <div class="item active">
-                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px;' />
+                                                    <img src="../Images/house-default.jpg" alt="House" style='width: 300px; height: 400px;' />
                                                 </div>
                                                 <div class="item">
-                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
+                                                    <img src="../Images/house-default.jpg" alt="House" style='width: 300px; height: 400px' />
                                                 </div>
                                                 <div class="item">
-                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
+                                                    <img src="../Images/house-default.jpg" alt="House" style='width: 300px; height: 400px' />
                                                 </div>
                                                 <div class="item">
-                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
+                                                    <img src="../Images/house-default.jpg" alt="House" style='width: 300px; height: 400px' />
                                                 </div>
                                                 <div class="item">
-                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
+                                                    <img src="../Images/house-default.jpg" alt="House" style='width: 300px; height: 400px' />
                                                 </div>
                                                 <div class="item">
-                                                    <img src="../img/houseDefault.jpg" alt="House" style='width: 300px; height: 400px' />
+                                                    <img src="../Images/house-default.jpg" alt="House" style='width: 300px; height: 400px' />
                                                 </div>
                                                 <%
                                                 End If

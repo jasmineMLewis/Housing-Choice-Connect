@@ -38,7 +38,7 @@ Public Class TenantLogin
 
                 updateLastLoginDate(userID)
                 If roleID = TENANT_ROLE Then
-                    Response.Redirect("../tenants/TenantDashboard.aspx")
+                    Response.Redirect("../Tenants/TenantDashboard.aspx")
                 ElseIf roleID = LANDLORD_ROLE Then
                     Response.Redirect("LandlordSignIn.aspx")
                 End If

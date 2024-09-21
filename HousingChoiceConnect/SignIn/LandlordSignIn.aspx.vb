@@ -44,15 +44,15 @@ Public Class LandlordSignIn
                             Session("UserID") = userID
 
                             updateLastLoginDate(userID)
-                            Response.Redirect("../landlords/LandlordDashboard.aspx?UserID=" & userID)
+                            Response.Redirect("../Landlords/LandlordDashboard.aspx?UserID=" & userID)
                         Else
                             Web.HttpContext.Current.Session("UserID") = userID
                             Session("UserID") = userID
 
-                            Response.Redirect("../landlords/LandlordSecurityQuestions.aspx?UserID=" & userID & "&SecurityQuestionsState=0")
+                            Response.Redirect("../Landlords/LandlordSecurityQuestions.aspx?UserID=" & userID & "&SecurityQuestionsState=0")
                         End If
                     Else
-                        Response.Redirect("/sign_in/TenantSignIn.aspx")
+                        Response.Redirect("/SignIn/TenantSignIn.aspx")
                     End If
                 Else
                     lblMsg.Text = "Oh No! You MUST <a href='LandlordVerifyEmail.aspx'>verify your email.</a>"

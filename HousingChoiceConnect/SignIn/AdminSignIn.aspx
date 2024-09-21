@@ -2,8 +2,8 @@
     CodeBehind="AdminSignIn.aspx.vb" Inherits="HousingChoiceConnect.AdminSignIn" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../css/sign-in.css" rel="stylesheet" />
-    <link href="../css/custom.css" rel="stylesheet" />
+    <link href="../Styles/sign-in.css" rel="stylesheet" />
+    <link href="../Styles/custom.css" rel="stylesheet" />
         <style type="text/css">
             html, body
             {
@@ -22,7 +22,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="logo" href="Default.aspx"><img src="../img/hanoLogo.png" alt="hano-logo"></a>
+            <a class="logo" href="Default.aspx"><Images src="../Images/hanoLogo.png" alt="hano-logo"></a>
         </div>
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right" style = "margin-right: 150px;">
@@ -32,10 +32,10 @@
                     
                     <ul class="dropdown-menu" role="menu">
                           <li>
-                            <a href="/sign_in/TenantSignIn.aspx"><i class="fa fa-user"> <b>Tenant</b></i> <span class="tab-space-tenant"></span>
+                            <a href="/SignIn/TenantSignIn.aspx"><i class="fa fa-user"> <b>Tenant</b></i> <span class="tab-space-tenant"></span>
                                  <span class="glyphicon glyphicon-chevron-right"></span></a>
                           </li>
-                        <li><a href="/sign_in/LandlordSignIn.aspx"><i class="fa fa-home"> <b>Landlord</b></i> <span class="tab-space-landlord"></span>
+                        <li><a href="/SignIn/LandlordSignIn.aspx"><i class="fa fa-home"> <b>Landlord</b></i> <span class="tab-space-landlord"></span>
                         <span class="glyphicon glyphicon-chevron-right"></span></a></li>
                     </ul>      
                 </div>
@@ -45,11 +45,11 @@
                     <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" name="btnSignUp" id="btnSignUp"><i class="fa fa-upload"></i> Sign Up <span class="caret"></span></button>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="/sign_up/TenantSignUp.aspx"><i class="fa fa-user"> <b>Tenant</b></i> <span class="tab-space-tenant"></span>
+                            <a href="/SignUp/TenantSignUp.aspx"><i class="fa fa-user"> <b>Tenant</b></i> <span class="tab-space-tenant"></span>
                             <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </li>
                         <li>
-                            <a href="/sign_up/LandlordSignUp.aspx"><i class="fa fa-home"> <b>Landlord</b></i> <span class="tab-space-landlord"></span>
+                            <a href="/SignUp/LandlordSignUp.aspx"><i class="fa fa-home"> <b>Landlord</b></i> <span class="tab-space-landlord"></span>
                             <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </li>
                     </ul>

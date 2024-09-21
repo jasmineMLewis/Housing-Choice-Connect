@@ -2,8 +2,8 @@
     CodeBehind="LandlordSignUp.aspx.vb" Inherits="HousingChoiceConnect.LandlordSignUp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../css/custom.css" rel="stylesheet" />
-    <link href="../css/sign-up.css" rel="stylesheet" />
+    <link href="../Styles/custom.css" rel="stylesheet" />
+    <link href="../Styles/sign-up.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  <nav class="navbar navbar-default navbar-fixed-top">
@@ -28,10 +28,10 @@
                     <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" name="btnSignIn" id="btnSignIn"><i class="fa fa-download"></i> Sign In <span class="caret"></span></button>
                     <ul class="dropdown-menu" role="menu">
                           <li>
-                            <a href="/sign_in/TenantSignIn.aspx"><i class="fa fa-user">&nbsp; <b>Tenant</b></i>&nbsp;  <span class="tab-space-tenant"></span>
+                            <a href="/SignIn/TenantSignIn.aspx"><i class="fa fa-user">&nbsp; <b>Tenant</b></i>&nbsp;  <span class="tab-space-tenant"></span>
                                  <span class="glyphicon glyphicon-chevron-right"></span></a>
                           </li>
-                        <li><a href="/sign_in/LandlordSignIn.aspx"><i class="fa fa-home">&nbsp; <b>Landlord</b></i>&nbsp; <span class="tab-space-landlord"></span>
+                        <li><a href="/SignIn/LandlordSignIn.aspx"><i class="fa fa-home">&nbsp; <b>Landlord</b></i>&nbsp; <span class="tab-space-landlord"></span>
                             <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </li>
                     </ul>      
@@ -42,11 +42,11 @@
                     <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" name="btnSignUp" id="btnSignUp"><i class="fa fa-upload"></i> Sign Up <span class="caret"></span></button>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="/sign_up/TenantSignUp.aspx"><i class="fa fa-user">&nbsp; <b>Tenant</b></i>&nbsp; <span class="tab-space-tenant"></span>
+                            <a href="/SignUp/TenantSignUp.aspx"><i class="fa fa-user">&nbsp; <b>Tenant</b></i>&nbsp; <span class="tab-space-tenant"></span>
                             <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </li>
                         <li>
-                            <a href="/sign_up/LandlordSignUp.aspx"><i class="fa fa-home">&nbsp; <b>Landlord</b></i>&nbsp; <span class="tab-space-landlord"></span>
+                            <a href="/SignUp/LandlordSignUp.aspx"><i class="fa fa-home">&nbsp; <b>Landlord</b></i>&nbsp; <span class="tab-space-landlord"></span>
                             <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </li>
                     </ul>

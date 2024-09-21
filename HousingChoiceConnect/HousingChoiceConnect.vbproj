@@ -127,116 +127,116 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="admins\AdminActiveProperties.aspx" />
-    <Content Include="admins\AdminAddProperty.aspx" />
-    <Content Include="admins\AdminAllProperties.aspx" />
-    <Content Include="admins\AdminDashboard.aspx" />
-    <Content Include="admins\AdminEditProperty.aspx" />
-    <Content Include="admins\AdminInactiveProperties.aspx" />
-    <Content Include="admins\AdminRegisterUser.aspx" />
-    <Content Include="admins\Admins.aspx" />
-    <Content Include="admins\AdminSoonToBeDeletedProperties.aspx" />
-    <Content Include="admins\AdminViewProperty.aspx" />
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\custom.css" />
-    <Content Include="css\default.css" />
-    <Content Include="css\sb-admin-2.css" />
-    <Content Include="css\sign-in.css" />
-    <Content Include="css\sign-up.css" />
+    <Content Include="Admins\AdminActiveProperties.aspx" />
+    <Content Include="Admins\AdminAddProperty.aspx" />
+    <Content Include="Admins\AdminAllProperties.aspx" />
+    <Content Include="Admins\AdminDashboard.aspx" />
+    <Content Include="Admins\AdminEditProperty.aspx" />
+    <Content Include="Admins\AdminInactiveProperties.aspx" />
+    <Content Include="Admins\AdminRegisterUser.aspx" />
+    <Content Include="Admins\Admins.aspx" />
+    <Content Include="Admins\AdminSoonToBeDeletedProperties.aspx" />
+    <Content Include="Admins\AdminViewProperty.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bs-pagination.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\sb-admin-2.js" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\custom.css" />
+    <Content Include="Styles\default.css" />
+    <Content Include="Styles\sb-admin-2.css" />
+    <Content Include="Styles\sign-in.css" />
+    <Content Include="Styles\sign-up.css" />
     <Content Include="Default.aspx" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="img\carousel-two.png" />
-    <Content Include="img\carousel-one.png" />
-    <Content Include="img\carousel-three.png" />
-    <Content Include="img\carousel-four.png" />
-    <Content Include="img\carousel-five.png" />
-    <Content Include="img\favicon.ico" />
-    <Content Include="img\hano-logo.png" />
-    <Content Include="img\house-default.jpg" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\bs-pagination.js" />
-    <Content Include="js\jquery.js" />
-    <Content Include="js\jquery.min.js" />
-    <Content Include="js\sb-admin-2.js" />
-    <Content Include="sign_in\AdminSignIn.aspx" />
-    <Content Include="sign_in\LandlordSignIn.aspx" />
-    <Content Include="sign_in\TenantSignIn.aspx" />
-    <Content Include="sign_up\LandlordSignUp.aspx" />
-    <Content Include="sign_up\TenantSignUp.aspx" />
+    <Content Include="Images\carousel-two.png" />
+    <Content Include="Images\carousel-one.png" />
+    <Content Include="Images\carousel-three.png" />
+    <Content Include="Images\carousel-four.png" />
+    <Content Include="Images\carousel-five.png" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\hano-logo.png" />
+    <Content Include="Images\house-default.jpg" />
+    <Content Include="SignIn\AdminSignIn.aspx" />
+    <Content Include="SignIn\LandlordSignIn.aspx" />
+    <Content Include="SignIn\TenantSignIn.aspx" />
+    <Content Include="SignUp\LandlordSignUp.aspx" />
+    <Content Include="SignUp\TenantSignUp.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admins\AdminActiveProperties.aspx.designer.vb">
+    <Compile Include="Admins\AdminActiveProperties.aspx.designer.vb">
       <DependentUpon>AdminActiveProperties.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admins\AdminActiveProperties.aspx.vb">
+    <Compile Include="Admins\AdminActiveProperties.aspx.vb">
       <DependentUpon>AdminActiveProperties.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admins\AdminAddProperty.aspx.designer.vb">
+    <Compile Include="Admins\AdminAddProperty.aspx.designer.vb">
       <DependentUpon>AdminAddProperty.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admins\AdminAddProperty.aspx.vb">
+    <Compile Include="Admins\AdminAddProperty.aspx.vb">
       <DependentUpon>AdminAddProperty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admins\AdminAllProperties.aspx.designer.vb">
+    <Compile Include="Admins\AdminAllProperties.aspx.designer.vb">
       <DependentUpon>AdminAllProperties.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admins\AdminAllProperties.aspx.vb">
+    <Compile Include="Admins\AdminAllProperties.aspx.vb">
       <DependentUpon>AdminAllProperties.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admins\AdminDashboard.aspx.designer.vb">
+    <Compile Include="Admins\AdminDashboard.aspx.designer.vb">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admins\AdminDashboard.aspx.vb">
+    <Compile Include="Admins\AdminDashboard.aspx.vb">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admins\AdminEditProperty.aspx.designer.vb">
+    <Compile Include="Admins\AdminEditProperty.aspx.designer.vb">
       <DependentUpon>AdminEditProperty.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admins\AdminEditProperty.aspx.vb">
+    <Compile Include="Admins\AdminEditProperty.aspx.vb">
       <DependentUpon>AdminEditProperty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admins\AdminInactiveProperties.aspx.designer.vb">
+    <Compile Include="Admins\AdminInactiveProperties.aspx.designer.vb">
       <DependentUpon>AdminInactiveProperties.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admins\AdminInactiveProperties.aspx.vb">
+    <Compile Include="Admins\AdminInactiveProperties.aspx.vb">
       <DependentUpon>AdminInactiveProperties.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admins\AdminRegisterUser.aspx.designer.vb">
+    <Compile Include="Admins\AdminRegisterUser.aspx.designer.vb">
       <DependentUpon>AdminRegisterUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admins\AdminRegisterUser.aspx.vb">
+    <Compile Include="Admins\AdminRegisterUser.aspx.vb">
       <DependentUpon>AdminRegisterUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admins\Admins.aspx.designer.vb">
+    <Compile Include="Admins\Admins.aspx.designer.vb">
       <DependentUpon>Admins.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admins\Admins.aspx.vb">
+    <Compile Include="Admins\Admins.aspx.vb">
       <DependentUpon>Admins.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admins\AdminSoonToBeDeletedProperties.aspx.designer.vb">
+    <Compile Include="Admins\AdminSoonToBeDeletedProperties.aspx.designer.vb">
       <DependentUpon>AdminSoonToBeDeletedProperties.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admins\AdminSoonToBeDeletedProperties.aspx.vb">
+    <Compile Include="Admins\AdminSoonToBeDeletedProperties.aspx.vb">
       <DependentUpon>AdminSoonToBeDeletedProperties.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admins\AdminViewProperty.aspx.designer.vb">
+    <Compile Include="Admins\AdminViewProperty.aspx.designer.vb">
       <DependentUpon>AdminViewProperty.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admins\AdminViewProperty.aspx.vb">
+    <Compile Include="Admins\AdminViewProperty.aspx.vb">
       <DependentUpon>AdminViewProperty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -278,38 +278,38 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="sign_in\AdminSignIn.aspx.designer.vb">
+    <Compile Include="SignIn\AdminSignIn.aspx.designer.vb">
       <DependentUpon>AdminSignIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="sign_in\AdminSignIn.aspx.vb">
+    <Compile Include="SignIn\AdminSignIn.aspx.vb">
       <DependentUpon>AdminSignIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="sign_in\LandlordSignIn.aspx.designer.vb">
+    <Compile Include="SignIn\LandlordSignIn.aspx.designer.vb">
       <DependentUpon>LandlordSignIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="sign_in\LandlordSignIn.aspx.vb">
+    <Compile Include="SignIn\LandlordSignIn.aspx.vb">
       <DependentUpon>LandlordSignIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="sign_in\TenantSignIn.aspx.designer.vb">
+    <Compile Include="SignIn\TenantSignIn.aspx.designer.vb">
       <DependentUpon>TenantSignIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="sign_in\TenantSignIn.aspx.vb">
+    <Compile Include="SignIn\TenantSignIn.aspx.vb">
       <DependentUpon>TenantSignIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="sign_up\LandlordSignUp.aspx.designer.vb">
+    <Compile Include="SignUp\LandlordSignUp.aspx.designer.vb">
       <DependentUpon>LandlordSignUp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="sign_up\LandlordSignUp.aspx.vb">
+    <Compile Include="SignUp\LandlordSignUp.aspx.vb">
       <DependentUpon>LandlordSignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="sign_up\TenantSignUp.aspx.designer.vb">
+    <Compile Include="SignUp\TenantSignUp.aspx.designer.vb">
       <DependentUpon>TenantSignUp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="sign_up\TenantSignUp.aspx.vb">
+    <Compile Include="SignUp\TenantSignUp.aspx.vb">
       <DependentUpon>TenantSignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -327,7 +327,7 @@
       <DependentUpon>UserDashboard.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="utils\KeyGenerator.vb" />
+    <Compile Include="Utils\KeyGenerator.vb" />
     <Compile Include="ViewSwitcher.ascx.vb">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -346,42 +346,42 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Footer.Master" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="assets\admins\admin-manual.pdf" />
-    <Content Include="assets\landlords\address-change-form.pdf" />
-    <Content Include="assets\landlords\contract-rent-adjustment-request-form.pdf" />
-    <Content Include="assets\landlords\hano-payment-standard.pdf" />
-    <Content Include="assets\landlords\hano-exception-payment-standards-2018.pdf" />
-    <Content Include="assets\landlords\hano-payment-standards-2019.PDF" />
-    <Content Include="assets\landlords\hud-landlord-property-inspection-checklist.pdf" />
-    <Content Include="assets\landlords\landlord-manual.pdf" />
-    <Content Include="assets\landlords\mutual-agreement-to-terminate.pdf" />
-    <Content Include="assets\landlords\rent-increase-request-form.pdf" />
-    <Content Include="assets\landlords\smoke-detectors-guidelines.pdf" />
-    <Content Include="assets\tenants\hano-hcvp-info-packet.pdf" />
-    <Content Include="assets\tenants\tenant-manual.pdf" />
-    <Content Include="assets\tenants\zip-code-amenities\70115-amenities.pdf" />
-    <Content Include="assets\tenants\zip-code-amenities\70116-amenities.pdf" />
-    <Content Include="assets\tenants\zip-code-amenities\70118 -amenities.pdf" />
-    <Content Include="assets\tenants\zip-code-amenities\70124-amenities.pdf" />
-    <Content Include="assets\tenants\zip-code-amenities\70130-amenities.pdf" />
-    <Content Include="assets\tenants\maps\minority-maps\jefferson-parish-minority-map.pdf" />
-    <Content Include="assets\tenants\maps\minority-maps\orleans-parish-minority-map.pdf" />
-    <Content Include="assets\tenants\maps\minority-maps\plaquemines-parish-minority-map.pdf" />
-    <Content Include="assets\tenants\maps\minority-maps\st-bernard-parish-minority-map.pdf" />
-    <Content Include="assets\tenants\maps\minority-maps\st-charles-parish-minority-map.pdf" />
-    <Content Include="assets\tenants\maps\minority-maps\st-john-parish-minority-map.pdf" />
-    <Content Include="assets\tenants\maps\minority-maps\st-tammany-parish-minority-map.pdf" />
-    <Content Include="assets\tenants\maps\poverty-maps\jefferson-parish-poverty-map.pdf" />
-    <Content Include="assets\tenants\maps\poverty-maps\orleans-parish-poverty-map.pdf" />
-    <Content Include="assets\tenants\maps\poverty-maps\plaquemines-parish-poverty-map.pdf" />
-    <Content Include="assets\tenants\maps\poverty-maps\st-bernard-parish-poverty-map.pdf" />
-    <Content Include="assets\tenants\maps\poverty-maps\st-charles-parish-poverty-map.pdf" />
-    <Content Include="assets\tenants\maps\poverty-maps\st-john-parish-poverty-map.pdf" />
-    <Content Include="assets\tenants\maps\poverty-maps\st-tammany-parish-poverty-map.pdf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\Admins\admin-manual.pdf" />
+    <Content Include="Assets\Landlords\address-change-form.pdf" />
+    <Content Include="Assets\Landlords\contract-rent-adjustment-request-form.pdf" />
+    <Content Include="Assets\Landlords\hano-payment-standard.pdf" />
+    <Content Include="Assets\Landlords\hano-exception-payment-standards-2018.pdf" />
+    <Content Include="Assets\Landlords\hano-payment-standards-2019.PDF" />
+    <Content Include="Assets\Landlords\hud-landlord-property-inspection-checklist.pdf" />
+    <Content Include="Assets\Landlords\landlord-manual.pdf" />
+    <Content Include="Assets\Landlords\mutual-agreement-to-terminate.pdf" />
+    <Content Include="Assets\Landlords\rent-increase-request-form.pdf" />
+    <Content Include="Assets\Landlords\smoke-detectors-guidelines.pdf" />
+    <Content Include="Assets\Tenants\hano-hcvp-info-packet.pdf" />
+    <Content Include="Assets\Tenants\tenant-manual.pdf" />
+    <Content Include="Assets\Tenants\ZipCodeAmenities\70115-amenities.pdf" />
+    <Content Include="Assets\Tenants\ZipCodeAmenities\70116-amenities.pdf" />
+    <Content Include="Assets\Tenants\ZipCodeAmenities\70118 -amenities.pdf" />
+    <Content Include="Assets\Tenants\ZipCodeAmenities\70124-amenities.pdf" />
+    <Content Include="Assets\Tenants\ZipCodeAmenities\70130-amenities.pdf" />
+    <Content Include="Assets\Tenants\Maps\MinorityMaps\jefferson-parish-minority-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\MinorityMaps\orleans-parish-minority-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\MinorityMaps\plaquemines-parish-minority-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\MinorityMaps\st-bernard-parish-minority-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\MinorityMaps\st-charles-parish-minority-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\MinorityMaps\st-john-parish-minority-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\MinorityMaps\st-tammany-parish-minority-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\PovertyMaps\jefferson-parish-poverty-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\PovertyMaps\orleans-parish-poverty-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\PovertyMaps\plaquemines-parish-poverty-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\PovertyMaps\st-bernard-parish-poverty-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\PovertyMaps\st-charles-parish-poverty-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\PovertyMaps\st-john-parish-poverty-map.pdf" />
+    <Content Include="Assets\Tenants\Maps\PovertyMaps\st-tammany-parish-poverty-map.pdf" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -404,7 +404,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

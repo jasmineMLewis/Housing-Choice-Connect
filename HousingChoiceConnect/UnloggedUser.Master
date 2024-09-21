@@ -8,9 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Housing Authority of New Orleans" />
         <title>Housing Choice Connect</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" />
-        <link href="css/custom.css" rel="stylesheet" />
-        <link href="css/sb-admin-2.css" rel="stylesheet" />
+        <link href="Styles/bootstrap.min.css" rel="stylesheet" />
+        <link href="Styles/custom.css" rel="stylesheet" />
+        <link href="Styles/sb-admin-2.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -20,8 +20,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <!-- Favicon -->
-        <link rel="icon" href="img/favicon.ico" type="image/x-icon" runat="server" />
-        <link rel="icon" href="img/favicon.ico" type="image/ico" runat="server" />
+        <link rel="icon" href="Images/favicon.ico" type="image/x-icon" runat="server" />
+        <link rel="icon" href="Images/favicon.ico" type="image/ico" runat="server" />
         <asp:ContentPlaceHolder ID="HEAD" runat="server">
 
         </asp:ContentPlaceHolder>
@@ -30,7 +30,7 @@
         <asp:ContentPlaceHolder ID="Navigation" runat="server">
             <nav class="navbar navbar-custom navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                     <img src="../img/hanoLogo.png" alt="hanoLogo"/>
+                     <img src="../Images/hanoLogo.png" alt="hanoLogo"/>
                 </div>   
             </nav>
         </asp:ContentPlaceHolder>
@@ -41,11 +41,11 @@
             </div>
         </form>
         <asp:ContentPlaceHolder ID="Javascript" runat="server">
-            <script type="application/javascript" src="../js/jquery.min.js"></script>
-            <script type="application/javascript" src="../js/bootstrap.min.js"></script>
+            <script type="application/javascript" src="../Scripts/jquery.min.js"></script>
+            <script type="application/javascript" src="../Scripts/bootstrap.min.js"></script>
             <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-            <script type="application/javascript" src="../js/sb-admin-2.js"></script>
-            <script type="application/javascript" src="../js/bs.pagination.js"></script>
+            <script type="application/javascript" src="../Scripts/sb-admin-2.js"></script>
+            <script type="application/javascript" src="../Scripts/bs.pagination.js"></script>
         </asp:ContentPlaceHolder>
     </body>
 </html>

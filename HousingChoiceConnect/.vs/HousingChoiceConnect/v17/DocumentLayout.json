@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\housing-choice-connect\\housingchoiceconnect\\userdashboard.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:userdashboard.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\housing-choice-connect\\housingchoiceconnect\\admins\\adminactiveproperties.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:admins\\adminactiveproperties.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\housing-choice-connect\\housingchoiceconnect\\unloggeduser.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:unloggeduser.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\housing-choice-connect\\housingchoiceconnect\\admins\\adminviewproperty.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\admins\\adminviewproperty.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:admins\\adminviewproperty.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\housing-choice-connect\\housingchoiceconnect\\admins\\adminsoontobedeletedproperties.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:admins\\adminsoontobedeletedproperties.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,12 +26,12 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AdminViewProperty.aspx",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\admins\\AdminViewProperty.aspx",
-              "RelativeDocumentMoniker": "admins\\AdminViewProperty.aspx",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\admins\\AdminViewProperty.aspx",
-              "RelativeToolTip": "admins\\AdminViewProperty.aspx",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Admins\\AdminViewProperty.aspx",
+              "RelativeDocumentMoniker": "Admins\\AdminViewProperty.aspx",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Admins\\AdminViewProperty.aspx",
+              "RelativeToolTip": "Admins\\AdminViewProperty.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2024-08-01T01:53:10.368Z",
@@ -41,29 +41,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserDashboard.Master",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\UserDashboard.Master",
-              "RelativeDocumentMoniker": "UserDashboard.Master",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\UserDashboard.Master",
-              "RelativeToolTip": "UserDashboard.Master",
+              "Title": "AdminActiveProperties.aspx",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Admins\\AdminActiveProperties.aspx",
+              "RelativeDocumentMoniker": "Admins\\AdminActiveProperties.aspx",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Admins\\AdminActiveProperties.aspx",
+              "RelativeToolTip": "Admins\\AdminActiveProperties.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-09-09T20:04:41.026Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-09-21T03:31:31.396Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UnloggedUser.Master",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\UnloggedUser.Master",
-              "RelativeDocumentMoniker": "UnloggedUser.Master",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\UnloggedUser.Master",
-              "RelativeToolTip": "UnloggedUser.Master",
+              "DocumentIndex": 2,
+              "Title": "AdminSoonToBeDeletedProperties.aspx",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Admins\\AdminSoonToBeDeletedProperties.aspx",
+              "RelativeDocumentMoniker": "Admins\\AdminSoonToBeDeletedProperties.aspx",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Admins\\AdminSoonToBeDeletedProperties.aspx",
+              "RelativeToolTip": "Admins\\AdminSoonToBeDeletedProperties.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-09-09T20:05:10.493Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-09-21T03:27:53.122Z",
               "EditorCaption": ""
             }
           ]

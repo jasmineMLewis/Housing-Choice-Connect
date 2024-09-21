@@ -43,7 +43,7 @@ Public Class AdminSignIn
                     Session("UserID") = userID
 
                     UpdateLastLoginDate(userID)
-                    Response.Redirect("/admins/AdminDashboard.aspx?UserID=" & userID)
+                    Response.Redirect("/Admins/AdminDashboard.aspx?UserID=" & userID)
                 Else
                     Response.Write("<div id='alertEmailPassowrdError'><div class='alert alert-danger col-xs-12' role='alert'><strong>Oh No!</strong> Incorrect Email/Password Combination.</div></div>")
                 End If

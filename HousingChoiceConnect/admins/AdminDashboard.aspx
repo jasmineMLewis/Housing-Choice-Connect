@@ -145,8 +145,7 @@
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
                                         <% Response.Write(numOfAdmin)%></div>
-                                    <div>
-                                        Admins</div>
+                                    <div> Admins</div>
                                 </div>
                             </div>
                         </div>
@@ -370,7 +369,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="list-group">
-                                        <a href="../assets/admins/admin-manual.pdf" target="_blank"
+                                        <a href="../Assets/Admins/admin-manual.pdf" target="_blank"
                                             class="list-group-item">&nbsp; Admin Tutorial <span class="pull-right text-primary">
                                                 <i class="fa fa-file"></i></span></a>
                                     </div>
@@ -393,22 +392,22 @@
                                         <i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp; Zip Code Amentities</h3>
                                 </div>
                                 <div class="list-group">
-                                    <a href="../assets/tenants/zip-code-amenities/70115-amenities.pdf" target="_blank" class="list-group-item">
+                                    <a href="../Assets/Tenants/ZipCodeAmenities/70115-amenities.pdf" target="_blank" class="list-group-item">
                                         &nbsp;70115 <span class="pull-right text-primary"><i class="fa fa-qrcode"></i></span>
                                     </a>
-                                    <a href="../assets/tenants/zip-code-amenities/70116-amenities.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/ZipCodeAmenities/70116-amenities.pdf" target="_blank"
                                         class="list-group-item">&nbsp;70116 <span class="pull-right text-primary"><i class="fa fa-qrcode">
                                         </i></span>
                                     </a>
-                                    <a href="../assets/tenants/zip-code-amenities/70118-amenities.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/ZipCodeAmenities/70118-amenities.pdf" target="_blank"
                                             class="list-group-item">&nbsp;70118 <span class="pull-right text-primary"><i class="fa fa-qrcode">
                                             </i></span>
                                     </a>
-                                    <a href="../assets/Tenants/zip-code-amenities/70124-amenities.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/ZipCodeAmenities/70124-amenities.pdf" target="_blank"
                                          class="list-group-item">&nbsp;70124 <span class="pull-right text-primary"><i class="fa fa-qrcode">
                                          </i></span>
                                     </a>
-                                    <a href="../assets/Tenants/zip-code-amenities/70130-amenities.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/ZipCodeAmenities/70130-amenities.pdf" target="_blank"
                                         class="list-group-item">&nbsp;70130 <span class="pull-right text-primary"><i class="fa fa-qrcode">
                                         </i></span>
                                     </a>
@@ -429,28 +428,28 @@
                                         <i class="fa fa-map" aria-hidden="true"></i>&nbsp; Poverty Maps</h3>
                                 </div>
                                 <div class="list-group">
-                                    <a href="../assets/tenants/maps/poverty-maps/jefferson-parish-poverty-map.pdf" target="_blank" class="list-group-item">
+                                    <a href="../Assets/Tenants/Maps/PovertyMaps/jefferson-parish-poverty-map.pdf" target="_blank" class="list-group-item">
                                         Jefferson Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map"></i></span>
                                     </a>
-                                    <a href="../assets/tenants/maps/poverty-maps/orleans-parish-poverty-map.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/Maps/PovertyMaps/orleans-parish-poverty-map.pdf" target="_blank"
                                         class="list-group-item">Orleans Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map">
                                         </i></span>
                                     </a>
-                                    <a href="../assets/tenants/maps/poverty-maps/plaquemines-parish-poverty-map.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/Maps/PovertyMaps/plaquemines-parish-poverty-map.pdf" target="_blank"
                                             class="list-group-item">Plaquemines Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map">
                                             </i></span>
                                     </a>
-                                    <a href="../assets/tenants/maps/poverty-maps/st-bernard-parish-poverty-map.pdf" target="_blank" class="list-group-item">
+                                    <a href="../Assets/Tenants/Maps/PovertyMaps/st-bernard-parish-poverty-map.pdf" target="_blank" class="list-group-item">
                                        St Bernard Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map"></i></span>
                                     </a>
-                                    <a href="../assets/tenants/maps/poverty-maps/st-charles-parish-poverty-map.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/Maps/PovertyMaps/st-charles-parish-poverty-map.pdf" target="_blank"
                                         class="list-group-item">St Charles Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map">
                                         </i></span></a>
-                                     <a href="../assets/tenants/maps/poverty-maps/st-john-parish-poverty-map.pdf" target="_blank"
+                                     <a href="../Assets/Tenants/Maps/PovertyMaps/st-john-parish-poverty-map.pdf" target="_blank"
                                             class="list-group-item">St John Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map">
                                             </i></span>
                                      </a>
-                                      <a href="../assets/tenants/maps/poverty-maps/st-tammany-parish-poverty-map.pdf" target="_blank"
+                                      <a href="../Assets/Tenants/Maps/PovertyMaps/st-tammany-parish-poverty-map.pdf" target="_blank"
                                             class="list-group-item">St Tammany Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map">
                                             </i></span>
                                       </a>
@@ -471,29 +470,29 @@
                                         <i class="fa fa-map-o" aria-hidden="true"></i>&nbsp; Minority Maps</h3>
                                 </div>
                                 <div class="list-group">
-                                    <a href="../assets/tenants/maps/minority-maps/jefferson-parish-minority-map.pdf" target="_blank" class="list-group-item">
+                                    <a href="../Assets/Tenants/Maps/MinorityMaps/jefferson-parish-minority-map.pdf" target="_blank" class="list-group-item">
                                         Jefferson Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o"></i></span>
                                     </a>
-                                    <a href="../assets/tenants/maps/minority-maps/orleans-parish-minority-map.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/Maps/MinorityMaps/orleans-parish-minority-map.pdf" target="_blank"
                                         class="list-group-item">Orleans Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o">
                                         </i></span>
                                     </a>
-                                    <a href="../assets/tenants/maps/minority-maps/plaquemines-parish-minority-map.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/Maps/MinorityMaps/plaquemines-parish-minority-map.pdf" target="_blank"
                                             class="list-group-item">Plaquemines Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o">
                                             </i></span>
                                     </a>
-                                    <a href="../assets/tenants/maps/minority-maps/st-bernard-parish-minority-map.pdf" target="_blank" class="list-group-item">
+                                    <a href="../Assets/Tenants/Maps/MinorityMaps/st-bernard-parish-minority-map.pdf" target="_blank" class="list-group-item">
                                        St Bernard Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o"></i></span>
                                     </a>
-                                    <a href="../assets/tenants/maps/minority-maps/st-charles-parish-minority-map.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/Maps/MinorityMaps/st-charles-parish-minority-map.pdf" target="_blank"
                                         class="list-group-item">St Charles Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o">
                                         </i></span>
                                     </a>
-                                    <a href="../assets/tenants/maps/minority-maps/st-john-parish-minority-map.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/Maps/MinorityMaps/st-john-parish-minority-map.pdf" target="_blank"
                                             class="list-group-item">St John Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o">
                                             </i></span>
                                     </a>
-                                    <a href="../assets/tenants/maps/minority-maps/st-tammany-parish-minority-map.pdf" target="_blank"
+                                    <a href="../Assets/Tenants/Maps/MinorityMaps/st-tammany-parish-minority-map.pdf" target="_blank"
                                             class="list-group-item">St Tammany Parish &nbsp; <span class="pull-right text-primary"><i class="fa fa-map-o">
                                             </i></span>
                                     </a>

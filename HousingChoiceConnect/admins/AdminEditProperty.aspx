@@ -1807,7 +1807,7 @@
                                             <div class="input-group input-group-lg inputFormat">
                                                 <%
                                                     If picturesExists(0) = False Then
-                                                        Response.Write("<div><img alt='House' height='300' width='400' src='../img/houseDefault.jpg'></div>")
+                                                        Response.Write("<div><img alt='House' height='300' width='400' src='../Images/houseDefault.jpg'></div>")
                                                     Else
                                                 %>
                                                 <div>
@@ -1821,7 +1821,7 @@
                                             <div class="input-group input-group-lg inputFormat">
                                                 <%
                                                     If picturesExists(1) = False Then
-                                                        Response.Write("<div><img alt='House' height='300' width='400' src='../img/houseDefault.jpg'></div>")
+                                                        Response.Write("<div><img alt='House' height='300' width='400' src='../Images/houseDefault.jpg'></div>")
                                                     Else
                                                 %>
                                                 <div>
@@ -1835,7 +1835,7 @@
                                             <div class="input-group input-group-lg inputFormat">
                                                 <%
                                                     If picturesExists(2) = False Then
-                                                        Response.Write("<div><img alt='House' height='300' width='400' src='../img/houseDefault.jpg'></div>")
+                                                        Response.Write("<div><img alt='House' height='300' width='400' src='../Images/houseDefault.jpg'></div>")
                                                     Else
                                                 %>
                                                 <asp:Image ID="Image3" runat="server" Height="300" Width="400"></asp:Image>
@@ -1849,7 +1849,7 @@
                                             <div class="input-group input-group-lg inputFormat">
                                                 <%
                                                     If picturesExists(3) = False Then
-                                                        Response.Write("<div><img alt='House' height='300' width='400' src='../img/houseDefault.jpg'></div>")
+                                                        Response.Write("<div><img alt='House' height='300' width='400' src='../Images/houseDefault.jpg'></div>")
                                                     Else
                                                 %>
                                                 <asp:Image ID="Image4" runat="server" Height="300" Width="400"></asp:Image>
@@ -1861,7 +1861,7 @@
                                             <div class="input-group input-group-lg inputFormat">
                                                 <%
                                                     If picturesExists(4) = False Then
-                                                        Response.Write("<div><img alt='House' height='300' width='400' src='../img/houseDefault.jpg'></div>")
+                                                        Response.Write("<div><img alt='House' height='300' width='400' src='../Images/houseDefault.jpg'></div>")
                                                     Else
                                                 %>
                                                 <asp:Image ID="Image5" runat="server" Height="300" Width="400"></asp:Image>
@@ -1873,7 +1873,7 @@
                                             <div class="input-group input-group-lg inputFormat">
                                                 <%
                                                     If picturesExists(5) = False Then
-                                                        Response.Write("<div><img alt='House' height='300' width='400' src='../img/houseDefault.jpg'></div>")
+                                                        Response.Write("<div><Images alt='House' height='300' width='400' src='../Images/houseDefault.jpg'></div>")
                                                     Else
                                                 %>
                                                 <asp:Image ID="Image6" runat="server" Height="300" Width="400"></asp:Image>

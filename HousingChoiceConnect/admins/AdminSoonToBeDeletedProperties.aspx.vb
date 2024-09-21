@@ -67,19 +67,19 @@ Public Class AdminProximityProperties
     End Sub
 
     Public Function DisplayActivateLink(ByVal landlordPropertyID As Integer) As String
-        Return "<a href=/landlords/SetPropertyState.aspx?LandlordPropertyID=" & landlordPropertyID & "&PropertyStateID=1><i class='fa fa-toggle-on'></i></a>"
+        Return "<a href=/Landlords/SetPropertyState.aspx?LandlordPropertyID=" & landlordPropertyID & "&PropertyStateID=1><i class='fa fa-toggle-on'></i></a>"
     End Function
 
     Public Function DisplayDeleteLink(ByVal landlordPropertyID As Integer) As String
-        Return "<a href=/landlords/SetPropertyState.aspx?LandlordPropertyID=" & landlordPropertyID & "&PropertyStateID=2><i class='fa fa-trash'></i></a>"
+        Return "<a href=/Landlords/SetPropertyState.aspx?LandlordPropertyID=" & landlordPropertyID & "&PropertyStateID=2><i class='fa fa-trash'></i></a>"
     End Function
 
     Public Function DisplayEditLink(ByVal landlordPropertyID As Integer) As String
-        Return "<a href=/admins/AdminEditProperty.aspx?LandlordPropertyID=" & landlordPropertyID & "><i class='fa fa-pencil'></i></a>"
+        Return "<a href=/Admins/AdminEditProperty.aspx?LandlordPropertyID=" & landlordPropertyID & "><i class='fa fa-pencil'></i></a>"
     End Function
 
     Public Function DisplayViewLink(ByVal landlordPropertyID As Integer, ByVal address As String) As String
-        Return "<a href=/admins/AdminViewProperty.aspx?LandlordPropertyID=" & landlordPropertyID & ">" & address & "</a>"
+        Return "<a href=/Admins/AdminViewProperty.aspx?LandlordPropertyID=" & landlordPropertyID & ">" & address & "</a>"
     End Function
 
     Public Sub SetDropdownList()
