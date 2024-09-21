@@ -327,6 +327,7 @@
       <DependentUpon>UserDashboard.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Utils\Constants.vb" />
     <Compile Include="Utils\KeyGenerator.vb" />
     <Compile Include="ViewSwitcher.ascx.vb">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

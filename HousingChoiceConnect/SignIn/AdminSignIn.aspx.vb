@@ -4,9 +4,9 @@ Imports System.Web.Configuration
 Public Class AdminSignIn
     Inherits System.Web.UI.Page
     Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
-    Public Const ADMIN_ROLE_ID As Integer = 1
-    Public Const TENANT_ROLE_ID As Integer = 2
-    Public Const LANDLORD_ROLE_ID As Integer = 3
+    'Public Const ADMIN_ROLE_ID As Integer = 1
+    'Public Const TENANT_ROLE_ID As Integer = 2
+    'Public Const LANDLORD_ROLE_ID As Integer = 3
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
@@ -33,11 +33,12 @@ Public Class AdminSignIn
             End While
             conn.Close()
 
-            If roleID = TENANT_ROLE_ID Then
+
+            If roleID = ApplicationConstants.Constants.TenantRole Then
                 Response.Redirect("TenantSignIn.aspx")
-            ElseIf roleID = LANDLORD_ROLE_ID Then
+            ElseIf roleID = ApplicationConstants.Constants.LandlordRole Then
                 Response.Redirect("LandlordSignIn.aspx")
-            ElseIf roleID = ADMIN_ROLE_ID Then
+            ElseIf ApplicationConstants.Constants.AdminRole Then
                 If (_password = dbPassword) Then
                     Web.HttpContext.Current.Session("UserID") = userID
                     Session("UserID") = userID

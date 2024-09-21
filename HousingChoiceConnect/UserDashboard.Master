@@ -68,7 +68,7 @@
             %>
             <nav class="navbar navbar-custom navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                     <img src="../Images/hanoLogo.png" alt="hanoLogo"/>
+                     <img src="../Images/hano-logo.png" alt="hanoLogo"/>
                 </div>   
                 <%
                     Select Case roleID

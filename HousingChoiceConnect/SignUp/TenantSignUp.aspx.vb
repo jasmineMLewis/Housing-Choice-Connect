@@ -33,7 +33,7 @@ Public Class TenantSignUp
                 Dim userID As Integer = RegisterTenant()
                 Session("UserID") = userID
 
-                Response.Redirect("../tenants/TenantDashboard.aspx?UserID=" & userID)
+                Response.Redirect("../Tenants/TenantDashboard.aspx?UserID=" & userID)
             Catch ex2 As Exception
                 lblMsg.Text = "Error occured while sending your message." + ex2.Message
             End Try
@@ -98,9 +98,9 @@ Public Class TenantSignUp
     End Function
 
     Public Function RegisterTenant() As Integer
-        Const TENANT_ROLE_ID As Integer = 2
-        Const IS_EMAIL_VERIFIED As Boolean = 1
-        Const IS_SECURITY_QUESTIONS_COMPLETED As Boolean = 0
+        'Const TENANT_ROLE_ID As Integer = 2
+        'Const IS_EMAIL_VERIFIED As Boolean = 1
+        'Const IS_SECURITY_QUESTIONS_COMPLETED As Boolean = 0
 
         Dim userID As Integer
         Dim _email As String = email.Text.Trim
@@ -126,11 +126,11 @@ Public Class TenantSignUp
                 .Parameters.AddWithValue("@LastName", _lastName)
                 .Parameters.AddWithValue("@Email", _email)
                 .Parameters.AddWithValue("@Password", _password)
-                .Parameters.AddWithValue("@IsEmailVerified", IS_EMAIL_VERIFIED)
-                .Parameters.AddWithValue("@IsSecurityQuestionsCompleted", IS_SECURITY_QUESTIONS_COMPLETED)
+                .Parameters.AddWithValue("@IsEmailVerified", ApplicationConstants.Constants.IsEmailVerified)
+                .Parameters.AddWithValue("@IsSecurityQuestionsCompleted", ApplicationConstants.Constants.IsSecurityQuestionsCompeleted)
                 .Parameters.AddWithValue("@DateRegistered", dateRegistered)
                 .Parameters.AddWithValue("@LastLogin", lastLogin)
-                .Parameters.AddWithValue("@RoleID", TENANT_ROLE_ID)
+                .Parameters.AddWithValue("@RoleID", ApplicationConstants.Constants.TenantRole)
                 .Parameters.AddWithValue("@Code", code)
             End With
 

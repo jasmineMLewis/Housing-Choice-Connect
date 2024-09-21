@@ -17,7 +17,7 @@ INSERT INTO EliteTenantImport (FirstName, LastName, EntityID, DisguisedTaxID) VA
 
 
 /****** Object:  Table dbo.Users  ******/
-INSERT INTO Users (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID, Code) VALUES ('Jasmine', 'Lewis', 'JasmineLewis@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '1', '1234');
+INSERT INTO Users (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID, Code) VALUES ('Jasmine', 'Lewis', 'jasmine.lewis@artistikrebellion.us', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '1', '1234');
 INSERT INTO Users (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID, Code) VALUES ('Patrick', 'Hoban', 'PatrickHoban@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '2', '2123');
 INSERT INTO Users (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID, Code) VALUES ('Jason', 'Holloway', 'JasonHolloway@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '2', '4534');
 INSERT INTO Users (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID, Code) VALUES ('Cesar ', 'Gonzalez ', 'CesarGonzalez@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '3', '8665');
