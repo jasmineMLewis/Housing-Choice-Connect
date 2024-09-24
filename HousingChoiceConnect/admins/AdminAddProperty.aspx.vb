@@ -141,7 +141,7 @@ Public Class AdminAddProperty
                 .CommandText = query
                 .Parameters.AddWithValue("@AddressProperty", address)
                 .Parameters.AddWithValue("@AptSuite", aptOrSuite)
-                .Parameters.AddWithValue("@City", CITY)
+                .Parameters.AddWithValue("@City", ApplicationConstants.Constants.City)
                 .Parameters.AddWithValue("@Description", description)
                 .Parameters.AddWithValue("@Rent", rent)
                 .Parameters.AddWithValue("@Deposit", deposit)
@@ -157,7 +157,7 @@ Public Class AdminAddProperty
                 .Parameters.AddWithValue("@IsPropertyReadyForOccupancy", readyForOccupancy)
                 .Parameters.AddWithValue("@IsPetsPermitted", isPetsPermitted)
                 .Parameters.AddWithValue("@IsPicturesExists", 0)
-                .Parameters.AddWithValue("@IsActive", PROPERTY_ACTIVE)
+                .Parameters.AddWithValue("@IsActive", ApplicationConstants.Constants.PropertyActive)
                 .Parameters.AddWithValue("@DateAvaiableToRent", dateAvailableToRent)
                 .Parameters.AddWithValue("@DateLastUpdated", dateOfPostage)
                 .Parameters.AddWithValue("@DateOfInactivation", DBNull.Value)

@@ -785,7 +785,8 @@ Public Class AdminEditPropertyaspx
                 If picture2.HasFile Then
                     If count = 2 Then
                         conn.Open()
-                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
+                        Dim queryUpdate As New SqlCommand("DELETE FROM LandlordPropertyPictures 
+                                                           WHERE LandlordPropertyPictureID = '" & pictureID & "'", conn)
                         queryUpdate.ExecuteNonQuery()
                         conn.Close()
                     End If

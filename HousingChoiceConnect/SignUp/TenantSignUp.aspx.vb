@@ -44,7 +44,7 @@ Public Class TenantSignUp
         Dim isExists As Boolean
         conn.Open()
         Dim query As New SqlCommand("SELECT UserID 
-                                     FROM Users 
+                                     FROM User 
                                      WHERE Email='" & email & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         If reader.HasRows Then
@@ -109,13 +109,13 @@ Public Class TenantSignUp
         Dim _lastName As String = lastName.Text.Trim
         Dim dateRegistered As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         Dim lastLogin As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-        Dim code As String = UniqueKey.KeyGenerator.GetUniqueKey(8)
-        hdCode.Value = code.Trim
+        'Dim code As String = UniqueKey.KeyGenerator.GetUniqueKey(8)
+        'hdCode.Value = code.Trim
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO Users (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID, Code)"
-        query &= "VALUES (@FirstName, @LastName, @Email, @Password, @IsEmailVerified, @IsSecurityQuestionsCompleted, @DateRegistered, @LastLogin, @RoleID, @Code);"
-        query &= "SELECT @@IDENTITY FROM Users"
+        query &= "INSERT INTO User (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID)"
+        query &= "VALUES (@FirstName, @LastName, @Email, @Password, @IsEmailVerified, @IsSecurityQuestionsCompleted, @DateRegistered, @LastLogin, @RoleID);"
+        query &= "SELECT @@IDENTITY FROM User"
 
         Using comm As New SqlCommand()
             With comm
@@ -131,7 +131,6 @@ Public Class TenantSignUp
                 .Parameters.AddWithValue("@DateRegistered", dateRegistered)
                 .Parameters.AddWithValue("@LastLogin", lastLogin)
                 .Parameters.AddWithValue("@RoleID", ApplicationConstants.Constants.TenantRole)
-                .Parameters.AddWithValue("@Code", code)
             End With
 
             conn.Open()

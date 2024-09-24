@@ -173,7 +173,14 @@
 
         conn.Open()
         Dim queryHandicapInfo As String = String.Empty
-        queryHandicapInfo &= "SELECT * 
+        queryHandicapInfo &= "SELECT IsAccessibleParkingCloseToHome, IsRampedEntry,
+                                     IsDoorways32Inches_Wider, IsAccessiblePathToAndInHome32Inches_Wider,
+                                     IsAutomaticEntryDoor, IsLowCounter_SinkAt_Below34Inches,
+                                     IsAccessibleAppliances, IsShower_TubGrabBars, IsRollInShower.
+                                     IsHandHeldShowerSprayer, IsFixedSeatInShower_Tub, IsRaisedToilet,
+                                     IsFirstFloorBedroom, IsFirstFloorBathroom, IsLift_Elevator,
+                                     IsAudio_VisualDoorbell, IsAudio_VisualSmoke_FireAlarm,
+                                     IsElevatorAccess
                               FROM LandlordPropertyHandicapAccessibility 
                               WHERE LandlordPropertyID = '" & landlordPropertyID & "'"
         Dim queryHandicap As New SqlCommand(queryHandicapInfo, conn)
@@ -181,21 +188,21 @@
         While readerHandicapInfo.Read
             isAccessibleParkingCloseToHome = CStr(readerHandicapInfo("IsAccessibleParkingCloseToHome"))
             isRampedEntry = CStr(readerHandicapInfo("IsRampedEntry"))
-            isDoorways32InchesWider = CStr(readerHandicapInfo("IsDoorways32Inches_Wider"))
+            isDoorways32InchesWider = CStr(readerHandicapInfo("IsDoorways32InchesWider"))
             isAccessiblePathToAndInHome32InchesWider = CStr(readerHandicapInfo("IsAccessiblePathToAndInHome32Inches_Wider"))
             isAutomaticEntryDoor = CStr(readerHandicapInfo("IsAutomaticEntryDoor"))
-            isLowCounterSinkAtBelow34Inches = CStr(readerHandicapInfo("IsLowCounter_SinkAt_Below34Inches"))
+            isLowCounterSinkAtBelow34Inches = CStr(readerHandicapInfo("IsLowCounterSinkAtBelow34Inches"))
             isAccessibleAppliances = CStr(readerHandicapInfo("IsAccessibleAppliances"))
-            isShowerTubGrabBars = CStr(readerHandicapInfo("IsShower_TubGrabBars"))
+            isShowerTubGrabBars = CStr(readerHandicapInfo("IsShowerTubGrabBars"))
             isRollInShower = CStr(readerHandicapInfo("IsRollInShower"))
             isHandHeldShowerSprayer = CStr(readerHandicapInfo("IsHandHeldShowerSprayer"))
-            isFixedSeatInShowerTub = CStr(readerHandicapInfo("IsFixedSeatInShower_Tub"))
+            isFixedSeatInShowerTub = CStr(readerHandicapInfo("IsFixedSeatInShowerTub"))
             isRaisedToilet = CStr(readerHandicapInfo("IsRaisedToilet"))
             isFirstFloorBedroom = CStr(readerHandicapInfo("IsFirstFloorBedroom"))
             isFirstFloorBathroom = CStr(readerHandicapInfo("IsFirstFloorBathroom"))
-            isLiftElevator = CStr(readerHandicapInfo("IsLift_Elevator"))
-            isAudioVisualDoorbell = CStr(readerHandicapInfo("IsAudio_VisualDoorbell"))
-            isAudioVisualSmokeFireAlarm = CStr(readerHandicapInfo("IsAudio_VisualSmoke_FireAlarm"))
+            isLiftElevator = CStr(readerHandicapInfo("IsLiftElevator"))
+            isAudioVisualDoorbell = CStr(readerHandicapInfo("IsAudioVisualDoorbell"))
+            isAudioVisualSmokeFireAlarm = CStr(readerHandicapInfo("IsAudioVisualSmokeFireAlarm"))
             isElevatorAccess = CStr(readerHandicapInfo("IsElevatorAccess"))
         End While
         conn.Close()
@@ -210,7 +217,7 @@
         Dim queryAmentity As New SqlCommand(queryAmentityInfo, conn)
         Dim readerAmentityInfo As SqlDataReader = queryAmentity.ExecuteReader()
         While readerAmentityInfo.Read
-            dBpropertyAmetities.Add(CStr(readerAmentityInfo("fk_AmentityID")))
+            dBpropertyAmetities.Add(CStr(readerAmentityInfo("AmentityID")))
         End While
 
         Dim amentityResponses As New ArrayList

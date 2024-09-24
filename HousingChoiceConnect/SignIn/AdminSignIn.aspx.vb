@@ -21,7 +21,7 @@ Public Class AdminSignIn
 
         conn.Open()
         Dim query As New SqlCommand("SELECT UserID, Password, RoleID 
-                                     FROM Users 
+                                     FROM User
                                      WHERE Email='" & _email & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
 
@@ -57,7 +57,7 @@ Public Class AdminSignIn
     Public Sub UpdateLastLoginDate(ByVal userID As Integer)
         Dim lastLogin As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         conn.Open()
-        Dim query As New SqlCommand("UPDATE Users 
+        Dim query As New SqlCommand("UPDATE User 
                                      SET LastLogin ='" & lastLogin & "' 
                                      WHERE UserID='" & userID & "'", conn)
         query.ExecuteNonQuery()

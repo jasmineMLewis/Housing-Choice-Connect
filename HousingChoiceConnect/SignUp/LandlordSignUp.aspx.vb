@@ -37,7 +37,7 @@ Public Class LandlordSignUp
         Dim isExists As Boolean
         conn.Open()
         Dim query As New SqlCommand("SELECT UserID 
-                                     FROM Users 
+                                     FROM User
                                      WHERE Email='" & email & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         If reader.HasRows Then
@@ -50,9 +50,9 @@ Public Class LandlordSignUp
     End Function
 
     Public Function RegisterLandlord() As Integer
-        Const LANDLORD_ROLE_ID As Integer = 3
-        Const IS_EMAIL_VERIFIED As Boolean = 1
-        Const IS_SECURITY_QUESTIONS_COMPLETED As Boolean = 0
+        'Const LANDLORD_ROLE_ID As Integer = 3
+        'Const IS_EMAIL_VERIFIED As Boolean = 1
+        'Const IS_SECURITY_QUESTIONS_COMPLETED As Boolean = 0
 
         Dim userID As Integer
         Dim _email As String = email.Text.Trim
@@ -61,13 +61,13 @@ Public Class LandlordSignUp
         Dim _lastName As String = StrConv(lastName.Text.Trim, VbStrConv.ProperCase)
         Dim dateRegistered As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         Dim lastLogin As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-        Dim code As String = UniqueKey.KeyGenerator.GetUniqueKey(8)
-        hdCode.Value = code
+        'Dim code As String = UniqueKey.KeyGenerator.GetUniqueKey(8)
+        'hdCode.Value = code
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO Users (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID, Code)"
-        query &= "VALUES (@FirstName, @LastName, @Email, @Password, @IsEmailVerified, @IsSecurityQuestionsCompleted, @DateRegistered, @LastLogin, @RoleID, @Code);"
-        query &= "SELECT @@IDENTITY FROM Users"
+        query &= "INSERT INTO User (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID)"
+        query &= "VALUES (@FirstName, @LastName, @Email, @Password, @IsEmailVerified, @IsSecurityQuestionsCompleted, @DateRegistered, @LastLogin, @RoleID);"
+        query &= "SELECT @@IDENTITY FROM User"
 
         Using comm As New SqlCommand()
             With comm
@@ -78,12 +78,11 @@ Public Class LandlordSignUp
                 .Parameters.AddWithValue("@LastName", _lastName)
                 .Parameters.AddWithValue("@Email", _email)
                 .Parameters.AddWithValue("@Password", _password)
-                .Parameters.AddWithValue("@IsEmailVerified", IS_EMAIL_VERIFIED)
-                .Parameters.AddWithValue("@IsSecurityQuestionsCompleted", IS_SECURITY_QUESTIONS_COMPLETED)
+                .Parameters.AddWithValue("@IsEmailVerified", ApplicationConstants.Constants.IsEmailVerified)
+                .Parameters.AddWithValue("@IsSecurityQuestionsCompleted", ApplicationConstants.Constants.IsSecurityQuestionsCompeleted)
                 .Parameters.AddWithValue("@DateRegistered", dateRegistered)
                 .Parameters.AddWithValue("@LastLogin", lastLogin)
-                .Parameters.AddWithValue("@RoleID", LANDLORD_ROLE_ID)
-                .Parameters.AddWithValue("@Code", code)
+                .Parameters.AddWithValue("@RoleID", ApplicationConstants.Constants.LandlordRole)
             End With
 
             conn.Open()

@@ -11,5 +11,9 @@ Namespace ApplicationConstants
 
         'Security
         Public Const IsSecurityQuestionsCompeleted As Boolean = 0
+
+        'Property
+        Public Const City As String = "New Orleans"
+        Public Const PropertyActive As Boolean = 1
     End Class
 End Namespace

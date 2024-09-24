@@ -40,8 +40,8 @@ Housing Choice Connect is a .NET project for Housing Authority of New Orleans.
 
 <b>New Updates Added as of 2024</b>
 1. Add a Application Constants Class as pascal case variables
-2. (IN PROGRESS) Change each page that uses local constants to Application Constants namespace 
-1. (IN PROGRESS) Create schemas
+2. (IN PROGRESS) Change VB pages that uses local constants to Application Constants namespace 
+ 
 
 
 ### Date Last Updated via GitHub

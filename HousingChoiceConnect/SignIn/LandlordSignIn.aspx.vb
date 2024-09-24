@@ -10,7 +10,7 @@ Public Class LandlordSignIn
     End Sub
 
     Protected Sub BtnLandlordSignIn(ByVal sender As Object, ByVal e As EventArgs)
-        Const LANDLORD_ROLE_ID As Integer = 3
+        'Const LANDLORD_ROLE_ID As Integer = 3
         Dim _email As String = email.Text.Trim
         Dim _password As String = password.Text.Trim
         Dim dbPassword As String
@@ -22,7 +22,7 @@ Public Class LandlordSignIn
         conn.Open()
         Dim query As New SqlCommand("SELECT UserID, Password, RoleID, IsEmailVerified, 
                                             IsSecurityQuestionsCompleted 
-                                     FROM Users 
+                                     FROM User
                                      WHERE Email='" & _email & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
 
@@ -38,7 +38,7 @@ Public Class LandlordSignIn
 
             If (_password = dbPassword) Then
                 If (isEmailVerified = 1) Or (isEmailVerified = "True") Then
-                    If roleID = LANDLORD_ROLE_ID Then
+                    If roleID = ApplicationConstants.Constants.LandlordRole Then
                         If (isSecurityQuestionsCompleted = 1) Or (isSecurityQuestionsCompleted = "True") Then
                             Web.HttpContext.Current.Session("UserID") = userID
                             Session("UserID") = userID
@@ -69,7 +69,7 @@ Public Class LandlordSignIn
     Public Sub updateLastLoginDate(ByVal userID As Integer)
         Dim lastLogin As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         conn.Open()
-        Dim query As New SqlCommand("UPDATE Users 
+        Dim query As New SqlCommand("UPDATE User
                                      SET LastLogin ='" & lastLogin & "' 
                                      WHERE UserID='" & userID & "'", conn)
         query.ExecuteNonQuery()

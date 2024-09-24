@@ -10,8 +10,8 @@ Public Class TenantLogin
     End Sub
 
     Protected Sub BtnTenantSignIn(ByVal sender As Object, ByVal e As EventArgs)
-        Const TENANT_ROLE As Integer = 2
-        Const LANDLORD_ROLE As Integer = 3
+        'Const TENANT_ROLE As Integer = 2
+        'Const LANDLORD_ROLE As Integer = 3
 
         Dim _email As String = email.Text.Trim
         Dim _password As String = password.Text.Trim
@@ -21,7 +21,7 @@ Public Class TenantLogin
 
         conn.Open()
         Dim query As New SqlCommand("SELECT UserID, RoleID, Password 
-                                     FROM Users 
+                                     FROM User 
                                      WHERE Email='" & _email & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         If reader.HasRows Then
@@ -37,9 +37,9 @@ Public Class TenantLogin
                 Session("UserID") = userID
 
                 updateLastLoginDate(userID)
-                If roleID = TENANT_ROLE Then
+                If roleID = ApplicationConstants.Constants.TenantRole Then
                     Response.Redirect("../Tenants/TenantDashboard.aspx")
-                ElseIf roleID = LANDLORD_ROLE Then
+                ElseIf roleID = ApplicationConstants.Constants.LandlordRole Then
                     Response.Redirect("LandlordSignIn.aspx")
                 End If
             Else
@@ -54,7 +54,7 @@ Public Class TenantLogin
     Public Sub updateLastLoginDate(ByVal userID As Integer)
         Dim lastLogin As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         conn.Open()
-        Dim query As New SqlCommand("UPDATE Users 
+        Dim query As New SqlCommand("UPDATE User
                                     SET LastLogin ='" & lastLogin & "' 
                                     WHERE UserID='" & userID & "'", conn)
         query.ExecuteNonQuery()

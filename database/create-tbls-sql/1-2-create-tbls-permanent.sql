@@ -11,7 +11,7 @@ GO
 Tables: 6
 Tables:
 - EliteTenantImport
-- Users
+- User
 - LandlordProperty
 - LandlordPropertyHandicapAccessibility
 - LandlordPropertyPicture
@@ -41,15 +41,15 @@ CREATE TABLE dbo.EliteTenantImport(
 GO
 
 
-/****** Object:  Table dbo.Users  ******/
-DROP TABLE IF EXISTS dbo.Users
+/****** Object:  Table dbo.User  ******/
+DROP TABLE IF EXISTS dbo.[User]
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE dbo.Users(
+CREATE TABLE dbo.[User](
 	UserID int IDENTITY(1,1) NOT NULL,
 	FirstName varchar(50) NOT NULL,
 	LastName varchar(50) NOT NULL,
@@ -59,14 +59,13 @@ CREATE TABLE dbo.Users(
 	IsSecurityQuestionsCompleted bit NULL DEFAULT 0,
 	DateRegistered datetime NOT NULL,
 	LastLogin datetime NULL,
-	RoleID int NOT NULL,
-	Code varchar(50) NULL,
- CONSTRAINT PK_Users_UserID PRIMARY KEY CLUSTERED (UserID ASC),
- INDEX IX_Users_UserID NONCLUSTERED (UserID),
- INDEX IX_Users_Email NONCLUSTERED (Email),
- INDEX IX_Users_Password NONCLUSTERED (Password),
- CONSTRAINT FK_Users_RoleID_Role_RoleID FOREIGN KEY (RoleID) REFERENCES [Role](RoleID) ON DELETE CASCADE,
- INDEX IX_Users_RoleID NONCLUSTERED (RoleID)
+	RoleID int NOT NULL
+ CONSTRAINT PK_User_UserID PRIMARY KEY CLUSTERED (UserID ASC),
+ INDEX IX_User_UserID NONCLUSTERED (UserID),
+ INDEX IX_User_Email NONCLUSTERED (Email),
+ INDEX IX_User_Password NONCLUSTERED (Password),
+ CONSTRAINT FK_User_RoleID_Role_RoleID FOREIGN KEY (RoleID) REFERENCES [Role](RoleID) ON DELETE CASCADE,
+ INDEX IX_User_RoleID NONCLUSTERED (RoleID)
 )
 GO
 
@@ -112,7 +111,7 @@ CREATE TABLE dbo.LandlordProperty(
 	UnitID int NOT NULL,
  CONSTRAINT PK_LandlordProperty_LandlordPropertyID PRIMARY KEY CLUSTERED (LandlordPropertyID ASC),
  INDEX IX_LandlordProperty_LandlordPropertyID NONCLUSTERED (LandlordPropertyID),
- CONSTRAINT FK_LandlordProperty_UserID_Users_UserID FOREIGN KEY (UserID) REFERENCES [Users](UserID) ON DELETE CASCADE,
+ CONSTRAINT FK_LandlordProperty_UserID_User_UserID FOREIGN KEY (UserID) REFERENCES [User](UserID) ON DELETE CASCADE,
  INDEX IX_LandlordProperty_UserID NONCLUSTERED (UserID),
  CONSTRAINT FK_LandlordProperty_NeighborhoodID_Neighborhood_NeighborhoodID FOREIGN KEY (NeighborhoodID) REFERENCES [Neighborhood](NeighborhoodID) ON DELETE CASCADE,
  INDEX IX_LandlordProperty_NeighborhoodID NONCLUSTERED (NeighborhoodID),
@@ -196,7 +195,7 @@ CREATE TABLE dbo.UserSecurityQuestion(
 	UserID int NOT NULL,
  CONSTRAINT PK_UserSecurityQuestion_UserSecurityQuestionID PRIMARY KEY CLUSTERED (UserSecurityQuestionID ASC),
  INDEX IX_UserSecurityQuestion_UserSecurityQuestionID NONCLUSTERED (UserSecurityQuestionID),
- CONSTRAINT FK_UserSecurityQuestion_UserID_Users_UserID FOREIGN KEY (UserID) REFERENCES [Users](UserID) ON DELETE CASCADE,
+ CONSTRAINT FK_UserSecurityQuestion_UserID_User_UserID FOREIGN KEY (UserID) REFERENCES [User](UserID) ON DELETE CASCADE,
  INDEX IX_UserSecurityQuestion_UserID NONCLUSTERED (UserID),
  CONSTRAINT FK_UserSecurityQuestion_SecurityQuestionID_SecurityQuestion_SecurityQuestionID FOREIGN KEY (SecurityQuestionID) REFERENCES [SecurityQuestion](SecurityQuestionID) ON DELETE CASCADE,
  INDEX IX_UserSecurityQuestion_SecurityQuestionID NONCLUSTERED (SecurityQuestionID)
