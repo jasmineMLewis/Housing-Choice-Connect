@@ -45,7 +45,7 @@ Housing Choice Connect is a .NET project for Housing Authority of New Orleans.
 
 
 ### Date Last Updated via GitHub
-September 20, 2024
+September 28, 2024
 
 ### Technologies
 | Technology | Version  |

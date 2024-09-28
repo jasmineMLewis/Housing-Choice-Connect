@@ -17,8 +17,8 @@ INSERT INTO EliteTenantImport (FirstName, LastName, EntityID, DisguisedTaxID) VA
 
 
 /****** Object:  Table dbo.User  ******/
-INSERT INTO [User] (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID) VALUES ('Jasmine', 'Lewis', 'jasmine.lewis@artistikrebellion.us', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '1');
-INSERT INTO [User] (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID) VALUES ('Patrick', 'Hoban', 'PatrickHoban@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '2');
-INSERT INTO [User] (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID) VALUES ('Jason', 'Holloway', 'JasonHolloway@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '2');
-INSERT INTO [User] (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID) VALUES ('Cesar ', 'Gonzalez ', 'CesarGonzalez@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '3');
-INSERT INTO [User] (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, RoleID) VALUES ('Shannon', 'Long', 'ShannonLong@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '3');
+INSERT INTO [User] (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, IsActive) VALUES ('Jasmine', 'Lewis', 'jasmine.lewis@artistikrebellion.us', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '1');
+INSERT INTO [User] (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, IsActive) VALUES ('Patrick', 'Hoban', 'PatrickHoban@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '1');
+INSERT INTO [User] (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, IsActive) VALUES ('Jason', 'Holloway', 'JasonHolloway@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '1');
+INSERT INTO [User] (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, IsActive) VALUES ('Cesar ', 'Gonzalez ', 'CesarGonzalez@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '1');
+INSERT INTO [User] (FirstName, LastName, Email, Password, IsEmailVerified, IsSecurityQuestionsCompleted, DateRegistered, LastLogin, IsActive) VALUES ('Shannon', 'Long', 'ShannonLong@gmail.com', 'Qwerty1', '0', '0', GETDATE(), GETDATE(), '1');

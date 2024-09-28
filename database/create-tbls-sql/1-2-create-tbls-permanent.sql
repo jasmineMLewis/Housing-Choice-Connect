@@ -59,13 +59,13 @@ CREATE TABLE dbo.[User](
 	IsSecurityQuestionsCompleted bit NULL DEFAULT 0,
 	DateRegistered datetime NOT NULL,
 	LastLogin datetime NULL,
-	RoleID int NOT NULL
+	IsActive bit NULL DEFAULT 1,
  CONSTRAINT PK_User_UserID PRIMARY KEY CLUSTERED (UserID ASC),
  INDEX IX_User_UserID NONCLUSTERED (UserID),
  INDEX IX_User_Email NONCLUSTERED (Email),
- INDEX IX_User_Password NONCLUSTERED (Password),
- CONSTRAINT FK_User_RoleID_Role_RoleID FOREIGN KEY (RoleID) REFERENCES [Role](RoleID) ON DELETE CASCADE,
- INDEX IX_User_RoleID NONCLUSTERED (RoleID)
+ INDEX IX_User_Password NONCLUSTERED (Password)
+ --CONSTRAINT FK_User_RoleID_Role_RoleID FOREIGN KEY (RoleID) REFERENCES [Role](RoleID) ON DELETE CASCADE,
+ --INDEX IX_User_RoleID NONCLUSTERED (RoleID)
 )
 GO
 

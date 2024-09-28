@@ -148,9 +148,9 @@ INSERT INTO Property (Property) VALUES ('Apt Complex/Garden Walkup');
 
 
 /****** Object:  Table dbo.Role  ******/
-INSERT INTO Role (Role) VALUES ('Admin');
-INSERT INTO Role (Role) VALUES ('Tenant');
-INSERT INTO Role (Role) VALUES ('Landlord');
+INSERT INTO Role (Role, Description) VALUES ('Admin', 'An Admin can sign up, sign in, manage users and properties');
+INSERT INTO Role (Role, Description) VALUES ('Tenant', 'A Tenant can sign up, sign in, edit profile and view landlord properties');
+INSERT INTO Role (Role, Description) VALUES ('Landlord', 'A Landlord can sign up, sign in, edit profile, and manage properties');
 
 
 /****** Object:  Table dbo.SecurityQuestion  ******/
