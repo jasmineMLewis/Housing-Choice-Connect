@@ -64,20 +64,25 @@ September 28, 2024
 
 ## Install Database
 Within the File-Tracker folder, navigate to database folder, and open the following folders:
-1. create-tbls-sql
-2. insert-data-sql
+1. create-schemas-sql 
+2. create-tbls-sql
+3. insert-data-sql
+
+
+### Create Schemas
+Execute database files in SQL Server Managment Studio within 'create-scheams-sql' folder:
+1. ./database/create-schemas-sql/1-1-create-schemas-sql
 
 ### Create Tables
 Execute database files in SQL Server Managment Studio within 'create-tbls-sql' folder:
-1. ./database/create-tbls-sql/1-1-create-tbls-refernce.sql
-2. ./database/create-tbls-sql/1-2-create-tbls-permanent.sql
-3. ./database/create-tbls-sql/1-3-create-tbls-link.sql
-
+1. ./database/create-tbls-sql/2-1-create-tbls-refernce.sql
+2. ./database/create-tbls-sql/2-2-create-tbls-permanent.sql
+3. ./database/create-tbls-sql/2-3-create-tbls-link.sql
 
 ### Insert Data
 Execute database files in SQL Server Managment Studio within 'insert-data-sql' folder:
-1. ./database/insert-data-sql/2-1-insert-data-tbls-refernce.sql
-2. ./database/insert-data-sql/2-2-insert-data-tbls-permanent.sql
+1. ./database/insert-data-sql/3-1-insert-data-tbls-refernce.sql
+2. ./database/insert-data-sql/3-2-insert-data-tbls-permanent.sql
 
 
 ## Run Application
@@ -102,16 +107,28 @@ Housing Choice Connect's folders are Sign In, Sign Up, Tenants, Landlords, and A
 > Register Users
 
 ## Tenants
->
+>Search and View Landlord Properties
 
 ## Landlords
->
+>Manage Properties
 
 ## Admins
-> 
+> Manage Users and Properties
 
 
 # Database Composition
+## Schemas
+>Schemas are a list of logical structures of data.
+(Ordered by Relevance):
+1. Security
+
+
+## Association Tables
+> Association tables are used for many-to-many relationships between two objects.
+Association tables can handle both one-to-one, one-to-many and many-to-many relationships.
+(Ordered by Relevance):
+1. 
+
 ## Reference  Tables
 > Reference Tables share identical fields/column data in another table.
 (Ordered by Relevance):

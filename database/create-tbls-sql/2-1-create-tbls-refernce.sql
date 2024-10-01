@@ -12,7 +12,7 @@ Tables: 6
 - Amentity
 - Neighborhood
 - Property
-- Role
+- UserRole
 - SecurityQuestion
 - Unit
 ******/
@@ -30,9 +30,7 @@ CREATE TABLE dbo.Amentity(
 	Amentity varchar(50) NOT NULL,
 	Location varchar(50) NULL,
  CONSTRAINT PK_Amentity_AmentityID PRIMARY KEY CLUSTERED (AmentityID ASC),
- INDEX IX_Amentity_AmentityID NONCLUSTERED (AmentityID),
- INDEX IX_Amentity_Amentity NONCLUSTERED (Amentity),
- INDEX IX_Amentity_Location NONCLUSTERED (Location)
+ INDEX IX_Amentity_AmentityID NONCLUSTERED (AmentityID)
 )
 GO
 
@@ -67,8 +65,7 @@ CREATE TABLE dbo.Property(
 	PropertyID int IDENTITY(1,1) NOT NULL,
 	Property varchar(50) NOT NULL,
  CONSTRAINT PK_Property_PropertyID PRIMARY KEY CLUSTERED (PropertyID ASC),
- INDEX IX_Property_PropertyID NONCLUSTERED (PropertyID),
- INDEX IX_Property_Property NONCLUSTERED (Property)
+ INDEX IX_Property_PropertyID NONCLUSTERED (PropertyID)
 )
 GO
 
@@ -80,13 +77,12 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE dbo.[Role](
-	RoleID int IDENTITY(1,1) NOT NULL,
+CREATE TABLE dbo.UserRole(
+	UserRoleID int IDENTITY(1,1) NOT NULL,
 	RoleName varchar(50) NOT NULL,
 	Description varchar(250) NOT NULL,
- CONSTRAINT PK_Role_RoleID PRIMARY KEY CLUSTERED (RoleID ASC),
- INDEX IX_Role_RoleID NONCLUSTERED (RoleID),
- INDEX IX_Role_Role NONCLUSTERED (Role)
+ CONSTRAINT PK_Role_UserRoleID PRIMARY KEY CLUSTERED (UserRoleID ASC),
+ INDEX IX_Role_UserRoleID NONCLUSTERED (UserRoleID)
 )
 GO
 
@@ -102,8 +98,7 @@ CREATE TABLE dbo.SecurityQuestion(
 	SecurityQuestionID int IDENTITY(1,1) NOT NULL,
 	Question varchar(225) NOT NULL,
  CONSTRAINT PK_SecurityQuestion_SecurityQuestionID PRIMARY KEY CLUSTERED (SecurityQuestionID ASC),
- INDEX IX_SecurityQuestion_SecurityQuestionID NONCLUSTERED (SecurityQuestionID),
- INDEX IX_SecurityQuestion_SecurityQuestion NONCLUSTERED (Question)
+ INDEX IX_SecurityQuestion_SecurityQuestionID NONCLUSTERED (SecurityQuestionID)
 )
 GO
 
@@ -122,7 +117,6 @@ CREATE TABLE dbo.Unit(
 	UnitID int IDENTITY(1,1) NOT NULL,
 	Unit varchar(50) NOT NULL,
  CONSTRAINT PK_Unit_UnitID PRIMARY KEY CLUSTERED (UnitID ASC),
- INDEX IX_Unit_UnitID NONCLUSTERED (UnitID),
- INDEX IX_Unit_Unit NONCLUSTERED (Unit)
+ INDEX IX_Unit_UnitID NONCLUSTERED (UnitID)
 )
 GO

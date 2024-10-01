@@ -10,24 +10,23 @@ GO
 /****** 
 Tables: 6
 Tables:
-- EliteTenantImport
-- User
-- LandlordProperty
-- LandlordPropertyHandicapAccessibility
-- LandlordPropertyPicture
-- UserSecurityQuestion
+- Security.EliteTenantImport
+- Security.User
+- Landlord.Property
+- Landlord.PropertyHandicapAccessibility
+- Landlord.PropertyPicture
 ******/
 
 
-/****** Object: Table dbo.EliteTenantImport ******/
-DROP TABLE IF EXISTS dbo.EliteTenantImport
+/****** Object: Table Security..EliteTenantImport ******/
+DROP TABLE IF EXISTS Security..EliteTenantImport
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE dbo.EliteTenantImport(
+CREATE TABLE Security.EliteTenantImport(
 	EliteTenantImportID int IDENTITY(1,1) NOT NULL,
 	FirstName varchar(50) NOT NULL,
 	LastName varchar(50) NOT NULL,
@@ -35,21 +34,20 @@ CREATE TABLE dbo.EliteTenantImport(
 	DisguisedTaxID varchar(50) NOT NULL,
  CONSTRAINT PK_EliteTenantImport_EliteTenantImportID PRIMARY KEY CLUSTERED (EliteTenantImportID),
  INDEX IX_EliteTenantImport_EliteTenantImportID NONCLUSTERED (EliteTenantImportID),
- INDEX IX_EliteTenantImport_EntityID NONCLUSTERED (EntityID),
- INDEX IX_EliteTenantImport_DisguisedTaxID NONCLUSTERED (DisguisedTaxID)
+ INDEX IX_EliteTenantImport_EntityID NONCLUSTERED (EntityID)
 )
 GO
 
 
-/****** Object:  Table dbo.User  ******/
-DROP TABLE IF EXISTS dbo.[User]
+/****** Object:  Table Security.User  ******/
+DROP TABLE IF EXISTS Security.[User]
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE dbo.[User](
+CREATE TABLE Security.[User](
 	UserID int IDENTITY(1,1) NOT NULL,
 	FirstName varchar(50) NOT NULL,
 	LastName varchar(50) NOT NULL,
@@ -62,23 +60,23 @@ CREATE TABLE dbo.[User](
 	IsActive bit NULL DEFAULT 1,
  CONSTRAINT PK_User_UserID PRIMARY KEY CLUSTERED (UserID ASC),
  INDEX IX_User_UserID NONCLUSTERED (UserID),
- INDEX IX_User_Email NONCLUSTERED (Email),
- INDEX IX_User_Password NONCLUSTERED (Password)
+ INDEX IX_User_Email NONCLUSTERED (Email)
  --CONSTRAINT FK_User_RoleID_Role_RoleID FOREIGN KEY (RoleID) REFERENCES [Role](RoleID) ON DELETE CASCADE,
  --INDEX IX_User_RoleID NONCLUSTERED (RoleID)
 )
 GO
 
 
-/****** Object:  Table dbo.LandlordProperty ******/
-DROP TABLE IF EXISTS dbo.LandlordProperty
+/****** Object:  Table Landlord.Property ******/
+DROP TABLE IF EXISTS Landlord.Property
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE dbo.LandlordProperty(
+/*****/
+CREATE TABLE Landlord.Property(
 	LandlordPropertyID int IDENTITY(1,1) NOT NULL,
 	AddressProperty varchar(100) NOT NULL,
 	AptSuite varchar(100) NULL,
@@ -111,7 +109,7 @@ CREATE TABLE dbo.LandlordProperty(
 	UnitID int NOT NULL,
  CONSTRAINT PK_LandlordProperty_LandlordPropertyID PRIMARY KEY CLUSTERED (LandlordPropertyID ASC),
  INDEX IX_LandlordProperty_LandlordPropertyID NONCLUSTERED (LandlordPropertyID),
- CONSTRAINT FK_LandlordProperty_UserID_User_UserID FOREIGN KEY (UserID) REFERENCES [User](UserID) ON DELETE CASCADE,
+ CONSTRAINT FK_LandlordProperty_UserID_User_UserID FOREIGN KEY (UserID) REFERENCES [Security.User](UserID) ON DELETE CASCADE,
  INDEX IX_LandlordProperty_UserID NONCLUSTERED (UserID),
  CONSTRAINT FK_LandlordProperty_NeighborhoodID_Neighborhood_NeighborhoodID FOREIGN KEY (NeighborhoodID) REFERENCES [Neighborhood](NeighborhoodID) ON DELETE CASCADE,
  INDEX IX_LandlordProperty_NeighborhoodID NONCLUSTERED (NeighborhoodID),
@@ -123,15 +121,15 @@ CREATE TABLE dbo.LandlordProperty(
 GO
 
 
-/****** Object:  Table dbo.LandlordPropertyHandicapAccessibility ******/
-DROP TABLE IF EXISTS dbo.LandlordPropertyHandicapAccessibility
+/****** Object:  Table Landlord.PropertyHandicapAccessibility ******/
+DROP TABLE IF EXISTS Landlord.PropertyHandicapAccessibility
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE dbo.LandlordPropertyHandicapAccessibility(
+CREATE TABLE Landlord.PropertyHandicapAccessibility(
 	LandlordPropertyHandicapAccessibilityID int IDENTITY(1,1) NOT NULL,
 	IsAccessibleParkingCloseToHome bit NULL DEFAULT 0,
 	IsRampedEntry bit NULL DEFAULT 0,
@@ -154,50 +152,27 @@ CREATE TABLE dbo.LandlordPropertyHandicapAccessibility(
 	LandlordPropertyID int NULL,
  CONSTRAINT PK_LandlordPropertyHandicapAccessibility_LandlordPropertyHandicapAccessibilityID PRIMARY KEY CLUSTERED (LandlordPropertyHandicapAccessibilityID ASC),
  INDEX IX_LandlordPropertyHandicapAccessibility_LandlordPropertyHandicapAccessibilityID NONCLUSTERED (LandlordPropertyHandicapAccessibilityID),
- CONSTRAINT FK_LandlordPropertyHandicapAccessibility_LandlordPropertyID_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES [LandlordProperty](LandlordPropertyID) ON DELETE CASCADE,
+ CONSTRAINT FK_LandlordPropertyHandicapAccessibility_LandlordPropertyID_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES [Landlord.Property](LandlordPropertyID) ON DELETE CASCADE,
  INDEX IX_LandlordPropertyHandicapAccessibility_LandlordPropertyID NONCLUSTERED (LandlordPropertyID)
 )
 GO
 
-/****** Object:  Table dbo.LandlordPropertyPicture ******/
-DROP TABLE IF EXISTS dbo.LandlordPropertyPicture
+/****** Object:  Table Landlord.PropertyPicture ******/
+DROP TABLE IF EXISTS Landlord.PropertyPicture
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE dbo.LandlordPropertyPicture(
+CREATE TABLE Landlord.PropertyPicture(
 	LandlordPropertyPictureID int IDENTITY(1,1) NOT NULL,
 	MIMEType varchar(max) NULL,
 	ImageData varchar(max) NULL,
 	LandlordPropertyID int NOT NULL,
  CONSTRAINT PK_LandlordPropertyPicture_LandlordPropertyPictureID PRIMARY KEY CLUSTERED (LandlordPropertyPictureID ASC),
  INDEX IX_LandlordPropertyPicture_LandlordPropertyPictureID NONCLUSTERED (LandlordPropertyPictureID),
- CONSTRAINT FK_LandlordPropertyPicture_LandlordPropertyID_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES [LandlordProperty](LandlordPropertyID) ON DELETE CASCADE,
+ CONSTRAINT FK_LandlordPropertyPicture_LandlordPropertyID_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES [Landlord.Property](LandlordPropertyID) ON DELETE CASCADE,
  INDEX IX_LandlordPropertyPicture_LandlordPropertyID NONCLUSTERED (LandlordPropertyID)
-)
-GO
-
-
-/****** Object:  Table dbo.UserSecurityQuestion  ******/
-DROP TABLE IF EXISTS dbo.UserSecurityQuestion
-GO
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE TABLE dbo.UserSecurityQuestion(
-	UserSecurityQuestionID int IDENTITY(1,1) NOT NULL,
-	Response varchar(50) NOT NULL,
-	SecurityQuestionID int NOT NULL,
-	UserID int NOT NULL,
- CONSTRAINT PK_UserSecurityQuestion_UserSecurityQuestionID PRIMARY KEY CLUSTERED (UserSecurityQuestionID ASC),
- INDEX IX_UserSecurityQuestion_UserSecurityQuestionID NONCLUSTERED (UserSecurityQuestionID),
- CONSTRAINT FK_UserSecurityQuestion_UserID_User_UserID FOREIGN KEY (UserID) REFERENCES [User](UserID) ON DELETE CASCADE,
- INDEX IX_UserSecurityQuestion_UserID NONCLUSTERED (UserID),
- CONSTRAINT FK_UserSecurityQuestion_SecurityQuestionID_SecurityQuestion_SecurityQuestionID FOREIGN KEY (SecurityQuestionID) REFERENCES [SecurityQuestion](SecurityQuestionID) ON DELETE CASCADE,
- INDEX IX_UserSecurityQuestion_SecurityQuestionID NONCLUSTERED (SecurityQuestionID)
 )
 GO
