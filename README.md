@@ -91,51 +91,53 @@ Execute database files in SQL Server Managment Studio within 'insert-data-sql' f
 3. After the application is open in Visual Studio, press IIS Express on the top tool bar
 
 
-# Application Details
+# Application Modules
 Housing Choice Connect's folders are Sign In, Sign Up, Tenants, Landlords, and Admins.
-1. [Sign In](#sign-in)
+1. [Sign In and Sign Up](#sign-in-an-sign-up)
 2. [Sign Up](#sign-up)
 3. [Tenants](#tenants)
 4. [Landlords](#landlords)
 5. [Admins](#admins)
 
-
-## Sign In
-> Login Users
-
-## Sign Up
-> Register Users
+## Sign In and Sign Up
+> User and Role Maanagment Module
+1. Tables: User, Role, User Role, Security Question, User Security Question
 
 ## Tenants
->Search and View Landlord Properties
+>Tenant Module
+1. Update Personal Information
+2. Search and View Landlord Properties
 
 ## Landlords
->Manage Properties
+> Landlord Module
+1. Update Personal Information
+2. Create, Update, and Delete Properties
+3. Properties: Active, Inactive, Soon To Be Deleted
 
 ## Admins
-> Manage Users and Properties
+> Admin Module
+1. Create, Update, and Delete Properties
 
 
 # Database Composition
 ## Schemas
 >Schemas are a list of logical structures of data.
-(Ordered by Relevance):
-1. Security
+1. Landlord
+2. Security
 
 
 ## Association Tables
 > Association tables are used for many-to-many relationships between two objects.
 Association tables can handle both one-to-one, one-to-many and many-to-many relationships.
-(Ordered by Relevance):
-1. 
+1. UserRole
 
 ## Reference  Tables
 > Reference Tables share identical fields/column data in another table.
-(Ordered by Relevance):
-1. 
+1. Role
 
 ## Permanent Tables
 > Permanent Tables have their own table structure, columns, data types, constraints and indexes.
-(Ordered by Relevance):
-1. 
+1. EliteTenantImport
+2. Property
+3. User
 

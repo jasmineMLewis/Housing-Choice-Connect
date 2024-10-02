@@ -18,7 +18,7 @@ Tables:
 ******/
 
 
-/****** Object: Table Security..EliteTenantImport ******/
+/****** Object: Table Security.EliteTenantImport ******/
 DROP TABLE IF EXISTS Security..EliteTenantImport
 GO
 SET ANSI_NULLS ON
@@ -51,7 +51,7 @@ CREATE TABLE Security.[User](
 	UserID int IDENTITY(1,1) NOT NULL,
 	FirstName varchar(50) NOT NULL,
 	LastName varchar(50) NOT NULL,
-	Email varchar(50) NOT NULL,
+	Email varchar(50) NOT NULL UNIQUE,
 	Password varchar(50) NOT NULL,
 	IsEmailVerified bit NULL DEFAULT 0,
 	IsSecurityQuestionsCompleted bit NULL DEFAULT 0,
@@ -61,8 +61,6 @@ CREATE TABLE Security.[User](
  CONSTRAINT PK_User_UserID PRIMARY KEY CLUSTERED (UserID ASC),
  INDEX IX_User_UserID NONCLUSTERED (UserID),
  INDEX IX_User_Email NONCLUSTERED (Email)
- --CONSTRAINT FK_User_RoleID_Role_RoleID FOREIGN KEY (RoleID) REFERENCES [Role](RoleID) ON DELETE CASCADE,
- --INDEX IX_User_RoleID NONCLUSTERED (RoleID)
 )
 GO
 

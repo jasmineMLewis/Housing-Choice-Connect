@@ -8,9 +8,10 @@ USE HousingChoiceConnect;
 GO
 
 /****** 
-Tables: 1
+Tables: 
 Tables:
 - Landlord.PropertyAmentity
+- Security.UserRole
 - Security.UserSecurityQuestion
 ******/
 
@@ -30,6 +31,27 @@ CREATE TABLE Landlord.PropertyAmentity(
  INDEX IX_LandlordPropertyAmentity_LandlordPropertyID NONCLUSTERED (LandlordPropertyID),
  CONSTRAINT FK_LandlordPropertyAmentity_AmentityID_Amentity_AmentityID FOREIGN KEY (AmentityID) REFERENCES [Amentity](AmentityID) ON DELETE CASCADE,
  INDEX IX_LandlordPropertyAmentity_AmentityID NONCLUSTERED (AmentityID)
+)
+GO
+
+/****** Object:  Table Security.UserRole ******/
+DROP TABLE IF EXISTS Security.UserRole
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE Security.UserRole(
+	UserRoleID int IDENTITY(1,1) NOT NULL,
+	UserID varchar(50) NOT NULL,
+	RoleID int NOT NULL,
+ CONSTRAINT PK_UserRole_UserRoleID PRIMARY KEY CLUSTERED (UserRoleID ASC),
+ CONSTRAINT FK_UserRole_UserID_User_UserID FOREIGN KEY (UserID) REFERENCES [Security.User](UserID) ON DELETE CASCADE,
+ INDEX IX_UserRole_UserID NONCLUSTERED (UserID),
+ CONSTRAINT FK_UserRole_RoleID_Role_RoleID FOREIGN KEY (RoleID) REFERENCES [Role](RoleID) ON DELETE CASCADE,
+ INDEX IX_UserRole_RoleID NONCLUSTERED (RoleID)
+ --CONSTRAINT UC_UserRole UNIQUE (UserID,RoleID)
 )
 GO
 
@@ -55,3 +77,4 @@ CREATE TABLE Security.UserSecurityQuestion(
  INDEX IX_UserSecurityQuestion_SecurityQuestionID NONCLUSTERED (SecurityQuestionID)
 )
 GO
+
