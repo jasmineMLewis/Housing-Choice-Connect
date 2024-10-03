@@ -40,12 +40,13 @@ Housing Choice Connect is a .NET project for Housing Authority of New Orleans.
 
 <b>New Updates Added as of 2024</b>
 1. Add a Application Constants Class as pascal case variables
-2. (IN PROGRESS) Change VB pages that uses local constants to Application Constants namespace 
+2. Add schemas for user and landlord database tables
+3. Separate users' roles into UserRole table separate from User table
+3. (IN PROGRESS) Change VB pages that uses local constants to Application Constants namespace 
  
 
-
 ### Date Last Updated via GitHub
-September 28, 2024
+October 3, 2024
 
 ### Technologies
 | Technology | Version  |
@@ -93,7 +94,7 @@ Execute database files in SQL Server Managment Studio within 'insert-data-sql' f
 
 # Application Modules
 Housing Choice Connect's folders are Sign In, Sign Up, Tenants, Landlords, and Admins.
-1. [Sign In and Sign Up](#sign-in-an-sign-up)
+1. [Sign In and Sign Up](#sign-in-and-sign-up)
 2. [Sign Up](#sign-up)
 3. [Tenants](#tenants)
 4. [Landlords](#landlords)
@@ -105,12 +106,13 @@ Housing Choice Connect's folders are Sign In, Sign Up, Tenants, Landlords, and A
 
 ## Tenants
 >Tenant Module
-1. Update Personal Information
+1. Update Profile Information
 2. Search and View Landlord Properties
+3. Update Security Question Answers
 
 ## Landlords
 > Landlord Module
-1. Update Personal Information
+1. Update Profile Information
 2. Create, Update, and Delete Properties
 3. Properties: Active, Inactive, Soon To Be Deleted
 
@@ -121,23 +123,28 @@ Housing Choice Connect's folders are Sign In, Sign Up, Tenants, Landlords, and A
 
 # Database Composition
 ## Schemas
->Schemas are a list of logical structures of data.
+> Schemas are a list of logical structures of data.
 1. Landlord
 2. Security
-
 
 ## Association Tables
 > Association tables are used for many-to-many relationships between two objects.
 Association tables can handle both one-to-one, one-to-many and many-to-many relationships.
-1. UserRole
+1. Security.UserQuestion
+2. Security.UserRole
 
 ## Reference  Tables
 > Reference Tables share identical fields/column data in another table.
-1. Role
+1. Location
+2. Amentity
+3. Neighborhood
+4. Property
+5. Role
+6. SecurityQuestion
+7. Unit
 
 ## Permanent Tables
 > Permanent Tables have their own table structure, columns, data types, constraints and indexes.
-1. EliteTenantImport
-2. Property
-3. User
+1. Security.EliteTenantImport
+2. Security.User
 

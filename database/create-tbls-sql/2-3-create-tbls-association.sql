@@ -27,9 +27,9 @@ CREATE TABLE Landlord.PropertyAmentity(
 	LandlordPropertyID int NOT NULL,
 	AmentityID int NOT NULL,
  CONSTRAINT PK_LandlordPropertyAmentity PRIMARY KEY CLUSTERED (LandlordPropertyID ASC, AmentityID ASC),
- CONSTRAINT FK_LandlordPropertyAmentity_LandlordPropertyID_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES [Landlord.Property](LandlordPropertyID) ON DELETE CASCADE,
+ CONSTRAINT FK_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES Landlord.Property(LandlordPropertyID),
  INDEX IX_LandlordPropertyAmentity_LandlordPropertyID NONCLUSTERED (LandlordPropertyID),
- CONSTRAINT FK_LandlordPropertyAmentity_AmentityID_Amentity_AmentityID FOREIGN KEY (AmentityID) REFERENCES [Amentity](AmentityID) ON DELETE CASCADE,
+ CONSTRAINT FK_Amentity_AmentityID FOREIGN KEY (AmentityID) REFERENCES Amentity(AmentityID),
  INDEX IX_LandlordPropertyAmentity_AmentityID NONCLUSTERED (AmentityID)
 )
 GO
@@ -42,39 +42,38 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE Security.UserRole(
+CREATE TABLE Security.UserRole (
 	UserRoleID int IDENTITY(1,1) NOT NULL,
-	UserID varchar(50) NOT NULL,
+	UserID int NOT NULL,
 	RoleID int NOT NULL,
- CONSTRAINT PK_UserRole_UserRoleID PRIMARY KEY CLUSTERED (UserRoleID ASC),
- CONSTRAINT FK_UserRole_UserID_User_UserID FOREIGN KEY (UserID) REFERENCES [Security.User](UserID) ON DELETE CASCADE,
- INDEX IX_UserRole_UserID NONCLUSTERED (UserID),
- CONSTRAINT FK_UserRole_RoleID_Role_RoleID FOREIGN KEY (RoleID) REFERENCES [Role](RoleID) ON DELETE CASCADE,
- INDEX IX_UserRole_RoleID NONCLUSTERED (RoleID)
- --CONSTRAINT UC_UserRole UNIQUE (UserID,RoleID)
+ CONSTRAINT PK_UserRoleID PRIMARY KEY CLUSTERED (UserRoleID ASC),
+ INDEX IX_UserRoleID NONCLUSTERED (UserRoleID),
+ CONSTRAINT FK_UserRole_User_UserID FOREIGN KEY (UserID) REFERENCES Security.[User](UserID),
+ INDEX IX_User_UserID NONCLUSTERED (UserID),
+ CONSTRAINT FK_Role_RoleID FOREIGN KEY (RoleID) REFERENCES [Role](RoleID),
+ CONSTRAINT UserRole_UserID_RoleID UNIQUE (UserID, RoleID)
 )
 GO
 
-
-/****** Object:  Table Security.UserSecurityQuestion  ******/
-DROP TABLE IF EXISTS Security.UserSecurityQuestion
+/****** Object:  Table Security.UserQuestion  ******/
+DROP TABLE IF EXISTS Security.UserQuestion
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE Security.UserSecurityQuestion(
-	UserSecurityQuestionID int IDENTITY(1,1) NOT NULL,
+CREATE TABLE Security.UserQuestion (
+	UserQuestionID int IDENTITY(1,1) NOT NULL,
 	Response varchar(50) NOT NULL,
 	SecurityQuestionID int NOT NULL,
 	UserID int NOT NULL,
- CONSTRAINT PK_UserSecurityQuestion_UserSecurityQuestionID PRIMARY KEY CLUSTERED (UserSecurityQuestionID ASC),
- INDEX IX_UserSecurityQuestion_UserSecurityQuestionID NONCLUSTERED (UserSecurityQuestionID),
- CONSTRAINT FK_UserSecurityQuestion_UserID_User_UserID FOREIGN KEY (UserID) REFERENCES [Security.User](UserID) ON DELETE CASCADE,
- INDEX IX_UserSecurityQuestion_UserID NONCLUSTERED (UserID),
- CONSTRAINT FK_UserSecurityQuestion_SecurityQuestionID_SecurityQuestion_SecurityQuestionID FOREIGN KEY (SecurityQuestionID) REFERENCES [SecurityQuestion](SecurityQuestionID) ON DELETE CASCADE,
- INDEX IX_UserSecurityQuestion_SecurityQuestionID NONCLUSTERED (SecurityQuestionID)
+ CONSTRAINT PK_UserQuestionID PRIMARY KEY CLUSTERED (UserQuestionID ASC),
+ INDEX IX_UserQuestionID NONCLUSTERED (UserQuestionID),
+ CONSTRAINT FK_SecurityQuestion_SecurityQuestionID FOREIGN KEY (SecurityQuestionID) REFERENCES SecurityQuestion(SecurityQuestionID),
+ INDEX IX_SecurityQuestionID NONCLUSTERED (SecurityQuestionID),
+ CONSTRAINT FK_UserQuestion_User_UserID FOREIGN KEY (UserID) REFERENCES Security.[User](UserID),
+ INDEX IX_UserID NONCLUSTERED (UserID)
 )
 GO
 

@@ -19,22 +19,24 @@ Tables:
 
 
 /****** Object: Table Security.EliteTenantImport ******/
-DROP TABLE IF EXISTS Security..EliteTenantImport
+DROP TABLE IF EXISTS Security.EliteTenantImport
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE Security.EliteTenantImport(
+CREATE TABLE Security.EliteTenantImport (
 	EliteTenantImportID int IDENTITY(1,1) NOT NULL,
 	FirstName varchar(50) NOT NULL,
 	LastName varchar(50) NOT NULL,
 	EntityID varchar(50) NOT NULL,
 	DisguisedTaxID varchar(50) NOT NULL,
- CONSTRAINT PK_EliteTenantImport_EliteTenantImportID PRIMARY KEY CLUSTERED (EliteTenantImportID),
- INDEX IX_EliteTenantImport_EliteTenantImportID NONCLUSTERED (EliteTenantImportID),
- INDEX IX_EliteTenantImport_EntityID NONCLUSTERED (EntityID)
+	DateOfBirth date NOT NULL,
+ CONSTRAINT PK_EliteTenantImportID PRIMARY KEY CLUSTERED (EliteTenantImportID),
+ INDEX IX_EliteTenantImportID NONCLUSTERED (EliteTenantImportID),
+ INDEX IX_EntityID NONCLUSTERED (EntityID),
+ CONSTRAINT EliteTenantImport_EntityID UNIQUE (EntityID)
 )
 GO
 
@@ -60,7 +62,8 @@ CREATE TABLE Security.[User](
 	IsActive bit NULL DEFAULT 1,
  CONSTRAINT PK_User_UserID PRIMARY KEY CLUSTERED (UserID ASC),
  INDEX IX_User_UserID NONCLUSTERED (UserID),
- INDEX IX_User_Email NONCLUSTERED (Email)
+ INDEX IX_User_Email NONCLUSTERED (Email),
+ CONSTRAINT User_Email UNIQUE (Email)
 )
 GO
 
@@ -73,12 +76,11 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-/*****/
 CREATE TABLE Landlord.Property(
 	LandlordPropertyID int IDENTITY(1,1) NOT NULL,
-	AddressProperty varchar(100) NOT NULL,
-	AptSuite varchar(100) NULL,
-	City varchar(100) NULL,
+	--AddressProperty varchar(100) NOT NULL,
+	--AptSuite varchar(100) NULL,
+	--City varchar(100) NULL,
 	Description varchar(1000) NULL,
 	Rent money NULL,
 	Deposit money NULL,
@@ -95,25 +97,25 @@ CREATE TABLE Landlord.Property(
 	IsPetsPermitted bit NULL DEFAULT 0,
 	IsPicturesExists bit NULL,
 	IsActive bit NULL DEFAULT 1,
+	BedroomNumber int NULL,
+	BathroomNumber int NULL,
 	DateAvaiableToRent date NOT NULL,
 	DateLastUpdated date NULL,
 	DateOfInactivation date NULL,
 	DateOfPostage date NOT NULL,
 	UserID int NOT NULL,
-	NeighborhoodID int NOT NULL,
-	BedroomNumber int NULL,
-	BathroomNumber int NULL,
+	--NeighborhoodID int NOT NULL,
 	PropertyID int NOT NULL,
 	UnitID int NOT NULL,
- CONSTRAINT PK_LandlordProperty_LandlordPropertyID PRIMARY KEY CLUSTERED (LandlordPropertyID ASC),
- INDEX IX_LandlordProperty_LandlordPropertyID NONCLUSTERED (LandlordPropertyID),
- CONSTRAINT FK_LandlordProperty_UserID_User_UserID FOREIGN KEY (UserID) REFERENCES [Security.User](UserID) ON DELETE CASCADE,
+ CONSTRAINT PK_LandlordPropertyID PRIMARY KEY CLUSTERED (LandlordPropertyID ASC),
+ INDEX IX_LandlordPropertyID NONCLUSTERED (LandlordPropertyID),
+ CONSTRAINT FK_User_UserID FOREIGN KEY (UserID) REFERENCES Security.[User](UserID),
  INDEX IX_LandlordProperty_UserID NONCLUSTERED (UserID),
- CONSTRAINT FK_LandlordProperty_NeighborhoodID_Neighborhood_NeighborhoodID FOREIGN KEY (NeighborhoodID) REFERENCES [Neighborhood](NeighborhoodID) ON DELETE CASCADE,
- INDEX IX_LandlordProperty_NeighborhoodID NONCLUSTERED (NeighborhoodID),
- CONSTRAINT FK_LandlordProperty_PropertyID_Property_PropertyID FOREIGN KEY (PropertyID) REFERENCES [Property](PropertyID) ON DELETE CASCADE,
+ --CONSTRAINT FK_Neighborhood_NeighborhoodID FOREIGN KEY (NeighborhoodID) REFERENCES [Neighborhood](NeighborhoodID),
+ --INDEX IX_NeighborhoodID NONCLUSTERED (NeighborhoodID),
+ CONSTRAINT FK_Property_PropertyID FOREIGN KEY (PropertyID) REFERENCES [Property](PropertyID),
  INDEX IX_LandlordProperty_PropertyID NONCLUSTERED (PropertyID),
- CONSTRAINT FK_LandlordProperty_UnitID_Unit_UnitID FOREIGN KEY (UnitID) REFERENCES [Unit](UnitID) ON DELETE CASCADE,
+ CONSTRAINT FK_Unit_UnitID FOREIGN KEY (UnitID) REFERENCES [Unit](UnitID),
  INDEX IX_LandlordProperty_UnitID NONCLUSTERED (UnitID)
 )
 GO
