@@ -1,5 +1,7 @@
 # Housing Choice Connect
 
+![housing-choice-connect-home-slider](https://github.com/user-attachments/assets/8fb0f491-0e5a-44b3-9ebe-f073e5783d05)
+
 
 # Table of Contents
 
@@ -53,7 +55,7 @@ Housing Choice Connect is a .NET project for Housing Authority of New Orleans.
  
 
 ### Date Last Updated via GitHub
-October 3, 2024
+October 4, 2024
 
 ### Technologies
 | Technology | Version  |
@@ -101,26 +103,41 @@ Note: Execute each table separately.
 3. After the application is open in Visual Studio, press IIS Express on the top tool bar
 
 
-# Application Modules
+# Application Details
 Housing Choice Connect's folders are Sign In, Sign Up, Tenants, Landlords, and Admins.
 1. [Sign In and Sign Up](#sign-in-and-sign-up)
-2. [Sign Up](#sign-up)
-3. [Tenants](#tenants)
-4. [Landlords](#landlords)
-5. [Admins](#admins)
+2. [Tenants](#tenants)
+3. [Landlords](#landlords)
+4. [Admins](#admins)
 
 ## Sign In and Sign Up
+
+### Landlord
+![housing-choice-connect-landlord-sign-up](https://github.com/user-attachments/assets/cc706197-4650-4d03-9487-c0763e078aa9)
+
+
+### Tenant
+![housing-choice-connect-tenant-sign-up](https://github.com/user-attachments/assets/fe6199ad-56d5-45ec-bcee-c77a012102c0)
+
+
 > User and Role Maanagment Module
 1. Tables: User, Role, User Role, Security Question, User Security Question
 
 ## Tenants
 >Tenant Module
+
+![housing-choice-connect-tenant-search-properties](https://github.com/user-attachments/assets/0bfb6839-a0e3-44a9-a7a3-0f83813fd16f)
+
+
 1. Update Profile Information
 2. Search and View Landlord Properties
 3. Update Security Question Answers
 
 ## Landlords
 > Landlord Module
+
+![housing-choice-connect-landlord-property](https://github.com/user-attachments/assets/1fa94e5b-549b-4431-8165-d30be386b4d1)
+
 1. Update Profile Information
 2. Create, Update, and Delete Properties
 3. Properties: Active, Inactive, Soon To Be Deleted
