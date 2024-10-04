@@ -8,8 +8,7 @@ USE HousingChoiceConnect;
 GO
 
 /****** 
-Tables: 6
-Tables:
+Tables: 5
 - Security.EliteTenantImport
 - Security.User
 - Landlord.Property
@@ -150,9 +149,9 @@ CREATE TABLE Landlord.PropertyHandicapAccessibility(
 	IsAudioVisualSmokeFireAlarm bit NULL DEFAULT 0,
 	IsElevatorAccess bit NULL DEFAULT 0,
 	LandlordPropertyID int NULL,
- CONSTRAINT PK_LandlordPropertyHandicapAccessibility_LandlordPropertyHandicapAccessibilityID PRIMARY KEY CLUSTERED (LandlordPropertyHandicapAccessibilityID ASC),
- INDEX IX_LandlordPropertyHandicapAccessibility_LandlordPropertyHandicapAccessibilityID NONCLUSTERED (LandlordPropertyHandicapAccessibilityID),
- CONSTRAINT FK_LandlordPropertyHandicapAccessibility_LandlordPropertyID_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES [Landlord.Property](LandlordPropertyID) ON DELETE CASCADE,
+ CONSTRAINT PK_LandlordPropertyHandicapAccessibilityID PRIMARY KEY CLUSTERED (LandlordPropertyHandicapAccessibilityID ASC),
+ INDEX IX_LandlordPropertyHandicapAccessibilityID NONCLUSTERED (LandlordPropertyHandicapAccessibilityID),
+ CONSTRAINT FK_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES Landlord.[Property](LandlordPropertyID),
  INDEX IX_LandlordPropertyHandicapAccessibility_LandlordPropertyID NONCLUSTERED (LandlordPropertyID)
 )
 GO
@@ -170,9 +169,9 @@ CREATE TABLE Landlord.PropertyPicture(
 	MIMEType varchar(max) NULL,
 	ImageData varchar(max) NULL,
 	LandlordPropertyID int NOT NULL,
- CONSTRAINT PK_LandlordPropertyPicture_LandlordPropertyPictureID PRIMARY KEY CLUSTERED (LandlordPropertyPictureID ASC),
- INDEX IX_LandlordPropertyPicture_LandlordPropertyPictureID NONCLUSTERED (LandlordPropertyPictureID),
- CONSTRAINT FK_LandlordPropertyPicture_LandlordPropertyID_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES [Landlord.Property](LandlordPropertyID) ON DELETE CASCADE,
- INDEX IX_LandlordPropertyPicture_LandlordPropertyID NONCLUSTERED (LandlordPropertyID)
+ CONSTRAINT PK_LandlordPropertyPictureID PRIMARY KEY CLUSTERED (LandlordPropertyPictureID ASC),
+ INDEX IX_LandlordPropertyPictureID NONCLUSTERED (LandlordPropertyPictureID),
+ CONSTRAINT FK_LandlordPropertyPicture_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES Landlord.[Property](LandlordPropertyID),
+ INDEX IX_LandlordPropertyPicture_Landlord_LandlordPropertyID NONCLUSTERED (LandlordPropertyID)
 )
 GO

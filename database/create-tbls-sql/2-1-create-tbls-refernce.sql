@@ -8,15 +8,34 @@ USE HousingChoiceConnect;
 GO
 
 /****** 
-Tables: 7
+Tables: 8
+- ActivityType
 - Location
 - Amentity
+- Zip Code
 - Neighborhood
 - Property
 - Role
 - SecurityQuestion
 - Unit
 ******/
+
+/****** Object:  Table dbo.ActivityType  ******/
+DROP TABLE  IF EXISTS dbo.ActivityType
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE dbo.ActivityType (
+	ActivityTypeID int IDENTITY(1,1) NOT NULL,
+	Activity varchar(50) NOT NULL,
+ CONSTRAINT PK_ActivityTypeID PRIMARY KEY CLUSTERED (ActivityTypeID ASC),
+ INDEX IX_ActivityTypeID NONCLUSTERED (ActivityTypeID),
+ CONSTRAINT ActivityType_Activity UNIQUE (Activity),
+)
+GO
 
 /****** Object:  Table dbo.Location  ******/
 DROP TABLE  IF EXISTS dbo.Location
@@ -34,7 +53,6 @@ CREATE TABLE dbo.Location (
  CONSTRAINT Location_Location UNIQUE (Location),
 )
 GO
-
 
 /****** Object:  Table dbo.Amentity  ******/
 DROP TABLE  IF EXISTS dbo.Amentity
@@ -55,6 +73,24 @@ CREATE TABLE dbo.Amentity (
 )
 GO
 
+/****** Object:  Table dbo.ZipCode  ******/
+DROP TABLE  IF EXISTS dbo.ZipCode
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE dbo.ZipCode(
+	ZipCodeID int IDENTITY(1,1) NOT NULL,
+	ZipCode int NOT NULL,
+ CONSTRAINT PK_ZipCodeID PRIMARY KEY CLUSTERED (ZipCodeID ASC),
+ INDEX IX_ZipCodeID NONCLUSTERED (ZipCodeID),
+ INDEX IX_ZipCode NONCLUSTERED (ZipCode),
+ CONSTRAINT ZipCode_ZipCode UNIQUE (ZipCode)
+ )
+GO
+
 /****** Object:  Table dbo.Neighborhood  ******/
 DROP TABLE  IF EXISTS dbo.Neighborhood
 GO
@@ -66,11 +102,12 @@ GO
 CREATE TABLE dbo.Neighborhood(
 	NeighborhoodID int IDENTITY(1,1) NOT NULL,
 	Neighborhood varchar(50) NOT NULL,
-	ZipCode int NOT NULL,
+	ZipCodeID int NOT NULL,
  CONSTRAINT PK_NeighborhoodID PRIMARY KEY CLUSTERED (NeighborhoodID ASC),
  INDEX IX_NeighborhoodID NONCLUSTERED (NeighborhoodID),
  INDEX IX_Neighborhood NONCLUSTERED (Neighborhood),
- INDEX IX_ZipCode NONCLUSTERED (ZipCode)
+ CONSTRAINT FK_ZipCode_ZipCodeID FOREIGN KEY (ZipCodeID) REFERENCES [ZipCode](ZipCodeID),
+ INDEX IX_ZipCodeID NONCLUSTERED (ZipCodeID)
  )
 GO
 

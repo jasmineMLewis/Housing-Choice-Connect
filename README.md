@@ -30,6 +30,8 @@ https://www.hano.org/HousingChoiceConnect/
 ### Project GitHub
 https://github.com/jasmineMLewis/Housing-Choice-Connect
 
+### Project SRS
+https://www.slideshare.net/JasmineMonquieLewis/housing-choice-connect-software-requirement-specifications
 
 # Introduction
 Housing Choice Connect is a .NET project for Housing Authority of New Orleans.
@@ -40,9 +42,14 @@ Housing Choice Connect is a .NET project for Housing Authority of New Orleans.
 
 <b>New Updates Added as of 2024</b>
 1. Add a Application Constants Class as pascal case variables
-2. Add schemas for user and landlord database tables
+2. Create schemas for Security and Landlord
 3. Separate users' roles into UserRole table separate from User table
-3. (IN PROGRESS) Change VB pages that uses local constants to Application Constants namespace 
+4. Add Location Type table for Amentity
+5. Implement schemas for user and landlord database tables
+6. Add Activity Log, Activity Type, and Zip Code database tables
+
+
+(IN PROGRESS) Change VB pages that uses local constants to Application Constants namespace 
  
 
 ### Date Last Updated via GitHub
@@ -51,7 +58,8 @@ October 3, 2024
 ### Technologies
 | Technology | Version  |
 |--|--|
-| ASP.NET Web Application (.NET Framework) | 4.7.2 |
+| ASP.NET Web Application | 4.7.2 |
+| Visual Basic .NET | 6 |
 | Bootstrap | 5.2.3 |
 | Font Awesome | 6.3.0 |
 | JQuery | 5.2.3 |
@@ -69,19 +77,20 @@ Within the File-Tracker folder, navigate to database folder, and open the follow
 2. create-tbls-sql
 3. insert-data-sql
 
-
 ### Create Schemas
 Execute database files in SQL Server Managment Studio within 'create-scheams-sql' folder:
 1. ./database/create-schemas-sql/1-1-create-schemas-sql
 
 ### Create Tables
 Execute database files in SQL Server Managment Studio within 'create-tbls-sql' folder:
+Note: Execute each table separately.
 1. ./database/create-tbls-sql/2-1-create-tbls-refernce.sql
 2. ./database/create-tbls-sql/2-2-create-tbls-permanent.sql
 3. ./database/create-tbls-sql/2-3-create-tbls-link.sql
 
 ### Insert Data
 Execute database files in SQL Server Managment Studio within 'insert-data-sql' folder:
+Note: Execute each table separately.
 1. ./database/insert-data-sql/3-1-insert-data-tbls-refernce.sql
 2. ./database/insert-data-sql/3-2-insert-data-tbls-permanent.sql
 
@@ -132,19 +141,24 @@ Housing Choice Connect's folders are Sign In, Sign Up, Tenants, Landlords, and A
 Association tables can handle both one-to-one, one-to-many and many-to-many relationships.
 1. Security.UserQuestion
 2. Security.UserRole
+3. Landlord.PropertyAddress
+4. Landlord.PropertyAmentity
 
 ## Reference  Tables
 > Reference Tables share identical fields/column data in another table.
-1. Location
+1. ActivityType
 2. Amentity
-3. Neighborhood
-4. Property
-5. Role
-6. SecurityQuestion
-7. Unit
+3. Location
+4. Neighborhood
+5. Property
+6. Role
+7. SecurityQuestion
+8. Unit
 
 ## Permanent Tables
 > Permanent Tables have their own table structure, columns, data types, constraints and indexes.
 1. Security.EliteTenantImport
 2. Security.User
-
+4. Landlord.Property
+5. Landlord.PropertyHandicapAccessibility
+6. Landlord.PropertyPicture
