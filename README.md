@@ -103,6 +103,33 @@ Note: Execute each table separately.
 3. After the application is open in Visual Studio, press IIS Express on the top tool bar
 
 
+### Test Users
+To log into the application, here are some test users from the database files:
+
+### Admins
+| Namme | Email  | Password | 
+|--|--|--|
+| Jasmine Lewis | jasmine.lewis@artistikrebellion.us | Qwerty1 | 
+
+### Landlords
+| Namme | Email  | Password | 
+|--|--|--|
+| Cesar Gonzalez | CesarGonzalez@gmail.com | Qwerty1 |
+| Shannon Long | ShannonLong@gmail.com | Qwerty1 |
+
+#### Tenants
+| Namme | Email  | Password | 
+|--|--|--|
+| Patrick Hoban | PatrickHoban@gmail.com | Qwerty1 |
+
+
+#### Elite Import Tenant
+Use these users to test the Elite Import Tenant Link on Tenants' Sign Up
+| Namme | EntityID  | DisguisedTaxID | Date Of Birth |
+|--|--|--|--|
+| Patrick Hoban | 197095642 | XXX-XX-9708 | 2020-12-01 |
+
+
 # Application Details
 Housing Choice Connect's folders are Sign In, Sign Up, Tenants, Landlords, and Admins.
 1. [Sign In and Sign Up](#sign-in-and-sign-up)
