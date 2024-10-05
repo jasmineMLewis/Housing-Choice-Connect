@@ -49,13 +49,15 @@ Housing Choice Connect is a .NET project for Housing Authority of New Orleans.
 4. Add Location Type table for Amentity
 5. Implement schemas for user and landlord database tables
 6. Add Activity Log, Activity Type, and Zip Code database tables
+7. Add Zip Code ID for Neighborhood table
+8. Remove Landlord Property Picture that stores images into databse 
 
 
 (IN PROGRESS) Change VB pages that uses local constants to Application Constants namespace 
  
 
 ### Date Last Updated via GitHub
-October 4, 2024
+October 5, 2024
 
 ### Technologies
 | Technology | Version  |
@@ -187,6 +189,7 @@ Association tables can handle both one-to-one, one-to-many and many-to-many rela
 2. Security.UserRole
 3. Landlord.PropertyAddress
 4. Landlord.PropertyAmentity
+5. Landlord.PropertyHandicapAccessibility
 
 ## Reference  Tables
 > Reference Tables share identical fields/column data in another table.
@@ -204,5 +207,3 @@ Association tables can handle both one-to-one, one-to-many and many-to-many rela
 1. Security.EliteTenantImport
 2. Security.User
 4. Landlord.Property
-5. Landlord.PropertyHandicapAccessibility
-6. Landlord.PropertyPicture
