@@ -22,7 +22,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="logo" href="Default.aspx"><Images src="../Images/hanoLogo.png" alt="hano-logo"></a>
+            <a class="logo" href="Default.aspx"><img src="../Images/hano-logo.png" alt="hano-logo" /></a>
         </div>
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right" style = "margin-right: 150px;">
@@ -83,6 +83,10 @@
                          <button type="button" class="btn btn-info btn-block btn-lg" runat="server" onserverclick="BtnAdminSignIn">
                              <i class="fa fa-download"></i>&nbsp; Sign In
                          </button>
+
+                        <%
+'Response.Write("<div id='alertUserExistsError'><div class='alert alert-danger col-xs-12' role='alert'><strong>Oh No!</strong> Account does EXISTS.</div></div>")
+                        %>
                     </div>
                 </div>
             </div>

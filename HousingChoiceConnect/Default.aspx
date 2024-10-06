@@ -13,7 +13,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="logo" href="Default.aspx"><img src="img/hano-logo.png" alt="hanoLogo" /></a>
+            <a class="logo" href="Default.aspx"><img src="Images/hano-logo.png" alt="hanoLogo" /></a>
         </div>
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -74,23 +74,23 @@
           </ol>
          <div class="carousel-inner">
             <div class="item active">
-                <img src="img/carousel-one.png" alt="Tenant Property Search" width="auto" height="auto" />
+                <img src="Images/carousel-one.png" alt="Tenant Property Search" width="auto" height="auto" />
                  <div class="carousel-caption"><h2></h2></div>
             </div>
            <div class="item">
-                <img src="img/carousel-two.png" alt="Tenant Filter Properties" width="auto" height="auto" />
+                <img src="Images/carousel-two.png" alt="Tenant Filter Properties" width="auto" height="auto" />
                 <div class="carousel-caption"><h2></h2></div>
            </div>
            <div class="item">
-            <img src="img/carousel-three.png" alt="Landlord Dashboard" width="auto" height="auto" />
+            <img src="Images/carousel-three.png" alt="Landlord Dashboard" width="auto" height="auto" />
             <div class="carousel-caption"><h2></h2></div>
            </div>
            <div class="item">
-            <img src="img/carousel-four.png" alt="Landlord Active Properties" width="auto" height="auto" />
+            <img src="Images/carousel-four.png" alt="Landlord Active Properties" width="auto" height="auto" />
             <div class="carousel-caption"><h2></h2></div>
            </div>
            <div class="item">
-            <img src="img/carousel-five.png" alt="Landlord Add Property" width="auto" height="auto" />
+            <img src="Images/carousel-five.png" alt="Landlord Add Property" width="auto" height="auto" />
             <div class="carousel-caption"><h2></h2></div>
            </div>
          </div>

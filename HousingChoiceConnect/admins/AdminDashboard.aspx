@@ -33,7 +33,7 @@
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
         conn.Open()
         Dim query As New SqlCommand("SELECT FirstName, LastName, Email, DateRegistered, LastLogin 
-                                     FROM Users 
+                                     FROM [dbo].[UserTest] 
                                      WHERE UserID='" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -45,81 +45,81 @@
         End While
         conn.Close()
 
-        Dim numOfAdmin As Integer
-        conn.Open()
-        Dim queryAdmins As New SqlCommand("SELECT COUNT(UserID) AS countAdmins 
-                                           FROM Users 
-                                           WHERE RoleID = '" & ADMIN_ROLE_ID & "'", conn)
-        Dim readerAdmins As SqlDataReader = queryAdmins.ExecuteReader()
-        While readerAdmins.Read
-            numOfAdmin = CStr(readerAdmins("countAdmins"))
-        End While
-        conn.Close()
+        'Dim numOfAdmin As Integer
+        'conn.Open()
+        'Dim queryAdmins As New SqlCommand("SELECT COUNT(UserID) AS countAdmins 
+        '                                   FROM Users 
+        '                                   WHERE RoleID = '" & ADMIN_ROLE_ID & "'", conn)
+        'Dim readerAdmins As SqlDataReader = queryAdmins.ExecuteReader()
+        'While readerAdmins.Read
+        '    numOfAdmin = CStr(readerAdmins("countAdmins"))
+        'End While
+        'conn.Close()
 
-        Dim numOfTenants As Integer
-        conn.Open()
-        Dim queryTenants As New SqlCommand("SELECT COUNT(UserID) AS countTenants 
-                                            FROM Users 
-                                            WHERE RoleID = '" & TENANT_ROLE_ID & "'", conn)
-        Dim readerTenants As SqlDataReader = queryTenants.ExecuteReader()
-        While readerTenants.Read
-            numOfTenants = CStr(readerTenants("countTenants"))
-        End While
-        conn.Close()
+        'Dim numOfTenants As Integer
+        'conn.Open()
+        'Dim queryTenants As New SqlCommand("SELECT COUNT(UserID) AS countTenants 
+        '                                    FROM Users 
+        '                                    WHERE RoleID = '" & TENANT_ROLE_ID & "'", conn)
+        'Dim readerTenants As SqlDataReader = queryTenants.ExecuteReader()
+        'While readerTenants.Read
+        '    numOfTenants = CStr(readerTenants("countTenants"))
+        'End While
+        'conn.Close()
 
-        Dim numOfLandlords As Integer
-        conn.Open()
-        Dim queryLandlords As New SqlCommand("SELECT COUNT(UserID) AS countLandlords 
-                                              FROM Users 
-                                              WHERE RoleID = '" & LANDLORD_ROLE_ID & "'", conn)
-        Dim readerLandlords As SqlDataReader = queryLandlords.ExecuteReader()
-        While readerLandlords.Read
-            numOfLandlords = CStr(readerLandlords("countLandlords"))
-        End While
-        conn.Close()
+        'Dim numOfLandlords As Integer
+        'conn.Open()
+        'Dim queryLandlords As New SqlCommand("SELECT COUNT(UserID) AS countLandlords 
+        '                                      FROM Users 
+        '                                      WHERE RoleID = '" & LANDLORD_ROLE_ID & "'", conn)
+        'Dim readerLandlords As SqlDataReader = queryLandlords.ExecuteReader()
+        'While readerLandlords.Read
+        '    numOfLandlords = CStr(readerLandlords("countLandlords"))
+        'End While
+        'conn.Close()
 
-        Dim allProperties As Integer
-        conn.Open()
-        Dim queryAllProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countAll 
-                                                  FROM LandlordProperty", conn)
-        Dim readerAllProperties As SqlDataReader = queryAllProperties.ExecuteReader()
-        While readerAllProperties.Read
-            allProperties = CStr(readerAllProperties("countAll"))
-        End While
-        conn.Close()
+        'Dim allProperties As Integer
+        'conn.Open()
+        'Dim queryAllProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countAll 
+        '                                          FROM LandlordProperty", conn)
+        'Dim readerAllProperties As SqlDataReader = queryAllProperties.ExecuteReader()
+        'While readerAllProperties.Read
+        '    allProperties = CStr(readerAllProperties("countAll"))
+        'End While
+        'conn.Close()
 
-        Dim activeProperties As Integer
-        conn.Open()
-        Dim queryActiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countActive 
-                                                     FROM LandlordProperty 
-                                                     WHERE IsActive = 1", conn)
-        Dim readerActiveProperties As SqlDataReader = queryActiveProperties.ExecuteReader()
-        While readerActiveProperties.Read
-            activeProperties = CStr(readerActiveProperties("countActive"))
-        End While
-        conn.Close()
+        'Dim activeProperties As Integer
+        'conn.Open()
+        'Dim queryActiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countActive 
+        '                                             FROM LandlordProperty 
+        '                                             WHERE IsActive = 1", conn)
+        'Dim readerActiveProperties As SqlDataReader = queryActiveProperties.ExecuteReader()
+        'While readerActiveProperties.Read
+        '    activeProperties = CStr(readerActiveProperties("countActive"))
+        'End While
+        'conn.Close()
 
-        Dim inactiveProperties As Integer
-        conn.Open()
-        Dim queryInactiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countInactive 
-                                                       FROM LandlordProperty 
-                                                       WHERE IsActive = 0", conn)
-        Dim readerInactiveProperties As SqlDataReader = queryInactiveProperties.ExecuteReader()
-        While readerInactiveProperties.Read
-            inactiveProperties = CStr(readerInactiveProperties("countInactive"))
-        End While
-        conn.Close()
+        'Dim inactiveProperties As Integer
+        'conn.Open()
+        'Dim queryInactiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countInactive 
+        '                                               FROM LandlordProperty 
+        '                                               WHERE IsActive = 0", conn)
+        'Dim readerInactiveProperties As SqlDataReader = queryInactiveProperties.ExecuteReader()
+        'While readerInactiveProperties.Read
+        '    inactiveProperties = CStr(readerInactiveProperties("countInactive"))
+        'End While
+        'conn.Close()
 
-        Dim proximityProperties As Integer
-        conn.Open()
-        Dim queryProximityProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countProximity 
-                                                        FROM LandlordProperty 
-                                                        WHERE DateLastUpdated < DATEADD(day, -90, GETDATE()) ", conn)
-        Dim readerProximityProperties As SqlDataReader = queryProximityProperties.ExecuteReader()
-        While readerProximityProperties.Read
-            proximityProperties = CStr(readerProximityProperties("countProximity"))
-        End While
-        conn.Close()
+        'Dim proximityProperties As Integer
+        'conn.Open()
+        'Dim queryProximityProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countProximity 
+        '                                                FROM LandlordProperty 
+        '                                                WHERE DateLastUpdated < DATEADD(day, -90, GETDATE()) ", conn)
+        'Dim readerProximityProperties As SqlDataReader = queryProximityProperties.ExecuteReader()
+        'While readerProximityProperties.Read
+        '    proximityProperties = CStr(readerProximityProperties("countProximity"))
+        'End While
+        'conn.Close()
     %>
     <div id="wrapper">
         <div id="page-wrapper">
@@ -134,7 +134,7 @@
                 </div>
             </div>
             <%--Users--%>
-            <div class="row">
+         <%--   <div class="row">
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -210,9 +210,9 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div>--%>
             <%--Properties--%>
-            <div class="row">
+<%--            <div class="row">
                 <div class="col-lg-3">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -313,9 +313,9 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div>--%>
             <%--Profile Information--%>
-            <div class="row">
+<%--            <div class="row">
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
@@ -501,7 +501,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--%>
         </div>
     </div>
 </asp:Content>

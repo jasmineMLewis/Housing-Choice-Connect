@@ -127,16 +127,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admins\AdminActiveProperties.aspx" />
-    <Content Include="Admins\AdminAddProperty.aspx" />
-    <Content Include="Admins\AdminAllProperties.aspx" />
     <Content Include="Admins\AdminDashboard.aspx" />
-    <Content Include="Admins\AdminEditProperty.aspx" />
-    <Content Include="Admins\AdminInactiveProperties.aspx" />
-    <Content Include="Admins\AdminRegisterUser.aspx" />
-    <Content Include="Admins\Admins.aspx" />
-    <Content Include="Admins\AdminSoonToBeDeletedProperties.aspx" />
-    <Content Include="Admins\AdminViewProperty.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bs-pagination.js" />
@@ -162,82 +153,15 @@
     <Content Include="Images\hano-logo.png" />
     <Content Include="Images\house-default.jpg" />
     <Content Include="SignIn\AdminSignIn.aspx" />
-    <Content Include="SignIn\LandlordSignIn.aspx" />
-    <Content Include="SignIn\TenantSignIn.aspx" />
-    <Content Include="SignUp\LandlordSignUp.aspx" />
-    <Content Include="SignUp\TenantSignUp.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admins\AdminActiveProperties.aspx.designer.vb">
-      <DependentUpon>AdminActiveProperties.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admins\AdminActiveProperties.aspx.vb">
-      <DependentUpon>AdminActiveProperties.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admins\AdminAddProperty.aspx.designer.vb">
-      <DependentUpon>AdminAddProperty.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admins\AdminAddProperty.aspx.vb">
-      <DependentUpon>AdminAddProperty.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admins\AdminAllProperties.aspx.designer.vb">
-      <DependentUpon>AdminAllProperties.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admins\AdminAllProperties.aspx.vb">
-      <DependentUpon>AdminAllProperties.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Admins\AdminDashboard.aspx.designer.vb">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admins\AdminDashboard.aspx.vb">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admins\AdminEditProperty.aspx.designer.vb">
-      <DependentUpon>AdminEditProperty.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admins\AdminEditProperty.aspx.vb">
-      <DependentUpon>AdminEditProperty.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admins\AdminInactiveProperties.aspx.designer.vb">
-      <DependentUpon>AdminInactiveProperties.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admins\AdminInactiveProperties.aspx.vb">
-      <DependentUpon>AdminInactiveProperties.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admins\AdminRegisterUser.aspx.designer.vb">
-      <DependentUpon>AdminRegisterUser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admins\AdminRegisterUser.aspx.vb">
-      <DependentUpon>AdminRegisterUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admins\Admins.aspx.designer.vb">
-      <DependentUpon>Admins.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admins\Admins.aspx.vb">
-      <DependentUpon>Admins.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admins\AdminSoonToBeDeletedProperties.aspx.designer.vb">
-      <DependentUpon>AdminSoonToBeDeletedProperties.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admins\AdminSoonToBeDeletedProperties.aspx.vb">
-      <DependentUpon>AdminSoonToBeDeletedProperties.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admins\AdminViewProperty.aspx.designer.vb">
-      <DependentUpon>AdminViewProperty.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admins\AdminViewProperty.aspx.vb">
-      <DependentUpon>AdminViewProperty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App_Start\BundleConfig.vb" />
@@ -283,34 +207,6 @@
     </Compile>
     <Compile Include="SignIn\AdminSignIn.aspx.vb">
       <DependentUpon>AdminSignIn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SignIn\LandlordSignIn.aspx.designer.vb">
-      <DependentUpon>LandlordSignIn.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SignIn\LandlordSignIn.aspx.vb">
-      <DependentUpon>LandlordSignIn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SignIn\TenantSignIn.aspx.designer.vb">
-      <DependentUpon>TenantSignIn.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SignIn\TenantSignIn.aspx.vb">
-      <DependentUpon>TenantSignIn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SignUp\LandlordSignUp.aspx.designer.vb">
-      <DependentUpon>LandlordSignUp.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SignUp\LandlordSignUp.aspx.vb">
-      <DependentUpon>LandlordSignUp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SignUp\TenantSignUp.aspx.designer.vb">
-      <DependentUpon>TenantSignUp.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SignUp\TenantSignUp.aspx.vb">
-      <DependentUpon>TenantSignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UnloggedUser.Master.designer.vb">
@@ -405,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="SignUp\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

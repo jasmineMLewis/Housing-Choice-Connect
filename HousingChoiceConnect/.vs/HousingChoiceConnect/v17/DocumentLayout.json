@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\signup\\tenantsignup.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:signup\\tenantsignup.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\signin\\adminsignin.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:signin\\adminsignin.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\housing-choice-connect\\housingchoiceconnect\\styles\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:styles\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\housing-choice-connect\\housingchoiceconnect\\signin\\adminsignin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:signin\\adminsignin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\housing-choice-connect\\housingchoiceconnect\\footer.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:footer.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\utils\\constants.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
@@ -14,20 +26,12 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\signup\\landlordsignup.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:signup\\landlordsignup.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\housing-choice-connect\\housingchoiceconnect\\admins\\admindashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:admins\\admindashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\signin\\adminsignin.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:signin\\adminsignin.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\signin\\landlordsignin.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:signin\\landlordsignin.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\signin\\tenantsignin.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:signin\\tenantsignin.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\housing-choice-connect\\housingchoiceconnect\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|HousingChoiceConnect.vbproj|solutionrelative:default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,17 +41,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "README.md",
               "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\README.md",
               "RelativeDocumentMoniker": "..\\README.md",
               "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\README.md",
               "RelativeToolTip": "..\\README.md",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAC8AAAAMAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAACcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2024-09-21T12:37:34.864Z",
               "IsPinned": true,
@@ -55,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Constants.vb",
               "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Utils\\Constants.vb",
               "RelativeDocumentMoniker": "Utils\\Constants.vb",
@@ -69,65 +73,83 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TenantSignUp.aspx.vb",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignUp\\TenantSignUp.aspx.vb",
-              "RelativeDocumentMoniker": "SignUp\\TenantSignUp.aspx.vb",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignUp\\TenantSignUp.aspx.vb",
-              "RelativeToolTip": "SignUp\\TenantSignUp.aspx.vb",
-              "ViewState": "AQIAAGQAAAAAAAAAAAAAAGQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-24T12:43:45.499Z",
+              "DocumentIndex": 2,
+              "Title": "AdminSignIn.aspx",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignIn\\AdminSignIn.aspx",
+              "RelativeDocumentMoniker": "SignIn\\AdminSignIn.aspx",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignIn\\AdminSignIn.aspx",
+              "RelativeToolTip": "SignIn\\AdminSignIn.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-06T11:49:22.495Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "AdminSignIn.aspx.vb",
               "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignIn\\AdminSignIn.aspx.vb",
               "RelativeDocumentMoniker": "SignIn\\AdminSignIn.aspx.vb",
               "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignIn\\AdminSignIn.aspx.vb",
               "RelativeToolTip": "SignIn\\AdminSignIn.aspx.vb",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAADsAAAAwAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAAACkAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-24T12:59:22.273Z"
+              "WhenOpened": "2024-09-24T12:59:22.273Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LandlordSignIn.aspx.vb",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignIn\\LandlordSignIn.aspx.vb",
-              "RelativeDocumentMoniker": "SignIn\\LandlordSignIn.aspx.vb",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignIn\\LandlordSignIn.aspx.vb",
-              "RelativeToolTip": "SignIn\\LandlordSignIn.aspx.vb",
-              "ViewState": "AQIAADoAAAAAAAAAAAAAAEcAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-24T12:59:05.239Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TenantSignIn.aspx.vb",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignIn\\TenantSignIn.aspx.vb",
-              "RelativeDocumentMoniker": "SignIn\\TenantSignIn.aspx.vb",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignIn\\TenantSignIn.aspx.vb",
-              "RelativeToolTip": "SignIn\\TenantSignIn.aspx.vb",
-              "ViewState": "AQIAACwAAAAAAAAAAAAAADgAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-24T12:58:40.26Z"
+              "DocumentIndex": 7,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Default.aspx",
+              "RelativeDocumentMoniker": "Default.aspx",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Default.aspx",
+              "RelativeToolTip": "Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-06T15:35:26.669Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "LandlordSignUp.aspx.vb",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignUp\\LandlordSignUp.aspx.vb",
-              "RelativeDocumentMoniker": "SignUp\\LandlordSignUp.aspx.vb",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\SignUp\\LandlordSignUp.aspx.vb",
-              "RelativeToolTip": "SignUp\\LandlordSignUp.aspx.vb",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAAAEMAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-24T12:54:15.468Z"
+              "Title": "Footer.Master",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Footer.Master",
+              "RelativeDocumentMoniker": "Footer.Master",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Footer.Master",
+              "RelativeToolTip": "Footer.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-06T15:34:48.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "custom.css",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Styles\\custom.css",
+              "RelativeDocumentMoniker": "Styles\\custom.css",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Styles\\custom.css",
+              "RelativeToolTip": "Styles\\custom.css",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAAADEAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-06T15:30:10.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AdminDashboard.aspx",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Admins\\AdminDashboard.aspx",
+              "RelativeDocumentMoniker": "Admins\\AdminDashboard.aspx",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\Housing-Choice-Connect\\HousingChoiceConnect\\Admins\\AdminDashboard.aspx",
+              "RelativeToolTip": "Admins\\AdminDashboard.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-06T15:16:46.635Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -9,6 +9,7 @@
     <meta name="author" content="" />
     <title>Housing Choice Connect</title>
     <link href="Styles/bootstrap.css" rel="stylesheet" />
+     <link href="Styles/custom.css" rel="stylesheet" />
     <!-- Bootstrap-Select CSS for JQuery Plugin -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
     <!-- Custom Fonts -->
@@ -19,8 +20,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut Icon" href="img/favicon.ico" type="image/x-icon" runat="server" />
-    <link rel="icon" href="img/favicon.ico" type="image/ico" runat="server" />
+<%--    <link rel="shortcut Icon" href="img/favicon.ico" type="image/x-icon" runat="server" />
+    <link rel="icon" href="img/favicon.ico" type="image/ico" runat="server" />--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script language="javascript" type="text/javascript">

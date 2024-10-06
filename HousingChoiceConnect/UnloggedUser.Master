@@ -20,8 +20,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <!-- Favicon -->
-        <link rel="icon" href="Images/favicon.ico" type="image/x-icon" runat="server" />
-        <link rel="icon" href="Images/favicon.ico" type="image/ico" runat="server" />
+<%--        <link rel="icon" href="Images/favicon.ico" type="image/x-icon" runat="server" />
+        <link rel="icon" href="Images/favicon.ico" type="image/ico" runat="server" />--%>
         <asp:ContentPlaceHolder ID="HEAD" runat="server">
 
         </asp:ContentPlaceHolder>
@@ -30,7 +30,7 @@
         <asp:ContentPlaceHolder ID="Navigation" runat="server">
             <nav class="navbar navbar-custom navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                     <img src="../Images/hanoLogo.png" alt="hanoLogo"/>
+                     <img src="../Images/hano-logo.png" alt="hanoLogo"/>
                 </div>   
             </nav>
         </asp:ContentPlaceHolder>

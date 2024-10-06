@@ -1,0 +1,42 @@
+﻿/**
+ * Tenant & Landlord Sign In
+ */
+
+/* Global Styles */
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #e8effc;
+}
+
+/* Form */
+#signIn, #resetPassword, #newVerificationCode {
+    position: relative;
+    margin-top: 150px;
+}
+
+#emailVerification {
+    position: relative;
+    margin-top: 148px;
+}
+
+#landlordSecurityQuestions {
+    position: relative;
+    margin-top: 140px;
+}
+
+/* Email Verfication */
+#emailVerficationSendNew {
+    position: relative;
+    top: 200px;
+    left: 690px;
+}
+
+#landlordEmailVerification {
+    position: relative;
+    margin-top: 150px;
+}
