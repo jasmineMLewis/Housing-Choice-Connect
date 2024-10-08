@@ -45,11 +45,6 @@ span.tab-space-landlord {
     margin-right: 3px;
 }
 
-/* Sign In Error Messages */
-#alertUserExistsError {
-    margin-top: 300px;
-}
-
 /* Custom Horizontal Rule */
 hr.small {
     max-width: 100px;

@@ -53,19 +53,14 @@
 
                 Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
                 conn.Open()
-                'Dim query As New SqlCommand("SELECT FirstName, LastName, RoleID, 
-                '                                    IsSecurityQuestionsCompleted 
-                '                             FROM Users 
-                '                             WHERE UserID='" & userID & "'", conn)
                 Dim query As New SqlCommand("SELECT FirstName, LastName,
                                                     IsSecurityQuestionsCompleted 
-                                             FROM [dbo].[UserTest] 
+                                             FROM [Security].[User]
                                              WHERE UserID='" & userID & "'", conn)
                 Dim reader As SqlDataReader = query.ExecuteReader()
                 While reader.Read
                     firstName = CStr(reader("FirstName"))
                     lastName = CStr(reader("LastName"))
-                    'roleID = CStr(reader("RoleID"))
                     isSecurityQuestionsCompleted = CStr(reader("IsSecurityQuestionsCompleted"))
                 End While
                 conn.Close()
@@ -91,6 +86,8 @@
                         </li>
                     </ul>
            
+
+
             </nav>
         </asp:ContentPlaceHolder>
         <form id="form1" runat="server">

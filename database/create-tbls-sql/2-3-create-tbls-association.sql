@@ -8,12 +8,18 @@ USE HousingChoiceConnect;
 GO
 
 /****** 
-Tables: 4
+Tables: 6
 - Landlord.PropertyAddress
 - Landlord.PropertyAmentity
+- Landlord.PropertyHandicapAccessibility
+- Security.UserActivityLog
 - Security.UserRole
 - Security.UserSecurityQuestion
+
+--------------------------
+- NOT USING After REFACTOR | Landlord.PropertyPicture
 ******/
+
 
 /****** Object:  Table Landlord.PropertyAddress ******/
 DROP TABLE IF EXISTS Landlord.PropertyAddress
@@ -56,6 +62,42 @@ CREATE TABLE Landlord.PropertyAmentity(
  INDEX IX_LandlordPropertyAmentity_LandlordPropertyID NONCLUSTERED (LandlordPropertyID),
  CONSTRAINT FK_Amentity_AmentityID FOREIGN KEY (AmentityID) REFERENCES Amentity(AmentityID),
  INDEX IX_LandlordPropertyAmentity_AmentityID NONCLUSTERED (AmentityID)
+)
+GO
+
+/****** Object:  Table Landlord.PropertyHandicapAccessibility ******/
+DROP TABLE IF EXISTS Landlord.PropertyHandicapAccessibility
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE Landlord.PropertyHandicapAccessibility(
+	LandlordPropertyHandicapAccessibilityID int IDENTITY(1,1) NOT NULL,
+	IsAccessibleParkingCloseToHome bit NULL DEFAULT 0,
+	IsRampedEntry bit NULL DEFAULT 0,
+	IsDoorways32Inches_Wider bit NULL DEFAULT 0,
+	IsAccessiblePathToAndInHome32Inches_Wider bit NULL DEFAULT 0,
+	IsAutomaticEntryDoor bit NULL DEFAULT 0,
+	IsLowCounterSinkAtBelow34Inches bit NULL DEFAULT 0,
+	IsAccessibleAppliances bit NULL DEFAULT 0,
+	IsShowerTubGrabBars bit NULL DEFAULT 0,
+	IsRollInShower bit NULL DEFAULT 0,
+	IsHandHeldShowerSprayer bit NULL DEFAULT 0,
+	IsFixedSeatInShowerTub bit NULL DEFAULT 0,
+	IsRaisedToilet bit NULL DEFAULT 0,
+	IsFirstFloorBedroom bit NULL DEFAULT 0,
+	IsFirstFloorBathroom bit NULL DEFAULT 0,
+	IsLiftElevator bit NULL DEFAULT 0,
+	IsAudioVisualDoorbell bit NULL DEFAULT 0,
+	IsAudioVisualSmokeFireAlarm bit NULL DEFAULT 0,
+	IsElevatorAccess bit NULL DEFAULT 0,
+	LandlordPropertyID int NULL,
+ CONSTRAINT PK_LandlordPropertyHandicapAccessibilityID PRIMARY KEY CLUSTERED (LandlordPropertyHandicapAccessibilityID ASC),
+ INDEX IX_LandlordPropertyHandicapAccessibilityID NONCLUSTERED (LandlordPropertyHandicapAccessibilityID),
+ CONSTRAINT FK_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES Landlord.[Property](LandlordPropertyID),
+ INDEX IX_LandlordPropertyHandicapAccessibility_LandlordPropertyID NONCLUSTERED (LandlordPropertyID)
 )
 GO
 
@@ -127,3 +169,25 @@ CREATE TABLE Security.UserQuestion (
 )
 GO
 
+-----------------------------------------------------------------
+
+-- NOT USED - After REFACTOR
+/****** Object:  Table Landlord.PropertyPicture ******/
+--DROP TABLE IF EXISTS Landlord.PropertyPicture
+--GO
+--SET ANSI_NULLS ON
+--GO
+--SET QUOTED_IDENTIFIER ON
+--GO
+
+--CREATE TABLE Landlord.PropertyPicture(
+--	LandlordPropertyPictureID int IDENTITY(1,1) NOT NULL,
+--	MIMEType varchar(max) NULL,
+--	ImageData varchar(max) NULL,
+--	LandlordPropertyID int NOT NULL,
+-- CONSTRAINT PK_LandlordPropertyPictureID PRIMARY KEY CLUSTERED (LandlordPropertyPictureID ASC),
+-- INDEX IX_LandlordPropertyPictureID NONCLUSTERED (LandlordPropertyPictureID),
+-- CONSTRAINT FK_LandlordPropertyPicture_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES Landlord.[Property](LandlordPropertyID),
+-- INDEX IX_LandlordPropertyPicture_Landlord_LandlordPropertyID NONCLUSTERED (LandlordPropertyID)
+--)
+--GO

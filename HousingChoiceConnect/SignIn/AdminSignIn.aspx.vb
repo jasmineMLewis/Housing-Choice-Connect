@@ -17,9 +17,9 @@ Public Class AdminSignIn
         Dim formEmail As String = email.Text.Trim
         Dim formPassword As String = password.Text.Trim
         'Dim sessionUserID As Integer
-        'Dim sessionRoleID As Integer
-        'Dim isActive As Boolean
         Dim isExists As Boolean
+        Dim isActive As Boolean
+        Dim isEmailPasswordCorrect As Boolean
 
         'If User Exists
         'If Active
@@ -27,22 +27,25 @@ Public Class AdminSignIn
 
         'Dim dbPassword As String
         'Dim roleID As Integer
-        Dim userID As Integer = 1
+        'Dim userID As Integer
 
         isExists = IsUserExists(formEmail)
-        'Console.WriteLine("After IsExits")
         If isExists Then
-            'Console.WriteLine("Account does EXISTS")
-            'Response.Write("<div id='alertUserExistsError'><div class='alert alert-danger col-xs-12' role='alert'><strong>Oh No!</strong> Account does EXISTS.</div></div>")
+            isActive = IsUserActive(formEmail)
 
-            Web.HttpContext.Current.Session("UserID") = userID
-            Session("UserID") = userID
+            If isActive Then
+                isEmailPasswordCorrect = IsUserEmailPasswordCorrect(formEmail, formPassword)
 
-            '            UpdateLastLoginDate(userID)
-            Response.Redirect("/Admins/AdminDashboard.aspx?UserID=" & userID)
+                If isEmailPasswordCorrect Then
+
+
+                Else
+                    Response.Write("<div id='alertEmailPassowrdError'><div class='alert alert-danger col-xs-12' role='alert'><strong>Oh No!</strong> Incorrect Email/Password Combination.</div></div>")
+                End If
+            Else
+                Response.Write("<div id='alertUserAccountActiveError'><div class='alert alert-danger col-xs-12' role='alert'><strong>Oh No!</strong> Account is NOT ACTIVE.</div></div>")
+            End If
         Else
-            'Dont Exists
-            Console.WriteLine("Account does NOT EXISTS")
             Response.Write("<div id='alertUserExistsError'><div class='alert alert-danger col-xs-12' role='alert'><strong>Oh No!</strong> Account does NOT EXISTS.</div></div>")
         End If
 
@@ -135,32 +138,59 @@ Public Class AdminSignIn
         Return userRoleID
     End Function
 
-    Public Function IsUserExists(ByVal email As String) As Boolean
-        Console.WriteLine("In IsExits")
-        Dim userID As Integer
-
+    Public Function IsUserActive(ByVal email As String) As Boolean
+        Dim isActive As Boolean
         conn.Open()
-        'Dim query As New SqlCommand("SELECT UserID
-        '                             FROM [Security].[User]
-        '                             WHERE Email='" & email & "'", conn)
-        Dim query As New SqlCommand("SELECT UserID
-                                     FROM [dbo].[UserTest]
+        Dim query As New SqlCommand("SELECT IsActive
+                                     FROM [Security].[User]
                                      WHERE Email='" & email & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
 
         If reader.HasRows Then
             While reader.Read
-                userID = CStr(reader("UserID"))
+                isActive = CStr(reader("IsActive"))
             End While
             conn.Close()
-            Console.WriteLine("Before True In If")
+        End If
+
+        If isActive Then
             Return True
         Else
-            Console.WriteLine("Before False")
+            Return False
+        End If
+    End Function
+
+    Public Function IsUserExists(ByVal email As String) As Boolean
+        conn.Open()
+        Dim query As New SqlCommand("SELECT UserID
+                                     FROM [Security].[User]
+                                     WHERE Email='" & email & "'", conn)
+        Dim reader As SqlDataReader = query.ExecuteReader()
+
+        If reader.HasRows Then
+            conn.Close()
+            Return True
+        Else
             Return False
         End If
 
-        Console.WriteLine("Before True in func")
+        Return True
+    End Function
+
+    Public Function IsUserEmailPasswordCorrect(ByVal email As String, ByVal password As String) As Boolean
+        conn.Open()
+        Dim query As New SqlCommand("SELECT UserID
+                                     FROM [Security].[User]
+                                     WHERE Email='" & email & "' AND Password= '" & password & "'", conn)
+        Dim reader As SqlDataReader = query.ExecuteReader()
+
+        If reader.HasRows Then
+            conn.Close()
+            Return True
+        Else
+            Return False
+        End If
+
         Return True
     End Function
 

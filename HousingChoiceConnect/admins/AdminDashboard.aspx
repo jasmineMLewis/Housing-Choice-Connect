@@ -33,7 +33,7 @@
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("HousingChoiceConnectConnectionString").ConnectionString)
         conn.Open()
         Dim query As New SqlCommand("SELECT FirstName, LastName, Email, DateRegistered, LastLogin 
-                                     FROM [dbo].[UserTest] 
+                                     FROM [Security].[User]
                                      WHERE UserID='" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read

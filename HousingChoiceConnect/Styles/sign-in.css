@@ -1,5 +1,5 @@
 ﻿/**
- * Tenant & Landlord Sign In
+ * Admin, Landlord & Tenant Sign In
  */
 
 /* Global Styles */
@@ -27,6 +27,22 @@ body {
 #landlordSecurityQuestions {
     position: relative;
     margin-top: 140px;
+}
+
+/* Sign In Error Messages */
+#alertUserExistsError {
+    position: relative;
+    margin-top: 300px;
+}
+
+#alertUserAccountActiveError {
+    position: relative;
+    margin-top: 300px;
+}
+
+#alertEmailPassowrdError {
+    position: relative;
+    margin-top: 300px;
 }
 
 /* Email Verfication */

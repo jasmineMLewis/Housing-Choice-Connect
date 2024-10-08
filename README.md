@@ -50,14 +50,13 @@ Housing Choice Connect is a .NET project for Housing Authority of New Orleans.
 5. Implement schemas for user and landlord database tables
 6. Add Activity Log, Activity Type, and Zip Code database tables
 7. Add Zip Code ID for Neighborhood table
-8. Remove Landlord Property Picture that stores images into databse 
-
+8. Remove Landlord Property Picture that stores images into databse
 
 (IN PROGRESS) Change VB pages that uses local constants to Application Constants namespace 
- 
+
 
 ### Date Last Updated via GitHub
-October 5, 2024
+October 8, 2024
 
 ### Technologies
 | Technology | Version  |
@@ -157,7 +156,6 @@ Housing Choice Connect's folders are Sign In, Sign Up, Tenants, Landlords, and A
 
 ![housing-choice-connect-tenant-search-properties](https://github.com/user-attachments/assets/0bfb6839-a0e3-44a9-a7a3-0f83813fd16f)
 
-
 1. Update Profile Information
 2. Search and View Landlord Properties
 3. Update Security Question Answers
@@ -185,11 +183,12 @@ Housing Choice Connect's folders are Sign In, Sign Up, Tenants, Landlords, and A
 ## Association Tables
 > Association tables are used for many-to-many relationships between two objects.
 Association tables can handle both one-to-one, one-to-many and many-to-many relationships.
-1. Security.UserQuestion
-2. Security.UserRole
-3. Landlord.PropertyAddress
-4. Landlord.PropertyAmentity
-5. Landlord.PropertyHandicapAccessibility
+1. Landlord.PropertyAddress
+2. Landlord.PropertyAmentity
+3. Landlord.PropertyHandicapAccessibility
+4. Security.UserActivityLog
+5. Security.UserRole
+6. Security.UserSecurityQuestion
 
 ## Reference  Tables
 > Reference Tables share identical fields/column data in another table.
@@ -206,4 +205,4 @@ Association tables can handle both one-to-one, one-to-many and many-to-many rela
 > Permanent Tables have their own table structure, columns, data types, constraints and indexes.
 1. Security.EliteTenantImport
 2. Security.User
-4. Landlord.Property
+3. Landlord.Property
