@@ -15,5 +15,8 @@ Namespace ApplicationConstants
         'Property
         Public Const City As String = "New Orleans"
         Public Const PropertyActive As Boolean = 1
+
+        'Activity Log
+
     End Class
 End Namespace

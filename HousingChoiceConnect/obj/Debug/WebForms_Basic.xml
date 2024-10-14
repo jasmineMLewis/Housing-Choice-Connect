@@ -154,6 +154,15 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
+<member name="F:HousingChoiceConnect.AdminSignIn._lblMsg">
+<summary>
+lblMsg control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:HousingChoiceConnect.UnloggedUser._Head1">
 <summary>
 Head1 control.

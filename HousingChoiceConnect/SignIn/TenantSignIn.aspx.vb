@@ -13,51 +13,51 @@ Public Class TenantLogin
         'Const TENANT_ROLE As Integer = 2
         'Const LANDLORD_ROLE As Integer = 3
 
-        Dim _email As String = email.Text.Trim
-        Dim _password As String = password.Text.Trim
-        Dim dbPassword As String
-        Dim roleID As Integer
-        Dim userID As Integer
+        'Dim _email As String = email.Text.Trim
+        'Dim _password As String = password.Text.Trim
+        'Dim dbPassword As String
+        'Dim roleID As Integer
+        'Dim userID As Integer
 
-        conn.Open()
-        Dim query As New SqlCommand("SELECT UserID, RoleID, Password 
-                                     FROM User 
-                                     WHERE Email='" & _email & "'", conn)
-        Dim reader As SqlDataReader = query.ExecuteReader()
-        If reader.HasRows Then
-            While reader.Read
-                dbPassword = CStr(reader("Password"))
-                roleID = CStr(reader("RoleID"))
-                userID = CStr(reader("UserID"))
-            End While
-            conn.Close()
+        'conn.Open()
+        'Dim query As New SqlCommand("SELECT UserID, RoleID, Password 
+        '                             FROM User 
+        '                             WHERE Email='" & _email & "'", conn)
+        'Dim reader As SqlDataReader = query.ExecuteReader()
+        'If reader.HasRows Then
+        '    While reader.Read
+        '        dbPassword = CStr(reader("Password"))
+        '        roleID = CStr(reader("RoleID"))
+        '        userID = CStr(reader("UserID"))
+        '    End While
+        '    conn.Close()
 
-            If (_password = dbPassword) Then
-                Web.HttpContext.Current.Session("UserID") = userID
-                Session("UserID") = userID
+        '    If (_password = dbPassword) Then
+        '        Web.HttpContext.Current.Session("UserID") = userID
+        '        Session("UserID") = userID
 
-                updateLastLoginDate(userID)
-                If roleID = ApplicationConstants.Constants.TenantRole Then
-                    Response.Redirect("../Tenants/TenantDashboard.aspx")
-                ElseIf roleID = ApplicationConstants.Constants.LandlordRole Then
-                    Response.Redirect("LandlordSignIn.aspx")
-                End If
-            Else
-                lblMsg.Text = "Oh No! Incorrect Email/Password Combination."
-            End If
-        Else
-            conn.Close()
-            lblMsg.Text = "Oh No! Email does NOT exist."
-        End If
+        '        updateLastLoginDate(userID)
+        '        If roleID = ApplicationConstants.Constants.TenantRole Then
+        '            Response.Redirect("../Tenants/TenantDashboard.aspx")
+        '        ElseIf roleID = ApplicationConstants.Constants.LandlordRole Then
+        '            Response.Redirect("LandlordSignIn.aspx")
+        '        End If
+        '    Else
+        '        lblMsg.Text = "Oh No! Incorrect Email/Password Combination."
+        '    End If
+        'Else
+        '    conn.Close()
+        '    lblMsg.Text = "Oh No! Email does NOT exist."
+        'End If
     End Sub
 
     Public Sub updateLastLoginDate(ByVal userID As Integer)
-        Dim lastLogin As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-        conn.Open()
-        Dim query As New SqlCommand("UPDATE User
-                                    SET LastLogin ='" & lastLogin & "' 
-                                    WHERE UserID='" & userID & "'", conn)
-        query.ExecuteNonQuery()
-        conn.Close()
+        'Dim lastLogin As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        'conn.Open()
+        'Dim query As New SqlCommand("UPDATE User
+        '                            SET LastLogin ='" & lastLogin & "' 
+        '                            WHERE UserID='" & userID & "'", conn)
+        'query.ExecuteNonQuery()
+        'conn.Close()
     End Sub
 End Class

@@ -79,14 +79,19 @@
                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                             <asp:TextBox ID="password" runat="server" class="form-control" placeholder="Password" name="password" maxlength="50"></asp:TextBox>
                         </div>
-                    
                          <button type="button" class="btn btn-info btn-block btn-lg" runat="server" onserverclick="BtnAdminSignIn">
                              <i class="fa fa-download"></i>&nbsp; Sign In
                          </button>
+                        <div class="input-group input-group-lg inputFormat">
+                            <asp:Label ID="lblMsg" runat="server" Style="font-size: 14px; font-weight: 700; color: #1A926A"
+                                EnableViewState="False">
+                             </asp:Label>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
      </div>
     </div>
+  <div id="space" style="margin-top: 210px;"></div>
 </asp:Content>

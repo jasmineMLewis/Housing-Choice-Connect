@@ -10,14 +10,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
-        Dim userID As String = Session("UserID")
-        If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
-            userID = Web.HttpContext.Current.Session("UserID").ToString()
+        Dim sessionUserID As String = Session("SessionUserID")
+
+        If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
+            sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
 
-        If userID = Nothing Then
-            userID = Request.QueryString("UserID")
-            Web.HttpContext.Current.Session("UserID") = userID
+        If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
+            sessionUserID = Request.QueryString("SessionUserID")
+            Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
         End If
 
         Const ADMIN_ROLE_ID As Integer = 1
@@ -34,7 +35,7 @@
         conn.Open()
         Dim query As New SqlCommand("SELECT FirstName, LastName, Email, DateRegistered, LastLogin 
                                      FROM [Security].[User]
-                                     WHERE UserID='" & userID & "'", conn)
+                                     WHERE UserID='" & sessionUserID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             firstName = CStr(reader("FirstName"))

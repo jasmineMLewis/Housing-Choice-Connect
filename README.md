@@ -56,7 +56,7 @@ Housing Choice Connect is a .NET project for Housing Authority of New Orleans.
 
 
 ### Date Last Updated via GitHub
-October 8, 2024
+October 13, 2024
 
 ### Technologies
 | Technology | Version  |
@@ -96,6 +96,9 @@ Execute database files in SQL Server Managment Studio within 'insert-data-sql' f
 Note: Execute each table separately.
 1. ./database/insert-data-sql/3-1-insert-data-tbls-refernce.sql
 2. ./database/insert-data-sql/3-2-insert-data-tbls-permanent.sql
+
+### View Database Diagram
+1. ./database/housing-choice-connect-database-diagram.png
 
 
 ## Run Application
