@@ -59,20 +59,20 @@ Partial Public Class Landlords
     Protected WithEvents button As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
-    '''sqlGridView control.
+    '''sqlGridViewLandlords control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents sqlGridView As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents sqlGridViewLandlords As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''GridView1 control.
+    '''GridViewLandlords control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents GridViewLandlords As Global.System.Web.UI.WebControls.GridView
 End Class

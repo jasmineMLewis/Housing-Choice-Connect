@@ -8,15 +8,16 @@
     End Sub
 
     Protected Sub BtnSearchAdmin(ByVal sender As Object, ByVal e As EventArgs)
-        Dim sql As String = "SELECT UserID, FirstName + ' ' + LastName AS Name, 
+        Dim sql As String = "SELECT Users.UserID, (FirstName + ' ' + LastName) AS FullName, 
                                     Email, DateRegistered, LastLogin 
-                             FROM Users 
+                             FROM [Security].[User] AS Users
+                             INNER JOIN [Security].[UserRole] As UserRoles ON Users.UserID = UserRoles.UserID
                              WHERE RoleID = 1"
         Dim userID As Integer = FullName.SelectedValue.Trim
         Dim emailToSearch As String = Email.SelectedValue.Trim
 
         If (userID > 0) Then
-            sql += "AND UserID = " + userID.ToString()
+            sql += "AND Users.UserID = " + userID.ToString()
         End If
 
         If Not String.IsNullOrEmpty(emailToSearch) Then
@@ -25,12 +26,12 @@
 
         sqlGridView.SelectCommand = sql
         sqlGridView.DataBind()
-        GridView1.DataBind()
+        GridViewAdmins.DataBind()
     End Sub
 
     Public Sub SetDropdownList()
         FullName.AppendDataBoundItems = True
-        FullName.Items.Insert(0, New ListItem("Name", "0"))
+        FullName.Items.Insert(0, New ListItem("Full Name", "0"))
 
         Email.AppendDataBoundItems = True
         Email.Items.Insert(0, New ListItem("Email", ""))

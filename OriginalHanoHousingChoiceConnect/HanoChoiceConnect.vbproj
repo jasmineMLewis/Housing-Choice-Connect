@@ -1,0 +1,655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{44D79AEA-7FAC-4A7C-8FD4-9C525A5BB626}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HanoChoiceConnect</RootNamespace>
+    <AssemblyName>HanoChoiceConnect</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>HanoChoiceConnect.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>HanoChoiceConnect.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Telerik.Web.UI, Version=2014.3.1209.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admins\AdminActiveProperties.aspx" />
+    <Content Include="Admins\AdminAddProperty.aspx" />
+    <Content Include="Admins\AdminAllProperties.aspx" />
+    <Content Include="Admins\AdminDashboard.aspx" />
+    <Content Include="Admins\AdminDeleteLandlord.ashx" />
+    <Content Include="Admins\AdminDeleteTenant.ashx" />
+    <Content Include="Admins\AdminEditLandlord.aspx" />
+    <Content Include="Admins\AdminEditProperty.aspx" />
+    <Content Include="Admins\AdminEditTenant.aspx" />
+    <Content Include="Admins\AdminInactiveProperties.aspx" />
+    <Content Include="Admins\AdminRegisterUser.aspx" />
+    <Content Include="Admins\Admins.aspx" />
+    <Content Include="Admins\AdminSoonToBeDeletedProperties.aspx" />
+    <Content Include="Admins\AdminViewLandlord.aspx" />
+    <Content Include="Admins\AdminViewProperty.aspx" />
+    <Content Include="Admins\Landlords.aspx" />
+    <Content Include="Admins\Tenants.aspx" />
+    <Content Include="ContactUs.aspx" />
+    <Content Include="HanoChoiceConnect.Publish.xml" />
+    <Content Include="AdminSignIn.aspx" />
+    <Content Include="bin\HanoChoiceConnect.dll" />
+    <Content Include="bin\HanoChoiceConnect.pdb" />
+    <Content Include="bin\HanoChoiceConnect.xml" />
+    <Content Include="bin\Telerik.Web.UI.dll" />
+    <Content Include="img\carousel1.png" />
+    <Content Include="img\carousel2.png" />
+    <Content Include="img\carousel3.png" />
+    <Content Include="img\carousel4.png" />
+    <Content Include="img\carousel5.png" />
+    <Content Include="img\favicon.ico" />
+    <Content Include="img\hanoLogo.png" />
+    <Content Include="img\houseDefault.jpg" />
+    <Content Include="Default.aspx" />
+    <Content Include="EmailVerification.aspx" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\sb-admin-2.js" />
+    <Content Include="LandlordEmailPasswordReset.aspx" />
+    <Content Include="Landlords\LandlordActiveProperties.aspx" />
+    <Content Include="Landlords\LandlordAddProperty.aspx" />
+    <Content Include="Landlords\LandlordDashboard.aspx" />
+    <Content Include="Landlords\LandlordEditProperty.aspx" />
+    <Content Include="Landlords\LandlordInactiveProperties.aspx" />
+    <Content Include="Landlords\LandlordProfileUpdate.aspx" />
+    <Content Include="Landlords\LandlordSecurityQuestions.aspx" />
+    <Content Include="Landlords\LandlordSoonDeletedProperties.aspx" />
+    <Content Include="Landlords\ViewLandlord.aspx" />
+    <Content Include="LandlordVerifyEmail.aspx" />
+    <Content Include="LandlordPasswordResetSecurityQuestions.aspx" />
+    <Content Include="LandlordSecurityQuestionsPasswordReset.aspx" />
+    <Content Include="obj\Debug\HanoChoiceConnect.pdb" />
+    <Content Include="obj\Debug\TempPE\My Project.Resources.Designer.vb.dll" />
+    <Content Include="SendEmailVerification.aspx" />
+    <Content Include="js\bs.pagination.js" />
+    <Content Include="SetPropertyState.aspx" />
+    <Content Include="Styles\custom.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="LandlordSignIn.aspx" />
+    <Content Include="LandlordSignUp.aspx" />
+    <Content Include="js\obj\Debug\HanoChoiceConnect.vbproj.FileListAbsolute.txt" />
+    <Content Include="Global.asax" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\default.css" />
+    <Content Include="Styles\sb-admin-2.css" />
+    <Content Include="Styles\signUp.css" />
+    <Content Include="Styles\signIn.css" />
+    <Content Include="TenantEmailResetPassword.aspx" />
+    <Content Include="TenantSignIn.aspx" />
+    <Content Include="TenantSignUp.aspx" />
+    <Content Include="Tenants\TenantDashboard.aspx" />
+    <Content Include="Tenants\TenantProfileUpdate.aspx" />
+    <Content Include="Tenants\TenantPropertyList.aspx" />
+    <Content Include="Landlords\ViewProperty.aspx" />
+    <Content Include="Tenants\TenantViewProperty.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminSignIn.aspx.designer.vb">
+      <DependentUpon>AdminSignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSignIn.aspx.vb">
+      <DependentUpon>AdminSignIn.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Admins\AdminActiveProperties.aspx.designer.vb">
+      <DependentUpon>AdminActiveProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminActiveProperties.aspx.vb">
+      <DependentUpon>AdminActiveProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\AdminAddProperty.aspx.designer.vb">
+      <DependentUpon>AdminAddProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminAddProperty.aspx.vb">
+      <DependentUpon>AdminAddProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\AdminAllProperties.aspx.designer.vb">
+      <DependentUpon>AdminAllProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminAllProperties.aspx.vb">
+      <DependentUpon>AdminAllProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\AdminDashboard.aspx.designer.vb">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminDashboard.aspx.vb">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\AdminDeleteLandlord.ashx.vb">
+      <DependentUpon>AdminDeleteLandlord.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminDeleteTenant.ashx.vb">
+      <DependentUpon>AdminDeleteTenant.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminEditLandlord.aspx.designer.vb">
+      <DependentUpon>AdminEditLandlord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminEditLandlord.aspx.vb">
+      <DependentUpon>AdminEditLandlord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\AdminEditProperty.aspx.designer.vb">
+      <DependentUpon>AdminEditProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminEditProperty.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>AdminEditProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminEditTenant.aspx.designer.vb">
+      <DependentUpon>AdminEditTenant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminEditTenant.aspx.vb">
+      <DependentUpon>AdminEditTenant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\AdminInactiveProperties.aspx.designer.vb">
+      <DependentUpon>AdminInactiveProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminInactiveProperties.aspx.vb">
+      <DependentUpon>AdminInactiveProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\AdminRegisterUser.aspx.designer.vb">
+      <DependentUpon>AdminRegisterUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminRegisterUser.aspx.vb">
+      <DependentUpon>AdminRegisterUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Admins.aspx.designer.vb">
+      <DependentUpon>Admins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Admins.aspx.vb">
+      <DependentUpon>Admins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\AdminSoonToBeDeletedProperties.aspx.designer.vb">
+      <DependentUpon>AdminSoonToBeDeletedProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminSoonToBeDeletedProperties.aspx.vb">
+      <DependentUpon>AdminSoonToBeDeletedProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\AdminViewLandlord.aspx.designer.vb">
+      <DependentUpon>AdminViewLandlord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminViewLandlord.aspx.vb">
+      <DependentUpon>AdminViewLandlord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\AdminViewProperty.aspx.designer.vb">
+      <DependentUpon>AdminViewProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\AdminViewProperty.aspx.vb">
+      <DependentUpon>AdminViewProperty.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Landlords.aspx.designer.vb">
+      <DependentUpon>Landlords.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Landlords.aspx.vb">
+      <DependentUpon>Landlords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Tenants.aspx.designer.vb">
+      <DependentUpon>Tenants.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Tenants.aspx.vb">
+      <DependentUpon>Tenants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs.aspx.designer.vb">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactUs.aspx.vb">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmailVerification.aspx.designer.vb">
+      <DependentUpon>EmailVerification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailVerification.aspx.vb">
+      <DependentUpon>EmailVerification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LandlordEmailPasswordReset.aspx.designer.vb">
+      <DependentUpon>LandlordEmailPasswordReset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandlordEmailPasswordReset.aspx.vb">
+      <DependentUpon>LandlordEmailPasswordReset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landlords\LandlordActiveProperties.aspx.designer.vb">
+      <DependentUpon>LandlordActiveProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Landlords\LandlordActiveProperties.aspx.vb">
+      <DependentUpon>LandlordActiveProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landlords\LandlordAddProperty.aspx.designer.vb">
+      <DependentUpon>LandlordAddProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Landlords\LandlordAddProperty.aspx.vb">
+      <DependentUpon>LandlordAddProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landlords\LandlordDashboard.aspx.designer.vb">
+      <DependentUpon>LandlordDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Landlords\LandlordDashboard.aspx.vb">
+      <DependentUpon>LandlordDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landlords\LandlordEditProperty.aspx.designer.vb">
+      <DependentUpon>LandlordEditProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Landlords\LandlordEditProperty.aspx.vb">
+      <DependentUpon>LandlordEditProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landlords\LandlordInactiveProperties.aspx.designer.vb">
+      <DependentUpon>LandlordInactiveProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Landlords\LandlordInactiveProperties.aspx.vb">
+      <DependentUpon>LandlordInactiveProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landlords\LandlordProfileUpdate.aspx.designer.vb">
+      <DependentUpon>LandlordProfileUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Landlords\LandlordProfileUpdate.aspx.vb">
+      <DependentUpon>LandlordProfileUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landlords\LandlordSecurityQuestions.aspx.designer.vb">
+      <DependentUpon>LandlordSecurityQuestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Landlords\LandlordSecurityQuestions.aspx.vb">
+      <DependentUpon>LandlordSecurityQuestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landlords\LandlordSoonDeletedProperties.aspx.designer.vb">
+      <DependentUpon>LandlordSoonDeletedProperties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Landlords\LandlordSoonDeletedProperties.aspx.vb">
+      <DependentUpon>LandlordSoonDeletedProperties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landlords\ViewLandlord.aspx.designer.vb">
+      <DependentUpon>ViewLandlord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Landlords\ViewLandlord.aspx.vb">
+      <DependentUpon>ViewLandlord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LandlordVerifyEmail.aspx.designer.vb">
+      <DependentUpon>LandlordVerifyEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandlordVerifyEmail.aspx.vb">
+      <DependentUpon>LandlordVerifyEmail.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="LandlordPasswordResetSecurityQuestions.aspx.designer.vb">
+      <DependentUpon>LandlordPasswordResetSecurityQuestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandlordPasswordResetSecurityQuestions.aspx.vb">
+      <DependentUpon>LandlordPasswordResetSecurityQuestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LandlordSecurityQuestionsPasswordReset.aspx.designer.vb">
+      <DependentUpon>LandlordSecurityQuestionsPasswordReset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandlordSecurityQuestionsPasswordReset.aspx.vb">
+      <DependentUpon>LandlordSecurityQuestionsPasswordReset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LandlordSignIn.aspx.designer.vb">
+      <DependentUpon>LandlordSignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandlordSignIn.aspx.vb">
+      <DependentUpon>LandlordSignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LandlordSignUp.aspx.designer.vb">
+      <DependentUpon>LandlordSignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandlordSignUp.aspx.vb">
+      <DependentUpon>LandlordSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Footer.Master.designer.vb">
+      <DependentUpon>Footer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Footer.Master.vb">
+      <DependentUpon>Footer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendEmailVerification.aspx.designer.vb">
+      <DependentUpon>SendEmailVerification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SendEmailVerification.aspx.vb">
+      <DependentUpon>SendEmailVerification.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SetPropertyState.aspx.designer.vb">
+      <DependentUpon>SetPropertyState.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetPropertyState.aspx.vb">
+      <DependentUpon>SetPropertyState.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TenantEmailResetPassword.aspx.designer.vb">
+      <DependentUpon>TenantEmailResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TenantEmailResetPassword.aspx.vb">
+      <DependentUpon>TenantEmailResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TenantSignIn.aspx.designer.vb">
+      <DependentUpon>TenantSignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TenantSignIn.aspx.vb">
+      <DependentUpon>TenantSignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TenantSignUp.aspx.designer.vb">
+      <DependentUpon>TenantSignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TenantSignUp.aspx.vb">
+      <DependentUpon>TenantSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tenants\TenantDashboard.aspx.designer.vb">
+      <DependentUpon>TenantDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tenants\TenantDashboard.aspx.vb">
+      <DependentUpon>TenantDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tenants\TenantProfileUpdate.aspx.designer.vb">
+      <DependentUpon>TenantProfileUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tenants\TenantProfileUpdate.aspx.vb">
+      <DependentUpon>TenantProfileUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tenants\TenantPropertyList.aspx.designer.vb">
+      <DependentUpon>TenantPropertyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tenants\TenantPropertyList.aspx.vb">
+      <DependentUpon>TenantPropertyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tenants\TenantViewProperty.aspx.designer.vb">
+      <DependentUpon>TenantViewProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tenants\TenantViewProperty.aspx.vb">
+      <DependentUpon>TenantViewProperty.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UnloggedUser.Master.designer.vb">
+      <DependentUpon>UnloggedUser.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UnloggedUser.Master.vb">
+      <DependentUpon>UnloggedUser.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserDashboard.Master.designer.vb">
+      <DependentUpon>UserDashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UserDashboard.Master.vb">
+      <DependentUpon>UserDashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="utils\KeyGenerator.vb" />
+    <Compile Include="Landlords\ViewProperty.aspx.designer.vb">
+      <DependentUpon>ViewProperty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Landlords\ViewProperty.aspx.vb">
+      <DependentUpon>ViewProperty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="js\obj\Debug\HanoChoiceConnect.Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Data\assets\Admins\Admin Manual.pdf" />
+    <None Include="App_Data\assets\Landlords\HudLandlordPropertyInspectionChecklist.pdf" />
+    <None Include="App_Data\assets\Landlords\Address Change Form.pdf" />
+    <None Include="App_Data\assets\Landlords\HANO Payment Standard.pdf" />
+    <None Include="App_Data\assets\Landlords\Landlord Manual.pdf" />
+    <None Include="App_Data\assets\Landlords\Mutual Agreement To Terminate.pdf" />
+    <None Include="App_Data\assets\Landlords\Rent Increase Request Form.pdf" />
+    <None Include="App_Data\assets\Landlords\Smoke Detectors Guidelines.pdf" />
+    <None Include="App_Data\assets\Tenants\Tenant Manual.pdf" />
+    <None Include="assets\Admins\Admin Manual.pdf" />
+    <None Include="assets\Landlords\Address Change Form.pdf" />
+    <None Include="assets\Landlords\Contract Rent Adjustment Request Form.pdf" />
+    <None Include="assets\Landlords\HANO Payment Standard.pdf" />
+    <None Include="assets\Landlords\HANOExceptionPaymentStandards_2018.pdf" />
+    <None Include="assets\Landlords\HANOPaymentStandards_2019.pdf" />
+    <None Include="assets\Landlords\HudLandlordPropertyInspectionChecklist.pdf" />
+    <None Include="assets\Landlords\Landlord Manual.pdf" />
+    <None Include="assets\Landlords\Mutual Agreement To Terminate.pdf" />
+    <None Include="assets\Landlords\Rent Increase Request Form.pdf" />
+    <None Include="assets\Landlords\Smoke Detectors Guidelines.pdf" />
+    <None Include="assets\Tenants\HANO_HCVP_InfoPacket.pdf" />
+    <None Include="assets\Tenants\Maps\Jefferson Parish Minority Map.pdf" />
+    <None Include="assets\Tenants\Maps\Jefferson Parish Poverty Map.pdf" />
+    <None Include="assets\Tenants\Maps\Orleans Parish Minority Map.pdf" />
+    <None Include="assets\Tenants\Maps\Orleans Parish Poverty Map.pdf" />
+    <None Include="assets\Tenants\Maps\Plaquemines Parish Minority Map.pdf" />
+    <None Include="assets\Tenants\Maps\Plaquemines Parish Poverty Map.pdf" />
+    <None Include="assets\Tenants\Maps\St Bernard Parish Minority Map.pdf" />
+    <None Include="assets\Tenants\Maps\St Bernard Parish Poverty Map.pdf" />
+    <None Include="assets\Tenants\Maps\St Charles Parish Minority Map.pdf" />
+    <None Include="assets\Tenants\Maps\St Charles Parish Poverty Map.pdf" />
+    <None Include="assets\Tenants\Maps\St John Parish Minority Map.pdf" />
+    <None Include="assets\Tenants\Maps\St John Parish Poverty Map.pdf" />
+    <None Include="assets\Tenants\Maps\St Tammany Parish Minority Map.pdf" />
+    <None Include="assets\Tenants\Maps\St Tammany Parish Poverty Map.pdf" />
+    <None Include="assets\Tenants\Tenant Manual.pdf" />
+    <None Include="assets\Tenants\Zip Code Amenities\70115 Amenities.pdf" />
+    <None Include="assets\Tenants\Zip Code Amenities\70116 Amenities.pdf" />
+    <None Include="assets\Tenants\Zip Code Amenities\70118 Amenities.pdf" />
+    <None Include="assets\Tenants\Zip Code Amenities\70124 Amenities.pdf" />
+    <None Include="assets\Tenants\Zip Code Amenities\70130 Amenities.pdf" />
+    <None Include="debug.log" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="HanoChoiceConnect.jmconfig" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="js\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="js\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache" />
+    <Content Include="Footer.Master" />
+    <Content Include="UserDashboard.Master" />
+    <Content Include="UnloggedUser.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="js\obj\Debug\TempPE\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62694</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

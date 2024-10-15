@@ -55,8 +55,8 @@
             'Retrieve Name and If Security Questions Completed
             conn.Open()
             Dim queryUserInfo As New SqlCommand("SELECT FirstName, LastName, IsSecurityQuestionsCompleted 
-                                             FROM [Security].[User]
-                                             WHERE UserID='" & sessionUserID & "'", conn)
+                                                 FROM [Security].[User]
+                                                 WHERE UserID='" & sessionUserID & "'", conn)
             Dim readerUserInfo As SqlDataReader = queryUserInfo.ExecuteReader()
             While readerUserInfo.Read
                 firstName = CStr(readerUserInfo("FirstName"))
@@ -68,8 +68,8 @@
             'Retrieve Role ID
             conn.Open()
             Dim queryUserRoleID As New SqlCommand("SELECT RoleID 
-                                                       FROM [Security].[UserRole]
-                                                       WHERE UserID='" & sessionUserID & "'", conn)
+                                                   FROM [Security].[UserRole]
+                                                   WHERE UserID='" & sessionUserID & "'", conn)
             Dim readerUserRoleID As SqlDataReader = queryUserRoleID.ExecuteReader()
             While readerUserRoleID.Read
                 roleID = CStr(readerUserRoleID("RoleID"))
@@ -101,7 +101,7 @@
                         </li>
                         <li role="separator" class="divider"></li>
                         <li>
-                            <a href="../Default.aspx"><i class="fa fa-sign-out fa-fw"></i>Sign Out</a>
+                            <a href="#"><i class="fa fa-sign-out fa-fw"></i>NEED TO ADD HANDLER | Sign Out</a>
                         </li>
                     </ul>
                 </li>

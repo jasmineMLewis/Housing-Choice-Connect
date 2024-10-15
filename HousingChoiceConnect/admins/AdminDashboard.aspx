@@ -6,7 +6,7 @@
 <%@ Import Namespace="System.Web.Configuration" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Styles/custom.css" rel="stylesheet" />
+    <link href="./Styles/custom.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
@@ -35,7 +35,7 @@
         conn.Open()
         Dim query As New SqlCommand("SELECT FirstName, LastName, Email, DateRegistered, LastLogin 
                                      FROM [Security].[User]
-                                     WHERE UserID='" & sessionUserID & "'", conn)
+                                     WHERE UserID = '" & sessionUserID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             firstName = CStr(reader("FirstName"))
@@ -46,81 +46,81 @@
         End While
         conn.Close()
 
-        'Dim numOfAdmin As Integer
-        'conn.Open()
-        'Dim queryAdmins As New SqlCommand("SELECT COUNT(UserID) AS countAdmins 
-        '                                   FROM Users 
-        '                                   WHERE RoleID = '" & ADMIN_ROLE_ID & "'", conn)
-        'Dim readerAdmins As SqlDataReader = queryAdmins.ExecuteReader()
-        'While readerAdmins.Read
-        '    numOfAdmin = CStr(readerAdmins("countAdmins"))
-        'End While
-        'conn.Close()
+        Dim numOfAdmin As Integer
+        conn.Open()
+        Dim queryAdmins As New SqlCommand("SELECT COUNT(UserID) AS countAdmins 
+                                           FROM [Security].[UserRole]
+                                           WHERE RoleID = '" & ADMIN_ROLE_ID & "'", conn)
+        Dim readerAdmins As SqlDataReader = queryAdmins.ExecuteReader()
+        While readerAdmins.Read
+            numOfAdmin = CStr(readerAdmins("countAdmins"))
+        End While
+        conn.Close()
 
-        'Dim numOfTenants As Integer
-        'conn.Open()
-        'Dim queryTenants As New SqlCommand("SELECT COUNT(UserID) AS countTenants 
-        '                                    FROM Users 
-        '                                    WHERE RoleID = '" & TENANT_ROLE_ID & "'", conn)
-        'Dim readerTenants As SqlDataReader = queryTenants.ExecuteReader()
-        'While readerTenants.Read
-        '    numOfTenants = CStr(readerTenants("countTenants"))
-        'End While
-        'conn.Close()
+        Dim numOfTenants As Integer
+        conn.Open()
+        Dim queryTenants As New SqlCommand("SELECT COUNT(UserID) AS countTenants 
+                                            FROM [Security].[UserRole]
+                                            WHERE RoleID = '" & TENANT_ROLE_ID & "'", conn)
+        Dim readerTenants As SqlDataReader = queryTenants.ExecuteReader()
+        While readerTenants.Read
+            numOfTenants = CStr(readerTenants("countTenants"))
+        End While
+        conn.Close()
 
-        'Dim numOfLandlords As Integer
-        'conn.Open()
-        'Dim queryLandlords As New SqlCommand("SELECT COUNT(UserID) AS countLandlords 
-        '                                      FROM Users 
-        '                                      WHERE RoleID = '" & LANDLORD_ROLE_ID & "'", conn)
-        'Dim readerLandlords As SqlDataReader = queryLandlords.ExecuteReader()
-        'While readerLandlords.Read
-        '    numOfLandlords = CStr(readerLandlords("countLandlords"))
-        'End While
-        'conn.Close()
+        Dim numOfLandlords As Integer
+        conn.Open()
+        Dim queryLandlords As New SqlCommand("SELECT COUNT(UserID) AS countLandlords 
+                                              FROM [Security].[UserRole] 
+                                              WHERE RoleID = '" & LANDLORD_ROLE_ID & "'", conn)
+        Dim readerLandlords As SqlDataReader = queryLandlords.ExecuteReader()
+        While readerLandlords.Read
+            numOfLandlords = CStr(readerLandlords("countLandlords"))
+        End While
+        conn.Close()
 
-        'Dim allProperties As Integer
-        'conn.Open()
-        'Dim queryAllProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countAll 
-        '                                          FROM LandlordProperty", conn)
-        'Dim readerAllProperties As SqlDataReader = queryAllProperties.ExecuteReader()
-        'While readerAllProperties.Read
-        '    allProperties = CStr(readerAllProperties("countAll"))
-        'End While
-        'conn.Close()
+        Dim allProperties As Integer
+        conn.Open()
+        Dim queryAllProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countAll 
+                                                  FROM [Landlord].[Property]", conn)
+        Dim readerAllProperties As SqlDataReader = queryAllProperties.ExecuteReader()
+        While readerAllProperties.Read
+            allProperties = CStr(readerAllProperties("countAll"))
+        End While
+        conn.Close()
 
-        'Dim activeProperties As Integer
-        'conn.Open()
-        'Dim queryActiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countActive 
-        '                                             FROM LandlordProperty 
-        '                                             WHERE IsActive = 1", conn)
-        'Dim readerActiveProperties As SqlDataReader = queryActiveProperties.ExecuteReader()
-        'While readerActiveProperties.Read
-        '    activeProperties = CStr(readerActiveProperties("countActive"))
-        'End While
-        'conn.Close()
+        Dim activeProperties As Integer
+        conn.Open()
+        Dim queryActiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countActive 
+                                                     FROM [Landlord].[Property] 
+                                                     WHERE IsActive = 1", conn)
+        Dim readerActiveProperties As SqlDataReader = queryActiveProperties.ExecuteReader()
+        While readerActiveProperties.Read
+            activeProperties = CStr(readerActiveProperties("countActive"))
+        End While
+        conn.Close()
 
-        'Dim inactiveProperties As Integer
-        'conn.Open()
-        'Dim queryInactiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countInactive 
-        '                                               FROM LandlordProperty 
-        '                                               WHERE IsActive = 0", conn)
-        'Dim readerInactiveProperties As SqlDataReader = queryInactiveProperties.ExecuteReader()
-        'While readerInactiveProperties.Read
-        '    inactiveProperties = CStr(readerInactiveProperties("countInactive"))
-        'End While
-        'conn.Close()
+        Dim inactiveProperties As Integer
+        conn.Open()
+        Dim queryInactiveProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countInactive 
+                                                       FROM [Landlord].[Property] 
+                                                       WHERE IsActive = 0", conn)
+        Dim readerInactiveProperties As SqlDataReader = queryInactiveProperties.ExecuteReader()
+        While readerInactiveProperties.Read
+            inactiveProperties = CStr(readerInactiveProperties("countInactive"))
+        End While
+        conn.Close()
 
-        'Dim proximityProperties As Integer
-        'conn.Open()
-        'Dim queryProximityProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countProximity 
-        '                                                FROM LandlordProperty 
-        '                                                WHERE DateLastUpdated < DATEADD(day, -90, GETDATE()) ", conn)
-        'Dim readerProximityProperties As SqlDataReader = queryProximityProperties.ExecuteReader()
-        'While readerProximityProperties.Read
-        '    proximityProperties = CStr(readerProximityProperties("countProximity"))
-        'End While
-        'conn.Close()
+        Dim soonToBeDeletedProperties As Integer
+        conn.Open()
+        Dim querySoonToBeDeletedProperties As New SqlCommand("SELECT COUNT(LandlordPropertyID) AS countsoonToBeDeleted 
+                                                        FROM [Landlord].[Property] 
+                                                        WHERE DateLastUpdated < DATEADD(day, -90, GETDATE()) ", conn)
+        Dim readerSoonToBeDeletedProperties As SqlDataReader = querySoonToBeDeletedProperties.ExecuteReader()
+        While readerSoonToBeDeletedProperties.Read
+            soonToBeDeletedProperties = CStr(readerSoonToBeDeletedProperties("countsoonToBeDeleted"))
+        End While
+        conn.Close()
     %>
     <div id="wrapper">
         <div id="page-wrapper">
@@ -131,13 +131,14 @@
                         <% 
                             Response.Write(firstName & " " & lastName & "'s")
                         %>
-                        Dashboard</h1>
+                        Dashboard
+                    </h1>
                 </div>
             </div>
-            <%--Users--%>
-         <%--   <div class="row">
+            <%-- Users --%>
+            <div class="row">
                 <div class="col-lg-4">
-                    <div class="panel panel-default">
+                    <div class="panel panel-warning">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -150,10 +151,12 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="Admins.aspx?UserID=<% Response.Write(userID) %>">
+                        <a href="Admins.aspx?SessionUserID=<% Response.Write(sessionUserID) %>">
                             <div class="panel-footer text-muted">
-                                <span class="pull-left">View Admins</span> <span class="pull-right"><i class="fa fa-arrow-circle-right">
-                                </i></span>
+                                <span class="pull-left">View Admins</span> 
+                                <span class="pull-right">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </span>
                                 <div class="clearfix">
                                 </div>
                             </div>
@@ -172,16 +175,18 @@
                                         <% Response.Write(numOfLandlords)%>
                                     </div>
                                     <div>
-                                        Landlords</div>
+                                        Landlords
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <a href="Landlords.aspx?UserID=<% Response.Write(userID) %>">
+                        <a href="Landlords.aspx?SessionUserID=<% Response.Write(sessionUserID) %>">
                             <div class="panel-footer text-success">
-                                <span class="pull-left">View Landlords</span> <span class="pull-right"><i class="fa fa-arrow-circle-right">
-                                </i></span>
-                                <div class="clearfix">
-                                </div>
+                                <span class="pull-left">View Landlords</span> 
+                                <span class="pull-right">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </span>
+                                <div class="clearfix"></div>
                             </div>
                         </a>
                     </div>
@@ -201,7 +206,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="Tenants.aspx?UserID=<% Response.Write(userID) %>">
+                        <a href="Tenants.aspx?SessionUserID=<% Response.Write(sessionUserID) %>">
                             <div class="panel-footer text-info">
                                 <span class="pull-left">View Tenants</span> <span class="pull-right"><i class="fa fa-arrow-circle-right">
                                 </i></span>
@@ -211,11 +216,12 @@
                         </a>
                     </div>
                 </div>
-            </div>--%>
+            </div>
+
             <%--Properties--%>
-<%--            <div class="row">
+            <div class="row">
                 <div class="col-lg-3">
-                    <div class="panel panel-default">
+                    <div class="panel panel-warning">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -229,18 +235,17 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="AdminAllProperties.aspx?UserID=<% Response.Write(userID) %>">
+                        <a href="AdminAllProperties.aspx?SessionUserID=<% Response.Write(sessionUserID) %>">
                             <div class="panel-footer text-muted">
-                                <span class="pull-left">View All Properties</span> <span class="pull-right"><i class="fa fa-arrow-circle-right">
-                                </i></span>
-                                <div class="clearfix">
-                                </div>
+                                <span class="pull-left">View All Properties</span> 
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="panel panel-warning">
+                    <div class="panel panel-success">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -254,10 +259,10 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="AdminActiveProperties.aspx?UserID=<% Response.Write(userID) %>">
+                        <a href="AdminActiveProperties.aspx?SessionUserID=<% Response.Write(sessionUserID) %>">
                             <div class="panel-footer text-warning">
-                                <span class="pull-left">View Active Properties</span> <span class="pull-right"><i
-                                    class="fa fa-arrow-circle-right"></i></span>
+                                <span class="pull-left">View Active Properties</span> 
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix">
                                 </div>
                             </div>
@@ -279,10 +284,10 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="AdminInactiveProperties.aspx?UserID=<% Response.Write(userID) %>">
+                        <a href="AdminInactiveProperties.aspx?SessionUserID=<% Response.Write(sessionUserID) %>">
                             <div class="panel-footer text-info">
-                                <span class="pull-left">View Inactive Properties</span> <span class="pull-right"><i
-                                    class="fa fa-arrow-circle-right"></i></span>
+                                <span class="pull-left">View Inactive Properties</span> 
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix">
                                 </div>
                             </div>
@@ -298,13 +303,13 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
-                                        <% Response.Write(proximityProperties)%></div>
+                                        <% Response.Write(soonToBeDeletedProperties)%></div>
                                     <div>
                                         Soon To Be Deleted Properties</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="AdminSoonToBeDeletedProperties.aspx?UserID=<% Response.Write(userID) %>">
+                        <a href="AdminSoonToBeDeletedProperties.aspx?SessionUserID=<% Response.Write(sessionUserID) %>">
                             <div class="panel-footer text-danger">
                                 <span class="pull-left">View Soon To Be Deleted Properties</span> <span class="pull-right">
                                     <i class="fa fa-arrow-circle-right"></i></span>
@@ -314,9 +319,10 @@
                         </a>
                     </div>
                 </div>
-            </div>--%>
+            </div>
+
             <%--Profile Information--%>
-<%--            <div class="row">
+            <div class="row">
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
@@ -349,6 +355,22 @@
                                                     <% Response.Write(email)%>
                                                 </td>
                                             </tr>
+                                                <tr>
+                                                <td>
+                                                    <i>Date Registered</i>
+                                                </td>
+                                                <td>
+                                                    <% Response.Write(dateRegistered)%>
+                                                </td>
+                                            </tr>
+                                                  <tr>
+                                                <td>
+                                                    <i>Last Login</i>
+                                                </td>
+                                                <td>
+                                                    <% Response.Write(lastlogin)%>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -356,7 +378,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
                             <i class="fa fa-file"></i>&nbsp;Tutorials
@@ -371,8 +393,26 @@
                                 <div class="panel-body">
                                     <div class="list-group">
                                         <a href="../Assets/Admins/admin-manual.pdf" target="_blank"
-                                            class="list-group-item">&nbsp; Admin Tutorial <span class="pull-right text-primary">
-                                                <i class="fa fa-file"></i></span></a>
+                                            class="list-group-item">
+                                            &nbsp; Admin Tutorial 
+                                            <span class="pull-right text-primary">
+                                                <i class="fa fa-file"></i>
+                                            </span>
+                                        </a>
+                                          <a href="../Assets/Landlords/landlord-manual.pdf" target="_blank"
+                                            class="list-group-item">
+                                            &nbsp; Landlord Tutorial 
+                                            <span class="pull-right text-primary">
+                                                <i class="fa fa-file"></i>
+                                            </span>
+                                        </a>
+                                           <a href="../Assets/Tenants/tenant-manual.pdf" target="_blank"
+                                            class="list-group-item">
+                                            &nbsp; Tenant Tutorial 
+                                            <span class="pull-right text-primary">
+                                                <i class="fa fa-file"></i>
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -387,7 +427,7 @@
                             <i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp; Zip Code Amentities
                         </div>
                         <div class="panel-body">
-                            <div class="panel panel-success">
+                            <div class="panel panel-warning">
                                 <div class="panel-heading text-center">
                                     <h3 class="panel-title">
                                         <i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp; Zip Code Amentities</h3>
@@ -423,7 +463,7 @@
                             <i class="fa fa-map" aria-hidden="true"></i>&nbsp; Poverty Maps
                         </div>
                         <div class="panel-body">
-                            <div class="panel panel-success">
+                            <div class="panel panel-info">
                                 <div class="panel-heading text-center">
                                     <h3 class="panel-title">
                                         <i class="fa fa-map" aria-hidden="true"></i>&nbsp; Poverty Maps</h3>
@@ -465,7 +505,7 @@
                             <i class="fa fa-map-o" aria-hidden="true"></i>&nbsp; Minority Maps
                         </div>
                         <div class="panel-body">
-                            <div class="panel panel-success">
+                            <div class="panel panel-danger">
                                 <div class="panel-heading text-center">
                                     <h3 class="panel-title">
                                         <i class="fa fa-map-o" aria-hidden="true"></i>&nbsp; Minority Maps</h3>
@@ -502,7 +542,7 @@
                         </div>
                     </div>
                 </div>
-            </div>--%>
+            </div>
         </div>
     </div>
 </asp:Content>

@@ -1,0 +1,129 @@
+/* Customize Styles that are included in multiple scripts */
+
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
+
+/* Global Styles */
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+/* Fixed bar */
+.navbar-custom{
+    background-color:#1D5776;
+}
+
+/* Login & Sign Up Buttons */
+span.tab-space-admin {
+    padding-left:5em;
+}
+
+span.tab-space-tenant {
+    padding-left:5em;
+}
+
+span.tab-space-landlord {
+    padding-left:4em;
+}
+
+.dropdownBtn {
+  margin-top: 10px; 
+  margin-right: 3px; 
+}
+
+/* Custom Horizontal Rule */
+hr.small {
+    max-width: 100px;
+}
+
+/* Footer */
+footer {
+    padding: 10px 0;
+}
+
+
+/* White Color */
+.white-color{
+    color: #ffffff;
+}
+
+
+/* Change of Boostrap Panel*/
+.panel-custom{
+     border-color:#1D5776;
+}
+
+.panel-custom > .panel-heading {
+  color: #FFFFFF;
+  background-color: #1D5776;
+  border-color: #ddd;
+}
+
+/* Enlarge Font Pictures*/
+.big-icon {
+    font-size: 150px;
+}
+
+/* Form Elements Alignment */
+.inputFormat {
+    margin-bottom: 5px;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}      
+
+/* Properties */
+.rightProperty {
+    position: absolute;
+    top: 23px;
+    left:270px;
+}
+
+.verticalLinePhoto {
+    position: absolute;
+    left:235px;
+    top: 0px;
+    width: 1px; 
+  height: 235px;
+  float: left; 
+  border: 0.5px inset; 
+  color: Beige;
+}
+
+/* Alert Messages */
+/*.alertSign{
+      position: relative;
+    left: 30px;
+}
+        
+.alertError{
+      position: relative;
+      top: 60px;
+    left: 30px;
+    z-index:1;
+}    
+    
+#alertDropdownListError
+{
+       position: relative;
+      top: 80px;
+    left: 30px;
+    z-index:1;
+}      */                                                                                                                                                                                                                                                                                                  

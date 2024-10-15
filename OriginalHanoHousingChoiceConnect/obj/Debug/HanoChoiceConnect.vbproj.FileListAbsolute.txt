@@ -1,0 +1,307 @@
+C:\inetpub\wwwroot\HousingChoiceConnect - HANO\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\inetpub\wwwroot\HousingChoiceConnect - HANO\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\inetpub\wwwroot\HousingChoiceConnect - HANO\bin\HanoChoiceConnect.dll
+C:\inetpub\wwwroot\HousingChoiceConnect - HANO\bin\HanoChoiceConnect.pdb
+C:\inetpub\wwwroot\HousingChoiceConnect - HANO\bin\HanoChoiceConnect.xml
+C:\inetpub\wwwroot\HousingChoiceConnect - HANO\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\HousingChoiceConnect - HANO\obj\Debug\HanoChoiceConnect.dll
+C:\inetpub\wwwroot\HousingChoiceConnect - HANO\obj\Debug\HanoChoiceConnect.xml
+C:\inetpub\wwwroot\HousingChoiceConnect - HANO\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC - Server v1\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC - Server v1\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC - Server v1\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC - Server v1\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\Users\jlewis\Desktop\HCC - Server v1\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HCC - Server v1\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HCC - Server v1\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC - Server v1\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC - Server v1\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v2\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v2\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v2\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v2\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v2\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v2\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v2\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v2\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v2\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v23\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v23\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v23\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v23\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v23\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v23\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v23\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v23\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v23\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v3\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v3\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v3\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v3\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v3\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v3\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v3\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v3\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v3\obj\Debug\HanoChoiceConnect.pdb
+N:\bin\HanoChoiceConnect.dll
+N:\bin\HanoChoiceConnect.pdb
+N:\bin\HanoChoiceConnect.xml
+N:\obj\Debug\HanoChoiceConnect.Resources.resources
+N:\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+N:\obj\Debug\HanoChoiceConnect.dll
+N:\obj\Debug\HanoChoiceConnect.xml
+N:\obj\Debug\HanoChoiceConnect.pdb
+N:\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v9\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v9\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v9\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v9\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v9\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v9\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v9\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v9\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v9\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v10\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v10\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v10\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v10\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v10\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v10\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v10\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v10\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v10\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v11\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v11\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v11\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v11\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v11\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v11\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v11\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v11\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v11\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v12\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v12\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v12\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v12\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v12\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v12\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v12\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v12\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - Integration JML & APB v12\obj\Debug\HanoChoiceConnect.pdb
+V:\bin\HanoChoiceConnect.dll
+V:\bin\HanoChoiceConnect.pdb
+V:\bin\HanoChoiceConnect.xml
+V:\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+V:\obj\Debug\HanoChoiceConnect.Resources.resources
+V:\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+V:\obj\Debug\HanoChoiceConnect.dll
+V:\obj\Debug\HanoChoiceConnect.xml
+V:\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - FINAL with manauals\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - FINAL with manauals\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HousingChoiceConnect - FINAL with manauals\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - FINAL with manauals\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - FINAL with manauals\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HousingChoiceConnect - FINAL with manauals\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HousingChoiceConnect - FINAL with manauals\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HousingChoiceConnect - FINAL with manauals\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HousingChoiceConnect - FINAL with manauals\obj\Debug\HanoChoiceConnect.pdb
+W:\bin\HanoChoiceConnect.dll
+W:\bin\HanoChoiceConnect.pdb
+W:\bin\HanoChoiceConnect.xml
+W:\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+W:\obj\Debug\HanoChoiceConnect.Resources.resources
+W:\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+W:\obj\Debug\HanoChoiceConnect.dll
+W:\obj\Debug\HanoChoiceConnect.xml
+W:\obj\Debug\HanoChoiceConnect.pdb
+U:\bin\HanoChoiceConnect.dll
+U:\bin\HanoChoiceConnect.pdb
+U:\bin\HanoChoiceConnect.xml
+U:\obj\Debug\HanoChoiceConnect.Resources.resources
+U:\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+U:\obj\Debug\HanoChoiceConnect.dll
+U:\obj\Debug\HanoChoiceConnect.xml
+U:\obj\Debug\HanoChoiceConnect.pdb
+Y:\bin\HanoChoiceConnect.dll
+Y:\bin\HanoChoiceConnect.pdb
+Y:\bin\HanoChoiceConnect.xml
+Y:\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+Y:\obj\Debug\HanoChoiceConnect.Resources.resources
+Y:\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+Y:\obj\Debug\HanoChoiceConnect.dll
+Y:\obj\Debug\HanoChoiceConnect.xml
+Y:\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\abogran\Desktop\HousingChoiceConnect\bin\HanoChoiceConnect.dll
+C:\Users\abogran\Desktop\HousingChoiceConnect\bin\HanoChoiceConnect.pdb
+C:\Users\abogran\Desktop\HousingChoiceConnect\bin\HanoChoiceConnect.xml
+C:\Users\abogran\Desktop\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+C:\Users\abogran\Desktop\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\abogran\Desktop\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\abogran\Desktop\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.dll
+C:\Users\abogran\Desktop\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.xml
+C:\Users\abogran\Desktop\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.pdb
+J:\bin\HanoChoiceConnect.dll
+J:\bin\HanoChoiceConnect.pdb
+J:\bin\HanoChoiceConnect.xml
+J:\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+J:\obj\Debug\HanoChoiceConnect.Resources.resources
+J:\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+J:\obj\Debug\HanoChoiceConnect.dll
+J:\obj\Debug\HanoChoiceConnect.xml
+J:\obj\Debug\HanoChoiceConnect.pdb
+D:\BKs\Bks HCC\7-28-2017\bin\HanoChoiceConnect.dll
+D:\BKs\Bks HCC\7-28-2017\bin\HanoChoiceConnect.pdb
+D:\BKs\Bks HCC\7-28-2017\bin\HanoChoiceConnect.xml
+D:\BKs\Bks HCC\7-28-2017\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+D:\BKs\Bks HCC\7-28-2017\obj\Debug\HanoChoiceConnect.Resources.resources
+D:\BKs\Bks HCC\7-28-2017\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+D:\BKs\Bks HCC\7-28-2017\obj\Debug\HanoChoiceConnect.dll
+D:\BKs\Bks HCC\7-28-2017\obj\Debug\HanoChoiceConnect.xml
+D:\BKs\Bks HCC\7-28-2017\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\working on HCC for mobile\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\working on HCC for mobile\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\working on HCC for mobile\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\working on HCC for mobile\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\working on HCC for mobile\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\working on HCC for mobile\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\working on HCC for mobile\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\working on HCC for mobile\obj\Debug\HanoChoiceConnect.pdb
+X:\bin\HanoChoiceConnect.dll
+X:\bin\HanoChoiceConnect.pdb
+X:\bin\HanoChoiceConnect.xml
+X:\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+X:\obj\Debug\HanoChoiceConnect.Resources.resources
+X:\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+X:\obj\Debug\HanoChoiceConnect.dll
+X:\obj\Debug\HanoChoiceConnect.xml
+X:\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC- Revised\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC- Revised\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC- Revised\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC- Revised\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HCC- Revised\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HCC- Revised\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC- Revised\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC- Revised\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\hcc - database name\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\hcc - database name\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\hcc - database name\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\hcc - database name\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\hcc - database name\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\hcc - database name\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\hcc - database name\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\hcc - database name\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\Hcc- Admin\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\Hcc- Admin\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\Hcc- Admin\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\Hcc- Admin\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\Hcc- Admin\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\Hcc- Admin\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\Hcc- Admin\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\Hcc- Admin\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC - Admin Updates\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC - Admin Updates\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC - Admin Updates\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC - Admin Updates\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HCC - Admin Updates\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HCC - Admin Updates\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC - Admin Updates\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC - Admin Updates\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\hcc - export print\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\hcc - export print\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\hcc - export print\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\hcc - export print\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\hcc - export print\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\hcc - export print\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\hcc - export print\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\hcc - export print\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC- Soon to Be Deleted\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC- Soon to Be Deleted\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC- Soon to Be Deleted\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC- Soon to Be Deleted\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HCC- Soon to Be Deleted\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HCC- Soon to Be Deleted\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC- Soon to Be Deleted\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC- Soon to Be Deleted\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC - landlord - tenants\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC - landlord - tenants\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC - landlord - tenants\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC - landlord - tenants\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HCC - landlord - tenants\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HCC - landlord - tenants\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC - landlord - tenants\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC - landlord - tenants\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\hcc - 90 days delete\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\hcc - 90 days delete\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\hcc - 90 days delete\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\hcc - 90 days delete\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\hcc - 90 days delete\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\hcc - 90 days delete\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\hcc - 90 days delete\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\hcc - 90 days delete\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC - Maps\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC - Maps\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC - Maps\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC - Maps\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HCC - Maps\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HCC - Maps\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC - Maps\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC - Maps\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\Housing Choice Connect - Tenant Issues\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\Housing Choice Connect - Tenant Issues\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\Housing Choice Connect - Tenant Issues\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\Housing Choice Connect - Tenant Issues\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\Housing Choice Connect - Tenant Issues\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\Housing Choice Connect - Tenant Issues\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\Housing Choice Connect - Tenant Issues\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\Housing Choice Connect - Tenant Issues\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\HCC\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\HCC\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\HCC\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\HCC\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\HCC\obj\Debug\HanoChoiceConnect.pdb
+U:\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+P:\bin\HanoChoiceConnect.dll
+P:\bin\HanoChoiceConnect.pdb
+P:\bin\HanoChoiceConnect.xml
+P:\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+P:\obj\Debug\HanoChoiceConnect.Resources.resources
+P:\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+P:\obj\Debug\HanoChoiceConnect.dll
+P:\obj\Debug\HanoChoiceConnect.xml
+P:\obj\Debug\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\hcc - edit property\bin\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\hcc - edit property\bin\HanoChoiceConnect.pdb
+C:\Users\jlewis\Desktop\hcc - edit property\bin\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\hcc - edit property\obj\Debug\HanoChoiceConnect.Resources.resources
+C:\Users\jlewis\Desktop\hcc - edit property\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+C:\Users\jlewis\Desktop\hcc - edit property\obj\Debug\HanoChoiceConnect.dll
+C:\Users\jlewis\Desktop\hcc - edit property\obj\Debug\HanoChoiceConnect.xml
+C:\Users\jlewis\Desktop\hcc - edit property\obj\Debug\HanoChoiceConnect.pdb
+M:\bin\HanoChoiceConnect.dll
+M:\bin\HanoChoiceConnect.pdb
+M:\bin\HanoChoiceConnect.xml
+M:\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache
+M:\obj\Debug\HanoChoiceConnect.Resources.resources
+M:\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.Cache
+M:\obj\Debug\HanoChoiceConnect.dll
+M:\obj\Debug\HanoChoiceConnect.xml
+M:\obj\Debug\HanoChoiceConnect.pdb
+\\hanoweb\HousingChoiceConnect\bin\HanoChoiceConnect.dll.config
+\\hanoweb\HousingChoiceConnect\bin\HanoChoiceConnect.dll
+\\hanoweb\HousingChoiceConnect\bin\HanoChoiceConnect.pdb
+\\hanoweb\HousingChoiceConnect\bin\HanoChoiceConnect.xml
+\\hanoweb\HousingChoiceConnect\bin\Microsoft.AnalysisServices.AdomdClient.dll
+\\hanoweb\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.vbprojAssemblyReference.cache
+\\hanoweb\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.Resources.resources
+\\hanoweb\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.vbproj.GenerateResource.cache
+\\hanoweb\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.vbproj.CoreCompileInputs.cache
+\\hanoweb\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.vbproj.CopyComplete
+\\hanoweb\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.dll
+\\hanoweb\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.xml
+\\hanoweb\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.pdb
+\\hanoweb\HousingChoiceConnect\obj\Debug\HanoChoiceConnect.vbprojResolveAssemblyReference.cache

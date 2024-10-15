@@ -53,17 +53,17 @@ Housing Choice Connect is a .NET project for Housing Authority of New Orleans.
 8. Remove Landlord Property Picture that stores images into databse
 
 (IN PROGRESS) Change VB pages that uses local constants to Application Constants namespace 
-
+(IN PROGRESS) Change UserID to SessionUserID to retrieve data and use for sessions
 
 ### Date Last Updated via GitHub
-October 13, 2024
+October 14, 2024
 
 ### Technologies
 | Technology | Version  |
 |--|--|
 | ASP.NET Web Application | 4.7.2 |
 | Visual Basic .NET | 6 |
-| Bootstrap | 5.2.3 |
+| Bootstrap | 3.3.6 |
 | Font Awesome | 6.3.0 |
 | JQuery | 5.2.3 |
 

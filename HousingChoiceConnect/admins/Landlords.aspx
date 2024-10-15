@@ -7,14 +7,15 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
-        Dim userID As String
-        If Not Web.HttpContext.Current.Session("UserID") Is Nothing Then
-            userID = Web.HttpContext.Current.Session("UserID").ToString()
+        Dim sessionUserID As String = Session("SessionUserID")
+
+        If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
+            sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
 
-        If userID = Nothing Then
-            userID = Request.QueryString("UserID")
-            Web.HttpContext.Current.Session("UserID") = userID
+        If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
+            sessionUserID = Request.QueryString("SessionUserID")
+            Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
         End If
 
         Const LANDLORD_ROLE_ID As Integer = 3
@@ -32,14 +33,16 @@
             </div>
             <div class="row">
                 <%
-    Dim numOfLandlords As Integer
-    conn.Open()
-    Dim queryLandlords As New SqlCommand("SELECT COUNT(UserID) AS countLandlords FROM Users WHERE fk_RoleID = '" & LANDLORD_ROLE_ID & "'", conn)
-    Dim readerLandlords As SqlDataReader = queryLandlords.ExecuteReader()
-    While readerLandlords.Read
-        numOfLandlords = CStr(readerLandlords("countLandlords"))
-    End While
-    conn.Close()
+                    Dim numOfLandlords As Integer
+                    conn.Open()
+                    Dim queryLandlords As New SqlCommand("SELECT COUNT(UserID) AS countLandlords 
+                                                          FROM [Security].[UserRole] 
+                                                          WHERE RoleID = '" & LANDLORD_ROLE_ID & "'", conn)
+                    Dim readerLandlords As SqlDataReader = queryLandlords.ExecuteReader()
+                    While readerLandlords.Read
+                        numOfLandlords = CStr(readerLandlords("countLandlords"))
+                    End While
+                    conn.Close()
                 %>
                 <div class="col-lg-12">
                     <div class="panel panel-success">
@@ -88,7 +91,11 @@
                                                     DataTextField="FullName" DataValueField="UserID">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlFullName" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT [UserID], [FirstName] + ' ' + [LastName] As FullName FROM [Users] WHERE [fk_RoleID] = '3' ORDER BY [FullName] ASC">
+                                                    SelectCommand="SELECT Users.UserID, (FirstName + ' ' + LastName) As FullName 
+                                                                    FROM [Security].[User] AS Users
+                                                                    INNER JOIN [Security].[UserRole] As UserRoles ON Users.UserID = UserRoles.UserID
+                                                                    WHERE UserRoles.RoleID = '3' 
+                                                                    ORDER BY FullName ASC">
                                                 </asp:SqlDataSource>
                                             </div>
                                         </div>
@@ -100,7 +107,11 @@
                                                     DataTextField="Email" DataValueField="Email">
                                                 </asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlEmail" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                                    SelectCommand="SELECT [Email] FROM [Users] WHERE [fk_RoleID] = '3' ORDER BY [Email] ASC">
+                                                    SelectCommand="SELECT Email 
+                                                                   FROM [Security].[User] AS Users
+                                                                   INNER JOIN [Security].[UserRole] As UserRoles ON Users.UserID = UserRoles.UserID
+                                                                   WHERE UserRoles.RoleID = '3' 
+                                                                   ORDER BY Email ASC">
                                                 </asp:SqlDataSource>
                                             </div>
                                         </div>
@@ -129,11 +140,26 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="list-group table-responsive">
-                                        <asp:SqlDataSource ID="sqlGridView" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
-                                            SelectCommand="SELECT UserID, FirstName + ' ' + LastName AS FullName, Email, IsEmailVerified, DateRegistered, LastLogin, (SELECT COUNT(LandlordPropertyID) AS Expr1 FROM LandlordProperty WHERE (fk_UserID = Users.UserID) AND (IsActive = '1')) AS CountActive, (SELECT COUNT(LandlordPropertyID) AS Expr1 FROM LandlordProperty AS LandlordProperty_2 WHERE (fk_UserID = Users.UserID) AND (IsActive = '0')) AS CountInactive, (SELECT COUNT(LandlordPropertyID) AS countSoonToBeDeleted FROM LandlordProperty AS LandlordProperty_1 WHERE (fk_UserID = Users.UserID) AND (DateLastUpdated &lt; DATEADD(day, - 90, GETDATE()))) AS CountSoonToBeDeleted FROM Users WHERE (fk_RoleID = '3') ORDER BY FullName">
+                                        <asp:SqlDataSource ID="sqlGridViewLandlords" runat="server" ConnectionString="<%$ ConnectionStrings:HousingChoiceConnectConnectionString %>"
+                                            SelectCommand="SELECT Users.UserID, FirstName + ' ' + LastName AS FullName, Email,
+                                                                   IsEmailVerified, DateRegistered, LastLogin,
+		                                                           (SELECT COUNT(LandlordPropertyID) AS CountLandlordActive 
+	                                                                FROM [Landlord].[Property]
+		                                                            WHERE ([Landlord].[Property].UserID = Users.UserID) AND IsActive = '1') AS CountActive,
+		                                                           (SELECT COUNT(LandlordPropertyID) AS CountLandlordInactive 
+		                                                            FROM [Landlord].[Property]
+		                                                            WHERE ([Landlord].[Property].UserID = Users.UserID) AND IsActive = '0') AS CountInactive,
+		                                                           (SELECT COUNT(LandlordPropertyID) AS CountSoonToBeDeleted 
+		                                                            FROM [Landlord].[Property]
+		                                                            WHERE ([Landlord].[Property].UserID = Users.UserID) AND 
+			                                                               DateLastUpdated  &lt; DATEADD(day, - 90, GETDATE())) AS CountSoonToBeDeleted 
+                                                           FROM [Security].[User] AS Users
+                                                           INNER JOIN [Security].[UserRole] As UserRoles ON Users.UserID = UserRoles.UserID
+                                                           WHERE RoleID = '3'
+                                                           ORDER BY FullName">
                                         </asp:SqlDataSource>
-                                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table"
-                                            DataKeyNames="UserID" DataSourceID="sqlGridView" AllowPaging="True"
+                                        <asp:GridView ID="GridViewLandlords" runat="server" AutoGenerateColumns="False" CssClass="table"
+                                            DataKeyNames="UserID" DataSourceID="sqlGridViewLandlords" AllowPaging="True"
                                             BorderStyle="None" GridLines="None" PageSize="9" 
                                             PagerStyle-CssClass="bs-pagination text-center">
                                             <Columns>

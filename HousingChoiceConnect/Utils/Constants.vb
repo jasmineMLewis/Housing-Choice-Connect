@@ -17,6 +17,8 @@ Namespace ApplicationConstants
         Public Const PropertyActive As Boolean = 1
 
         'Activity Log
+        Public Const ActivitySignUpID As Integer = 1
+        Public Const ActivitySignInID As Integer = 2
 
     End Class
 End Namespace

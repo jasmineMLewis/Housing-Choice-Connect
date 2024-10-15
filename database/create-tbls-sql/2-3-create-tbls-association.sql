@@ -115,7 +115,7 @@ CREATE TABLE Security.UserActivityLog (
 	UserID int NOT NULL,
 	ActivityTypeID int NOT NULL,
 	ActivityDate datetime NOT NULL,
-	Descritption varchar(250) NOT NULL,
+	Description varchar(250) NOT NULL,
  CONSTRAINT PK_UserActivityLogID PRIMARY KEY CLUSTERED (UserActivityLogID ASC),
  INDEX IX_UserActivityLogID NONCLUSTERED (UserActivityLogID),
  CONSTRAINT FK_UserActivityLog_User_UserID FOREIGN KEY (UserID) REFERENCES Security.[User](UserID),

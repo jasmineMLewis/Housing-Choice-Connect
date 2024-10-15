@@ -37,6 +37,132 @@ HousingChoiceConnect
  Returns the Asp log object.
  </summary>
 </member>
+<member name="F:HousingChoiceConnect.Admins._FullName">
+<summary>
+FullName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Admins._SqlFullName">
+<summary>
+SqlFullName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Admins._Email">
+<summary>
+Email control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Admins._SqlEmail">
+<summary>
+SqlEmail control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Admins._button">
+<summary>
+button control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Admins._sqlGridView">
+<summary>
+sqlGridView control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Admins._GridViewAdmins">
+<summary>
+GridViewAdmins control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Landlords._FullName">
+<summary>
+FullName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Landlords._SqlFullName">
+<summary>
+SqlFullName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Landlords._Email">
+<summary>
+Email control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Landlords._SqlEmail">
+<summary>
+SqlEmail control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Landlords._button">
+<summary>
+button control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Landlords._sqlGridViewLandlords">
+<summary>
+sqlGridViewLandlords control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:HousingChoiceConnect.Landlords._GridViewLandlords">
+<summary>
+GridViewLandlords control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:HousingChoiceConnect.Footer._Head1">
 <summary>
 Head1 control.

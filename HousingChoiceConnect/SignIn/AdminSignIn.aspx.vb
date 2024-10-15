@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Web.Configuration
-Imports Microsoft.VisualBasic.ApplicationServices
 
 Public Class AdminSignIn
     Inherits System.Web.UI.Page
@@ -41,8 +40,9 @@ Public Class AdminSignIn
                     ElseIf ApplicationConstants.Constants.AdminRole Then
                         Session("SessionUserID") = sessionUserID
 
-                        'Update Activity Table
-                        'UpdateLastLoginDate(userID)
+                        UpdateActivitySignIn(sessionUserID)
+                        UpdateLastLoginDate(sessionUserID)
+
                         Response.Redirect(adminDashboard)
                     Else
                         lblMsg.Text = "Oh No! Problem with locating Information. Contact Admin."
@@ -149,6 +149,31 @@ Public Class AdminSignIn
 
         Return True
     End Function
+
+    Public Sub UpdateActivitySignIn(ByVal userID As Integer)
+        Dim activityDate As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        Dim activityDescription As String = "Admin Sign In"
+
+        Dim query As String = String.Empty
+        query &= "INSERT INTO [Security].[UserActivityLog] (UserID, ActivityTypeID, ActivityDate, Description)"
+        query &= "VALUES                                   (@UserID, @ActivityTypeID, @ActivityDate, @Description);"
+
+        Using comm As New SqlCommand()
+            With comm
+                .Connection = conn
+                .CommandType = CommandType.Text
+                .CommandText = query
+                .Parameters.AddWithValue("@UserID", userID)
+                .Parameters.AddWithValue("@ActivityTypeID", ApplicationConstants.Constants.ActivitySignInID)
+                .Parameters.AddWithValue("@ActivityDate", activityDate)
+                .Parameters.AddWithValue("@Description", activityDescription)
+            End With
+
+            conn.Open()
+            comm.ExecuteNonQuery()
+            conn.Close()
+        End Using
+    End Sub
 
     Public Sub UpdateLastLoginDate(ByVal userID As Integer)
         Dim lastLogin As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")

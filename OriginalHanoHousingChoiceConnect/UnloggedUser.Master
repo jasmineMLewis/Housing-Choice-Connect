@@ -1,0 +1,51 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="UnloggedUser.master.vb" Inherits="HanoChoiceConnect.UnloggedUser" %>
+
+<%@ Import Namespace="System.Data.SqlClient" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head id="Head1" runat="server">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Housing Authority of New Orleans" />
+        <title>Housing Choice Connect</title>
+        <link href="Styles/bootstrap.min.css" rel="stylesheet" />
+        <link href="Styles/custom.css" rel="stylesheet" />
+        <link href="Styles/sb-admin-2.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- Favicon -->
+        <link id="Link1" rel="icon" href="img/favicon.ico" type="image/x-icon" runat="server" />
+        <link id="Link2" rel="icon" href="img/favicon.ico" type="image/ico" runat="server" />
+        <asp:ContentPlaceHolder ID="HEAD" runat="server">
+
+        </asp:ContentPlaceHolder>
+    </head>
+    <body>
+        <asp:ContentPlaceHolder ID="Navigation" runat="server">
+            <nav class="navbar navbar-custom navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                     <img src="../img/hanoLogo.png" alt="hanoLogo"/>
+                </div>   
+            </nav>
+        </asp:ContentPlaceHolder>
+        <form id="form1" runat="server">
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+        <asp:ContentPlaceHolder ID="Javascript" runat="server">
+            <script type="application/javascript" src="../js/jquery.min.js"></script>
+            <script type="application/javascript" src="../js/bootstrap.min.js"></script>
+            <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+            <script type="application/javascript" src="../js/sb-admin-2.js"></script>
+            <script type="text/javascript" src="../js/bs.pagination.js"></script>
+        </asp:ContentPlaceHolder>
+    </body>
+</html>
