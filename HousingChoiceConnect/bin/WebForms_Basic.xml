@@ -37,6 +37,13 @@ HousingChoiceConnect
  Returns the Asp log object.
  </summary>
 </member>
+<member name="M:HousingChoiceConnect.AdminDeleteLandlord.ProcessRequest(System.Web.HttpContext)">
+ <summary>
+  You will need to configure this handler in the Web.config file of your 
+  web and register it with IIS before being able to use it. For more information
+  see the following link: https://go.microsoft.com/?linkid=8101007
+ </summary>
+</member>
 <member name="F:HousingChoiceConnect.Admins._FullName">
 <summary>
 FullName control.

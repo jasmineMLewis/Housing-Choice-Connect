@@ -27,17 +27,17 @@ Public Class AdminSignIn
 
                 If isEmailPasswordCorrect Then
                     sessionUserID = GetUserIdFromEmail(formEmail)
-                    userRoleID = GetUserRoleID(sessionUserID)
+                    userRoleID = GetUserRoleId(sessionUserID)
 
                     Dim tenantSignIn As String = "TenantSignIn.aspx"
                     Dim landlordSignIn As String = "LandlordSignIn.aspx"
                     Dim adminDashboard As String = "/Admins/AdminDashboard.aspx?SessionUserID=" & sessionUserID & ""
 
-                    If userRoleID = ApplicationConstants.Constants.TenantRole Then
+                    If userRoleID = ApplicationGeneralConstants.GeneralConstants.TenantRole Then
                         Response.Redirect(tenantSignIn)
-                    ElseIf userRoleID = ApplicationConstants.Constants.LandlordRole Then
+                    ElseIf userRoleID = ApplicationGeneralConstants.GeneralConstants.LandlordRole Then
                         Response.Redirect(landlordSignIn)
-                    ElseIf ApplicationConstants.Constants.AdminRole Then
+                    ElseIf ApplicationGeneralConstants.GeneralConstants.AdminRole Then
                         Session("SessionUserID") = sessionUserID
 
                         UpdateActivitySignIn(sessionUserID)
@@ -76,7 +76,7 @@ Public Class AdminSignIn
         Return userID
     End Function
 
-    Public Function GetUserRoleID(ByVal userID As Integer) As Integer
+    Public Function GetUserRoleId(ByVal userID As Integer) As Integer
         Dim userRoleID As Integer
         conn.Open()
         Dim query As New SqlCommand("SELECT RoleID
@@ -164,7 +164,7 @@ Public Class AdminSignIn
                 .CommandType = CommandType.Text
                 .CommandText = query
                 .Parameters.AddWithValue("@UserID", userID)
-                .Parameters.AddWithValue("@ActivityTypeID", ApplicationConstants.Constants.ActivitySignInID)
+                .Parameters.AddWithValue("@ActivityTypeID", ApplicationActivityConstants.ActivityConstants.ActivitySignInID)
                 .Parameters.AddWithValue("@ActivityDate", activityDate)
                 .Parameters.AddWithValue("@Description", activityDescription)
             End With

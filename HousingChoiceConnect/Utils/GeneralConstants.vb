@@ -1,6 +1,6 @@
 ﻿
-Namespace ApplicationConstants
-    Public Class Constants
+Namespace ApplicationGeneralConstants
+    Public Class GeneralConstants
         'Roles
         Public Const AdminRole As Integer = 1
         Public Const TenantRole As Integer = 2
@@ -16,9 +16,6 @@ Namespace ApplicationConstants
         Public Const City As String = "New Orleans"
         Public Const PropertyActive As Boolean = 1
 
-        'Activity Log
-        Public Const ActivitySignUpID As Integer = 1
-        Public Const ActivitySignInID As Integer = 2
 
     End Class
 End Namespace

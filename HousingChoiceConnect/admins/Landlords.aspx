@@ -165,7 +165,7 @@
                                             <Columns>
                                                 <asp:TemplateField HeaderText="Name" SortExpression="Name">
                                                     <ItemTemplate>
-                                                        <%# DisplayNameLink(Eval("UserID"), Eval("FullName"), Request.QueryString("UserID"))%>
+                                                        <%# DisplayNameLink(Eval("UserID"), Eval("FullName"), Request.QueryString("SessionUserID"))%>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
@@ -177,12 +177,12 @@
                                                 <asp:BoundField DataField="CountSoonToBeDeleted" HeaderText="Soon To Be Deleted" SortExpression="CountSoonToBeDeleted" />
                                                 <asp:TemplateField HeaderText="Edit">
                                                     <ItemTemplate>
-                                                        <%# DisplayEditLink(Eval("UserID"), Request.QueryString("UserID"))%>
+                                                        <%# DisplayEditLink(Eval("UserID"), Request.QueryString("SessionUserID"))%>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Delete">
                                                     <ItemTemplate>
-                                                        <%# DisplayDeleteLink(Eval("UserID"), Request.QueryString("UserID"))%>
+                                                        <%# DisplayDeleteLink(Eval("UserID"), Request.QueryString("SessionUserID"))%>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                             </Columns>

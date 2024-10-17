@@ -12,12 +12,10 @@ Tables: 6
 - Landlord.PropertyAddress
 - Landlord.PropertyAmentity
 - Landlord.PropertyHandicapAccessibility
+- Landlord.PropertyPicture
 - Security.UserActivityLog
 - Security.UserRole
 - Security.UserSecurityQuestion
-
---------------------------
-- NOT USING After REFACTOR | Landlord.PropertyPicture
 ******/
 
 
@@ -102,6 +100,29 @@ CREATE TABLE Landlord.PropertyHandicapAccessibility(
 GO
 
 
+/****** Object:  Table Landlord.PropertyPicture ******/
+DROP TABLE IF EXISTS Landlord.PropertyPicture
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE Landlord.PropertyPicture(
+	LandlordPropertyPictureID int IDENTITY(1,1) NOT NULL,
+	MIMEType varchar(max) NULL,
+	ImageData varchar(max) NULL,
+	LandlordPropertyID int NOT NULL,
+ CONSTRAINT PK_LandlordPropertyPictureID PRIMARY KEY CLUSTERED (LandlordPropertyPictureID ASC),
+ INDEX IX_LandlordPropertyPictureID NONCLUSTERED (LandlordPropertyPictureID),
+ CONSTRAINT FK_LandlordPropertyPicture_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES Landlord.[Property](LandlordPropertyID),
+ INDEX IX_LandlordPropertyPicture_Landlord_LandlordPropertyID NONCLUSTERED (LandlordPropertyID)
+)
+GO
+
+---------------------------------------------------------------------
+
+
 /****** Object:  Table Security.UserActivityLog ******/
 DROP TABLE IF EXISTS Security.UserActivityLog
 GO
@@ -168,26 +189,3 @@ CREATE TABLE Security.UserQuestion (
  INDEX IX_UserID NONCLUSTERED (UserID)
 )
 GO
-
------------------------------------------------------------------
-
--- NOT USED - After REFACTOR
-/****** Object:  Table Landlord.PropertyPicture ******/
---DROP TABLE IF EXISTS Landlord.PropertyPicture
---GO
---SET ANSI_NULLS ON
---GO
---SET QUOTED_IDENTIFIER ON
---GO
-
---CREATE TABLE Landlord.PropertyPicture(
---	LandlordPropertyPictureID int IDENTITY(1,1) NOT NULL,
---	MIMEType varchar(max) NULL,
---	ImageData varchar(max) NULL,
---	LandlordPropertyID int NOT NULL,
--- CONSTRAINT PK_LandlordPropertyPictureID PRIMARY KEY CLUSTERED (LandlordPropertyPictureID ASC),
--- INDEX IX_LandlordPropertyPictureID NONCLUSTERED (LandlordPropertyPictureID),
--- CONSTRAINT FK_LandlordPropertyPicture_LandlordProperty_LandlordPropertyID FOREIGN KEY (LandlordPropertyID) REFERENCES Landlord.[Property](LandlordPropertyID),
--- INDEX IX_LandlordPropertyPicture_Landlord_LandlordPropertyID NONCLUSTERED (LandlordPropertyID)
---)
---GO

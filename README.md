@@ -50,13 +50,12 @@ Housing Choice Connect is a .NET project for Housing Authority of New Orleans.
 5. Implement schemas for user and landlord database tables
 6. Add Activity Log, Activity Type, and Zip Code database tables
 7. Add Zip Code ID for Neighborhood table
-8. Remove Landlord Property Picture that stores images into databse
 
 (IN PROGRESS) Change VB pages that uses local constants to Application Constants namespace 
 (IN PROGRESS) Change UserID to SessionUserID to retrieve data and use for sessions
 
 ### Date Last Updated via GitHub
-October 14, 2024
+October 17, 2024
 
 ### Technologies
 | Technology | Version  |
